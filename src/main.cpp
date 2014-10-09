@@ -9,5 +9,7 @@ int main(){
 	cin.ignore();
 	cin.get();
 
+
 	return 1;
+	// O MOURA E NOOB
 }
