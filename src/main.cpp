@@ -9,5 +9,6 @@ int main(){
 	cin.ignore();
 	cin.get();
 
+	// O PEDRO É NOOB
 	return 1;
 }
