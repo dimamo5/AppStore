@@ -27,7 +27,6 @@ public:
  *
  * @return returns the current minute
  */
-
 	unsigned int getMinute() const;
 	unsigned int getHour() const;
 	unsigned int getDay() const;
