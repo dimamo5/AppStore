@@ -27,22 +27,22 @@ public:
  *
  * @return returns the current minute
  */
+	Date(unsigned int year=1980, unsigned int month=1, unsigned int day=1, unsigned int hour=0, unsigned int minute=0);
 	unsigned int getMinute() const;
 	unsigned int getHour() const;
 	unsigned int getDay() const;
 	unsigned int getMonth() const;
 	unsigned int getYear() const;
-	bool setMinute();
-	bool setHour();
-	bool setDay();
-	bool setMonth();
-	bool setYear();
-	bool operator> (const Date&) const;
+	bool setMinute(unsigned int minute);
+	bool setHour(unsigned int hour);
+	bool setDay(unsigned int day);
+	bool setMonth(unsigned int month);
+	bool setYear(unsigned int year);
 	bool operator< (const Date&) const;
+	bool operator> (const Date&) const;
 	bool operator==(const Date&) const;
-	bool operator>= (const Date&) const;
 	bool operator<= (const Date&) const;
-
+	bool operator>= (const Date&) const;
 
 };
 
