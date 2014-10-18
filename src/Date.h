@@ -4,16 +4,14 @@
  *  Created on: 18/10/2014
  *      Author: Casa
  */
+#ifndef DATE_H_
+#define DATE_H_
 
 #include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
-
-
-#ifndef DATE_H_
-#define DATE_H_
 
 class Date {
 
@@ -29,6 +27,7 @@ public:
  *
  * @return returns the current minute
  */
+
 	unsigned int getMinute() const;
 	unsigned int getHour() const;
 	unsigned int getDay() const;
