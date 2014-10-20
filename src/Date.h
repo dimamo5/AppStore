@@ -10,10 +10,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime>
+#include "time.h"
 
 using namespace std;
 
 class Date {
+
 
 unsigned int minute;
 unsigned int hour;
@@ -23,11 +26,9 @@ unsigned int year;
 
 public:
 
-/**
- *
- * @return returns the current minute
- */
-	Date(unsigned int year=1980, unsigned int month=1, unsigned int day=1, unsigned int hour=0, unsigned int minute=0);
+	Date();
+	Date(struct tm* time_struct );
+	Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute);
 	unsigned int getMinute() const;
 	unsigned int getHour() const;
 	unsigned int getDay() const;

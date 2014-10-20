@@ -7,6 +7,16 @@
 
 #include "Date.h"
 
+Date::Date(){}
+
+Date::Date(struct tm* time_struct){
+	this->year = time_struct->tm_year + 1900;
+	this->month = time_struct->tm_mon +1;
+	this->day = time_struct->tm_mday;
+	this->hour = time_struct->tm_hour;
+	this->minute = time_struct->tm_min;
+}
+
 Date::Date(unsigned int year, unsigned int month, unsigned int day,
 		unsigned int hour, unsigned int minute) {
 	this->year = year;
@@ -15,6 +25,7 @@ Date::Date(unsigned int year, unsigned int month, unsigned int day,
 	this->hour = hour;
 	this->minute = minute;
 }
+
 
 unsigned int Date::getMinute() const {
 	return minute;
@@ -82,7 +93,7 @@ bool Date::operator<(const Date& dat) const {
 
 		if (month < dat.getMonth()) {
 			return true;
-		} else if (month > dat.getMonth) {
+		} else if (month > dat.getMonth()) {
 			return false;
 		} else {  // if both the year and month are equal
 
@@ -113,3 +124,4 @@ bool Date::operator<(const Date& dat) const {
 	}
 
 }
+
