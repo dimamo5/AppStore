@@ -8,34 +8,32 @@
 #define APP_H_
 
 #include <string>
+#include <vector>
+#include "comentario.h"
 
 using namespace std;
 
-struct comentario{
-	string nome_cliente;
-	string comentario;
-};
-
-
-
 class app{
 private:
+	unsigned int id;
+	static unsigned int next_id;
 	string nome;
 	string categoria;
 	string descricao;
 	double preco;
 	double classificacao_final;
-	int num_classificacoes;
-	vector<comentario> comentarios;
+	int num_classificacoes=0;
+	vector<comentario *> comentarios;
 public:
 	app(string nome,string categoria,string descricao,double preco);
-	bool update_classificacao(unsigned int clas);
+	void update_classificacao(unsigned int clas);
 	string getCategoria() const;
 	double getClassificacaoFinal() const;
-	vector<comentario> getComentarios() const;
+	vector<comentario *> getComentarios() const;
 	string getDescricao() const;
 	string getNome() const;
 	double getPreco() const;
+	void setPreco(double p);
 };
 
 
