@@ -6,6 +6,7 @@
  */
 #include "login.h"
 
-login::login(string id,string pass):id(id),pass(pass){}
+	login::login(string id,string pass):id(id),pass(pass){};
+
 
 

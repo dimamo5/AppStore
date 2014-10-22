@@ -1,10 +1,3 @@
-/*
- * login.h
- *
- *  Created on: 22/10/2014
- *      Author: Moura
- */
-
 #ifndef LOGIN_H_
 #define LOGIN_H_
 
@@ -23,8 +16,5 @@ public:
 	bool set_pass();
 	bool set_id();
 };
-
-
-
 
 #endif /* LOGIN_H_ */
