@@ -11,10 +11,10 @@ private:
 	string pass;
 public:
 	login(string id,string pass);
-	string get_id();
-	string get_pass();
-	bool set_pass();
-	bool set_id();
+	string get_id() const;
+	string get_pass()const;
+	bool set_pass(string p);
+	bool set_id(string i);
 };
 
 #endif /* LOGIN_H_ */
