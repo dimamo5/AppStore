@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <login.h>
 
 using namespace std;
 
@@ -15,7 +16,7 @@ private:
 	//vector <* app> apps;
 	login * data;
 public:
-	developer(string nome,double nome,string id_login,string id_pass);
+	developer(string nome,double saldo,string id_login,string id_pass);
 	//vector<* venda> get_vendas();
 	//vector<* app> get_apps();
 	login* get_login();
