@@ -16,24 +16,26 @@ struct comentario{
 	string comentario;
 };
 
+
+
 class app{
 private:
 	string nome;
 	string categoria;
 	string descricao;
-	unsigned double preco;
-	unsigned double classificacao_final;
-	unsigned int num_classificacoes;
+	double preco;
+	double classificacao_final;
+	int num_classificacoes;
 	vector<comentario> comentarios;
 public:
-	app(string nome,string categoria,string descricao,unsigned double preco);
+	app(string nome,string categoria,string descricao,double preco);
 	bool update_classificacao(unsigned int clas);
 	string getCategoria() const;
-	unsigned double getClassificacaoFinal() const;
+	double getClassificacaoFinal() const;
 	vector<comentario> getComentarios() const;
 	string getDescricao() const;
 	string getNome() const;
-	unsigned double getPreco() const;
+	double getPreco() const;
 };
 
 
