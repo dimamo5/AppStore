@@ -7,17 +7,18 @@
 
 #include "Date.h"
 
-Date::Date(){}
+Date::Date() {   // default constructor
+}
 
-Date::Date(struct tm* time_struct){
+Date::Date(struct tm* time_struct) {   // constructor initizalized with a time_struct
 	this->year = time_struct->tm_year + 1900;
-	this->month = time_struct->tm_mon +1;
+	this->month = time_struct->tm_mon + 1;
 	this->day = time_struct->tm_mday;
 	this->hour = time_struct->tm_hour;
 	this->minute = time_struct->tm_min;
 }
 
-Date::Date(unsigned int year, unsigned int month, unsigned int day,
+Date::Date(unsigned int year, unsigned int month, unsigned int day, //constructor initialized with a whole date
 		unsigned int hour, unsigned int minute) {
 	this->year = year;
 	this->month = month;
@@ -25,7 +26,6 @@ Date::Date(unsigned int year, unsigned int month, unsigned int day,
 	this->hour = hour;
 	this->minute = minute;
 }
-
 
 unsigned int Date::getMinute() const {
 	return minute;
@@ -101,20 +101,19 @@ bool Date::operator<(const Date& dat) const {
 				return true;
 			} else if (day > dat.getDay()) {
 				return false;
-			} else {						// if the year, month and day are equal
+			} else {					// if the year, month and day are equal
 
 				if (hour < dat.getHour()) {
 					return true;
 				} else if (hour > dat.getHour()) {
 					return false;
-				} else {					// if the year, month, day and hour were equal
+				} else {		// if the year, month, day and hour were equal
 
 					if (minute < dat.getMinute()) {
 						return true;
 					} else if (minute > dat.getMinute()) {
 						return false;
-					}
-					else{
+					} else {
 						return false; // everything was equal
 					}
 				}
@@ -125,3 +124,71 @@ bool Date::operator<(const Date& dat) const {
 
 }
 
+bool Date::operator>(const Date& dat) const {
+	if (year > dat.getYear()) {
+		return true;
+	} else if (year < dat.getYear()) {
+		return false;
+	} else {    // if the years are equal
+
+		if (month > dat.getMonth()) {
+			return true;
+		} else if (month < dat.getMonth()) {
+			return false;
+		} else {  // if both the year and month are equal
+
+			if (day > dat.getDay()) {
+				return true;
+			} else if (day < dat.getDay()) {
+				return false;
+			} else {					// if the year, month and day are equal
+
+				if (hour > dat.getHour()) {
+					return true;
+				} else if (hour < dat.getHour()) {
+					return false;
+				} else {		// if the year, month, day and hour were equal
+
+					if (minute > dat.getMinute()) {
+						return true;
+					} else if (minute < dat.getMinute()) {
+						return false;
+					} else {
+						return false; // everything was equal
+					}
+				}
+			}
+		}
+
+	}
+
+}
+
+bool Date::operator==(const Date& dat) const{
+	if(year == dat.getYear() && month == dat.getMonth() && day == dat.getDay() && hour == dat.getHour() && minute == dat.getMinute()){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+bool Date::operator<= (const Date& dat) const{
+
+	if ((*this)<dat || (*this) == dat){   // if the date is less or equal to the one it is being compared to
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+bool Date::operator>= (const Date& dat) const{
+
+	if ((*this)>dat || (*this) == dat){   // if the date is less or equal to the one it is being compared to
+		return true;
+	}
+	else{
+		return false;
+	}
+}
