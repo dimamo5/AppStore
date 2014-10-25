@@ -1,7 +1,10 @@
 #include "app.h"
 
+unsigned int app::next_id=1;
 
-app::app(string nome,string categoria,string descricao,double preco):nome(nome),categoria(categoria),descricao(descricao),preco(preco){};
+app::app(string nome,string categoria,string descricao,double preco):nome(nome),categoria(categoria),descricao(descricao),preco(preco){
+	id=next_id;
+};
 
 string app::getCategoria() const {
 	return categoria;

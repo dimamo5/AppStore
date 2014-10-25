@@ -6,16 +6,21 @@
  */
 #include "login.h"
 
-login::login(string id,string pass):id(id),pass(pass){};
+unsigned int login::next_id=1;
 
-string login::get_id() const{
+login::login(string pass):pass(pass){
+	id=next_id;
+	next_id++;
+};
+
+unsigned int login::get_id() const{
 	return id;
 }
 string login::get_pass() const{
 	return pass;
 }
 
-bool login::set_id(string i){
+bool login::set_id(unsigned int i){
 	if(id==i){
 		return true;
 	}
