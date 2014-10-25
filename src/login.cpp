@@ -6,16 +6,16 @@
  */
 #include "login.h"
 
-login::login(string id,string pass):id(id),pass(pass){};
+Login::Login(string id,string pass):id(id),pass(pass){};
 
-string login::get_id() const{
+string Login::get_id() const{
 	return id;
 }
-string login::get_pass() const{
+string Login::get_pass() const{
 	return pass;
 }
 
-bool login::set_id(string i){
+bool Login::set_id(string i){
 	if(id==i){
 		return true;
 	}
@@ -23,7 +23,7 @@ bool login::set_id(string i){
 	return true;
 }
 
-bool login::set_pass(string p){
+bool Login::set_pass(string p){
 	if(pass==p){
 		return false;
 	}

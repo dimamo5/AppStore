@@ -5,12 +5,12 @@
 
 using namespace std;
 
-class login{
+class Login{
 private:
 	string id;
 	string pass;
 public:
-	login(string id,string pass);
+	Login(string id,string pass);
 	string get_id() const;
 	string get_pass()const;
 	bool set_pass(string p);

@@ -7,19 +7,19 @@
 
 using namespace std;
 
-class developer{
+class Developer{
 private:
 	static long id;
 	string nome;
 	double saldo;
 	//vector <* venda> vendas;
 	//vector <* app> apps;
-	login * data;
+	Login * data;
 public:
-	developer(string nome,double saldo,string id_login,string id_pass);
+	Developer(string nome,double saldo,string id_login,string id_pass);
 	//vector<* venda> get_vendas();
 	//vector<* app> get_apps();
-	login* get_login();
+	Login* get_login();
 	string get_nome();
 	double get_saldo();
 };
