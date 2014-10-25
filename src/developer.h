@@ -8,7 +8,7 @@
 
 using namespace std;
 
-class developer{
+class Developer{
 private:
 	int id;
 	static unsigned int next_id;
@@ -22,6 +22,8 @@ public:
 	//vector<* venda> get_vendas();
 	vector<app *> get_apps();
 	login* get_login();
+	//vector <* app> apps;
+	Login * data;
 	string get_nome();
 	double get_saldo() const;
 	void set_saldo(unsigned int s);

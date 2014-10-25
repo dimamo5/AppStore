@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class login{
+class Login{
 private:
 	unsigned int id;
 	static unsigned int next_id;
@@ -13,6 +13,7 @@ private:
 public:
 	login(string pass);
 	unsigned int get_id() const;
+	string get_id() const;
 	string get_pass()const;
 	bool set_pass(string p);
 	bool set_id(unsigned int i);

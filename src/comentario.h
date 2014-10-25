@@ -12,13 +12,13 @@
 
 using namespace std;
 
-class comentario {
+class Comentario {
 private:
 	unsigned int id_cliente;
 	string descricao;
 	double classificacao;
 public:
-	comentario(string descricao,unsigned int id_cliente,double classificacao);
+	Comentario(string descricao,unsigned int id_cliente,double classificacao);
 	double getClassificacao() const;
 	void setClassificacao(double classificacao);
 	string getDescricao() const;

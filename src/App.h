@@ -13,7 +13,7 @@
 
 using namespace std;
 
-class app{
+class App{
 private:
 	unsigned int id;
 	static unsigned int next_id;
@@ -23,13 +23,13 @@ private:
 	double preco;
 	double classificacao_final;
 	int num_classificacoes=0;
-	vector<comentario *> comentarios;
+	vector<Comentario *> comentarios;
 public:
-	app(string nome,string categoria,string descricao,double preco);
+	App(string nome,string categoria,string descricao,double preco);
 	void update_classificacao(unsigned int clas);
 	string getCategoria() const;
 	double getClassificacaoFinal() const;
-	vector<comentario *> getComentarios() const;
+	vector<Comentario *> getComentarios() const;
 	string getDescricao() const;
 	string getNome() const;
 	double getPreco() const;

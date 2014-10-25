@@ -13,12 +13,13 @@ login::login(string pass):pass(pass){
 	next_id++;
 };
 
-unsigned int login::get_id() const{
+string Login::get_id() const{
 	return id;
 }
-string login::get_pass() const{
+string Login::get_pass() const{
 	return pass;
 }
+
 
 bool login::set_id(unsigned int i){
 	if(id==i){
@@ -28,7 +29,7 @@ bool login::set_id(unsigned int i){
 	return true;
 }
 
-bool login::set_pass(string p){
+bool Login::set_pass(string p){
 	if(pass==p){
 		return false;
 	}

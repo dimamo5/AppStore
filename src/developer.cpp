@@ -13,7 +13,6 @@ developer::developer(string nome,double saldo,string id_pass):nome(nome),saldo(s
 	next_id++;
 	data= new login(id_pass);
 }
-
 	//vector<* venda> get_vendas();
 	vector<app *> get_apps();
 	login* get_login();

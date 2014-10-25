@@ -7,28 +7,28 @@
 
 #include "comentario.h"
 
-comentario::comentario(string descricao,unsigned int id_cliente,double classificacao):descricao(descricao),id_cliente(id_cliente),classificacao(classificacao) {}
+Comentario::Comentario(string descricao,unsigned int id_cliente,double classificacao):descricao(descricao),id_cliente(id_cliente),classificacao(classificacao) {}
 
-double comentario::getClassificacao() const {
+double Comentario::getClassificacao() const {
 	return classificacao;
 }
 
-void comentario::setClassificacao(double classificacao) {
+void Comentario::setClassificacao(double classificacao) {
 	this->classificacao = classificacao;
 }
 
-string comentario::getDescricao() const {
+string Comentario::getDescricao() const {
 	return descricao;
 }
 
-void comentario::setDescricao(const string& descricao) {
+void Comentario::setDescricao(const string& descricao) {
 	this->descricao = descricao;
 }
 
-unsigned int comentario::getIdClient() const {
+unsigned int Comentario::getIdClient() const {
 	return id_cliente;
 }
 
-void comentario::setIdClient(unsigned int idClient) {
+void Comentario::setIdClient(unsigned int idClient) {
 	id_cliente = idClient;
 }
