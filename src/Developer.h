@@ -32,4 +32,26 @@ public:
 	bool adiciona_app(App &a);
 };
 
+
+
+class Individual: public Developer{
+	string morada;
+public:
+	Individual(string nome,string id_pass,string morada);
+	string getMorada() const;
+	void setMorada(string morada);
+
+};
+
+class Empresa: public Developer{
+	unsigned int NIF;
+public:
+	Empresa(string nome,string id_pass,unsigned int NIF);
+	unsigned int getNIF() const;
+	void setNIF(unsigned int NIF);
+};
+
+
 #endif
+
+
