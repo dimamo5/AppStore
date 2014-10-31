@@ -11,6 +11,8 @@
 #include <vector>
 #include <string>
 #include "App.h"
+#include "Developer.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -20,16 +22,16 @@ private:
 	static unsigned int next_id;
 	float preco;
 	Developer* dev;
-	App* app_list;
+	App* app;
 	Date data_venda;
 
 public:
 	Vendas();
 	float getPreco() const;
 	Developer* getDev() const;
-	vector<App*> getApps() const;
+	App* getApps() const;
 	Date getData() const;
 
-}
+};
 
 #endif /* VENDAS_H_ */

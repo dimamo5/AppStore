@@ -19,8 +19,8 @@ Developer* Vendas::getDev() const{
 	return dev;
 }
 
-vector<App*> Vendas::getApps() const{
-	return app_list;
+App* Vendas::getApps() const{
+	return app;
 }
 
 Date Vendas::getData() const{

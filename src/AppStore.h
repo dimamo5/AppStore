@@ -15,9 +15,9 @@ class AppStore {
 public:
 	AppStore();
 	vector<App> apps;
-	//vector<Cliente> clientes;
+	vector<Cliente> clientes;
 	vector<Developer> dev;
-	//vector<Vendas> vendas;
+	vector<Vendas> vendas;
 	bool save_all();
 	bool load_all();
 	bool save_app();
