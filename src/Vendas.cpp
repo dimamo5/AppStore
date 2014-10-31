@@ -7,16 +7,18 @@
 
 #include "Vendas.h"
 
+	unsigned int Vendas::next_id=0;
 Vendas::Vendas(){
-
+	id=next_id;
+	next_id++;
 }
 
 float Vendas::getPreco() const{
 	return preco;
 }
 
-Developer* Vendas::getDev() const{
-	return dev;
+Cliente* Vendas::getCliente() const{
+	return cliente;
 }
 
 App* Vendas::getApps() const{

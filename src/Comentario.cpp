@@ -5,7 +5,7 @@
  *      Author: Moura
  */
 
-#include "comentario.h"
+#include "Comentario.h"
 
 Comentario::Comentario(string descricao,unsigned int id_cliente,double classificacao):descricao(descricao),id_cliente(id_cliente),classificacao(classificacao) {}
 

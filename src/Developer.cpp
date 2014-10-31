@@ -4,7 +4,7 @@
  *  Created on: 22/10/2014
  *      Author: Moura
  */
-#include "developer.h"
+#include "Developer.h"
 
 unsigned int Developer::next_id=1;
 
@@ -13,7 +13,9 @@ Developer::Developer(string nome,string id_pass):nome(nome){
 	next_id++;
 	data= new Login(id_pass);
 }
-	//vector<* venda> get_vendas();
+vector<Vendas*> Developer::get_vendas(){
+	return vendas;
+}
 
 vector<App *> Developer::get_apps() const{
 	return apps;

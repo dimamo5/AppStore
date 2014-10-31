@@ -3,8 +3,9 @@
 
 #include <vector>
 #include <string>
-#include "login.h"
-#include "app.h"
+#include "Login.h"
+#include "App.h"
+#include "Vendas.h"
 
 using namespace std;
 
@@ -14,12 +15,12 @@ private:
 	static unsigned int next_id;
 	string nome;
 	double saldo=0;
-	//vector <* venda> vendas;
+	vector <Vendas*> vendas;
 	vector <App *> apps;
 	Login * data;
 public:
 	Developer(string nome,string id_pass);
-	//vector<* venda> get_vendas();
+	vector<Vendas*> get_vendas();
 	vector<App *> get_apps() const;
 	Login* get_login() const;
 	string get_nome() const;

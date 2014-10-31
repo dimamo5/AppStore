@@ -8,7 +8,7 @@
 #ifndef CLIENTE_H_
 #define CLIENTE_H_
 
-#include "vendas.h"
+#include "Vendas.h"
 
 class Cliente {
 private:
@@ -18,10 +18,11 @@ private:
 	unsigned int idade;
 	string sexo;
 	int cartao_credito;
-	int saldo;
-	vector<Vendas *> vendas;
+	int saldo=0;
 public:
 	Cliente(string nome,unsigned int idade,string sexo,int cartao_credito);
+	Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,int saldo);
+	unsigned int getNext_id() const;
 	int getCartaoCredito() const;
 	int getId() const;
 	unsigned int getIdade() const;
@@ -29,7 +30,7 @@ public:
 	int getSaldo() const;
 	void setSaldo(int saldo);
 	string getSexo() const;
-	vector<Vendas*> getVendas() const;
+	static void setNextID(unsigned int i);
 };
 
 #endif /* CLIENTE_H_ */

@@ -11,7 +11,7 @@ double App::getClassificacaoFinal() const {
 	return classificacao_final;
 }
 
-vector<Comentario *> App::getComentarios() const {
+vector<Comentario> App::getComentarios() const {
 	return comentarios;
 }
 void App::update_classificacao(unsigned int clas){

@@ -11,24 +11,26 @@
 #include <vector>
 #include <string>
 #include "App.h"
-#include "Developer.h"
+#include "Cliente.h"
 #include "Date.h"
 
 using namespace std;
+
+class Cliente;
 
 class Vendas{
 private:
 	int id;
 	static unsigned int next_id;
 	float preco;
-	Developer* dev;
+	Cliente* cliente;
 	App* app;
 	Date data_venda;
 
 public:
 	Vendas();
 	float getPreco() const;
-	Developer* getDev() const;
+	Cliente* getCliente() const;
 	App* getApps() const;
 	Date getData() const;
 

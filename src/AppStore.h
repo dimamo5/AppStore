@@ -9,7 +9,13 @@
 #define APPSTORE_H_
 
 #include "Developer.h"
+#include "Vendas.h"
+#include "Cliente.h"
 #include "App.h"
+#include <string>
+#include <fstream>
+
+using namespace std;
 
 class AppStore {
 public:
@@ -24,8 +30,8 @@ public:
 	bool load_app();
 	bool save_vendas();
 	bool load_vendas();
-	bool save_clientes();
-	bool load_clientes();
+	bool save_clientes(ofstream &file);
+	bool load_clientes(ifstream &file);
 	bool save_dev();
 	bool load_dev();
 };
