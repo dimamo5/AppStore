@@ -13,19 +13,19 @@ private:
 	int id;
 	static unsigned int next_id;
 	string nome;
-	double saldo;
+	double saldo=0;
 	//vector <* venda> vendas;
 	vector <App *> apps;
 	Login * data;
 public:
-	Developer(string nome,double saldo,string id_pass);
+	Developer(string nome,string id_pass);
 	//vector<* venda> get_vendas();
-	vector<App *> get_apps();
-	Login* get_login();
-	//vector <* app> apps;
-	string get_nome();
+	vector<App *> get_apps() const;
+	Login* get_login() const;
+	string get_nome() const;
 	double get_saldo() const;
 	void set_saldo(unsigned int s);
+	bool adiciona_app(App &a);
 };
 
 #endif

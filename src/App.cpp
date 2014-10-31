@@ -33,6 +33,12 @@ void App::setPreco(double p){
 double App::getPreco() const {
 	return preco;
 }
+
+unsigned int App::get_id()const{
+	return id;
+}
+
+
 /*
  * app.cpp
  *
