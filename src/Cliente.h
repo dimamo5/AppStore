@@ -10,6 +10,8 @@
 
 #include "Vendas.h"
 
+class Vendas;
+
 class Cliente {
 private:
 	int id;
@@ -18,10 +20,12 @@ private:
 	unsigned int idade;
 	string sexo;
 	int cartao_credito;
-	int saldo=0;
+	int saldo; //TODO mudar para float saldo e custo e preco
+	vector<Vendas *> historico;
+	//TODO numero de voucher
 public:
+	Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,int saldo);//construtor para clientes ficheiro
 	Cliente(string nome,unsigned int idade,string sexo,int cartao_credito);
-	Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,int saldo);
 	unsigned int getNext_id() const;
 	int getCartaoCredito() const;
 	int getId() const;
@@ -30,6 +34,8 @@ public:
 	int getSaldo() const;
 	void setSaldo(int saldo);
 	string getSexo() const;
+	bool adicionarVenda(Vendas* v);
+	vector<Vendas *> getHistorico() const;
 	static void setNextID(unsigned int i);
 };
 

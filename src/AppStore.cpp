@@ -15,20 +15,21 @@ AppStore::AppStore() {
 
 bool AppStore::save_clientes(ofstream& file) {
 	for(unsigned int i=0;i<clientes.size();i++){
-		stringstream ss;
-		ss<<clientes[i].getNext_id()<<endl;
-		ss<<clientes[i].getId()<<endl;
-		ss<<clientes[i].getNome()<<endl;
-		ss<<clientes[i].getIdade()<<endl;
-		ss<<clientes[i].getSexo()<<endl;
-		ss<<clientes[i].getCartaoCredito()<<endl;
-		ss<<clientes[i].getSaldo()<<endl;
-		file<<ss.str();
+		file<<clientes[i].getId()<<endl;
+		file<<clientes[i].getNome()<<endl;
+		file<<clientes[i].getIdade()<<endl;
+		file<<clientes[i].getSexo()<<endl;
+		file<<clientes[i].getCartaoCredito()<<endl;
+		file<<clientes[i].getSaldo()<<endl;
+		file<<clientes[i].getHistorico().size()<<endl;
+		for(unsigned int m =0;i<clientes[i].getHistorico().size();m++){
+			file<<clientes[i].getHistorico()[m]->getId();
+		}
 	}
 	return true;
 }
 
-bool AppStore::load_clientes(ifstream& file) {
+bool AppStore::load_clientes(fstream& file) {
 	unsigned int next_id,idade;
 	int saldo,cartao_credito,id;
 	string sexo,nome,temp;
@@ -47,6 +48,9 @@ bool AppStore::load_clientes(ifstream& file) {
 		stringstream(temp)>>cartao_credito;
 		getline(file,temp);
 		stringstream(temp)>>saldo;
+		Cliente temp_cliente =Cliente(id,nome,idade,sexo,cartao_credito,saldo);
+		clientes.push_back(temp_cliente);
 	}
+	return true;
 }
 

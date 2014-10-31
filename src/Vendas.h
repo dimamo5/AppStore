@@ -24,12 +24,13 @@ private:
 	int id;
 	static unsigned int next_id;
 	float preco;
-	Cliente* cliente;
 	App* app;
 	Date data_venda;
+	string reclamacao; //TODO construtor e getters (aka cenas daa reclamacao)
 
 public:
 	Vendas();
+	int getId() const;
 	float getPreco() const;
 	Cliente* getCliente() const;
 	App* getApps() const;

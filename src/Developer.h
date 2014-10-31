@@ -18,9 +18,7 @@ private:
 	static unsigned int next_id;
 	string nome;
 	double saldo=0;
-	vector <Vendas*> vendas;
-	vector <App *> apps;
-	Login * data;
+	Login * data; //TODO remove pointer
 public:
 	Developer(string nome,string id_pass);
 	vector<Vendas*> get_vendas();
@@ -30,6 +28,7 @@ public:
 	double get_saldo() const;
 	void set_saldo(unsigned int s);
 	bool adiciona_app(App &a);
+	//TODO polimorfismo
 };
 
 

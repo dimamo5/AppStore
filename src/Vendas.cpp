@@ -29,3 +29,6 @@ Date Vendas::getData() const{
 	return data_venda;
 }
 
+int Vendas::getId() const {
+	return id;
+}

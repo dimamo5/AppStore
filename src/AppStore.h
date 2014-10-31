@@ -22,7 +22,7 @@ public:
 	AppStore();
 	vector<App> apps;
 	vector<Cliente> clientes;
-	vector<Developer> dev;
+	vector<Developer *> dev;
 	vector<Vendas> vendas;
 	bool save_all();
 	bool load_all();
@@ -31,7 +31,7 @@ public:
 	bool save_vendas();
 	bool load_vendas();
 	bool save_clientes(ofstream &file);
-	bool load_clientes(ifstream &file);
+	bool load_clientes(fstream &file);
 	bool save_dev();
 	bool load_dev();
 };
