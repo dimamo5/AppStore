@@ -26,6 +26,10 @@ string App::getNome() const {
 	return nome;
 }
 
+Developer* App::getDev() const {
+	return dev;
+}
+
 void App::setPreco(double p){
 	this->preco=p;
 }

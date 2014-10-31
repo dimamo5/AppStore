@@ -10,8 +10,11 @@
 #include <string>
 #include <vector>
 #include "Comentario.h"
+#include "Developer.h"
 
 using namespace std;
+
+class Developer;
 
 class App{
 private:
@@ -24,6 +27,7 @@ private:
 	double classificacao_final;
 	int num_classificacoes=0;
 	vector<Comentario> comentarios;
+	Developer* dev;
 public:
 	App(string nome,string categoria,string descricao,double preco);
 	void update_classificacao(unsigned int clas);
@@ -33,6 +37,7 @@ public:
 	unsigned int get_id()const;
 	string getDescricao() const;
 	string getNome() const;
+	Developer* getDev() const;
 	double getPreco() const;
 	void setPreco(double p);
 };

@@ -9,6 +9,9 @@
 
 using namespace std;
 
+class Vendas;
+class App;
+
 class Developer{
 private:
 	int id;

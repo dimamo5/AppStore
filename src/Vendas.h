@@ -17,6 +17,7 @@
 using namespace std;
 
 class Cliente;
+class App;
 
 class Vendas{
 private:
