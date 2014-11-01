@@ -14,13 +14,13 @@ Developer::Developer(string nome, string id_pass) :
 	next_id++;
 	data = new Login(id_pass);
 }
-vector<Vendas*> Developer::get_vendas() {
-	return vendas;
-}
-
-vector<App *> Developer::get_apps() const {
-	return apps;
-}
+//vector<Vendas*> Developer::get_vendas() {
+//	return vendas;
+//}
+//
+//vector<App *> Developer::get_apps() const {
+//	return apps;
+//}
 Login* Developer::get_login() const {
 	return data;
 }
@@ -34,15 +34,15 @@ void Developer::set_saldo(unsigned int s) {
 	saldo = s;
 }
 
-bool Developer::adiciona_app(App &a) {
-	for (unsigned int i; i < apps.size(); i++) {
-		if (apps[i]->get_id() == a.get_id()) {
-			//throw DeveloperError("App já existente");
-		}
-	}
-	apps.push_back(&a);
-	return true;
-}
+//bool Developer::adiciona_app(App &a) {
+//	for (unsigned int i; i < apps.size(); i++) {
+//		if (apps[i]->get_id() == a.get_id()) {
+//			//throw DeveloperError("App já existente");
+//		}
+//	}
+//	apps.push_back(&a);
+//	return true;
+//}
 
 
 

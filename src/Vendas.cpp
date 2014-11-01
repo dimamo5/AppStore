@@ -17,9 +17,9 @@ float Vendas::getPreco() const{
 	return preco;
 }
 
-Cliente* Vendas::getCliente() const{
-	return cliente;
-}
+//Cliente* Vendas::getCliente() const{
+//	return cliente;
+//}
 
 App* Vendas::getApps() const{
 	return app;

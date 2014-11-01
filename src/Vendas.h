@@ -32,7 +32,7 @@ public:
 	Vendas();
 	int getId() const;
 	float getPreco() const;
-	Cliente* getCliente() const;
+//	Cliente* getCliente() const;
 	App* getApps() const;
 	Date getData() const;
 

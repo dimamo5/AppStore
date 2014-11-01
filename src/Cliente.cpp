@@ -25,15 +25,15 @@ string Cliente::getNome() const {
 	return nome;
 }
 
-int Cliente::getSaldo() const {
+float Cliente::getSaldo() const {
 	return saldo;
 }
 
-void Cliente::setSaldo(int saldo) {
+void Cliente::setSaldo(float saldo) {
 	this->saldo = saldo;
 }
 
-Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,int saldo):
+Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo):
 		nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito){
 	this->id=id;
 	this->saldo=saldo;
@@ -62,4 +62,22 @@ vector<Vendas*> Cliente::getHistorico() const {
 
 void Cliente::setNextID(unsigned int i) {
 	next_id=i;
+}
+
+unsigned int Cliente::getVouchers() const{
+	return nr_vouchers;
+}
+
+void Cliente::setVouchers(unsigned int voucher){
+	nr_vouchers = voucher;
+}
+
+void Cliente::removeVoucher(){
+	if(nr_vouchers >1){
+		nr_vouchers = nr_vouchers - 1;
+	}
+}
+
+void Cliente::addVoucher(){
+	nr_vouchers++;
 }

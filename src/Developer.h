@@ -21,13 +21,13 @@ private:
 	Login * data; //TODO remove pointer
 public:
 	Developer(string nome,string id_pass);
-	vector<Vendas*> get_vendas();
-	vector<App *> get_apps() const;
+//	vector<Vendas*> get_vendas();
+//	vector<App *> get_apps() const;
 	Login* get_login() const;
 	string get_nome() const;
 	double get_saldo() const;
 	void set_saldo(unsigned int s);
-	bool adiciona_app(App &a);
+//	bool adiciona_app(App &a);
 	//TODO polimorfismo
 };
 
