@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <ctime>
+#include <cmath>
 #include "time.h"
 
 using namespace std;
