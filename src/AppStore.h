@@ -24,6 +24,7 @@ public:
 	vector<Cliente> clientes;
 	vector<Developer *> dev;
 	vector<Vendas> vendas;
+	Developer* find_dev_id(unsigned int id) const;
 	bool save_all();
 	bool load_all();
 	bool save_app(ofstream &file);
