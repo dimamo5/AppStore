@@ -1,7 +1,13 @@
 #include "App.h"
 
+unsigned int App::next_id=1;
 
 App::App(string nome,string categoria,string descricao,double preco):nome(nome),categoria(categoria),descricao(descricao),preco(preco){};
+
+App::App(unsigned int id,string nome,string categoria,string descricao,double preco,double classificacao_final,int num_classificacoes):
+	id(id),nome(nome),categoria(categoria),descricao(descricao),preco(preco),classificacao_final(classificacao_final),num_classificacoes(num_classificacoes){
+
+}
 
 string App::getCategoria() const {
 	return categoria;
@@ -28,6 +34,34 @@ string App::getNome() const {
 
 Developer* App::getDev() const {
 	return dev;
+}
+
+void App::setComentarios(const vector<Comentario>& comentarios) {
+	this->comentarios = comentarios;
+}
+
+void App::setDev(Developer* dev) {
+	this->dev = dev;
+}
+
+unsigned int App::getId() const {
+	return id;
+}
+
+unsigned int App::getNextId() const {
+	return next_id;
+}
+
+void App::setNextId(unsigned int nextId) {
+	next_id = nextId;
+}
+
+void App::setDescricao(const string& descricao) {
+	this->descricao = descricao;
+}
+
+int App::getNumClassificacoes() const {
+	return num_classificacoes;
 }
 
 void App::setPreco(double p){

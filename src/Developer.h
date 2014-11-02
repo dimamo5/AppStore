@@ -15,14 +15,14 @@ protected:
 	static unsigned int next_id;
 	string nome;
 	double saldo=0;
-	string id_pass; //TODO remove pointer
+	string id_pass;
 public:
 	Developer(string nome,string id_pass);
 	Developer(int id,string nome,double saldo,string id_pass);
 	string get_nome() const;
 	double get_saldo() const;
 	void set_saldo(unsigned int s);
-	void setNextID(unsigned int i);
+	static void setNextID(unsigned int i);
 	virtual string getType() const =0;
 	virtual string getExtra() const=0;
 	virtual void setExtra(string info)=0;

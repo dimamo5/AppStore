@@ -30,6 +30,7 @@ private:
 	Developer* dev;
 public:
 	App(string nome,string categoria,string descricao,double preco);
+	App(unsigned int id,string nome,string categoria,string descricao,double preco,double classificacao_final,int num_classificacoes);
 	void update_classificacao(unsigned int clas);
 	string getCategoria() const;
 	double getClassificacaoFinal() const;
@@ -40,6 +41,13 @@ public:
 	Developer* getDev() const;
 	double getPreco() const;
 	void setPreco(double p);
+	void setComentarios(const vector<Comentario>& comentarios);
+	void setDev(Developer* dev);
+	unsigned int getId() const;
+	unsigned int getNextId() const;
+	static void setNextId(unsigned int nextId);
+	int getNumClassificacoes() const;
+	void setDescricao(const string& descricao);
 };
 
 

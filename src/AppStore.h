@@ -26,8 +26,8 @@ public:
 	vector<Vendas> vendas;
 	bool save_all();
 	bool load_all();
-	bool save_app();
-	bool load_app();
+	bool save_app(ofstream &file);
+	bool load_app(fstream &file);
 	bool save_vendas();
 	bool load_vendas();
 	bool save_clientes(ofstream &file);
