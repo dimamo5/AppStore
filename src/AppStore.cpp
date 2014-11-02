@@ -66,12 +66,37 @@ bool AppStore::save_dev(ofstream& file) {
 			file<<dev[i]->get_saldo()<<endl;
 			file<<dev[i]->getIdPass()<<endl;
 			file<<dev[i]->getExtra()<<endl;
-
 			}
 			return true;
 		}
 	}
 
-
-/*bool AppStore::load_dev(fstream& file) {
-}*/
+bool AppStore::load_dev(fstream& file) {
+	unsigned int next_id,id;
+	float saldo;
+	string nome,pass,extra,temp,type;
+	getline(file,temp);
+	stringstream(temp)>>next_id;
+	while(!file.eof()){
+		getline(file,temp);
+		stringstream(temp)>>id;
+		getline(file,temp);
+		nome=temp;
+		getline(file,temp);
+		stringstream(temp)>>saldo;
+		getline(file,temp);
+		pass=temp;
+		getline(file,temp);
+		extra=temp;
+		getline(file,temp);
+		type=temp;
+		if(type=="ind"){
+			Developer *dev_temp=new Individual(id,nome,saldo,pass,extra);
+		}
+		else if(type=="emp"){
+			Developer *dev_temp=new Empresa(id,nome,saldo,pass,extra);
+		}
+		dev.push_back(dev_temp);
+	}
+	return true;
+}

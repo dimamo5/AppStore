@@ -23,6 +23,7 @@ public:
 	double get_saldo() const;
 	void set_saldo(unsigned int s);
 	void setNextID(unsigned int i);
+	virtual string getType() const =0;
 	virtual string getExtra() const=0;
 	virtual void setExtra(string info)=0;
 	int getId() const;
@@ -40,6 +41,7 @@ public:
 	Individual(int id,string nome,double saldo,string id_pass,string morada);
 	string getExtra() const;
 	void setExtra(string info);
+	string getType() const;
 
 };
 
@@ -49,6 +51,7 @@ public:
 	Empresa(string nome,string id_pass,string NIF);
 	Empresa(int id,string nome,double saldo,string id_pass,string NIF);
 	string getExtra() const;
+	string getType() const;
 	void setExtra(string info);
 };
 

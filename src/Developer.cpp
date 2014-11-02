@@ -98,6 +98,14 @@ string Empresa::getExtra() const {
 	return NIF;
 }
 
+string Empresa::getType() const {
+	return "emp";
+}
+
 void Empresa::setExtra(string info) {
 	NIF=info;
+}
+
+string Individual::getType() const {
+	return "ind";
 }
