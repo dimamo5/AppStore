@@ -54,6 +54,7 @@ Cliente::Cliente(string nome, unsigned int idade, string sexo,int cartao_credito
 
 bool Cliente::adicionarVenda(Vendas* v) {
 	historico.push_back(v);
+	return true;
 }
 
 vector<Vendas*> Cliente::getHistorico() const {
