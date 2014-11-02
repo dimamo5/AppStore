@@ -44,6 +44,8 @@ public:
 	bool operator==(const Date&) const;
 	bool operator<= (const Date&) const;
 	bool operator>= (const Date&) const;
+	tm make_tm(int year, int month, int day);
+	double daysBetweenDates(int year1, int month1, int day1,int year2, int month2, int day2);
 
 	//time_t t = time(0);
 	//struct tm *now = localtime(&t);

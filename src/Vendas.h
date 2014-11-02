@@ -11,12 +11,10 @@
 #include <vector>
 #include <string>
 #include "App.h"
-#include "Cliente.h"
 #include "Date.h"
 
 using namespace std;
 
-class Cliente;
 class App;
 
 class Vendas{
@@ -32,7 +30,6 @@ public:
 	Vendas();
 	int getId() const;
 	float getPreco() const;
-//	Cliente* getCliente() const;
 	App* getApps() const;
 	Date getData() const;
 

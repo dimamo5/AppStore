@@ -192,3 +192,31 @@ bool Date::operator>= (const Date& dat) const{
 		return false;
 	}
 }
+
+tm make_tm(int year, int month, int day)
+{
+	std::tm tm = { 0 };
+	tm.tm_year = year - 1900; // years count from 1900
+	tm.tm_mon = month - 1;    // months count from January=0
+	tm.tm_mday = day;         // days count from 1
+	return tm;
+}
+
+double daysBetweenDates(int year1, int month1, int day1,int year2, int month2, int day2){
+
+	// Assume-se que Data1 é mais recente que a Data2. Data1 será a data atual, que é sempre mais recente que a Data2, que é a da venda
+	tm tm1 = make_tm(year1, month1, day1);    // Data atual
+	tm tm2 = make_tm(year2, month2, day2);   // Data da venda
+
+	std::time_t time1 = std::mktime(&tm1);
+	std::time_t time2 = std::mktime(&tm2);
+
+	const int seconds_per_day = 60 * 60 * 24;
+
+	// To be fully portable, we shouldn't assume that these are Unix time;
+	// instead, we should use "difftime" to give the difference in seconds:
+	double portable_difference = std::difftime(time1, time2) / seconds_per_day;
+
+	return abs(portable_difference);
+}
+
