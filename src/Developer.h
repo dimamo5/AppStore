@@ -27,6 +27,8 @@ public:
 	string get_nome() const;
 	double get_saldo() const;
 	void set_saldo(unsigned int s);
+	static void setNextID(unsigned int i);
+
 //	bool adiciona_app(App &a);
 	//TODO polimorfismo
 };

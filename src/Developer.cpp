@@ -59,7 +59,9 @@ void Individual::setMorada(string morada) {
 	this->morada = morada;
 }
 
-
+void Developer::setNextID(unsigned int i) {
+	next_id=i;
+}
 
 
 Empresa::Empresa(string nome,string id_pass,unsigned int NIF):Developer(nome,id_pass){
