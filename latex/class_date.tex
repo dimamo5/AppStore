@@ -4,6 +4,12 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_date_ac4860b7b498e1f4142c1d3cde0195fdc}{{\bfseries Date} (struct tm $\ast$time\+\_\+struct)}\label{class_date_ac4860b7b498e1f4142c1d3cde0195fdc}
+
+\item 
+\hypertarget{class_date_a8aff6457db8347405876084c651e4361}{{\bfseries Date} (unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute)}\label{class_date_a8aff6457db8347405876084c651e4361}
+
+\item 
 \hypertarget{class_date_ac770a597c5db01c15f5909d30ecc614d}{unsigned int {\bfseries get\+Minute} () const }\label{class_date_ac770a597c5db01c15f5909d30ecc614d}
 
 \item 
@@ -19,38 +25,45 @@
 \hypertarget{class_date_a6561cf495bd6b7e6c747420d7ae9cc12}{unsigned int {\bfseries get\+Year} () const }\label{class_date_a6561cf495bd6b7e6c747420d7ae9cc12}
 
 \item 
-\hypertarget{class_date_a807ee40e5404da4ac414d7f8531d7b3b}{bool {\bfseries set\+Minute} ()}\label{class_date_a807ee40e5404da4ac414d7f8531d7b3b}
+\hypertarget{class_date_a714d7a4b5af1ab06b4f99b90f2ffe589}{bool {\bfseries set\+Minute} (unsigned int minute)}\label{class_date_a714d7a4b5af1ab06b4f99b90f2ffe589}
 
 \item 
-\hypertarget{class_date_a0e63d2302d3713242eba7ded2288cf3e}{bool {\bfseries set\+Hour} ()}\label{class_date_a0e63d2302d3713242eba7ded2288cf3e}
+\hypertarget{class_date_a45df391c8b5da977bd4662b81c0cd839}{bool {\bfseries set\+Hour} (unsigned int hour)}\label{class_date_a45df391c8b5da977bd4662b81c0cd839}
 
 \item 
-\hypertarget{class_date_a9202ce49cd9cb908d5de6b23a612d6bb}{bool {\bfseries set\+Day} ()}\label{class_date_a9202ce49cd9cb908d5de6b23a612d6bb}
+\hypertarget{class_date_aff23cb89959285d5743471cfb8de79be}{bool {\bfseries set\+Day} (unsigned int day)}\label{class_date_aff23cb89959285d5743471cfb8de79be}
 
 \item 
-\hypertarget{class_date_a18400dd2b0dbccc7951694342010e664}{bool {\bfseries set\+Month} ()}\label{class_date_a18400dd2b0dbccc7951694342010e664}
+\hypertarget{class_date_a317a64663663c32417496549da4b52ef}{bool {\bfseries set\+Month} (unsigned int month)}\label{class_date_a317a64663663c32417496549da4b52ef}
 
 \item 
-\hypertarget{class_date_a7eb6d0e8d6a6bb2a78f5b5073e0a84a7}{bool {\bfseries set\+Year} ()}\label{class_date_a7eb6d0e8d6a6bb2a78f5b5073e0a84a7}
-
-\item 
-\hypertarget{class_date_a0bd06d545842c948cdca8ccc60d7d68d}{bool {\bfseries operator$>$} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a0bd06d545842c948cdca8ccc60d7d68d}
+\hypertarget{class_date_aae265e5db481eaae2859cbfb2b2d4b1f}{bool {\bfseries set\+Year} (unsigned int year)}\label{class_date_aae265e5db481eaae2859cbfb2b2d4b1f}
 
 \item 
 \hypertarget{class_date_a691bafd5bba9540f3c540f7327a758c2}{bool {\bfseries operator$<$} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a691bafd5bba9540f3c540f7327a758c2}
 
 \item 
+\hypertarget{class_date_a0bd06d545842c948cdca8ccc60d7d68d}{bool {\bfseries operator$>$} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a0bd06d545842c948cdca8ccc60d7d68d}
+
+\item 
 \hypertarget{class_date_ad54d8e4b8f2ad6df8eda3b8615c3c0b2}{bool {\bfseries operator==} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_ad54d8e4b8f2ad6df8eda3b8615c3c0b2}
+
+\item 
+\hypertarget{class_date_a6632fd56fe1c549ef0a257c85fd8eb3e}{bool {\bfseries operator$<$=} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a6632fd56fe1c549ef0a257c85fd8eb3e}
 
 \item 
 \hypertarget{class_date_ae4802fa52cf81f1a259b4a3b88bffc0d}{bool {\bfseries operator$>$=} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_ae4802fa52cf81f1a259b4a3b88bffc0d}
 
 \item 
-\hypertarget{class_date_a6632fd56fe1c549ef0a257c85fd8eb3e}{bool {\bfseries operator$<$=} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a6632fd56fe1c549ef0a257c85fd8eb3e}
+\hypertarget{class_date_abc8a9987bc7d217fa4115dde6501943d}{tm {\bfseries make\+\_\+tm} (int year, int month, int day)}\label{class_date_abc8a9987bc7d217fa4115dde6501943d}
+
+\item 
+\hypertarget{class_date_a8668b035506ac91b585c3ba549f15464}{double {\bfseries days\+Between\+Dates} (int year1, int month1, int day1, int year2, int month2, int day2)}\label{class_date_a8668b035506ac91b585c3ba549f15464}
 
 \end{DoxyCompactItemize}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/Date.\+h\end{DoxyCompactItemize}
+src/Date.\+h\item 
+src/Date.\+cpp\end{DoxyCompactItemize}

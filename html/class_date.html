@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -89,6 +90,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ac4860b7b498e1f4142c1d3cde0195fdc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4860b7b498e1f4142c1d3cde0195fdc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Date</b> (struct tm *time_struct)</td></tr>
+<tr class="separator:ac4860b7b498e1f4142c1d3cde0195fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8aff6457db8347405876084c651e4361"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8aff6457db8347405876084c651e4361"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Date</b> (unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute)</td></tr>
+<tr class="separator:a8aff6457db8347405876084c651e4361"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac770a597c5db01c15f5909d30ecc614d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac770a597c5db01c15f5909d30ecc614d"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getMinute</b> () const </td></tr>
 <tr class="separator:ac770a597c5db01c15f5909d30ecc614d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,44 +111,51 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getMonth</b> 
 <tr class="memitem:a6561cf495bd6b7e6c747420d7ae9cc12"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6561cf495bd6b7e6c747420d7ae9cc12"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getYear</b> () const </td></tr>
 <tr class="separator:a6561cf495bd6b7e6c747420d7ae9cc12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a807ee40e5404da4ac414d7f8531d7b3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a807ee40e5404da4ac414d7f8531d7b3b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setMinute</b> ()</td></tr>
-<tr class="separator:a807ee40e5404da4ac414d7f8531d7b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e63d2302d3713242eba7ded2288cf3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e63d2302d3713242eba7ded2288cf3e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setHour</b> ()</td></tr>
-<tr class="separator:a0e63d2302d3713242eba7ded2288cf3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9202ce49cd9cb908d5de6b23a612d6bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9202ce49cd9cb908d5de6b23a612d6bb"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setDay</b> ()</td></tr>
-<tr class="separator:a9202ce49cd9cb908d5de6b23a612d6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18400dd2b0dbccc7951694342010e664"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18400dd2b0dbccc7951694342010e664"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setMonth</b> ()</td></tr>
-<tr class="separator:a18400dd2b0dbccc7951694342010e664"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7eb6d0e8d6a6bb2a78f5b5073e0a84a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7eb6d0e8d6a6bb2a78f5b5073e0a84a7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>setYear</b> ()</td></tr>
-<tr class="separator:a7eb6d0e8d6a6bb2a78f5b5073e0a84a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bd06d545842c948cdca8ccc60d7d68d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bd06d545842c948cdca8ccc60d7d68d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
-<tr class="separator:a0bd06d545842c948cdca8ccc60d7d68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a714d7a4b5af1ab06b4f99b90f2ffe589"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a714d7a4b5af1ab06b4f99b90f2ffe589"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setMinute</b> (unsigned int minute)</td></tr>
+<tr class="separator:a714d7a4b5af1ab06b4f99b90f2ffe589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45df391c8b5da977bd4662b81c0cd839"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45df391c8b5da977bd4662b81c0cd839"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setHour</b> (unsigned int hour)</td></tr>
+<tr class="separator:a45df391c8b5da977bd4662b81c0cd839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff23cb89959285d5743471cfb8de79be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff23cb89959285d5743471cfb8de79be"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setDay</b> (unsigned int day)</td></tr>
+<tr class="separator:aff23cb89959285d5743471cfb8de79be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a317a64663663c32417496549da4b52ef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a317a64663663c32417496549da4b52ef"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setMonth</b> (unsigned int month)</td></tr>
+<tr class="separator:a317a64663663c32417496549da4b52ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae265e5db481eaae2859cbfb2b2d4b1f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aae265e5db481eaae2859cbfb2b2d4b1f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setYear</b> (unsigned int year)</td></tr>
+<tr class="separator:aae265e5db481eaae2859cbfb2b2d4b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a691bafd5bba9540f3c540f7327a758c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a691bafd5bba9540f3c540f7327a758c2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
 <tr class="separator:a691bafd5bba9540f3c540f7327a758c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd06d545842c948cdca8ccc60d7d68d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bd06d545842c948cdca8ccc60d7d68d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
+<tr class="separator:a0bd06d545842c948cdca8ccc60d7d68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad54d8e4b8f2ad6df8eda3b8615c3c0b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad54d8e4b8f2ad6df8eda3b8615c3c0b2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
 <tr class="separator:ad54d8e4b8f2ad6df8eda3b8615c3c0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4802fa52cf81f1a259b4a3b88bffc0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4802fa52cf81f1a259b4a3b88bffc0d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
-<tr class="separator:ae4802fa52cf81f1a259b4a3b88bffc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6632fd56fe1c549ef0a257c85fd8eb3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6632fd56fe1c549ef0a257c85fd8eb3e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
 <tr class="separator:a6632fd56fe1c549ef0a257c85fd8eb3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4802fa52cf81f1a259b4a3b88bffc0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4802fa52cf81f1a259b4a3b88bffc0d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
+<tr class="separator:ae4802fa52cf81f1a259b4a3b88bffc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc8a9987bc7d217fa4115dde6501943d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc8a9987bc7d217fa4115dde6501943d"></a>
+tm&#160;</td><td class="memItemRight" valign="bottom"><b>make_tm</b> (int year, int month, int day)</td></tr>
+<tr class="separator:abc8a9987bc7d217fa4115dde6501943d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8668b035506ac91b585c3ba549f15464"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8668b035506ac91b585c3ba549f15464"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>daysBetweenDates</b> (int year1, int month1, int day1, int year2, int month2, int day2)</td></tr>
+<tr class="separator:a8668b035506ac91b585c3ba549f15464"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_date_8h_source.html">Date.h</a></li>
+<li>src/Date.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Oct 18 2014 18:04:53 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 2 2014 20:22:30 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
