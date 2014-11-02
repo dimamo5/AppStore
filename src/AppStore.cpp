@@ -54,3 +54,24 @@ bool AppStore::load_clientes(fstream& file) {
 	return true;
 }
 
+bool AppStore::save_dev(ofstream& file) {
+	if(dev.empty()){
+		return false;
+	}
+	else{
+		file<<dev[0]->getNextId()<<endl;
+		for(unsigned int i=0;i<dev.size();i++){
+			file<<dev[i]->getId()<<endl;
+			file<<dev[i]->get_nome()<<endl;
+			file<<dev[i]->get_saldo()<<endl;
+			file<<dev[i]->getIdPass()<<endl;
+			file<<dev[i]->getExtra()<<endl;
+
+			}
+			return true;
+		}
+	}
+
+
+/*bool AppStore::load_dev(fstream& file) {
+}*/

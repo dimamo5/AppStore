@@ -32,8 +32,8 @@ public:
 	bool load_vendas();
 	bool save_clientes(ofstream &file);
 	bool load_clientes(fstream &file);
-	bool save_dev();
-	bool load_dev();
+	bool save_dev(ofstream &file);
+	bool load_dev(fstream &file);
 };
 
 #endif /* APPSTORE_H_ */

@@ -12,7 +12,10 @@ Developer::Developer(string nome, string id_pass) :
 		nome(nome) {
 	id = next_id;
 	next_id++;
-	data = new Login(id_pass);
+}
+
+Developer::Developer(int id,string nome,double saldo,string id_pass):id(id),nome(nome),saldo(saldo),id_pass(id_pass){
+
 }
 //vector<Vendas*> Developer::get_vendas() {
 //	return vendas;
@@ -21,9 +24,7 @@ Developer::Developer(string nome, string id_pass) :
 //vector<App *> Developer::get_apps() const {
 //	return apps;
 //}
-Login* Developer::get_login() const {
-	return data;
-}
+
 string Developer::get_nome() const {
 	return nome;
 }
@@ -51,27 +52,52 @@ Individual::Individual(string nome,string id_pass,string morada):Developer(nome,
 	this->morada = morada;
 }
 
-string Individual::getMorada() const {
-	return morada;
+Individual::Individual(int id,string nome,double saldo,string id_pass,string morada):Developer(id,nome,saldo,id_pass),morada(morada){
+
 }
 
-void Individual::setMorada(string morada) {
-	this->morada = morada;
-}
 
 void Developer::setNextID(unsigned int i) {
 	next_id=i;
 }
 
 
-Empresa::Empresa(string nome,string id_pass,unsigned int NIF):Developer(nome,id_pass){
+Empresa::Empresa(string nome,string id_pass,string NIF):Developer(nome,id_pass){
 	this->NIF = NIF;
 }
 
-unsigned int Empresa::getNIF() const{
+Empresa::Empresa(int id,string nome,double saldo,string id_pass,string NIF):Developer(id,nome,saldo,id_pass),NIF(NIF){
+
+}
+
+int Developer::getId() const {
+	return id;
+}
+
+void Developer::setId(int id) {
+	this->id = id;
+}
+
+string Developer::getIdPass() const {
+	return id_pass;
+}
+
+unsigned int Developer::getNextId() const {
+	return next_id;
+}
+
+string Individual::getExtra() const {
+	return morada;
+}
+
+void Individual::setExtra(string info) {
+	morada=info;
+}
+
+string Empresa::getExtra() const {
 	return NIF;
 }
 
-void Empresa::setNIF(unsigned int NIF){
-	this->NIF = NIF;
+void Empresa::setExtra(string info) {
+	NIF=info;
 }

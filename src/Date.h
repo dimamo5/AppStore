@@ -45,6 +45,8 @@ public:
 	bool operator<= (const Date&) const;
 	bool operator>= (const Date&) const;
 
+	//time_t t = time(0);
+	//struct tm *now = localtime(&t);
 };
 
 #endif /* DATE_H_ */

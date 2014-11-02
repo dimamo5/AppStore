@@ -3,34 +3,32 @@
 
 #include <vector>
 #include <string>
-#include "Login.h"
 #include "App.h"
 #include "Vendas.h"
 
 using namespace std;
 
-class Vendas;
-class App;
 
 class Developer{
-private:
+protected:
 	int id;
 	static unsigned int next_id;
 	string nome;
 	double saldo=0;
-	Login * data; //TODO remove pointer
+	string id_pass; //TODO remove pointer
 public:
 	Developer(string nome,string id_pass);
-//	vector<Vendas*> get_vendas();
-//	vector<App *> get_apps() const;
-	Login* get_login() const;
+	Developer(int id,string nome,double saldo,string id_pass);
 	string get_nome() const;
 	double get_saldo() const;
 	void set_saldo(unsigned int s);
-	static void setNextID(unsigned int i);
-
-//	bool adiciona_app(App &a);
-	//TODO polimorfismo
+	void setNextID(unsigned int i);
+	virtual string getExtra() const=0;
+	virtual void setExtra(string info)=0;
+	int getId() const;
+	void setId(int id);
+	string getIdPass() const;
+	unsigned int getNextId() const;
 };
 
 
@@ -39,17 +37,19 @@ class Individual: public Developer{
 	string morada;
 public:
 	Individual(string nome,string id_pass,string morada);
-	string getMorada() const;
-	void setMorada(string morada);
+	Individual(int id,string nome,double saldo,string id_pass,string morada);
+	string getExtra() const;
+	void setExtra(string info);
 
 };
 
 class Empresa: public Developer{
-	unsigned int NIF;
+	string NIF;
 public:
-	Empresa(string nome,string id_pass,unsigned int NIF);
-	unsigned int getNIF() const;
-	void setNIF(unsigned int NIF);
+	Empresa(string nome,string id_pass,string NIF);
+	Empresa(int id,string nome,double saldo,string id_pass,string NIF);
+	string getExtra() const;
+	void setExtra(string info);
 };
 
 
