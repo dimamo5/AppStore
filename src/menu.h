@@ -8,15 +8,17 @@
 #ifndef MENU_H_
 #define MENU_H_
 
+#include "AppStore.h"
+
 void cor(int n);
 int teclas();
 int RestringeOpcaoTeclas(int min, int max, int opcao);
-int menuInicial();
-int menuLogin();
-int menuLoginCliente();
-int menuLoginDeveloper();
-int menuRegistarCliente();
-int menuRegistarDeveloper();
+int menuInicial(AppStore mieic);
+int menuLogin(AppStore mieic);
+int menuLoginCliente(AppStore mieic);
+int menuLoginDeveloper(AppStore mieic);
+int menuRegistarCliente(AppStore mieic);
+int menuRegistarDeveloper(AppStore mieic);
 
 
 #endif /* MENU_H_ */

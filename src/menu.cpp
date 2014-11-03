@@ -44,7 +44,7 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 		return opcao; //se não se verificam as restrições, entao devolve-se novamente a variavel intacta
 }
 
-int menuInicial() {
+int menuInicial(AppStore mieic) {
 	system("cls");
 	int opcao = 0;
 	for (;;) {
@@ -73,7 +73,7 @@ int menuInicial() {
 
 		case -1:         // 2a opcao
 			cout << "Fazer login";
-			menuLogin();
+			menuLogin(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
@@ -89,7 +89,7 @@ int menuInicial() {
 	}
 }
 
-int menuLogin() {
+int menuLogin(AppStore mieic) {
 	system("cls");
 	int opcao = 0;
 	for (;;) {
@@ -110,19 +110,19 @@ int menuLogin() {
 		{
 		case 0:
 			cout << "Esta a fazer login cliente";
-			menuLoginCliente();
+			menuLoginCliente(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		case -1:         // 2a opcao
 			cout << "Esta a fazer login developer";
-			menuLoginDeveloper();
+			menuLoginDeveloper(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -2:        // 3a opcao
-			menuInicial();
+			menuInicial(mieic);
 			system("pause");
 			return 0; // indica ao menu que ainda vai continuar o programa
 			break;
@@ -131,7 +131,7 @@ int menuLogin() {
 	}
 }
 
-int menuRegistar() {
+int menuRegistar(AppStore mieic) {
 	system("cls");
 	int opcao = 0;
 	for (;;) {
@@ -152,19 +152,19 @@ int menuRegistar() {
 		{
 		case 0:
 			cout << "Esta a fazer registo cliente";
-			menuRegistarCliente();
+			menuRegistarCliente(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		case -1:         // 2a opcao
 			cout << "Esta a fazer registo developer";
-			menuRegistarDeveloper();
+			menuRegistarDeveloper(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -2:        // 3a opcao
-			menuInicial();
+			menuInicial(mieic);
 			system("pause");
 			return 0; // indica ao menu que ainda vai continuar o programa
 			break;
@@ -173,7 +173,7 @@ int menuRegistar() {
 	}
 }
 
-int menuLoginCliente(){
+int menuLoginCliente(AppStore mieic){
 	system("cls");
 
 	string nome;
@@ -189,16 +189,16 @@ int menuLoginCliente(){
 
 }
 
-int menuLoginDeveloper(){
+int menuLoginDeveloper(AppStore mieic){
 	system("cls");
 }
 
-int menuRegistarCliente(){
+int menuRegistarCliente(AppStore mieic){
 	system("cls");
 }
 
 
-int menuRegistarDeveloper(){
+int menuRegistarDeveloper(AppStore mieic){
 	system("cls");
 }
 

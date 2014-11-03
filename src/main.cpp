@@ -12,10 +12,12 @@ Cliente* cli_act = NULL;
 
 int main() {
 
+AppStore MEIC_Play;
+
 	int opc=0;
 		do
 		{
-			opc=menuInicial();
+			opc=menuInicial(MEIC_Play);
 		} while (opc); // so acaba o programa quando opc == 0
 
 
