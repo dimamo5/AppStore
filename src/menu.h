@@ -17,10 +17,11 @@ int RestringeOpcaoTeclas(int min, int max, int opcao);
 int menuInicial(AppStore mieic);
 int menuLogin(AppStore mieic);
 int menuRegistar(AppStore mieic);
-int menuLoginCliente(AppStore mieic);
-int menuLoginDeveloper(AppStore mieic);
-int menuRegistarCliente(AppStore mieic);
-int menuRegistarDeveloper(AppStore mieic);
+void menuLoginCliente(AppStore mieic);
+void menuLoginDeveloper(AppStore mieic);
+void menuRegistarCliente(AppStore mieic);
+void menuRegistarDeveloperIndividual(AppStore mieic);
+void menuRegistarDeveloperEmpresa(AppStore mieic);
 
 
 #endif /* MENU_H_ */

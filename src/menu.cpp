@@ -77,19 +77,17 @@ int menuInicial(AppStore mieic) {
 		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
-			cout << "Finge que esta aqui a AppStore, pliz";
+			cout << "Finge que esta aqui a AppStore, pliz" << endl;
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		case -1:         // 2a opcao
-			cout << "Fazer login";
 			menuLogin(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -2:        // 3a opcao
-			cout << "Fazer registo";
 			menuRegistar(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
@@ -169,11 +167,18 @@ int menuRegistar(AppStore mieic) {
 			cor(112);
 		cout << "  Cliente  " << endl;
 		cor(7);
+
 		if (opcao == -1)
 			cor(112);
-		cout << "  Developer " << endl;
+		cout << "  Developer Individual  " << endl;
 		cor(7);
+
 		if (opcao == -2)
+			cor(112);
+		cout << "  Developer Empresa  " << endl;
+		cor(7);
+
+		if (opcao == -3)
 			cor(124);
 		cout << "  SAIR  " << endl;
 		cor(7);
@@ -184,19 +189,22 @@ int menuRegistar(AppStore mieic) {
 		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
-			cout << "Esta a fazer registo cliente";
 			menuRegistarCliente(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		case -1:         // 2a opcao
-			cout << "Esta a fazer registo developer";
-			menuRegistarDeveloper(mieic);
+			menuRegistarDeveloperIndividual(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case -2:        // 3a opcao
+		case -2:         // 2a opcao
+			menuRegistarDeveloperEmpresa(mieic);
+			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
+			break;
+		case -3:        // 3a opcao
 			menuInicial(mieic);
 			system("pause");
 			return 0; // indica ao menu que ainda vai continuar o programa
@@ -206,7 +214,7 @@ int menuRegistar(AppStore mieic) {
 	}
 }
 
-int menuLoginCliente(AppStore mieic) {
+void menuLoginCliente(AppStore mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -214,26 +222,26 @@ int menuLoginCliente(AppStore mieic) {
 
 }
 
-int menuLoginDeveloper(AppStore mieic) {
+void menuLoginDeveloper(AppStore mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 }
 
-int menuRegistarCliente(AppStore mieic) {
+void menuRegistarCliente(AppStore mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 
-	// fazer funcao para imprimir data
+	// imprimeData(data_atual); fazer funcao para imprimir data
 
-	string nome;
 	bool inputFail;
-	unsigned int idade = 0;
-	string sexo;
+	string nome, sexo, password;
+	unsigned int idade;
 	int cartao_credito;
+
 	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
 
 	cout << "  Indique o seu nome: ";
@@ -241,59 +249,75 @@ int menuRegistarCliente(AppStore mieic) {
 	cin >> nome;
 	cout << endl;
 
-do{
-	system("cls");
-	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
-	cout << "  Indique o seu nome: " << nome << endl;
-	cout << "  Indique a sua idade: ";
-	cin >> idade;
-	inputFail = cin.fail(); // guarda a flag do fail
-	cin.clear();  // da clear a flag do fail
-	cin.ignore(1000,'\n');
-}while(inputFail==true);
+	do {
+		system("cls");
+		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Indique o seu nome: " << nome << endl;
+		cout << "  Indique a sua idade: ";
+		cin >> idade;
+		inputFail = cin.fail(); // guarda a flag do fail
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
 
-do{
-	system("cls");
-	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
-	cout << "  Indique o seu nome: " << nome << endl;
-	cout << "  Indique a sua idade: " << idade << endl;
-	cout << "  Indique o seu sexo (M ou F): ";
-	cin >> sexo;
+	do {
+		system("cls");
+		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Indique o seu nome: " << nome << endl;
+		cout << "  Indique a sua idade: " << idade << endl;
+		cout << "  Indique o seu sexo (M ou F): ";
+		cin >> sexo;
 
-	inputFail = cin.fail();
-	if(sexo == "M" || sexo == "F"){ // se o user nao puser uma destas opcoes, falha
-		inputFail = false;
-	}
-	else
-		inputFail = true;
-	cin.clear();  // da clear a flag do fail
-	cin.ignore(1000,'\n');
-}while(inputFail==true);
+		inputFail = cin.fail();
+		if (sexo == "M" || sexo == "F") { // se o user nao puser uma destas opcoes, falha
+			inputFail = false;
+		} else
+			inputFail = true;
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
 
-do{
+	do {
+		system("cls");
+		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Indique o seu nome: " << nome << endl;
+		cout << "  Indique a sua idade: " << idade << endl;
+		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
+		cout << "  Indique o seu no. cartao credito: ";
+		cin >> cartao_credito;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+	do {
+		system("cls");
+		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Indique o seu nome: " << nome << endl;
+		cout << "  Indique a sua idade: " << idade << endl;
+		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
+		cout << "  Indique o seu no. cartao credito: " << cartao_credito
+				<< endl;
+		cout << "  Introduza agora a password que pretende:  ";
+
+		cin >> password;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
 	system("cls");
 	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
 	cout << "  Indique o seu nome: " << nome << endl;
 	cout << "  Indique a sua idade: " << idade << endl;
 	cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-	cout << "  Indique o seu no. cartao credito: ";
-	cin >> cartao_credito;
+	cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl;
+	cout << "  Introduza agora a password que pretende:  " << password << endl << endl << endl;
 
-	inputFail = cin.fail();
-	cin.clear();  // da clear a flag do fail
-	cin.ignore(1000,'\n');
-}while(inputFail==true);
-
-system("cls");
-cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
-cout << "  Indique o seu nome: " << nome << endl;
-cout << "  Indique a sua idade: " << idade << endl;
-cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl;
-cout << endl << endl;
-
-cout << "  Prima (Enter) para validar ou (Esc) para regressar sem registar  " << endl
-			<< endl;
+	cout
+			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
+			<< endl << endl;
 
 	cin.clear();
 
@@ -308,7 +332,8 @@ cout << "  Prima (Enter) para validar ou (Esc) para regressar sem registar  " <<
 		Cliente cli_temp(nome, idade, sexo, cartao_credito);
 		mieic.clientes.push_back(cli_temp);
 
-		cout << "  Sucesso! Prima enter para continuar  " << endl; // mais tarde implementarao-se as excecoes
+		cout << "  Sucesso! O seu ID de login e " << cli_temp.getId() << endl << endl;
+		cout << "  Prima enter para continuar  " << endl;
 		tecla = getch();
 		if (tecla != 0) {
 			while (tecla != 13) { // enquanto nao prime enter para continuar
@@ -323,7 +348,89 @@ cout << "  Prima (Enter) para validar ou (Esc) para regressar sem registar  " <<
 
 }
 
-int menuRegistarDeveloper(AppStore mieic) {
+void menuRegistarDeveloperIndividual(AppStore mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+
+	// imprimeData(data_atual); fazer funcao para imprimir data
+
+	bool inputFail;
+	string nome, morada, password;
+	cout << "  Insira os seus dados de developer " << endl << endl << endl;
+
+	cout << "  Indique o seu nome: ";
+	fflush(stdin);
+	cin >> nome;
+	cout << endl;
+
+	do {
+		system("cls");
+		cout << "  Insira os seus dados de developer  " << endl << endl << endl;
+		cout << "  Indique o seu nome: " << nome << endl;
+		cout << "  Indique a sua morada: ";
+		cin >> morada;
+		inputFail = cin.fail(); // guarda a flag do fail
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	do {
+		system("cls");
+		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Indique o seu nome: " << nome << endl;
+		cout << "  Indique a sua morada: " << morada << endl;
+		cout << "  Introduza agora a password que pretende:  ";
+
+		cin >> password;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	system("cls");
+	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+	cout << "  Indique o seu nome: " << nome << endl;
+	cout << "  Indique a sua morada: " << morada << endl;
+	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
+	cout << endl << endl << endl;
+	cout
+			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
+			<< endl << endl;
+
+	cin.clear();
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) {
+			tecla = getch();
+		}
+	}
+	if (tecla == 13) { // se o user premir (Enter)
+		Developer* individ_temp = new Individual(nome, password, morada);
+		mieic.dev.push_back(individ_temp);
+
+		cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
+				<< endl << endl;
+		cout << "  Prima enter para continuar  " << endl;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+			menuInicial(mieic);
+		}
+
+	} else if (tecla == 27) {  // se o user premir (Esc)
+		menuRegistar(mieic);
+	}
+
+}
+
+void menuRegistarDeveloperEmpresa(AppStore mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);

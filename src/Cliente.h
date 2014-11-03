@@ -23,6 +23,7 @@ private:
 	float saldo;
 	vector<Vendas *> historico;
 	unsigned int nr_vouchers;
+	string id_pass;
 public:
 	Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers);//construtor para clientes ficheiro
 	Cliente(string nome,unsigned int idade,string sexo,int cartao_credito);
@@ -42,6 +43,7 @@ public:
 	vector<Vendas *> getHistorico() const;
 	void setHistorico(vector<Vendas *> v);
 	static void setNextID(unsigned int i);
+	string getIdPass() const;
 };
 
 #endif /* CLIENTE_H_ */

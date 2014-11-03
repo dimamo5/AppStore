@@ -88,3 +88,7 @@ void Cliente::removeVoucher(){
 void Cliente::addVoucher(){
 	nr_vouchers++;
 }
+
+string Cliente::getIdPass() const{
+	return id_pass;
+}
