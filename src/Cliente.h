@@ -23,7 +23,7 @@ private:
 	float saldo;
 	vector<Vendas *> historico;
 	unsigned int nr_vouchers;
-	string id_pass;
+	string id_pass; //TODO: implementar nos ficheiros
 public:
 	Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers);//construtor para clientes ficheiro
 	Cliente(string nome,unsigned int idade,string sexo,int cartao_credito);

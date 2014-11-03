@@ -313,7 +313,8 @@ void menuRegistarCliente(AppStore mieic) {
 	cout << "  Indique a sua idade: " << idade << endl;
 	cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
 	cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl;
-	cout << "  Introduza agora a password que pretende:  " << password << endl << endl << endl;
+	cout << "  Introduza agora a password que pretende:  " << password << endl
+			<< endl << endl;
 
 	cout
 			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
@@ -332,7 +333,8 @@ void menuRegistarCliente(AppStore mieic) {
 		Cliente cli_temp(nome, idade, sexo, cartao_credito);
 		mieic.clientes.push_back(cli_temp);
 
-		cout << "  Sucesso! O seu ID de login e " << cli_temp.getId() << endl << endl;
+		cout << "  Sucesso! O seu ID de login e " << cli_temp.getId() << endl
+				<< endl;
 		cout << "  Prima enter para continuar  " << endl;
 		tecla = getch();
 		if (tecla != 0) {
@@ -358,27 +360,29 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 
 	bool inputFail;
 	string nome, morada, password;
-	cout << "  Insira os seus dados de developer " << endl << endl << endl;
 
-	cout << "  Indique o seu nome: ";
-	fflush(stdin);
-	cin >> nome;
-	cout << endl;
+	do {
+		system("cls");
+		cout << "  Insira os seus dados de developer  " << endl << endl << endl;
+		cout << "  Indique o seu nome: ";
+		fflush(stdin);
+		getline(cin, nome);
+		//		cin >> morada;
+	} while (nome == "");
 
 	do {
 		system("cls");
 		cout << "  Insira os seus dados de developer  " << endl << endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua morada: ";
-		cin >> morada;
-		inputFail = cin.fail(); // guarda a flag do fail
-		cin.clear();  // da clear a flag do fail
-		cin.ignore(1000, '\n');
-	} while (inputFail == true);
+		fflush(stdin);
+		getline(cin, morada);
+//		cin >> morada;
+	} while (morada == "");
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Insira os seus dados de developer  " << endl << endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua morada: " << morada << endl;
 		cout << "  Introduza agora a password que pretende:  ";
@@ -391,7 +395,7 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 	} while (inputFail == true);
 
 	system("cls");
-	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+	cout << "  Insira os seus dados de developer  " << endl << endl << endl;
 	cout << "  Indique o seu nome: " << nome << endl;
 	cout << "  Indique a sua morada: " << morada << endl;
 	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
@@ -431,10 +435,96 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 }
 
 void menuRegistarDeveloperEmpresa(AppStore mieic) {
+
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
+
+	// imprimeData(data_atual); fazer funcao para imprimir data
+
+	bool inputFail;
+	string nome, password;
+	string NIF;
+
+	do {
+		system("cls");
+		cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+		cout << "  Indique o nome da empresa: ";
+		fflush(stdin);
+		getline(cin, nome);
+
+	} while (nome == "");
+
+	do {
+		system("cls");
+		cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+		cout << "  Indique o nome da empresa: " << nome << endl;
+		cout << "  Indique o NIF da empresa: ";
+		cin >> NIF;
+
+		inputFail = cin.fail();
+
+		for(unsigned int i = 0; i < NIF.size(); i++){ //verifica se NIF so tem numeros
+			if(!isdigit(NIF[i])){
+				inputFail = true;
+			}
+		}
+
+		cin.clear();
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	do {
+		system("cls");
+		cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+		cout << "  Indique o nome da empresa: " << nome << endl;
+		cout << "  Indique o NIF da empresa: " << NIF << endl;
+		cout << "  Introduza agora a password que pretende:  ";
+
+		cin >> password;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	system("cls");
+	cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+			cout << "  Indique o nome da empresa: " << nome << endl;
+			cout << "  Indique o NIF da empresa: " << NIF;
+			cout << "  Introduza agora a password que pretende:  "<< password; //TODO: por astericos na pass
+	cout << endl << endl << endl;
+	cout
+			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
+			<< endl << endl;
+
+	cin.clear();
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) {
+			tecla = getch();
+		}
+	}
+	if (tecla == 13) { // se o user premir (Enter)
+		Developer* empresa_temp = new Empresa(nome, password, NIF);
+		mieic.dev.push_back(empresa_temp);
+
+		cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId() << endl << endl;
+		cout << "  Prima enter para continuar  " << endl;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+			menuInicial(mieic);
+		}
+
+	} else if (tecla == 27) {  // se o user premir (Esc)
+		menuRegistar(mieic);
+	}
 }
 
 /*void main()
