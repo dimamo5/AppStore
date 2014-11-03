@@ -20,7 +20,7 @@ private:
 	unsigned int idade;
 	string sexo;
 	int cartao_credito;
-	float saldo; //TODO mudar para float saldo e custo e preco
+	float saldo;
 	vector<Vendas *> historico;
 	unsigned int nr_vouchers;
 public:

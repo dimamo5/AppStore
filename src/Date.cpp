@@ -10,7 +10,7 @@
 Date::Date() {   // default constructor
 }
 
-Date::Date(struct tm* time_struct) {   // constructor initizalized with a time_struct
+Date::Date(struct tm* time_struct) { // constructor initizalized with a time_struct
 	this->year = time_struct->tm_year + 1900;
 	this->month = time_struct->tm_mon + 1;
 	this->day = time_struct->tm_mday;
@@ -164,37 +164,40 @@ bool Date::operator>(const Date& dat) const {
 
 }
 
-bool Date::operator==(const Date& dat) const{
-	if(year == dat.getYear() && month == dat.getMonth() && day == dat.getDay() && hour == dat.getHour() && minute == dat.getMinute()){
+bool Date::operator==(const Date& dat) const {
+	if (year == dat.getYear() && month == dat.getMonth() && day == dat.getDay()
+			&& hour == dat.getHour() && minute == dat.getMinute()) {
 		return true;
-	}
-	else{
+	} else {
 		return false;
 	}
 }
 
-bool Date::operator<= (const Date& dat) const{
+bool Date::operator<=(const Date& dat) const {
 
-	if ((*this)<dat || (*this) == dat){   // if the date is less or equal to the one it is being compared to
+	if ((*this) < dat || (*this) == dat) { // if the date is less or equal to the one it is being compared to
 		return true;
-	}
-	else{
+	} else {
 		return false;
 	}
 }
 
-bool Date::operator>= (const Date& dat) const{
+string Date::imprimeData() const {
+	stringstream data;
+	data<<year<<"-"<<month<<"-"<<day<<"  "<<hour<<":"<<minute;
+	return data.str();
+}
 
-	if ((*this)>dat || (*this) == dat){   // if the date is less or equal to the one it is being compared to
+bool Date::operator>=(const Date& dat) const {
+
+	if ((*this) > dat || (*this) == dat) { // if the date is less or equal to the one it is being compared to
 		return true;
-	}
-	else{
+	} else {
 		return false;
 	}
 }
 
-tm make_tm(int year, int month, int day)
-{
+tm make_tm(int year, int month, int day) {
 	std::tm tm = { 0 };
 	tm.tm_year = year - 1900; // years count from 1900
 	tm.tm_mon = month - 1;    // months count from January=0
@@ -202,7 +205,8 @@ tm make_tm(int year, int month, int day)
 	return tm;
 }
 
-double daysBetweenDates(int year1, int month1, int day1,int year2, int month2, int day2){
+double daysBetweenDates(int year1, int month1, int day1, int year2, int month2,
+		int day2) {
 
 	// Assume-se que Data1 é mais recente que a Data2. Data1 será a data atual, que é sempre mais recente que a Data2, que é a da venda
 	tm tm1 = make_tm(year1, month1, day1);    // Data atual

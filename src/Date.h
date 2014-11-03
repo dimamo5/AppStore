@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <ctime>
 #include <cmath>
@@ -35,6 +36,7 @@ public:
 	unsigned int getDay() const;
 	unsigned int getMonth() const;
 	unsigned int getYear() const;
+	string imprimeData() const;
 	bool setMinute(unsigned int minute);
 	bool setHour(unsigned int hour);
 	bool setDay(unsigned int day);

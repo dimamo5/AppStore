@@ -24,15 +24,23 @@ private:
 	float preco;
 	App* app;
 	Date data_venda;
+	bool retorno;
 	string reclamacao; //TODO construtor e getters (aka cenas daa reclamacao)
 
 public:
-	Vendas();
+	Vendas(float preco,Date data_venda);
+	Vendas(int id,float preco,Date data_venda,bool retorno,string reclamacao);
 	int getId() const;
 	float getPreco() const;
-	App* getApps() const;
 	Date getData() const;
-
+	App* getApp() const;
+	void setApp(App* app);
+	Date getDataVenda() const;
+	unsigned int getNextId() const;
+	static void setNextId(unsigned int nextId);
+	string getReclamacao() const;
+	bool isRetorno() const;
+	void reclamar(string reclamacao);
 };
 
 #endif /* VENDAS_H_ */

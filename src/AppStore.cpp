@@ -14,27 +14,34 @@ AppStore::AppStore() {
 }
 
 bool AppStore::save_clientes(ofstream& file) {
-	for (unsigned int i = 0; i < clientes.size(); i++) {
-		file << clientes[i].getId() << endl;
-		file << clientes[i].getNome() << endl;
-		file << clientes[i].getIdade() << endl;
-		file << clientes[i].getSexo() << endl;
-		file << clientes[i].getCartaoCredito() << endl;
-		file << clientes[i].getSaldo() << endl;
-		file << clientes[i].getHistorico().size() << endl;
-		for (unsigned int m = 0; i < clientes[i].getHistorico().size(); m++) {
-			file << clientes[i].getHistorico()[m]->getId();
+	if (clientes.empty()) {
+		return false;
+	} else {
+		file << clientes[0].getNext_id();
+		for (unsigned int i = 0; i < clientes.size(); i++) {
+			file << clientes[i].getId() << endl;
+			file << clientes[i].getNome() << endl;
+			file << clientes[i].getIdade() << endl;
+			file << clientes[i].getSexo() << endl;
+			file << clientes[i].getCartaoCredito() << endl;
+			file << clientes[i].getSaldo() << endl;
+			file << clientes[i].getVouchers();
+			file << clientes[i].getHistorico().size() << endl;
+			for (unsigned int m = 0; i < clientes[i].getHistorico().size();m++) {
+				file << clientes[i].getHistorico()[m]->getId();
+			}
 		}
+		return true;
 	}
-	return true;
 }
 
 bool AppStore::load_clientes(fstream& file) {
-	unsigned int next_id, idade;
+	unsigned int next_id, idade,nr_vouchers;
 	int saldo, cartao_credito, id;
 	string sexo, nome, temp;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
+	Cliente::setNextID(next_id);
 	while (!file.eof()) {
 		getline(file, temp);
 		stringstream(temp) >> id;
@@ -48,6 +55,8 @@ bool AppStore::load_clientes(fstream& file) {
 		stringstream(temp) >> cartao_credito;
 		getline(file, temp);
 		stringstream(temp) >> saldo;
+		getline(file, temp);
+		stringstream(temp) >> nr_vouchers;
 		Cliente temp_cliente = Cliente(id, nome, idade, sexo, cartao_credito,
 				saldo);
 		clientes.push_back(temp_cliente);
@@ -91,14 +100,15 @@ bool AppStore::save_app(ofstream& file) {
 				file << apps[i].getComentarios()[m].getClassificacao();
 			}
 			file << apps[i].getDev()->getId();
-			return true;
+
 		}
 	}
+	return true;
 }
 
 bool AppStore::load_app(fstream& file) {
 	unsigned int next_id, id, clas_final, num_clas, com_size, com_id_cliente,
-			com_clas,dev_id;
+			com_clas, dev_id;
 	float preco;
 	string categoria, descricao, com_descricao, temp, nome;
 	vector<Comentario> com_temp;
@@ -126,15 +136,17 @@ bool AppStore::load_app(fstream& file) {
 			getline(file, temp);
 			stringstream(temp) >> com_id_cliente;
 			getline(file, temp);
-			com_descricao=temp;
+			com_descricao = temp;
 			getline(file, temp);
 			stringstream(temp) >> com_clas;
-			Comentario * com_temp_obj=new Comentario (com_descricao,com_id_cliente,com_clas);
+			Comentario * com_temp_obj = new Comentario(com_descricao,
+					com_id_cliente, com_clas);
 			com_temp.push_back(*com_temp_obj);
 		}
 		getline(file, temp);
 		stringstream(temp) >> dev_id;
-		App* app_temp=new App(id,nome,categoria,descricao,preco,clas_final,num_clas);
+		App* app_temp = new App(id, nome, categoria, descricao, preco,
+				clas_final, num_clas);
 		app_temp->setDev(find_dev_id(dev_id));
 		app_temp->setComentarios(com_temp);
 		apps.push_back(*app_temp);
@@ -144,8 +156,8 @@ bool AppStore::load_app(fstream& file) {
 }
 
 Developer* AppStore::find_dev_id(unsigned int id) const {
-	for(unsigned int i=0;i<dev.size();i++){
-		if(dev[i]->getId()==id){
+	for (unsigned int i = 0; i < dev.size(); i++) {
+		if (dev[i]->getId() == id) {
 			return dev[i];
 		}
 	}
@@ -160,10 +172,72 @@ bool AppStore::load_all() {
 	//developer->app->vendas->cliente
 }
 
-bool AppStore::save_vendas() {
+bool AppStore::save_vendas(ofstream &file) {
+	if (vendas.empty()) {
+		return false;
+	} else {
+		file << vendas[0].getNextId() << endl;
+		for (unsigned int i = 0; i < vendas.size(); i++) {
+			file << vendas[i].getId() << endl;
+			file << vendas[i].getPreco() << endl;
+			file << vendas[i].getDataVenda().getYear() << endl; //TODO melhor escrita data
+			file << vendas[i].getDataVenda().getMonth() << endl;
+			file << vendas[i].getDataVenda().getDay() << endl;
+			file << vendas[i].getDataVenda().getHour() << endl;
+			file << vendas[i].getDataVenda().getMinute() << endl;
+			file << vendas[i].isRetorno() << endl;
+			file << vendas[i].getReclamacao() << endl;
+			file << vendas[i].getApp()->getId();
+		}
+	}
+	return true;
 }
 
-bool AppStore::load_vendas() {
+bool AppStore::load_vendas(fstream &file) {
+	unsigned int next_id, id, ano, mes, dia, hora, minuto, id_app;
+	float preco;
+	bool retorno;
+	string reclamacao, temp;
+	getline(file, temp);
+	stringstream(temp) >> next_id;
+	Vendas::setNextId(next_id);
+	while (!file.eof()) {
+		getline(file, temp);
+		stringstream(temp) >> id;
+		getline(file, temp);
+		stringstream(temp) >> preco;
+		getline(file, temp);
+		stringstream(temp) >> ano;
+		getline(file, temp);
+		stringstream(temp) >> mes;
+		getline(file, temp);
+		stringstream(temp) >> dia;
+		getline(file, temp);
+		stringstream(temp) >> hora;
+		getline(file, temp);
+		stringstream(temp) >> minuto;
+		Date *date_temp = new Date(ano, mes, dia, hora, minuto);
+		getline(file, temp);
+		stringstream(temp) >> retorno;
+		getline(file, temp);
+		reclamacao = temp;
+		getline(file, temp);
+		stringstream(temp) >> id_app;
+		Vendas *venda_temp = new Vendas(id, preco, *date_temp, retorno,
+				reclamacao);
+		venda_temp->setApp(find_app_id(id_app));
+		vendas.push_back(*venda_temp);
+	}
+	return true;
+}
+
+App* AppStore::find_app_id(unsigned int id) {
+	for (unsigned int i = 0; i < apps.size(); i++) {
+		if (apps[i].get_id() == id) {
+			return &apps[i];
+		}
+	}
+	return NULL;
 }
 
 bool AppStore::load_dev(fstream& file) {
