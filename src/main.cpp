@@ -18,6 +18,6 @@ int main() {
 			opc=menuInicial();
 		} while (opc); // so acaba o programa quando opc == 0
 
-	return 1;
 
+	return 1;
 }

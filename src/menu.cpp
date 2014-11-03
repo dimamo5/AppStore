@@ -180,7 +180,6 @@ int menuLoginCliente(){
 	unsigned int idade;
 	string sexo;
 	int cartao_credito;
-
 	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
 
 	cout << "  Indique o seu nome: "; cin >> nome; cout << endl;
