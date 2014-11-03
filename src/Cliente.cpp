@@ -33,8 +33,8 @@ void Cliente::setSaldo(float saldo) {
 	this->saldo = saldo;
 }
 
-Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo):
-		nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito){
+Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers):
+		nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito),nr_vouchers(nr_vouchers){
 	this->id=id;
 	this->saldo=saldo;
 }
@@ -49,7 +49,9 @@ unsigned int Cliente::getNext_id() const {
 
 Cliente::Cliente(string nome, unsigned int idade, string sexo,int cartao_credito):nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito) {
 	this->id=next_id;
+	next_id++;
 	saldo=0;
+	nr_vouchers++;
 }
 
 bool Cliente::adicionarVenda(Vendas* v) {

@@ -24,7 +24,7 @@ private:
 	vector<Vendas *> historico;
 	unsigned int nr_vouchers;
 public:
-	Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo);//construtor para clientes ficheiro
+	Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers);//construtor para clientes ficheiro
 	Cliente(string nome,unsigned int idade,string sexo,int cartao_credito);
 	unsigned int getNext_id() const;
 	int getCartaoCredito() const;
