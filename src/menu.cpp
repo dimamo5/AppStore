@@ -234,7 +234,7 @@ int menuRegistarCliente(AppStore mieic) {
 	unsigned int idade = 0;
 	string sexo;
 	int cartao_credito;
-	cout << "  Insira os seus dados de cliente (Esc para regressar ao menu anterior) " << endl << endl << endl;
+	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
 
 	cout << "  Indique o seu nome: ";
 	fflush(stdin);
@@ -292,7 +292,7 @@ cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
 cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl;
 cout << endl << endl;
 
-cout << "  Prima (Enter) para validar ou (Esc) para regressar  " << endl
+cout << "  Prima (Enter) para validar ou (Esc) para regressar sem registar  " << endl
 			<< endl;
 
 	cin.clear();
