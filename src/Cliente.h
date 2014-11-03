@@ -40,6 +40,7 @@ public:
 	string getSexo() const;
 	bool adicionarVenda(Vendas* v);
 	vector<Vendas *> getHistorico() const;
+	void setHistorico(vector<Vendas *> v);
 	static void setNextID(unsigned int i);
 };
 

@@ -63,6 +63,10 @@ vector<Vendas*> Cliente::getHistorico() const {
 	return historico;
 }
 
+void Cliente::setHistorico(vector<Vendas*> v) {
+	historico=v;
+}
+
 void Cliente::setNextID(unsigned int i) {
 	next_id=i;
 }
