@@ -11,8 +11,11 @@
 void cor(int n);
 int teclas();
 int RestringeOpcaoTeclas(int min, int max, int opcao);
-int menu();
-void ProcessarOpcaoMenu(int op);
-
+int menuInicial();
+int menuLogin();
+int menuLoginCliente();
+int menuLoginDeveloper();
+int menuRegistarCliente();
+int menuRegistarDeveloper();
 
 #endif /* MENU_H_ */

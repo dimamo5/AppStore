@@ -12,6 +12,11 @@ Cliente* cli_act = NULL;
 
 int main() {
 
+	int opc=0;
+		do
+		{
+			opc=menuInicial();
+		} while (opc); // so acaba o programa quando opc == 0
 
 	return 1;
 

@@ -8,20 +8,17 @@
 #include <fstream>
 using namespace std;
 
-void cor(int n)
-{
+void cor(int n) {
 	HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, n);
 }
 
-int teclas()
-{
+int teclas() {
 	int tecla;
 	tecla = getch();
-	if(tecla!=0)
-	{
-		while(tecla!=13)//ENQUANTO DIFERENTE DE ENTER
+	if (tecla != 0) {
+		while (tecla != 13) //ENQUANTO DIFERENTE DE ENTER
 		{
 			tecla = getch();
 			if (tecla == 72) //ACIMA
@@ -33,82 +30,190 @@ int teclas()
 			if (tecla == 77) //DIREITA
 				return 2;
 		}
+		return 13;
 	}
 }
 
 //FUNCAO RESPONSAVEL POR RESTRINGIR A VARIAVEL "opcao" APENAS ÁS OPÇÕES DO MENU
-int RestringeOpcaoTeclas(int min, int max, int opcao)
-{
-	if(opcao>min && opcao <((max*-1)+13))
-		return opcao=(-1*max); //reinicia a variavel na ultima opcao do menu
-	else if(opcao<(max*-1) || opcao>(min+13)) //Situação em que Sai fora da gama de opções possiveis (valor > que nº de opcoes possiveis)
-		return opcao=min; //reinicia a variavel na 1a opção do menu
+int RestringeOpcaoTeclas(int min, int max, int opcao) {
+	if (opcao > min && opcao < ((max * -1) + 13))
+		return opcao = (-1 * max); //reinicia a variavel na ultima opcao do menu
+	else if (opcao < (max * -1) || opcao > (min + 13)) //Situação em que Sai fora da gama de opções possiveis (valor > que nº de opcoes possiveis)
+		return opcao = min; //reinicia a variavel na 1a opção do menu
 	else
 		return opcao; //se não se verificam as restrições, entao devolve-se novamente a variavel intacta
 }
 
-
-int menu()
-{
+int menuInicial() {
 	system("cls");
-	int opcao=0;
-	for(;;)
-	{
+	int opcao = 0;
+	for (;;) {
 		system("cls");
-		cout<< "  INTRODUZIR NOVA VIATURA  "<<endl<<endl;
+		cout << "  Welcome to MIEICPlay  " << endl << endl;
 
-		if(opcao==0) cor(112);
-		cout<< "  Ligeiro"<<endl; cor(7);
-		if(opcao==-1) cor(112);
-		cout<< "  Motocilo"<<endl; cor(7);
-		if(opcao==-2) cor(112);
-		cout<< "  Pesado"<<endl; cor(7);
-		if(opcao==-3) cor(124);
-		cout<< "  SAIR"<<endl; cor(7);
+		if (opcao == 0) cor(112);
+		cout << "  Visitar AppStore  " << endl; cor(7);
+		if (opcao == -1) cor(112);
+		cout << "  Login na AppStore  " << endl; cor(7);
+		if (opcao == -2) cor(112);
+		cout << "  Registar na AppStore  " << endl; cor(7);
+		if (opcao == -3) cor(124);
+		cout << "  SAIR  " << endl; cor(7);
 
-		opcao+=teclas();
-		opcao = RestringeOpcaoTeclas(0,3,opcao);//MUDAR  de 3 para o numero total de opções do menu.
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 3, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
 
-		switch(opcao-13)//sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
-			case 0: return 1; break;
-			case -1: return 2; break;
-			case -2: return 3; break;
-			case -3: return 0; break;
+		case 0:
+			cout << "Finge que esta aqui a AppStore, pliz";
+			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
+			break;
+
+		case -1:         // 2a opcao
+			cout << "Fazer login";
+			menuLogin();
+			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
+			break;
+		case -2:        // 3a opcao
+			cout << "Fazer registo";
+			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
+			break;
+		case -3:        // ultima opcao
+			return 0; // indica ao menu que o programa vai fechar
+			break;
 		}
 	}
 }
 
+int menuLogin() {
+	system("cls");
+	int opcao = 0;
+	for (;;) {
+		system("cls");
+		cout << "  Faca Login: escolha o seu tipo de conta  " << endl << endl;
 
-void ProcessarOpcaoMenu(int op) //a função tem de conhecer quem é a lista de viaturas
-{
-	switch (op)
-	 {
-		case 1:
-			cout<<"OPCAO 1";
+		if (opcao == 0) cor(112);
+		cout << "  Cliente  " << endl; cor(7);
+		if (opcao == -1) cor(112);
+		cout << "  Developer " << endl; cor(7);
+		if (opcao == -2) cor(124);
+		cout << "  SAIR  " << endl; cor(7);
+
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 2, opcao);
+
+		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+		{
+		case 0:
+			cout << "Esta a fazer login cliente";
+			menuLoginCliente();
 			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case 2:
-			cout<<"OPCAO 2";
+
+		case -1:         // 2a opcao
+			cout << "Esta a fazer login developer";
+			menuLoginDeveloper();
 			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case 3:
-			cout<<"OPCAO 3";
+		case -2:        // 3a opcao
+			menuInicial();
 			system("pause");
+			return 0; // indica ao menu que ainda vai continuar o programa
 			break;
-		case 4:
-			cout<<"OPCAO 4";
-			system("pause");
-			break;
+
+		}
 	}
 }
 
+int menuRegistar() {
+	system("cls");
+	int opcao = 0;
+	for (;;) {
+		system("cls");
+		cout << "  Faca o registo: escolha o seu tipo de conta  " << endl << endl;
+
+		if (opcao == 0) cor(112);
+		cout << "  Cliente  " << endl; cor(7);
+		if (opcao == -1) cor(112);
+		cout << "  Developer " << endl; cor(7);
+		if (opcao == -2) cor(124);
+		cout << "  SAIR  " << endl; cor(7);
+
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 2, opcao);
+
+		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+		{
+		case 0:
+			cout << "Esta a fazer registo cliente";
+			menuRegistarCliente();
+			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
+			break;
+
+		case -1:         // 2a opcao
+			cout << "Esta a fazer registo developer";
+			menuRegistarDeveloper();
+			system("pause");
+			return 1; // indica ao menu que ainda vai continuar o programa
+			break;
+		case -2:        // 3a opcao
+			menuInicial();
+			system("pause");
+			return 0; // indica ao menu que ainda vai continuar o programa
+			break;
+
+		}
+	}
+}
+
+int menuLoginCliente(){
+	system("cls");
+
+	string nome;
+	unsigned int idade;
+	string sexo;
+	int cartao_credito;
+
+	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+
+	cout << "  Indique o seu nome: "; cin >> nome; cout << endl;
+	cout << "  Indique a sua idade: "; cin >> idade; cout << endl;
+	cout << "  Indique o seu sexo (M ou F): "; cin >> sexo; cout << endl;
+	cout << "  Indique o seu no. cartao credito: "; cin >> cartao_credito; cout << endl;
+
+}
+
+int menuLoginDeveloper(){
+	system("cls");
+}
+
+int menuRegistarCliente(){
+	system("cls");
+}
+
+
+int menuRegistarDeveloper(){
+	system("cls");
+}
+
+
+
+
+
+
 /*void main()
-{
-	int opc=0;
-	do
-	{
-		opc=menu();
-		ProcessarOpcaoMenu(opc);
-	} while (opc);
-}*/
+ {
+ int opc=0;
+ do
+ {
+ opc=menu();
+ ProcessarOpcaoMenu(opc);
+ } while (opc);
+ }*/
