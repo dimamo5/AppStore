@@ -46,6 +46,9 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 
 int menuInicial(AppStore mieic) {
 	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);  //TODO: criar funcao para imprimir data
 	int opcao = 0;
 	for (;;) {
 		system("cls");
@@ -91,6 +94,9 @@ int menuInicial(AppStore mieic) {
 
 int menuLogin(AppStore mieic) {
 	system("cls");
+	time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(tm);
 	int opcao = 0;
 	for (;;) {
 		system("cls");
@@ -133,6 +139,9 @@ int menuLogin(AppStore mieic) {
 
 int menuRegistar(AppStore mieic) {
 	system("cls");
+	time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(tm);
 	int opcao = 0;
 	for (;;) {
 		system("cls");
@@ -175,6 +184,9 @@ int menuRegistar(AppStore mieic) {
 
 int menuLoginCliente(AppStore mieic){
 	system("cls");
+	time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(tm);
 
 	string nome;
 	unsigned int idade;
@@ -191,15 +203,24 @@ int menuLoginCliente(AppStore mieic){
 
 int menuLoginDeveloper(AppStore mieic){
 	system("cls");
+	time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(tm);
 }
 
 int menuRegistarCliente(AppStore mieic){
 	system("cls");
+	time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(tm);
 }
 
 
 int menuRegistarDeveloper(AppStore mieic){
 	system("cls");
+	time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(tm);
 }
 
 
