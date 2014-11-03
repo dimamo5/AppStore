@@ -27,7 +27,8 @@ bool AppStore::save_clientes(ofstream& file) {
 			file << clientes[i].getSaldo() << endl;
 			file << clientes[i].getVouchers();
 			file << clientes[i].getHistorico().size() << endl;
-			for (unsigned int m = 0; i < clientes[i].getHistorico().size();m++) {
+			for (unsigned int m = 0; i < clientes[i].getHistorico().size();
+					m++) {
 				file << clientes[i].getHistorico()[m]->getId();
 			}
 		}
@@ -36,9 +37,10 @@ bool AppStore::save_clientes(ofstream& file) {
 }
 
 bool AppStore::load_clientes(fstream& file) {
-	unsigned int next_id, idade,nr_vouchers;
+	unsigned int next_id, idade, nr_vouchers, historico_size, id_vendas;
 	int saldo, cartao_credito, id;
 	string sexo, nome, temp;
+	vector<Vendas*> vendas_temp;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
 	Cliente::setNextID(next_id);
@@ -57,9 +59,18 @@ bool AppStore::load_clientes(fstream& file) {
 		stringstream(temp) >> saldo;
 		getline(file, temp);
 		stringstream(temp) >> nr_vouchers;
+		getline(file, temp);
+		stringstream(temp) >> historico_size;
+		for (unsigned int i = 0; i < historico_size; i++) {
+			getline(file, temp);
+			stringstream(temp) >> id_vendas;
+			vendas_temp.push_back(find_vendas_id(id_vendas));
+		}
 		Cliente temp_cliente = Cliente(id, nome, idade, sexo, cartao_credito,
-				saldo);
+				saldo, nr_vouchers);
+		temp_cliente.setHistorico(vendas_temp);
 		clientes.push_back(temp_cliente);
+		vendas_temp.clear();
 	}
 	return true;
 }
@@ -165,10 +176,45 @@ Developer* AppStore::find_dev_id(unsigned int id) const {
 }
 
 bool AppStore::save_all() {
+	ofstream file_developer, file_vendas, file_apps, file_clientes;
+
+	file_developer.open("files/developer.txt");
+	save_dev(file_developer);
+	file_developer.close();
+
+	file_apps.open("files/app.txt");
+	save_app(file_apps);
+	file_apps.close();
+
+	file_vendas.open("files/vendas.txt");
+	save_vendas(file_vendas);
+	file_vendas.close();
+
+	file_clientes.open("files/clientes.txt");
+	save_clientes(file_clientes);
+	file_clientes.close();
 
 }
 
 bool AppStore::load_all() {
+	fstream file_developer, file_vendas, file_apps, file_clientes;
+
+	file_developer.open("files/developer.txt");
+	load_dev(file_developer);
+	file_developer.close();
+
+	file_apps.open("files/app.txt");
+	load_app(file_apps);
+	file_apps.close();
+
+	file_vendas.open("files/vendas.txt");
+	load_vendas(file_vendas);
+	file_vendas.close();
+
+	file_clientes.open("files/clientes.txt");
+	load_clientes(file_clientes);
+	file_clientes.close();
+
 	//developer->app->vendas->cliente
 }
 
@@ -235,6 +281,15 @@ App* AppStore::find_app_id(unsigned int id) {
 	for (unsigned int i = 0; i < apps.size(); i++) {
 		if (apps[i].get_id() == id) {
 			return &apps[i];
+		}
+	}
+	return NULL;
+}
+
+Vendas* AppStore::find_vendas_id(unsigned int id) {
+	for (unsigned int i = 0; i < vendas.size(); i++) {
+		if (vendas[i].getId() == id) {
+			return &vendas[i];
 		}
 	}
 	return NULL;

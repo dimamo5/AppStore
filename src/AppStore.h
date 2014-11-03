@@ -27,6 +27,8 @@ public:
 	vector<Vendas> vendas;
 	Developer* find_dev_id(unsigned int id) const;
 	App* find_app_id(unsigned int id);
+	Vendas* find_vendas_id(unsigned int id);
+
 	bool save_all();
 	bool load_all();
 	bool save_app(ofstream &file);
