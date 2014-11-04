@@ -27,9 +27,9 @@ int teclas() {
 			if (tecla == 80) //ABAIXO
 				return -1;
 			if (tecla == 75) //ESQUERDA
-				return -2;
-			if (tecla == 77) //DIREITA
 				return 2;
+			if (tecla == 77) //DIREITA
+				return -2;
 		}
 		return 13;
 	}
@@ -868,89 +868,142 @@ void menuCliente(AppStore mieic) {
 
 void menuDeveloper(AppStore mieic) {
 	system("cls");
-		time_t t = time(0);
-		struct tm *now = localtime(&t);
-		Date data_atual(tm);
-		int opcao = 0;
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
 
-		for (;;) {
-			system("cls");
-			cout << "  Menu Cliente  " << endl << endl;
+	for (;;) {
+		system("cls");
+		cout << "  Menu Cliente  " << endl << endl;
 
-			if (opcao == 0)
-				cor(112);
-			cout << "  Visitar AppStore  " << endl;
-			cor(7);
-			if (opcao == -1)
-				cor(112);
-			cout << "  Gerir Apps " << endl;
-			cor(7);
-			if (opcao == -2)
-				cor(112);
-			cout << "  Definicoes da Conta  " << endl;
-			cor(7);
-			if (opcao == -3)
-				cor(112);
-			cout << "  Visualisar Atributos de Developer  " << endl;
-			cor(7);
-			if (opcao == -4)
-				cor(124);
-			cout << "  LOGOUT  " << endl;
-			cor(7);
+		if (opcao == 0)
+			cor(112);
+		cout << "  Visitar AppStore  " << endl;
+		cor(7);
+		if (opcao == -1)
+			cor(112);
+		cout << "  Gerir Apps " << endl;
+		cor(7);
+		if (opcao == -2)
+			cor(112);
+		cout << "  Definicoes da Conta  " << endl;
+		cor(7);
+		if (opcao == -3)
+			cor(112);
+		cout << "  Visualisar Atributos de Developer  " << endl;
+		cor(7);
+		if (opcao == -4)
+			cor(124);
+		cout << "  LOGOUT  " << endl;
+		cor(7);
 
-			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 4, opcao);
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 4, opcao);
 
-			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
-			{
-			case 0:          // 1a opcao
-				menuInicial(mieic); // visitar appstore - vai ser igual à listagem de apps SEM login
-				system("pause");
-				break;
+		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+		{
+		case 0:          // 1a opcao
+			menuInicial(mieic); // visitar appstore - vai ser igual à listagem de apps SEM login
+			system("pause");
+			break;
 
-			case -1:         // 2a opcao
-				menuDeveloperGerirApps(mieic);
-				system("pause");
-				break;
-			case -2:        // 3a opcao
-				menuDeveloperDefinicoes(mieic);
-				system("pause");
-				break;
-			case -3:        // 4a opcao
-				menuInicial(mieic); // TODO: implementar a listagem atributos do developer
-				system("pause");
-				break;
-			case -4:        // 5a opcao
-				menuInicial(mieic);
-				system("pause");
-				break;
+		case -1:         // 2a opcao
+			menuDeveloperGerirApps(mieic);
+			system("pause");
+			break;
+		case -2:        // 3a opcao
+			menuDeveloperDefinicoes(mieic);
+			system("pause");
+			break;
+		case -3:        // 4a opcao
+			menuInicial(mieic); // TODO: implementar a listagem atributos do developer
+			system("pause");
+			break;
+		case -4:        // 5a opcao
+			menuInicial(mieic);
+			system("pause");
+			break;
 
-			}
 		}
+	}
 }
 
-void menuClienteTransacoes(AppStore mieic){
+void menuClienteTransacoes(AppStore mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+
+	for (;;) {
+		system("cls");
+		cout << "  Transacoes e Credito do Cliente  " << endl << endl;
+
+		if (opcao == 0)
+			cor(112);
+		cout << "  Adicionar Credito  " << endl;
+		cor(7);
+		if (opcao == -1)
+			cor(112);
+		cout << "  Cesto de Compras " << endl;
+		cor(7);
+		if (opcao == -2)
+			cor(112);
+		cout << "  Historico de Vendas  " << endl;
+		cor(7);
+		if (opcao == -3)
+			cor(124);
+		cout << "  SAIR  " << endl;
+		cor(7);
+
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+		{
+		case 0:          // 1a opcao
+			menuClienteCredito(mieic);
+			system("pause");
+			break;
+
+		case -1:         // 2a opcao
+			menuCestoCompras(mieic);
+			system("pause");
+			break;
+		case -2:        // 3a opcao
+			menuHistoricoVendas(mieic);
+			system("pause");
+			break;
+		case -3:        // 4a opcao
+			menuCliente(mieic);
+			system("pause");
+			break;
+
+		}
+	}
+}
+
+void menuClienteDefinicoes(AppStore mieic) {
 
 }
 
-void menuClienteDefinicoes(AppStore mieic){
-}
-
-
-
-void menuDeveloperGerirApps(AppStore mieic){
+void menuDeveloperGerirApps(AppStore mieic) {
 
 }
 
-void menuDeveloperDefinicoes(AppStore mieic){
+void menuDeveloperDefinicoes(AppStore mieic) {
 
 }
-/*void main()
- {
- int opc=0;
- do
- {
- opc=menu();
- ProcessarOpcaoMenu(opc);
- } while (opc);
- }*/
+
+void menuClienteCredito(AppStore mieic) {
+
+}
+
+void menuCestoCompras(AppStore mieic) {
+
+}
+
+void menuHistoricoVendas(AppStore mieic){
+
+}

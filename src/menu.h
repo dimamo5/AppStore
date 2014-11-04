@@ -32,6 +32,9 @@ void menuClienteDefinicoes(AppStore mieic);
 void menuDeveloperDefinicoes(AppStore mieic);
 void menuDeveloperGerirApps(AppStore mieic);
 void menuDeveloperModApp(AppStore mieic);
+void menuClienteCredito(AppStore mieic);
+void menuCestoCompras(AppStore mieic);
+void menuHistoricoVendas(AppStore mieic);
 
 // ainda nao implementei a funcao de login nos menus de login
 
