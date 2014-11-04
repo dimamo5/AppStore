@@ -29,12 +29,20 @@ float Cliente::getSaldo() const {
 	return saldo;
 }
 
+string Cliente::getIdPass() const{
+	return id_pass;
+}
+
+void Cliente::setIdPass(string id_pass){
+	this->id_pass = id_pass;
+}
+
 void Cliente::setSaldo(float saldo) {
 	this->saldo = saldo;
 }
 
-Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers):
-		nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito),nr_vouchers(nr_vouchers){
+Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers, string id_pass):
+		nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito),nr_vouchers(nr_vouchers),id_pass(id_pass){
 	this->id=id;
 	this->saldo=saldo;
 }
@@ -47,7 +55,7 @@ unsigned int Cliente::getNext_id() const {
 	return next_id;
 }
 
-Cliente::Cliente(string nome, unsigned int idade, string sexo,int cartao_credito):nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito) {
+Cliente::Cliente(string nome, unsigned int idade, string sexo,int cartao_credito, string id_pass):nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito), id_pass(id_pass) {
 	this->id=next_id;
 	next_id++;
 	saldo=0;
@@ -89,6 +97,4 @@ void Cliente::addVoucher(){
 	nr_vouchers++;
 }
 
-string Cliente::getIdPass() const{
-	return id_pass;
-}
+

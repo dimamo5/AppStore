@@ -12,7 +12,7 @@ Date::Date() {   // default constructor
 
 Date::Date(struct tm* time_struct) { // constructor initizalized with a time_struct
 	this->year = time_struct->tm_year + 1900;
-	this->month = time_struct->tm_mon + 1;
+	this->month = time_struct->tm_mon + 1; // pois vao do 0 ao 11 e nos queremos do 1 ao 12
 	this->day = time_struct->tm_mday;
 	this->hour = time_struct->tm_hour;
 	this->minute = time_struct->tm_min;
@@ -81,6 +81,20 @@ bool Date::setYear(unsigned int year) {
 		return true;
 	}
 	return false;
+}
+
+string Date::imprimeData() const {
+	string ret;
+	stringstream ss;
+
+	ss << day << " de " << nomeDoMes(month) << " de "
+			<< year << "   " << setw(2) << setfill('0') << hour << ":"
+			<< setw(2) << setfill('0') << minute;
+
+	// exemplo de output: 3 de Novembro de 2014   10:09
+
+	getline(ss, ret);
+	return ret;
 }
 
 bool Date::operator<(const Date& dat) const {
@@ -182,12 +196,6 @@ bool Date::operator<=(const Date& dat) const {
 	}
 }
 
-string Date::imprimeData() const {
-	stringstream data;
-	data<<year<<"-"<<month<<"-"<<day<<"  "<<hour<<":"<<minute;
-	return data.str();
-}
-
 bool Date::operator>=(const Date& dat) const {
 
 	if ((*this) > dat || (*this) == dat) { // if the date is less or equal to the one it is being compared to
@@ -222,5 +230,33 @@ double daysBetweenDates(int year1, int month1, int day1, int year2, int month2,
 	double portable_difference = std::difftime(time1, time2) / seconds_per_day;
 
 	return abs(portable_difference);
+}
+
+string nomeDoMes(unsigned int month) {
+	if (month == 1)
+		return "Janeiro";
+	if (month == 2)
+		return "Fevereiro";
+	if (month == 3)
+		return "Marco";
+	if (month == 4)
+		return "Abril";
+	if (month == 5)
+		return "Maio";
+	if (month == 6)
+		return "Junho";
+	if (month == 7)
+		return "Julho";
+	if (month == 8)
+		return "Agosto";
+	if (month == 9)
+		return "Setembro";
+	if (month == 10)
+		return "Outubro";
+	if (month == 11)
+		return "Novembro";
+	if (month == 12)
+		return "Dezembro";
+
 }
 

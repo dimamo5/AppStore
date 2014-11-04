@@ -29,6 +29,11 @@ public:
 	App* find_app_id(unsigned int id);
 	Vendas* find_vendas_id(unsigned int id);
 
+	bool verificaLoginCliente(unsigned int id, string pass) const;
+	// true - "faz login"  false - "combinacao errada" Alternativamente poderia ter feito -1 -> "cliente nao existe" 0 -> "login OK" 1 -> "password errada"
+
+	bool verificaLoginDev(unsigned int id, string pass) const;
+
 	bool save_all();
 	bool load_all();
 	bool save_app(ofstream &file);

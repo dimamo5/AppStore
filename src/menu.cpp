@@ -52,7 +52,7 @@ int menuInicial(AppStore mieic) {
 	int opcao = 0;
 	for (;;) {
 		system("cls");
-		cout << "  Welcome to MIEICPlay  " << endl << endl;
+		cout << "  Bem-vindo a AppStore MIEICPlay  " << endl << endl;
 
 		if (opcao == 0)
 			cor(112);
@@ -88,7 +88,7 @@ int menuInicial(AppStore mieic) {
 			// ps: a funcao podera receber como argumento o tal vetor copiado e sorted
 			// depois e so usar esse indice retornado para imprimir no ecra as infos dessa app
 			// e aceder ao que for preciso dela. No caso de ordenacao de app por developer
-			// vai ser preciso criar um vetor de apps desse developer a partir do vetor
+			// vai ser preciso criar um vetor de apps desse  developer a partir do vetor
 			// de todas as apps existentes (a qual se podera fazer sort alfabetico depois).
 			// Isto e feito listando os developers e usando
 			// o metodo acima para ter o indice do developer pretendido. Ou seja, navega-se
@@ -240,6 +240,82 @@ void menuLoginCliente(AppStore mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 
+	bool loginCliente = false; // valor default = false
+	bool inputFail;
+	unsigned int id;
+	string password;
+
+	system("cls");
+	cout << "  Introduza o seu ID de login:  ";
+	fflush(stdin);
+	cin >> id;
+	cout << endl;
+
+	do {
+		system("cls");
+		cout << "  Introduza o seu ID de login:  " << id << endl;
+		cout << "  Introduza agora a password que pretende:  ";
+
+		cin >> password;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	system("cls");
+	cout << "  Introduza o seu ID de login:  " << id << endl;
+	cout << "  Introduza agora a password que pretende:  " << password << endl;
+
+	cout
+			<< "  Prima (Enter) para validar ou (Esc) para regressar sem tentar efetuar login  "
+			<< endl << endl;
+
+	cin.clear();
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) {
+			tecla = getch();
+		}
+	}
+	if (tecla == 13) { // se o user premir (Enter) tenta fazer login
+
+		// verifica se existe a combinacao id/pass na appstore do mieic
+		loginCliente = mieic.verificaLoginCliente(id, password);
+
+		if (loginCliente) { // da ecra de login e prime enter para continuar
+			cout << "  Sucesso! Login efetuado! " << endl << endl;
+			cout << "  Prima (Enter) para continuar  " << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+				menuCliente(mieic);
+			}
+		} else if (!loginCliente) {
+			cout << "  Acesso negado! Combinacao ID/Password errada " << endl << endl;
+			cout << "  Prima (Enter) para tentar novamente ou (Esc) para regressar  " << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+			}
+			if (tecla == 13)
+				menuLoginCliente(mieic);
+			else if (tecla == 27)
+				menuInicial(mieic);
+		}
+
+	} else if (tecla == 27) {  // se o user premir (Esc) logo, sai para tras
+		menuInicial(mieic);
+	}
+
 }
 
 void menuLoginDeveloper(AppStore mieic) {
@@ -350,7 +426,7 @@ void menuRegistarCliente(AppStore mieic) {
 		}
 	}
 	if (tecla == 13) { // se o user premir (Enter)
-		Cliente cli_temp(nome, idade, sexo, cartao_credito);
+		Cliente cli_temp(nome, idade, sexo, cartao_credito, password);
 		mieic.clientes.push_back(cli_temp);
 
 		cout << "  Sucesso! O seu ID de login e " << cli_temp.getId() << endl
@@ -485,8 +561,8 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 
 		inputFail = cin.fail();
 
-		for(unsigned int i = 0; i < NIF.size(); i++){ //verifica se NIF so tem numeros
-			if(!isdigit(NIF[i])){
+		for (unsigned int i = 0; i < NIF.size(); i++) { //verifica se NIF so tem numeros
+			if (!isdigit(NIF[i])) {
 				inputFail = true;
 			}
 		}
@@ -511,9 +587,9 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 
 	system("cls");
 	cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
-			cout << "  Indique o nome da empresa: " << nome << endl;
-			cout << "  Indique o NIF da empresa: " << NIF;
-			cout << "  Introduza agora a password que pretende:  "<< password; //TODO: por astericos na pass
+	cout << "  Indique o nome da empresa: " << nome << endl;
+	cout << "  Indique o NIF da empresa: " << NIF;
+	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
 			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
@@ -532,7 +608,8 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 		Developer* empresa_temp = new Empresa(nome, password, NIF);
 		mieic.dev.push_back(empresa_temp);
 
-		cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId() << endl << endl;
+		cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
+				<< endl << endl;
 		cout << "  Prima enter para continuar  " << endl;
 		tecla = getch();
 		if (tecla != 0) {
@@ -547,11 +624,11 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 	}
 }
 
-void menuCliente(AppStore mieic){
+void menuCliente(AppStore mieic) {
 
 }
 
-void menuDeveloper(AppStore mieic){
+void menuDeveloper(AppStore mieic) {
 
 }
 

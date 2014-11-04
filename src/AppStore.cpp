@@ -36,44 +36,44 @@ bool AppStore::save_clientes(ofstream& file) {
 	}
 }
 
-bool AppStore::load_clientes(fstream& file) {
-	unsigned int next_id, idade, nr_vouchers, historico_size, id_vendas;
-	int saldo, cartao_credito, id;
-	string sexo, nome, temp;
-	vector<Vendas*> vendas_temp;
-	getline(file, temp);
-	stringstream(temp) >> next_id;
-	Cliente::setNextID(next_id);
-	while (!file.eof()) {
-		getline(file, temp);
-		stringstream(temp) >> id;
-		getline(file, temp);
-		nome = temp;
-		getline(file, temp);
-		stringstream(temp) >> idade;
-		getline(file, temp);
-		sexo = temp;
-		getline(file, temp);
-		stringstream(temp) >> cartao_credito;
-		getline(file, temp);
-		stringstream(temp) >> saldo;
-		getline(file, temp);
-		stringstream(temp) >> nr_vouchers;
-		getline(file, temp);
-		stringstream(temp) >> historico_size;
-		for (unsigned int i = 0; i < historico_size; i++) {
-			getline(file, temp);
-			stringstream(temp) >> id_vendas;
-			vendas_temp.push_back(find_vendas_id(id_vendas));
-		}
-		Cliente temp_cliente = Cliente(id, nome, idade, sexo, cartao_credito,
-				saldo, nr_vouchers);
-		temp_cliente.setHistorico(vendas_temp);
-		clientes.push_back(temp_cliente);
-		vendas_temp.clear();
-	}
-	return true;
-}
+//bool AppStore::load_clientes(fstream& file) {
+//	unsigned int next_id, idade, nr_vouchers, historico_size, id_vendas;
+//	int saldo, cartao_credito, id;
+//	string sexo, nome, temp;
+//	vector<Vendas*> vendas_temp;
+//	getline(file, temp);
+//	stringstream(temp) >> next_id;
+//	Cliente::setNextID(next_id);
+//	while (!file.eof()) {
+//		getline(file, temp);
+//		stringstream(temp) >> id;
+//		getline(file, temp);
+//		nome = temp;
+//		getline(file, temp);
+//		stringstream(temp) >> idade;
+//		getline(file, temp);
+//		sexo = temp;
+//		getline(file, temp);
+//		stringstream(temp) >> cartao_credito;
+//		getline(file, temp);
+//		stringstream(temp) >> saldo;
+//		getline(file, temp);
+//		stringstream(temp) >> nr_vouchers;
+//		getline(file, temp);
+//		stringstream(temp) >> historico_size;
+//		for (unsigned int i = 0; i < historico_size; i++) {
+//			getline(file, temp);
+//			stringstream(temp) >> id_vendas;
+//			vendas_temp.push_back(find_vendas_id(id_vendas));
+//		}
+//		Cliente temp_cliente = Cliente(id, nome, idade, sexo, cartao_credito,
+//				saldo, nr_vouchers);
+//		temp_cliente.setHistorico(vendas_temp);
+//		clientes.push_back(temp_cliente);
+//		vendas_temp.clear();
+//	}
+//	return true;
+//}
 
 bool AppStore::save_dev(ofstream& file) {
 	if (dev.empty()) {
@@ -196,27 +196,27 @@ bool AppStore::save_all() {
 
 }
 
-bool AppStore::load_all() {
-	fstream file_developer, file_vendas, file_apps, file_clientes;
-
-	file_developer.open("files/developer.txt");
-	load_dev(file_developer);
-	file_developer.close();
-
-	file_apps.open("files/app.txt");
-	load_app(file_apps);
-	file_apps.close();
-
-	file_vendas.open("files/vendas.txt");
-	load_vendas(file_vendas);
-	file_vendas.close();
-
-	file_clientes.open("files/clientes.txt");
-	load_clientes(file_clientes);
-	file_clientes.close();
-
-	//developer->app->vendas->cliente
-}
+//bool AppStore::load_all() {
+//	fstream file_developer, file_vendas, file_apps, file_clientes;
+//
+//	file_developer.open("files/developer.txt");
+//	load_dev(file_developer);
+//	file_developer.close();
+//
+//	file_apps.open("files/app.txt");
+//	load_app(file_apps);
+//	file_apps.close();
+//
+//	file_vendas.open("files/vendas.txt");
+//	load_vendas(file_vendas);
+//	file_vendas.close();
+//
+//	file_clientes.open("files/clientes.txt");
+//	load_clientes(file_clientes);
+//	file_clientes.close();
+//
+//	//developer->app->vendas->cliente
+//}
 
 bool AppStore::save_vendas(ofstream &file) {
 	if (vendas.empty()) {
@@ -293,6 +293,34 @@ Vendas* AppStore::find_vendas_id(unsigned int id) {
 		}
 	}
 	return NULL;
+}
+
+bool AppStore::verificaLoginCliente(unsigned int id, string pass) const {
+
+	for (unsigned int i = 0; i < clientes.size(); i++) {
+		if (clientes[i].getId() == id) {
+			if (clientes[i].getIdPass() == pass) {
+				return true; // combinacao id-pass correta
+			} else {
+				return false;  // combinacao id-pass errada
+			}
+		}
+	}
+	return false;
+}
+
+bool AppStore::verificaLoginDev(unsigned int id, string pass) const {
+
+	for (unsigned int i = 0; i < dev.size(); i++) {
+		if (dev[i]->getId() == id) {
+			if (dev[i]->getIdPass() == pass) {
+				return true; // combinacao id-pass correta
+			} else {
+				return false;  // id existe, mas pass esta errada
+			}
+		}
+	}
+	return false;  // nao encontrou nenhum id igual ao dado
 }
 
 bool AppStore::load_dev(fstream& file) {

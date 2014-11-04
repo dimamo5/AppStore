@@ -13,9 +13,17 @@
 #include <vector>
 #include <ctime>
 #include <cmath>
+#include <iomanip>
 #include "time.h"
 
+
 using namespace std;
+
+
+tm make_tm(int year, int month, int day);
+double daysBetweenDates(int year1, int month1, int day1,int year2, int month2, int day2);
+
+string nomeDoMes(unsigned int month);
 
 class Date {
 
@@ -36,19 +44,23 @@ public:
 	unsigned int getDay() const;
 	unsigned int getMonth() const;
 	unsigned int getYear() const;
-	string imprimeData() const;
+
 	bool setMinute(unsigned int minute);
 	bool setHour(unsigned int hour);
 	bool setDay(unsigned int day);
 	bool setMonth(unsigned int month);
 	bool setYear(unsigned int year);
+
+	string imprimeData() const;
+	string imprimeHora() const;
+
 	bool operator< (const Date&) const;
 	bool operator> (const Date&) const;
 	bool operator==(const Date&) const;
 	bool operator<= (const Date&) const;
 	bool operator>= (const Date&) const;
-	tm make_tm(int year, int month, int day);
-	double daysBetweenDates(int year1, int month1, int day1,int year2, int month2, int day2);
+
+
 
 	//time_t t = time(0);
 	//struct tm *now = localtime(&t);
