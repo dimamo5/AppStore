@@ -12,8 +12,16 @@
 #include <string>
 #include "App.h"
 #include "Date.h"
+#include "Developer.h"
+#include "Cliente.h"
 
 using namespace std;
+
+class Cliente;
+class Developer;
+
+extern Developer* dev_act;
+extern Cliente* cli_act;
 
 class App;
 

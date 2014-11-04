@@ -82,8 +82,8 @@ bool AppStore::save_dev(ofstream& file) {
 		file << dev[0]->getNextId() << endl;
 		for (unsigned int i = 0; i < dev.size(); i++) {
 			file << dev[i]->getId() << endl;
-			file << dev[i]->get_nome() << endl;
-			file << dev[i]->get_saldo() << endl;
+			file << dev[i]->getNome() << endl;
+			file << dev[i]->getSaldo() << endl;
 			file << dev[i]->getIdPass() << endl;
 			file << dev[i]->getExtra() << endl;
 		}
@@ -173,6 +173,17 @@ Developer* AppStore::find_dev_id(unsigned int id) const {
 		}
 	}
 	return NULL;
+}
+
+Cliente* AppStore::find_cliente_id(unsigned int id){
+
+	for (unsigned int i = 0; i < clientes.size(); i++) {
+			if (clientes[i].getId() == id) {
+				return &clientes[i];
+			}
+		}
+		return NULL;
+
 }
 
 bool AppStore::save_all() {
@@ -293,6 +304,17 @@ Vendas* AppStore::find_vendas_id(unsigned int id) {
 		}
 	}
 	return NULL;
+}
+
+bool AppStore::existeNomeDev(string nome) const{
+
+	for(unsigned int i = 0; i < dev.size(); i++){
+
+		if (dev[i]->getNome() == nome){
+			return true;
+		}
+	}
+	return false;
 }
 
 bool AppStore::verificaLoginCliente(unsigned int id, string pass) const {

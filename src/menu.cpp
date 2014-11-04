@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include "menu.h"
 #include <tchar.h>
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
 #include <iostream>
 #include <fstream>
+#include "menu.h"
+
 using namespace std;
 
 void cor(int n) {
@@ -48,7 +49,9 @@ int menuInicial(AppStore mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);  //TODO: criar funcao para imprimir data
+	Date data_atual(tm);
+	dev_act = NULL; // da reset aos indicadores de login atual, ou seja, faz logout
+	cli_act = NULL;
 	int opcao = 0;
 	for (;;) {
 		system("cls");
@@ -204,7 +207,7 @@ int menuRegistar(AppStore mieic) {
 		cor(7);
 
 		opcao += teclas();
-		opcao = RestringeOpcaoTeclas(0, 2, opcao);
+		opcao = RestringeOpcaoTeclas(0, 3, opcao);
 
 		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
@@ -245,16 +248,24 @@ void menuLoginCliente(AppStore mieic) {
 	unsigned int id;
 	string password;
 
-	system("cls");
-	cout << "  Introduza o seu ID de login:  ";
-	fflush(stdin);
-	cin >> id;
-	cout << endl;
+	do {
+		system("cls");
+		cout << "  Insira os seus dados para login de cliente  " << endl << endl
+				<< endl;
+		cout << "  Introduza o seu ID de login:  ";
+		cin >> id;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
 
 	do {
 		system("cls");
+		cout << "  Insira os seus dados para login de cliente  " << endl << endl
+				<< endl;
 		cout << "  Introduza o seu ID de login:  " << id << endl;
-		cout << "  Introduza agora a password que pretende:  ";
+		cout << "  Introduza agora a sua password:  ";
 
 		cin >> password;
 
@@ -264,8 +275,11 @@ void menuLoginCliente(AppStore mieic) {
 	} while (inputFail == true);
 
 	system("cls");
+	cout << "  Insira os seus dados para login de cliente  " << endl << endl
+			<< endl;
 	cout << "  Introduza o seu ID de login:  " << id << endl;
-	cout << "  Introduza agora a password que pretende:  " << password << endl;
+	cout << "  Introduza agora a sua password:  " << password << endl << endl
+			<< endl;
 
 	cout
 			<< "  Prima (Enter) para validar ou (Esc) para regressar sem tentar efetuar login  "
@@ -294,11 +308,18 @@ void menuLoginCliente(AppStore mieic) {
 				while (tecla != 13) { // enquanto nao prime enter para continuar
 					tecla = getch();
 				}
-				menuCliente(mieic);
+
+				// usa o ID de login para devolver um pointer para o cliente atual
+				// cli_act e a variavel global do cliente currently logged in
+				cli_act = mieic.find_cliente_id(id);
+				menuCliente(mieic); // continua para o menu de Cliente
 			}
 		} else if (!loginCliente) {
-			cout << "  Acesso negado! Combinacao ID/Password errada " << endl << endl;
-			cout << "  Prima (Enter) para tentar novamente ou (Esc) para regressar  " << endl;
+			cout << "  Acesso negado! Combinacao ID/Password errada " << endl
+					<< endl;
+			cout
+					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+					<< endl;
 
 			tecla = getch();
 			if (tecla != 0) {
@@ -307,9 +328,9 @@ void menuLoginCliente(AppStore mieic) {
 				}
 			}
 			if (tecla == 13)
-				menuLoginCliente(mieic);
+				menuLoginCliente(mieic); // retry o login
 			else if (tecla == 27)
-				menuInicial(mieic);
+				menuInicial(mieic);  // desistir do login
 		}
 
 	} else if (tecla == 27) {  // se o user premir (Esc) logo, sai para tras
@@ -323,6 +344,100 @@ void menuLoginDeveloper(AppStore mieic) {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
+
+	bool loginDeveloper = false; // valor default = false
+	bool inputFail;
+	unsigned int id;
+	string password;
+
+	do {
+		system("cls");
+		cout << "  Insira os seus dados para login de developer  " << endl
+				<< endl << endl;
+		cout << "  Introduza o seu ID de login:  ";
+		cin >> id;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	do {
+		system("cls");
+		cout << "  Insira os seus dados para login de developer  " << endl
+				<< endl << endl;
+		cout << "  Introduza o seu ID de login:  " << id << endl;
+		cout << "  Introduza agora a sua password:  ";
+
+		cin >> password;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	system("cls");
+	cout << "  Insira os seus dados para login de developer  " << endl << endl
+			<< endl;
+	cout << "  Introduza o seu ID de login:  " << id << endl;
+	cout << "  Introduza agora a sua password:  " << password << endl << endl
+			<< endl;
+
+	cout
+			<< "  Prima (Enter) para validar ou (Esc) para regressar sem tentar efetuar login  "
+			<< endl << endl;
+
+	cin.clear();
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) {
+			tecla = getch();
+		}
+	}
+	if (tecla == 13) { // se o user premir (Enter) tenta fazer login
+
+		// verifica se existe a combinacao id/pass na appstore do mieic
+		loginDeveloper = mieic.verificaLoginDev(id, password);
+
+		if (loginDeveloper) { // da ecra de login e prime enter para continuar
+			cout << "  Sucesso! Login efetuado! " << endl << endl;
+			cout << "  Prima (Enter) para continuar  " << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+				// usa o ID de login para devolver um pointer para o cliente atual
+				// cli_act e a variavel global do cliente currently logged in
+			    dev_act = mieic.find_dev_id(id);
+				menuDeveloper(mieic); // segue para o menu de Dev
+			}
+		} else if (!loginDeveloper) {
+			cout << "  Acesso negado! Combinacao ID/Password errada " << endl
+					<< endl;
+			cout
+					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+					<< endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+			}
+			if (tecla == 13)
+				menuLoginDeveloper(mieic); // retry o login
+			else if (tecla == 27)
+				menuInicial(mieic); // desistir do login
+		}
+
+	} else if (tecla == 27) {  // se o user premir (Esc) logo, sai para tras
+		menuInicial(mieic);
+	}
+
 }
 
 void menuRegistarCliente(AppStore mieic) {
@@ -338,7 +453,8 @@ void menuRegistarCliente(AppStore mieic) {
 	unsigned int idade;
 	int cartao_credito;
 
-	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+	cout << "  Insira os seus dados para registo de cliente  " << endl << endl
+			<< endl;
 
 	cout << "  Indique o seu nome: ";
 	fflush(stdin);
@@ -347,7 +463,8 @@ void menuRegistarCliente(AppStore mieic) {
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Insira os seus dados para registo de cliente  " << endl
+				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade: ";
 		cin >> idade;
@@ -358,7 +475,8 @@ void menuRegistarCliente(AppStore mieic) {
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Insira os seus dados para registo de cliente  " << endl
+				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade: " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): ";
@@ -375,7 +493,8 @@ void menuRegistarCliente(AppStore mieic) {
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Insira os seus dados para registo de cliente  " << endl
+				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade: " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
@@ -388,11 +507,12 @@ void menuRegistarCliente(AppStore mieic) {
 	} while (inputFail == true);
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+		cout << "  Insira os seus dados para registo de cliente  " << endl
+				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade: " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-		cout << "  Indique o seu no. cartao credito: " << cartao_credito
+		cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl
 				<< endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
@@ -404,11 +524,13 @@ void menuRegistarCliente(AppStore mieic) {
 	} while (inputFail == true);
 
 	system("cls");
-	cout << "  Insira os seus dados de cliente  " << endl << endl << endl;
+	cout << "  Insira os seus dados para registo de cliente  " << endl << endl
+			<< endl;
 	cout << "  Indique o seu nome: " << nome << endl;
 	cout << "  Indique a sua idade: " << idade << endl;
 	cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-	cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl;
+	cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl
+			<< endl;
 	cout << "  Introduza agora a password que pretende:  " << password << endl
 			<< endl << endl;
 
@@ -454,12 +576,14 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 
 	// imprimeData(data_atual); fazer funcao para imprimir data
 
+	bool nomeRepetido = false;
 	bool inputFail;
 	string nome, morada, password;
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de developer  " << endl << endl << endl;
+		cout << "  Insira os seus dados para registo de developer  " << endl
+				<< endl << endl;
 		cout << "  Indique o seu nome: ";
 		fflush(stdin);
 		getline(cin, nome);
@@ -468,7 +592,8 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de developer  " << endl << endl << endl;
+		cout << "  Insira os seus dados para registo de developer  " << endl
+				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua morada: ";
 		fflush(stdin);
@@ -478,9 +603,10 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados de developer  " << endl << endl << endl;
+		cout << "  Insira os seus dados para registo de developer  " << endl
+				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
-		cout << "  Indique a sua morada: " << morada << endl;
+		cout << "  Indique a sua morada: " << morada << endl << endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
 		cin >> password;
@@ -491,9 +617,10 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 	} while (inputFail == true);
 
 	system("cls");
-	cout << "  Insira os seus dados de developer  " << endl << endl << endl;
+	cout << "  Insira os seus dados para registo de developer  " << endl << endl
+			<< endl;
 	cout << "  Indique o seu nome: " << nome << endl;
-	cout << "  Indique a sua morada: " << morada << endl;
+	cout << "  Indique a sua morada: " << morada << endl << endl;
 	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
@@ -510,18 +637,42 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 		}
 	}
 	if (tecla == 13) { // se o user premir (Enter)
-		Developer* individ_temp = new Individual(nome, password, morada);
-		mieic.dev.push_back(individ_temp);
 
-		cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
-				<< endl << endl;
-		cout << "  Prima enter para continuar  " << endl;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 13) { // enquanto nao prime enter para continuar
-				tecla = getch();
+		// verifica se na appstore mieic ja ha algum developer com este nome
+		nomeRepetido = mieic.existeNomeDev(nome);
+
+		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
+
+			Developer* individ_temp = new Individual(nome, password, morada);
+			mieic.dev.push_back(individ_temp);
+
+			cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
+					<< endl << endl;
+			cout << "  Prima enter para continuar  " << endl;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+				menuInicial(mieic);
 			}
-			menuInicial(mieic);
+		} else if (nomeRepetido) { // se o nome for repetido, retry ou regressa
+			cout << "  Registo invalido! Um developer com esse nome ja existe. "
+					<< endl << endl;
+			cout
+					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+					<< endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+			}
+			if (tecla == 13)
+				menuRegistarDeveloperIndividual(mieic);
+			else if (tecla == 27)
+				menuRegistar(mieic);
 		}
 
 	} else if (tecla == 27) {  // se o user premir (Esc)
@@ -539,13 +690,15 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 
 	// imprimeData(data_atual); fazer funcao para imprimir data
 
+	bool nomeRepetido = false;
 	bool inputFail;
 	string nome, password;
 	string NIF;
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+		cout << "  Insira os dados para registo da empresa  " << endl << endl
+				<< endl;
 		cout << "  Indique o nome da empresa: ";
 		fflush(stdin);
 		getline(cin, nome);
@@ -554,7 +707,8 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+		cout << "  Insira os dados para registo da empresa  " << endl << endl
+				<< endl;
 		cout << "  Indique o nome da empresa: " << nome << endl;
 		cout << "  Indique o NIF da empresa: ";
 		cin >> NIF;
@@ -573,9 +727,10 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 
 	do {
 		system("cls");
-		cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+		cout << "  Insira os dados para registo da empresa  " << endl << endl
+				<< endl;
 		cout << "  Indique o nome da empresa: " << nome << endl;
-		cout << "  Indique o NIF da empresa: " << NIF << endl;
+		cout << "  Indique o NIF da empresa: " << NIF << endl << endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
 		cin >> password;
@@ -586,9 +741,10 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 	} while (inputFail == true);
 
 	system("cls");
-	cout << "  Insira os seus dados da empresa  " << endl << endl << endl;
+	cout << "  Insira os dados para registo da empresa  " << endl << endl
+			<< endl;
 	cout << "  Indique o nome da empresa: " << nome << endl;
-	cout << "  Indique o NIF da empresa: " << NIF;
+	cout << "  Indique o NIF da empresa: " << NIF << endl << endl;
 	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
@@ -605,31 +761,66 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 		}
 	}
 	if (tecla == 13) { // se o user premir (Enter)
-		Developer* empresa_temp = new Empresa(nome, password, NIF);
-		mieic.dev.push_back(empresa_temp);
 
-		cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
-				<< endl << endl;
-		cout << "  Prima enter para continuar  " << endl;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 13) { // enquanto nao prime enter para continuar
-				tecla = getch();
+		// verifica se na appstore mieic ja ha algum developer com este nome
+		nomeRepetido = mieic.existeNomeDev(nome);
+
+		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
+
+			Developer* empresa_temp = new Empresa(nome, password, NIF);
+			mieic.dev.push_back(empresa_temp);
+
+			cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
+					<< endl << endl;
+			cout << "  Prima enter para continuar  " << endl;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+				menuInicial(mieic);
 			}
-			menuInicial(mieic);
+		} else if (nomeRepetido) { // se o nome for repetido, retry ou regressa
+			cout << "  Registo invalido! Um developer com esse nome ja existe. "
+					<< endl << endl;
+			cout
+					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+					<< endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+			}
+			if (tecla == 13)
+				menuRegistarDeveloperEmpresa(mieic);
+			else if (tecla == 27)
+				menuRegistar(mieic);
 		}
 
 	} else if (tecla == 27) {  // se o user premir (Esc)
 		menuRegistar(mieic);
 	}
+
 }
 
 void menuCliente(AppStore mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
 
+	cout << "Menu Cliente";
 }
 
 void menuDeveloper(AppStore mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
 
+	cout << "Menu Developer";
 }
 
 /*void main()

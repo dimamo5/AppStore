@@ -25,13 +25,13 @@ Developer::Developer(int id,string nome,double saldo,string id_pass):id(id),nome
 //	return apps;
 //}
 
-string Developer::get_nome() const {
+string Developer::getNome() const {
 	return nome;
 }
-double Developer::get_saldo() const {
+double Developer::getSaldo() const {
 	return saldo;
 }
-void Developer::set_saldo(unsigned int s) {
+void Developer::setSaldo(unsigned int s) {
 	saldo = s;
 }
 

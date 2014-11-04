@@ -5,6 +5,13 @@
 #include <string>
 #include "App.h"
 #include "Vendas.h"
+#include "Cliente.h"
+
+class Developer;
+class Cliente;
+
+extern Developer* dev_act;
+extern Cliente* cli_act;
 
 using namespace std;
 
@@ -19,9 +26,9 @@ protected:
 public:
 	Developer(string nome,string id_pass);
 	Developer(int id,string nome,double saldo,string id_pass);
-	string get_nome() const;
-	double get_saldo() const;
-	void set_saldo(unsigned int s);
+	string getNome() const;
+	double getSaldo() const;
+	void setSaldo(unsigned int s);
 	static void setNextID(unsigned int i);
 	virtual string getType() const =0;
 	virtual string getExtra() const=0;

@@ -258,5 +258,6 @@ string nomeDoMes(unsigned int month) {
 	if (month == 12)
 		return "Dezembro";
 
+return "";
 }
 

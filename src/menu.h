@@ -11,6 +11,9 @@
 #include "AppStore.h"
 #include "Cliente.h"
 
+extern Developer* dev_act;
+extern Cliente* cli_act;
+
 void cor(int n);
 int teclas();
 int RestringeOpcaoTeclas(int min, int max, int opcao);

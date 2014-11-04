@@ -9,12 +9,18 @@
 
 #include <string>
 #include <vector>
-#include "Comentario.h"
 #include "Developer.h"
+#include "Cliente.h"
+#include "Comentario.h"
 
 using namespace std;
 
 class Developer;
+
+extern Developer* dev_act;
+extern Cliente* cli_act;
+
+
 
 class App{
 private:

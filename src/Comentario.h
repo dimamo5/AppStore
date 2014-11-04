@@ -12,6 +12,7 @@
 
 using namespace std;
 
+
 class Comentario {
 private:
 	unsigned int id_cliente;
