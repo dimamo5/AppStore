@@ -345,7 +345,7 @@ void menuLoginDeveloper(AppStore mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 
-	bool loginDeveloper = false; // valor default = false
+	bool loginDeveloper; // valor default = false
 	bool inputFail;
 	unsigned int id;
 	string password;
@@ -412,7 +412,7 @@ void menuLoginDeveloper(AppStore mieic) {
 				}
 				// usa o ID de login para devolver um pointer para o cliente atual
 				// cli_act e a variavel global do cliente currently logged in
-			    dev_act = mieic.find_dev_id(id);
+				dev_act = mieic.find_dev_id(id);
 				menuDeveloper(mieic); // segue para o menu de Dev
 			}
 		} else if (!loginDeveloper) {
@@ -587,7 +587,6 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 		cout << "  Indique o seu nome: ";
 		fflush(stdin);
 		getline(cin, nome);
-		//		cin >> morada;
 	} while (nome == "");
 
 	do {
@@ -598,7 +597,6 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 		cout << "  Indique a sua morada: ";
 		fflush(stdin);
 		getline(cin, morada);
-//		cin >> morada;
 	} while (morada == "");
 
 	do {
@@ -648,7 +646,7 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 
 			cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
 					<< endl << endl;
-			cout << "  Prima enter para continuar  " << endl;
+			cout << "  Prima (Enter) para continuar  " << endl;
 			tecla = getch();
 			if (tecla != 0) {
 				while (tecla != 13) { // enquanto nao prime enter para continuar
@@ -772,7 +770,7 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 
 			cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
 					<< endl << endl;
-			cout << "  Prima enter para continuar  " << endl;
+			cout << "  Prima (Enter) para continuar  " << endl;
 			tecla = getch();
 			if (tecla != 0) {
 				while (tecla != 13) { // enquanto nao prime enter para continuar
@@ -810,19 +808,143 @@ void menuCliente(AppStore mieic) {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
+	int opcao = 0;
 
-	cout << "Menu Cliente";
+	for (;;) {
+		system("cls");
+		cout << "  Menu Cliente  " << endl << endl;
+
+		if (opcao == 0)
+			cor(112);
+		cout << "  Entrar na AppStore  " << endl;
+		cor(7);
+		if (opcao == -1)
+			cor(112);
+		cout << "  Transacoes e Credito " << endl;
+		cor(7);
+		if (opcao == -2)
+			cor(112);
+		cout << "  Definicoes da Conta  " << endl;
+		cor(7);
+		if (opcao == -3)
+			cor(112);
+		cout << "  Visualisar Atributos de Cliente  " << endl;
+		cor(7);
+		if (opcao == -4)
+			cor(124);
+		cout << "  LOGOUT  " << endl;
+		cor(7);
+
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 4, opcao);
+
+		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+		{
+		case 0:          // 1a opcao
+			menuInicial(mieic); // TODO: implementar a listagem de apps
+			system("pause");
+			break;
+
+		case -1:         // 2a opcao
+			menuClienteTransacoes(mieic);
+			system("pause");
+			break;
+		case -2:        // 3a opcao
+			menuClienteDefinicoes(mieic);
+			system("pause");
+			break;
+		case -3:        // 4a opcao
+			menuInicial(mieic); // TODO: implementar a listagem atributos do cliente
+			system("pause");
+			break;
+		case -4:        // 5a opcao
+			menuInicial(mieic);
+			system("pause");
+			break;
+
+		}
+	}
 }
 
 void menuDeveloper(AppStore mieic) {
 	system("cls");
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+		time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(tm);
+		int opcao = 0;
 
-	cout << "Menu Developer";
+		for (;;) {
+			system("cls");
+			cout << "  Menu Cliente  " << endl << endl;
+
+			if (opcao == 0)
+				cor(112);
+			cout << "  Visitar AppStore  " << endl;
+			cor(7);
+			if (opcao == -1)
+				cor(112);
+			cout << "  Gerir Apps " << endl;
+			cor(7);
+			if (opcao == -2)
+				cor(112);
+			cout << "  Definicoes da Conta  " << endl;
+			cor(7);
+			if (opcao == -3)
+				cor(112);
+			cout << "  Visualisar Atributos de Developer  " << endl;
+			cor(7);
+			if (opcao == -4)
+				cor(124);
+			cout << "  LOGOUT  " << endl;
+			cor(7);
+
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 4, opcao);
+
+			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+			{
+			case 0:          // 1a opcao
+				menuInicial(mieic); // visitar appstore - vai ser igual à listagem de apps SEM login
+				system("pause");
+				break;
+
+			case -1:         // 2a opcao
+				menuDeveloperGerirApps(mieic);
+				system("pause");
+				break;
+			case -2:        // 3a opcao
+				menuDeveloperDefinicoes(mieic);
+				system("pause");
+				break;
+			case -3:        // 4a opcao
+				menuInicial(mieic); // TODO: implementar a listagem atributos do developer
+				system("pause");
+				break;
+			case -4:        // 5a opcao
+				menuInicial(mieic);
+				system("pause");
+				break;
+
+			}
+		}
 }
 
+void menuClienteTransacoes(AppStore mieic){
+
+}
+
+void menuClienteDefinicoes(AppStore mieic){
+}
+
+
+
+void menuDeveloperGerirApps(AppStore mieic){
+
+}
+
+void menuDeveloperDefinicoes(AppStore mieic){
+
+}
 /*void main()
  {
  int opc=0;

@@ -9,7 +9,7 @@
 unsigned int Developer::next_id = 1;
 
 Developer::Developer(string nome, string id_pass) :
-		nome(nome) {
+		nome(nome), id_pass(id_pass) {
 	id = next_id;
 	next_id++;
 }

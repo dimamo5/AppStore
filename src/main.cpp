@@ -13,7 +13,6 @@ Cliente* cli_act = NULL;
 int main() {
 
 
-
 AppStore MEIC_Play;
 
 	int opc=0;

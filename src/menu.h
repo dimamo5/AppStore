@@ -28,6 +28,8 @@ void menuRegistarDeveloperEmpresa(AppStore mieic);
 void menuCliente(AppStore mieic);
 void menuDeveloper(AppStore mieic);
 void menuClienteTransacoes(AppStore mieic);
+void menuClienteDefinicoes(AppStore mieic);
+void menuDeveloperDefinicoes(AppStore mieic);
 void menuDeveloperGerirApps(AppStore mieic);
 void menuDeveloperModApp(AppStore mieic);
 
