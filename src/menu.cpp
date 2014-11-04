@@ -77,6 +77,28 @@ int menuInicial(AppStore mieic) {
 		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
+			// COMO LISTAR APPS ALFABETICAMENTE, POR PRECO E POR DEV:
+			// na lista de apps vai ser precisa uma funcao que imprime todas por ordem.
+			// Para ficarem ordenadas alfabeticamente, e necessario o operador < , que vai
+			// comparar so as strings dos nomes das apps. Depois pode-se criar um vetor cópia
+			// (ou usar original) das apps e usar o sort nesse vetor e imprimir.
+			// Cria-se uma funcao entao que imprime e que vai ter uma variavel "opcao" que
+			// varia quando andamos com as setas. Ao carregar enter retorna essa opcao
+			// (que vai ser o indice no vetor, da app selecionada).
+			// ps: a funcao podera receber como argumento o tal vetor copiado e sorted
+			// depois e so usar esse indice retornado para imprimir no ecra as infos dessa app
+			// e aceder ao que for preciso dela. No caso de ordenacao de app por developer
+			// vai ser preciso criar um vetor de apps desse developer a partir do vetor
+			// de todas as apps existentes (a qual se podera fazer sort alfabetico depois).
+			// Isto e feito listando os developers e usando
+			// o metodo acima para ter o indice do developer pretendido. Ou seja, navega-se
+			// pelos developers e vai haver uma funcao que retorna a opcao/indice quando
+			// se carrega no enter. Depois usa-se esse developer para pesquisar as apps dele
+			// e ir adicionando-as a um vetor temporario (ao qual se podera fazer sort).
+			// ps: alternativamente à lista de apps alfabeticamente e por dev, poder-se-a
+			// tambem listar por preco. Basta mudar as apps para estarem sorted por preco
+			// o que significa que se tem de fazer um operador que compare precos
+
 			cout << "Finge que esta aqui a AppStore, pliz" << endl;
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
@@ -130,14 +152,12 @@ int menuLogin(AppStore mieic) {
 		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
-			cout << "Esta a fazer login cliente";
 			menuLoginCliente(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		case -1:         // 2a opcao
-			cout << "Esta a fazer login developer";
 			menuLoginDeveloper(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
@@ -525,6 +545,14 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 	} else if (tecla == 27) {  // se o user premir (Esc)
 		menuRegistar(mieic);
 	}
+}
+
+void menuCliente(AppStore mieic){
+
+}
+
+void menuDeveloper(AppStore mieic){
+
 }
 
 /*void main()

@@ -22,6 +22,12 @@ void menuLoginDeveloper(AppStore mieic);
 void menuRegistarCliente(AppStore mieic);
 void menuRegistarDeveloperIndividual(AppStore mieic);
 void menuRegistarDeveloperEmpresa(AppStore mieic);
+void menuCliente(AppStore mieic);
+void menuDeveloper(AppStore mieic);
+void menuClienteTransacoes(AppStore mieic);
+void menuDeveloperGerirApps(AppStore mieic);
+void menuDeveloperModApp(AppStore mieic);
 
+// ainda nao implementei a funcao de login nos menus de login
 
 #endif /* MENU_H_ */
