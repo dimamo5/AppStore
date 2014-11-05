@@ -1303,6 +1303,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					if(opcao < 0)
 						opcao = 0;
 					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
 					printMenuScroll(menu_options, opcao, 4);
 				}
 				if (tecla == 80) //ABAIXO
@@ -1311,6 +1312,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					if (opcao > (menu_options.size()-1))
 						opcao = menu_options.size()-1;
 					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
 					printMenuScroll(menu_options, opcao, 4);
 				}
 			}
