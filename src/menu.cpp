@@ -1143,12 +1143,12 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			switch (opcao - 13) {
 			case 0:          // 1a opcao
-				//menuVisitaStoreOrdenada(mieic, state, apps)
+				menuVisitaStoreOrdenada(mieic, state, mieic.apps);
 				system("pause");
 				break;
 
 			case -1:         // 2a opcao
-				//menuVisitaStoreOrdenada(mieic, state, apps)
+				menuVisitaStoreOrdenada(mieic, state, mieic.apps);
 				system("pause");
 				break;
 			case -2:        // 3a opcao
