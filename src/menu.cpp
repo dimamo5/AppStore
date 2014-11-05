@@ -9,15 +9,16 @@
 
 using namespace std;
 
-vector<string> getAppNames(vector<App> apps){
+vector<string> getAppNames(vector<App> apps) {
 	vector<string> app_names;
-	for(unsigned int i = 0; i< apps.size();i++){
+	for (unsigned int i = 0; i < apps.size(); i++) {
 		app_names.push_back(apps[i].getNome());
 	}
 	return app_names;
 }
 
-void printMenuScroll(vector<string> options, int selected_option, const unsigned int max_per_screen) {
+void printMenuScroll(vector<string> options, int selected_option,
+		const unsigned int max_per_screen) {
 	int min = selected_option - (max_per_screen / 2);
 	unsigned int max = selected_option + ((max_per_screen + 1) / 2);
 
@@ -1275,28 +1276,28 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	Date data_atual(tm);
 	int opcao = 0;
 
-	if (state == 0){
-
+	if (state == 0) {
+		vector<string> menu_options = getAppNames(apps_ordenadas);
 		int tecla;
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 13) //ENQUANTO DIFERENTE DE ENTER
-				{
-					tecla = getch();
-					if (tecla == 72) //ACIMA
-						opcao--;
-					// funcao que recebe apps e retorna vetor de strings dos nomes
-					// printScroll(blahblah
-					if (tecla == 80) //ABAIXO
-						opcao++;
-				}
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13) //ENQUANTO DIFERENTE DE ENTER
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+					opcao--;
+				printMenuScroll(menu_options, opcao, 4);
+				if (tecla == 80) //ABAIXO
+					opcao++;
+				printMenuScroll(menu_options, opcao, 4);
 			}
+		}
 
 	}
-	if (state == 1){
+	if (state == 1) {
 
 	}
-	if (state == 2){
+	if (state == 2) {
 
 	}
 
