@@ -5,9 +5,11 @@
 #include <windows.h>
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 #include "menu.h"
 
 using namespace std;
+
 
 vector<string> getAppNames(vector<App> apps) {
 	vector<string> app_names;
@@ -1112,6 +1114,9 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 
+	vector<App> apps_por_nome;
+	vector<App> apps_por_preco;
+
 	if (state == 0) {
 
 		int opcao = 0;
@@ -1144,12 +1149,16 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			switch (opcao - 13) {
 			case 0:          // 1a opcao
-				menuVisitaStoreOrdenada(mieic, state, mieic.apps, "Ordem Alfabetica");
+				apps_por_nome = mieic.apps;
+				sort(apps_por_nome.begin(),apps_por_nome.end(),appsComparaNome);
+				menuVisitaStoreOrdenada(mieic, state, apps_por_nome, "Ordem Alfabetica");
 				system("pause");
 				break;
 
 			case -1:         // 2a opcao
-				menuVisitaStoreOrdenada(mieic, state, mieic.apps, "Preco");
+				apps_por_preco = mieic.apps;
+				sort(apps_por_preco.begin(),apps_por_preco.end(),appsComparaPreco);
+				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
 				system("pause");
 				break;
 			case -2:        // 3a opcao
@@ -1294,6 +1303,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					if(opcao < 0)
 						opcao = 0;
 					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
 					printMenuScroll(menu_options, opcao, 4);
 				}
 				if (tecla == 80) //ABAIXO
@@ -1302,6 +1312,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					if (opcao > (menu_options.size()-1))
 						opcao = menu_options.size()-1;
 					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
 					printMenuScroll(menu_options, opcao, 4);
 				}
 			}

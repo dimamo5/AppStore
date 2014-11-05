@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * AppStore.h
  *
@@ -21,6 +22,10 @@ extern Cliente* cli_act;
 
 using namespace std;
 
+
+bool appsComparaPreco(App app1, App app2);
+bool appsComparaNome(App app1, App app2);
+
 class AppStore {
 public:
 	AppStore();
@@ -32,6 +37,7 @@ public:
 	Cliente* find_cliente_id(unsigned int id) ;
 	App* find_app_id(unsigned int id);
 	Vendas* find_vendas_id(unsigned int id);
+
 
 	bool existeNomeDev(string nome) const;
 
@@ -52,3 +58,4 @@ public:
 };
 
 #endif /* APPSTORE_H_ */
+

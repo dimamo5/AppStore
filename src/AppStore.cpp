@@ -175,14 +175,14 @@ Developer* AppStore::find_dev_id(unsigned int id) const {
 	return NULL;
 }
 
-Cliente* AppStore::find_cliente_id(unsigned int id){
+Cliente* AppStore::find_cliente_id(unsigned int id) {
 
 	for (unsigned int i = 0; i < clientes.size(); i++) {
-			if (clientes[i].getId() == id) {
-				return &clientes[i];
-			}
+		if (clientes[i].getId() == id) {
+			return &clientes[i];
 		}
-		return NULL;
+	}
+	return NULL;
 
 }
 
@@ -306,11 +306,11 @@ Vendas* AppStore::find_vendas_id(unsigned int id) {
 	return NULL;
 }
 
-bool AppStore::existeNomeDev(string nome) const{
+bool AppStore::existeNomeDev(string nome) const {
 
-	for(unsigned int i = 0; i < dev.size(); i++){
+	for (unsigned int i = 0; i < dev.size(); i++) {
 
-		if (dev[i]->getNome() == nome){
+		if (dev[i]->getNome() == nome) {
 			return true;
 		}
 	}
@@ -346,6 +346,7 @@ bool AppStore::verificaLoginDev(unsigned int id, string pass) const {
 }
 
 bool AppStore::load_dev(fstream& file) {
+
 	unsigned int next_id, id;
 	float saldo;
 	string nome, pass, extra, temp, type;
@@ -375,4 +376,12 @@ bool AppStore::load_dev(fstream& file) {
 
 	}
 	return true;
+}
+
+bool appsComparaPreco(App app1, App app2) {
+return (app1.getPreco() < app2.getPreco());
+}
+
+bool appsComparaNome(App app1, App app2) {
+return (app1.getNome() < app2.getNome());
 }
