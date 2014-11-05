@@ -9,6 +9,7 @@
 
 #include <string>
 #include <vector>
+#include <sstream>
 #include "Developer.h"
 #include "Cliente.h"
 #include "Comentario.h"
@@ -54,6 +55,7 @@ public:
 	static void setNextId(unsigned int nextId);
 	int getNumClassificacoes() const;
 	void setDescricao(const string& descricao);
+	string imprime() const;
 };
 
 

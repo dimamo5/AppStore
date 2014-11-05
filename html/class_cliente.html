@@ -91,12 +91,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a99ac44054f87483cbaaecd3e88477892"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99ac44054f87483cbaaecd3e88477892"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Cliente</b> (int id, string nome, unsigned int idade, string sexo, int cartao_credito, float saldo)</td></tr>
-<tr class="separator:a99ac44054f87483cbaaecd3e88477892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcfd18678847f314549baa4ac66fbd1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcfd18678847f314549baa4ac66fbd1a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Cliente</b> (string nome, unsigned int idade, string sexo, int cartao_credito)</td></tr>
-<tr class="separator:abcfd18678847f314549baa4ac66fbd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60db1e1e5141e29c8888a48f9b5140bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60db1e1e5141e29c8888a48f9b5140bb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Cliente</b> (int id, string nome, unsigned int idade, string sexo, int cartao_credito, float saldo, unsigned int nr_vouchers, string id_pass)</td></tr>
+<tr class="separator:a60db1e1e5141e29c8888a48f9b5140bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a537299eb371d3b2b1d0f7bdf7a7e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76a537299eb371d3b2b1d0f7bdf7a7e8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Cliente</b> (string nome, unsigned int idade, string sexo, int cartao_credito, string id_pass)</td></tr>
+<tr class="separator:a76a537299eb371d3b2b1d0f7bdf7a7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af76bd3dca7cc6a21f94ee57c06de4427"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af76bd3dca7cc6a21f94ee57c06de4427"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNext_id</b> () const </td></tr>
 <tr class="separator:af76bd3dca7cc6a21f94ee57c06de4427"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,6 +115,12 @@ string&#160;</td><td class="memItemRight" valign="bottom"><b>getNome</b> () cons
 <tr class="memitem:ac91943541afd55e1b8e7d3139197b3b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac91943541afd55e1b8e7d3139197b3b0"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getSaldo</b> () const </td></tr>
 <tr class="separator:ac91943541afd55e1b8e7d3139197b3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa43047aa16c5f72c46a082dfb990074f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa43047aa16c5f72c46a082dfb990074f"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>getIdPass</b> () const </td></tr>
+<tr class="separator:aa43047aa16c5f72c46a082dfb990074f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a646583af1403099173848eda00f99ce7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a646583af1403099173848eda00f99ce7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIdPass</b> (string id_pass)</td></tr>
+<tr class="separator:a646583af1403099173848eda00f99ce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1984ef662ce9ae14dbf654c0a6b8fb09"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1984ef662ce9ae14dbf654c0a6b8fb09"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getVouchers</b> () const </td></tr>
 <tr class="separator:a1984ef662ce9ae14dbf654c0a6b8fb09"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +145,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>adicionarVenda</b> (<
 <tr class="memitem:ad2d27cf5a6a187c6a5faa4fee88cfd9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2d27cf5a6a187c6a5faa4fee88cfd9f"></a>
 vector&lt; <a class="el" href="class_vendas.html">Vendas</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getHistorico</b> () const </td></tr>
 <tr class="separator:ad2d27cf5a6a187c6a5faa4fee88cfd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340b3c4b25009f1020984743eb371208"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a340b3c4b25009f1020984743eb371208"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setHistorico</b> (vector&lt; <a class="el" href="class_vendas.html">Vendas</a> * &gt; v)</td></tr>
+<tr class="separator:a340b3c4b25009f1020984743eb371208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -153,7 +162,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setNextID</b> 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 2 2014 20:22:30 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

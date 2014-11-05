@@ -10,6 +10,9 @@
 
 #include "AppStore.h"
 #include "Cliente.h"
+#include "App.h"
+
+const unsigned int MAX_PER_SCREEN = 6;
 
 extern Developer* dev_act;
 extern Cliente* cli_act;

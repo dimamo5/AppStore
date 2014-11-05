@@ -1143,7 +1143,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state
 					<< endl << endl;
 
-			cout << "  Escolha como quer listar as apps  " << endl << endl;
+			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
 				cor(112);
@@ -1201,7 +1201,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			system("cls");
 			cout << "  AppStore MIEICPlay  " << endl << endl;
 
-			cout << "  Escolha como quer listar as apps  " << endl << endl;
+			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
 				cor(112);
@@ -1253,7 +1253,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			system("cls");
 			cout << "  AppStore MIEICPlay  " << endl << endl;
 
-			cout << "  Escolha como quer listar as apps  " << endl << endl;
+			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
 				cor(112);
@@ -1305,14 +1305,18 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
+
+	vector<string> menu_options = getAppNames(apps_ordenadas);
 	int opcao = 0;
-	cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl;
+
+	cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl
+			<< endl;
 	cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl
 			<< endl;
 
 	if (apps_ordenadas.empty()) {
 		system("cls");
-		cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao
+		cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl
 				<< endl;
 		cout << "  Prima (Esc) para regressar  " << endl << endl;
 
@@ -1335,8 +1339,8 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 	}
 	if (state == 0) {
-		vector<string> menu_options = getAppNames(apps_ordenadas);
-		printMenuScroll(menu_options, opcao, 4);
+
+		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 
 		int tecla;
 		tecla = getch();
@@ -1348,33 +1352,46 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 						{
 					opcao--;
 					if (opcao < 0)
-						opcao = 0;
+						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
-							<< tipo_ordenacao << endl;
+							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, 4);
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 				}
 				if (tecla == 80) //ABAIXO
 						{
 					opcao++;
 					if (opcao > (menu_options.size() - 1))
-						opcao = menu_options.size() - 1;
+						opcao = 0; // se passar o fim, volta ao inicio
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
-							<< tipo_ordenacao << endl;
+							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, 4);
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 				}
 			}
 		}
 		if (tecla == 13) {
-
+			system("cls");
+			cout << "  Especificacoes da App  " << endl << endl;
+			cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
+			cout << apps_ordenadas[opcao].imprime() << endl;
+			int tecla;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+					tecla = getch();
+				}
+			}
+			menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+					tipo_ordenacao);
 		}
+
 		if (tecla == 27)
 			if (tipo_ordenacao == "Developer e Nome") {
 				menuListaDeveloper(mieic, state);
@@ -1407,9 +1424,26 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 	cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl
 			<< endl;
 
+	if (devs_ordenados.empty()) {
+		system("cls");
+		cout << "  Visita Store - Devs Ordenados por Nome" << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+		cout << endl << endl << endl << "  Nao ha Devs para mostrar  " << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
+		}
+		menuVisitaStore(mieic, state); // ao carregar escape, regressa a escolha de criterios da store
+	}
+
 	if (state == 0) {
 		vector<string> menu_options = getDevNames(devs_ordenados);
-		printMenuScroll(menu_options, opcao, 4);
+		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 
 		int tecla;
 		tecla = getch();
@@ -1428,7 +1462,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, 4);
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 				}
 				if (tecla == 80) //ABAIXO
 						{
@@ -1441,7 +1475,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, 4);
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 				}
 			}
 		}

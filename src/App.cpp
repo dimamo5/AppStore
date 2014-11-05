@@ -76,6 +76,20 @@ unsigned int App::get_id()const{
 	return id;
 }
 
+string App::imprime() const{
+
+stringstream ss;
+string str_preco;
+string ret = "";
+
+ss << this->preco;  // Transformar preco de double para string
+ss >> str_preco;
+
+ret += "Nome: " + this->nome + "\n" + "Categoria: " + this->categoria + "\n"
+  + "Descricao: " + this->descricao + "\n" + "Preco: " + str_preco;
+
+return ret;
+}
 
 /*
  * app.cpp

@@ -94,6 +94,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a846404e97e4d559aafdb52be79cea7c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a846404e97e4d559aafdb52be79cea7c7"></a>
 <a class="el" href="class_developer.html">Developer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_dev_id</b> (unsigned int id) const </td></tr>
 <tr class="separator:a846404e97e4d559aafdb52be79cea7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a722d56a8ed98ad6cb26521be7129d38f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a722d56a8ed98ad6cb26521be7129d38f"></a>
+<a class="el" href="class_cliente.html">Cliente</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_cliente_id</b> (unsigned int id)</td></tr>
+<tr class="separator:a722d56a8ed98ad6cb26521be7129d38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae123ae1f957d51b7c4872fe71e23629d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae123ae1f957d51b7c4872fe71e23629d"></a>
+<a class="el" href="class_app.html">App</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_app_id</b> (unsigned int id)</td></tr>
+<tr class="separator:ae123ae1f957d51b7c4872fe71e23629d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27a968e34cfe98fceca2b78fe1b2b70"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad27a968e34cfe98fceca2b78fe1b2b70"></a>
+<a class="el" href="class_vendas.html">Vendas</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_vendas_id</b> (unsigned int id)</td></tr>
+<tr class="separator:ad27a968e34cfe98fceca2b78fe1b2b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3332b74ff7a7afea68b2834ffe1cdd58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3332b74ff7a7afea68b2834ffe1cdd58"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>existeNomeDev</b> (string nome) const </td></tr>
+<tr class="separator:a3332b74ff7a7afea68b2834ffe1cdd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8ce8e16ba9ff688af3604da47aceed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e8ce8e16ba9ff688af3604da47aceed"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>verificaLoginCliente</b> (unsigned int id, string pass) const </td></tr>
+<tr class="separator:a3e8ce8e16ba9ff688af3604da47aceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe13636e2785b91c770cb39c590dddf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafe13636e2785b91c770cb39c590dddf"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>verificaLoginDev</b> (unsigned int id, string pass) const </td></tr>
+<tr class="separator:aafe13636e2785b91c770cb39c590dddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f08f038a3407eac967198bb2c66d503"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f08f038a3407eac967198bb2c66d503"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_all</b> ()</td></tr>
 <tr class="separator:a6f08f038a3407eac967198bb2c66d503"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,12 +124,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_app</b> (ofstrea
 <tr class="memitem:a4b4a37404b10df2303a8f95d6c2697b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b4a37404b10df2303a8f95d6c2697b4"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_app</b> (fstream &amp;file)</td></tr>
 <tr class="separator:a4b4a37404b10df2303a8f95d6c2697b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a962af0949df52b478dd6b397f94d65e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a962af0949df52b478dd6b397f94d65e1"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_vendas</b> ()</td></tr>
-<tr class="separator:a962af0949df52b478dd6b397f94d65e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcc5adb4715c96650c6fbd19415b4911"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcc5adb4715c96650c6fbd19415b4911"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_vendas</b> ()</td></tr>
-<tr class="separator:adcc5adb4715c96650c6fbd19415b4911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bf71a93e0c065796e07a387b593801e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bf71a93e0c065796e07a387b593801e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_vendas</b> (ofstream &amp;file)</td></tr>
+<tr class="separator:a9bf71a93e0c065796e07a387b593801e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3f434aea433599fa9905068d052060d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3f434aea433599fa9905068d052060d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_vendas</b> (fstream &amp;file)</td></tr>
+<tr class="separator:ab3f434aea433599fa9905068d052060d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a347e9f40006f1b33ff4875b7338aa8c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a347e9f40006f1b33ff4875b7338aa8c5"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_clientes</b> (ofstream &amp;file)</td></tr>
 <tr class="separator:a347e9f40006f1b33ff4875b7338aa8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,7 +165,7 @@ vector&lt; <a class="el" href="class_vendas.html">Vendas</a> &gt;&#160;</td><td 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 2 2014 20:22:30 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
