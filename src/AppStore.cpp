@@ -379,9 +379,13 @@ bool AppStore::load_dev(fstream& file) {
 }
 
 bool appsComparaPreco(App app1, App app2) {
-return (app1.getPreco() < app2.getPreco());
+	return (app1.getPreco() < app2.getPreco());
 }
 
 bool appsComparaNome(App app1, App app2) {
-return (app1.getNome() < app2.getNome());
+	return (app1.getNome() < app2.getNome());
+}
+
+bool devsComparaNome(Developer* dev1, Developer* dev2) {
+	return (dev1->getNome() < dev2->getNome());
 }

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*
  * AppStore.h
  *
@@ -25,6 +24,7 @@ using namespace std;
 
 bool appsComparaPreco(App app1, App app2);
 bool appsComparaNome(App app1, App app2);
+bool devsComparaNome(Developer* dev1, Developer* dev2);
 
 class AppStore {
 public:

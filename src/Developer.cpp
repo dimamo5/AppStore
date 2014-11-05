@@ -14,7 +14,8 @@ Developer::Developer(string nome, string id_pass) :
 	next_id++;
 }
 
-Developer::Developer(int id,string nome,double saldo,string id_pass):id(id),nome(nome),saldo(saldo),id_pass(id_pass){
+Developer::Developer(int id, string nome, double saldo, string id_pass) :
+		id(id), nome(nome), saldo(saldo), id_pass(id_pass) {
 
 }
 //vector<Vendas*> Developer::get_vendas() {
@@ -45,28 +46,28 @@ void Developer::setSaldo(unsigned int s) {
 //	return true;
 //}
 
-
-
-
-Individual::Individual(string nome,string id_pass,string morada):Developer(nome,id_pass){
+Individual::Individual(string nome, string id_pass, string morada) :
+		Developer(nome, id_pass) {
 	this->morada = morada;
 }
 
-Individual::Individual(int id,string nome,double saldo,string id_pass,string morada):Developer(id,nome,saldo,id_pass),morada(morada){
+Individual::Individual(int id, string nome, double saldo, string id_pass,
+		string morada) :
+		Developer(id, nome, saldo, id_pass), morada(morada) {
 
 }
-
 
 void Developer::setNextID(unsigned int i) {
-	next_id=i;
+	next_id = i;
 }
 
-
-Empresa::Empresa(string nome,string id_pass,string NIF):Developer(nome,id_pass){
+Empresa::Empresa(string nome, string id_pass, string NIF) :
+		Developer(nome, id_pass) {
 	this->NIF = NIF;
 }
 
-Empresa::Empresa(int id,string nome,double saldo,string id_pass,string NIF):Developer(id,nome,saldo,id_pass),NIF(NIF){
+Empresa::Empresa(int id, string nome, double saldo, string id_pass, string NIF) :
+		Developer(id, nome, saldo, id_pass), NIF(NIF) {
 
 }
 
@@ -91,7 +92,7 @@ string Individual::getExtra() const {
 }
 
 void Individual::setExtra(string info) {
-	morada=info;
+	morada = info;
 }
 
 string Empresa::getExtra() const {
@@ -103,9 +104,11 @@ string Empresa::getType() const {
 }
 
 void Empresa::setExtra(string info) {
-	NIF=info;
+	NIF = info;
 }
 
 string Individual::getType() const {
 	return "ind";
 }
+
+

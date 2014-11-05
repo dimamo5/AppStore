@@ -10,6 +10,19 @@
 
 using namespace std;
 
+vector<App> getApps(Developer* dev, AppStore mieic) {
+	vector<App> apps_do_developer;
+	vector<App> apps_da_store = mieic.apps;
+
+	for (unsigned int i = 0; i < apps_da_store.size(); i++) { // percorre as apps da store
+
+		// sempre que ha uma app cujo dev coincide, tendo em conta que todos teem nomes diferentes
+		if (dev->getNome() == apps_da_store[i].getDev()->getNome()) {
+			apps_do_developer.push_back(apps_da_store[i]);
+		}
+	}
+	return apps_do_developer;
+}
 
 vector<string> getAppNames(vector<App> apps) {
 	vector<string> app_names;
@@ -17,6 +30,14 @@ vector<string> getAppNames(vector<App> apps) {
 		app_names.push_back(apps[i].getNome());
 	}
 	return app_names;
+}
+
+vector<string> getDevNames(vector<Developer*> devs) {
+	vector<string> dev_names;
+	for (unsigned int i = 0; i < devs.size(); i++) {
+		dev_names.push_back(devs[i]->getNome());
+	}
+	return dev_names;
 }
 
 void printMenuScroll(vector<string> options, int selected_option,
@@ -1116,6 +1137,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 	vector<App> apps_por_nome;
 	vector<App> apps_por_preco;
+	vector<Developer*> devs_por_nome;
 
 	if (state == 0) {
 
@@ -1150,19 +1172,22 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			switch (opcao - 13) {
 			case 0:          // 1a opcao
 				apps_por_nome = mieic.apps;
-				sort(apps_por_nome.begin(),apps_por_nome.end(),appsComparaNome);
-				menuVisitaStoreOrdenada(mieic, state, apps_por_nome, "Ordem Alfabetica");
+				sort(apps_por_nome.begin(), apps_por_nome.end(),
+						appsComparaNome);
+				menuVisitaStoreOrdenada(mieic, state, apps_por_nome,
+						"Ordem Alfabetica");
 				system("pause");
 				break;
 
 			case -1:         // 2a opcao
 				apps_por_preco = mieic.apps;
-				sort(apps_por_preco.begin(),apps_por_preco.end(),appsComparaPreco);
+				sort(apps_por_preco.begin(), apps_por_preco.end(),
+						appsComparaPreco);
 				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
 				system("pause");
 				break;
 			case -2:        // 3a opcao
-				//menuListaDeveloper(mieic,state); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
+				menuListaDeveloper(mieic, state); //-> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
 			case -3:        // 4a opcao
@@ -1265,7 +1290,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 			case -2:        // 3a opcao
-				//menuListaDeveloper(mieic); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
+				//menuListaDeveloper(mieic,state); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
 			case -3:        // 4a opcao
@@ -1278,14 +1303,16 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 }
 
 void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
-		vector<App> apps_ordenadas, string tipo) {
+		vector<App> apps_ordenadas, string tipo_ordenacao) {
 
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 	int opcao = 0;
-	cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
+	cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl;
+	cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl
+			<< endl;
 
 	if (state == 0) {
 		vector<string> menu_options = getAppNames(apps_ordenadas);
@@ -1300,25 +1327,41 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 				if (tecla == 72) //ACIMA
 						{
 					opcao--;
-					if(opcao < 0)
+					if (opcao < 0)
 						opcao = 0;
 					system("cls");
-					cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
 					printMenuScroll(menu_options, opcao, 4);
 				}
 				if (tecla == 80) //ABAIXO
 						{
 					opcao++;
-					if (opcao > (menu_options.size()-1))
-						opcao = menu_options.size()-1;
+					if (opcao > (menu_options.size() - 1))
+						opcao = menu_options.size() - 1;
 					system("cls");
-					cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
 					printMenuScroll(menu_options, opcao, 4);
 				}
 			}
 		}
-		menuInicial(mieic);
+		if (tecla == 13) {
 
+		}
+		if (tecla == 27)
+			if (tipo_ordenacao == "Developer e Nome") {
+				menuListaDeveloper(mieic, state);
+			} else {
+
+				menuVisitaStore(mieic, state);
+			}
 	}
 	if (state == 1) {
 
@@ -1329,5 +1372,74 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 }
 void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+	vector<Developer*> devs_ordenados = mieic.dev;
+	sort(devs_ordenados.begin(), devs_ordenados.end(), devsComparaNome); // cria lista de devs ordenados
+
+	vector<App> apps_do_dev_por_nome;
+
+	cout << "  Visita Store - Devs Ordenados por Nome" << endl << endl;
+	cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl
+			<< endl;
+
+	if (state == 0) {
+		vector<string> menu_options = getDevNames(devs_ordenados);
+		printMenuScroll(menu_options, opcao, 4);
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+						{
+					opcao--;
+					if (opcao < 0)
+						opcao = 0;
+					system("cls");
+					cout << "  Visita Store - Devs Ordenados por Nome" << endl
+							<< endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, 4);
+				}
+				if (tecla == 80) //ABAIXO
+						{
+					opcao++;
+					if (opcao > (menu_options.size() - 1))
+						opcao = menu_options.size() - 1;
+					system("cls");
+					cout << "  Visita Store - Devs Ordenados por Nome" << endl
+							<< endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, 4);
+				}
+			}
+		}
+		if (tecla == 13) { // aqui tem um dev selecionado. opcao = indice
+			apps_do_dev_por_nome = getApps(devs_ordenados[opcao], mieic);
+			sort(apps_do_dev_por_nome.begin(), apps_do_dev_por_nome.end(),
+					appsComparaNome);
+			menuVisitaStoreOrdenada(mieic, state, apps_do_dev_por_nome,
+					"Developer e Nome");
+		}
+		if (tecla == 27)
+			menuVisitaStore(mieic,state); // se na listagem de devs carrega esc, volta para o menu inic.
+
+	}
+	if (state == 1) {
+
+	}
+	if (state == 2) {
+
+	}
 
 }

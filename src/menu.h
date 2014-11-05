@@ -14,7 +14,10 @@
 extern Developer* dev_act;
 extern Cliente* cli_act;
 
+vector<App> getApps(Developer* dev, AppStore mieic);
 vector<string> getAppNames(vector<App> apps);
+vector<string> getDevNames(vector<Developer*> devs);
+
 void printMenuScroll(vector<string> options, int selected_option, const unsigned int max_per_screen);
 void cor(int n);
 int teclas();
@@ -43,7 +46,7 @@ void menuApagarConta(AppStore& mieic);
 
 // State will be needed to know who is visiting the store, what that person will see and where the "SAIR" button will lead the person
 void menuVisitaStore(AppStore& mieic, unsigned int& state);
-void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state, vector<App> apps_ordenadas, string tipo);
+void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state, vector<App> apps_ordenadas, string tipo_ordenacao);
 void menuListaDeveloper(AppStore& mieic, unsigned int& state);
 
 #endif /* MENU_H_ */

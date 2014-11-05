@@ -37,6 +37,7 @@ public:
 	void setId(int id);
 	string getIdPass() const;
 	unsigned int getNextId() const;
+
 };
 
 
