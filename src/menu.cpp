@@ -1125,10 +1125,6 @@ void menuApagarConta(AppStore& mieic) {
 
 }
 
-//TODO: fazer os subvetores e organizar vetores apps para por no argumento da StoreOrdenada
-//state 0 is when a guest is visiting the store.
-//state 1 is when a developer is visiting the store
-//state 2 is when a client is visiting the store
 void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	system("cls");
 	time_t t = time(0);
@@ -1314,6 +1310,30 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl
 			<< endl;
 
+	if (apps_ordenadas.empty()) {
+		system("cls");
+		cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao
+				<< endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+		cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
+
+		}
+		if (tipo_ordenacao == "Developer e Nome") {
+			menuListaDeveloper(mieic, state);
+		} else {
+
+			menuVisitaStore(mieic, state);
+		}
+
+	}
 	if (state == 0) {
 		vector<string> menu_options = getAppNames(apps_ordenadas);
 		printMenuScroll(menu_options, opcao, 4);
@@ -1371,6 +1391,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	}
 
 }
+
 void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 	system("cls");
 	time_t t = time(0);
@@ -1432,7 +1453,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 					"Developer e Nome");
 		}
 		if (tecla == 27)
-			menuVisitaStore(mieic,state); // se na listagem de devs carrega esc, volta para o menu inic.
+			menuVisitaStore(mieic, state); // se na listagem de devs carrega esc, volta para o menu inic.
 
 	}
 	if (state == 1) {
