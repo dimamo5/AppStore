@@ -17,25 +17,27 @@ extern Cliente* cli_act;
 void cor(int n);
 int teclas();
 int RestringeOpcaoTeclas(int min, int max, int opcao);
-int menuInicial(AppStore mieic);
-int menuLogin(AppStore mieic);
-int menuRegistar(AppStore mieic);
-void menuLoginCliente(AppStore mieic);
-void menuLoginDeveloper(AppStore mieic);
-void menuRegistarCliente(AppStore mieic);
-void menuRegistarDeveloperIndividual(AppStore mieic);
-void menuRegistarDeveloperEmpresa(AppStore mieic);
-void menuCliente(AppStore mieic);
-void menuDeveloper(AppStore mieic);
-void menuClienteTransacoes(AppStore mieic);
-void menuClienteDefinicoes(AppStore mieic);
-void menuDeveloperDefinicoes(AppStore mieic);
-void menuDeveloperGerirApps(AppStore mieic);
-void menuDeveloperModApp(AppStore mieic);
-void menuClienteCredito(AppStore mieic);
-void menuCestoCompras(AppStore mieic);
-void menuHistoricoVendas(AppStore mieic);
+int menuInicial(AppStore& mieic);
+int menuLogin(AppStore& mieic);
+int menuRegistar(AppStore& mieic);
+void menuLoginCliente(AppStore& mieic);
+void menuLoginDeveloper(AppStore& mieic);
+void menuRegistarCliente(AppStore& mieic);
+void menuRegistarDeveloperIndividual(AppStore& mieic);
+void menuRegistarDeveloperEmpresa(AppStore& mieic);
+void menuCliente(AppStore& mieic);
+void menuDeveloper(AppStore& mieic);
+void menuClienteTransacoes(AppStore& mieic);
+void menuClienteDefinicoes(AppStore& mieic);
+void menuDeveloperDefinicoes(AppStore& mieic);
+void menuDeveloperGerirApps(AppStore& mieic);
+void menuDeveloperModApp(AppStore& mieic);
+void menuClienteCredito(AppStore& mieic);
+void menuCestoCompras(AppStore& mieic);
+void menuHistoricoVendas(AppStore& mieic);
+void menuAlterarPass(AppStore& mieic);
+void menuAlterarCartao(AppStore& mieic);
+void menuApagarConta(AppStore& mieic);
 
-// ainda nao implementei a funcao de login nos menus de login
 
 #endif /* MENU_H_ */

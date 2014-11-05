@@ -45,7 +45,7 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 		return opcao; //se não se verificam as restrições, entao devolve-se novamente a variavel intacta
 }
 
-int menuInicial(AppStore mieic) {
+int menuInicial(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -126,7 +126,7 @@ int menuInicial(AppStore mieic) {
 	}
 }
 
-int menuLogin(AppStore mieic) {
+int menuLogin(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -175,7 +175,7 @@ int menuLogin(AppStore mieic) {
 	}
 }
 
-int menuRegistar(AppStore mieic) {
+int menuRegistar(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -237,7 +237,7 @@ int menuRegistar(AppStore mieic) {
 	}
 }
 
-void menuLoginCliente(AppStore mieic) {
+void menuLoginCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -339,7 +339,7 @@ void menuLoginCliente(AppStore mieic) {
 
 }
 
-void menuLoginDeveloper(AppStore mieic) {
+void menuLoginDeveloper(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -440,7 +440,7 @@ void menuLoginDeveloper(AppStore mieic) {
 
 }
 
-void menuRegistarCliente(AppStore mieic) {
+void menuRegistarCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -568,7 +568,7 @@ void menuRegistarCliente(AppStore mieic) {
 
 }
 
-void menuRegistarDeveloperIndividual(AppStore mieic) {
+void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -679,7 +679,7 @@ void menuRegistarDeveloperIndividual(AppStore mieic) {
 
 }
 
-void menuRegistarDeveloperEmpresa(AppStore mieic) {
+void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 
 	system("cls");
 	time_t t = time(0);
@@ -803,7 +803,7 @@ void menuRegistarDeveloperEmpresa(AppStore mieic) {
 
 }
 
-void menuCliente(AppStore mieic) {
+void menuCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -866,7 +866,7 @@ void menuCliente(AppStore mieic) {
 	}
 }
 
-void menuDeveloper(AppStore mieic) {
+void menuDeveloper(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -929,7 +929,7 @@ void menuDeveloper(AppStore mieic) {
 	}
 }
 
-void menuClienteTransacoes(AppStore mieic) {
+void menuClienteTransacoes(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -984,26 +984,90 @@ void menuClienteTransacoes(AppStore mieic) {
 	}
 }
 
-void menuClienteDefinicoes(AppStore mieic) {
+void menuClienteDefinicoes(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+
+	for (;;) {
+		system("cls");
+		cout << "  Definicoes de Cliente  " << endl << endl;
+
+		if (opcao == 0)
+			cor(112);
+		cout << "  Alterar Password  " << endl;
+		cor(7);
+		if (opcao == -1)
+			cor(112);
+		cout << "  Alterar Nr. de Cartao de Credito " << endl;
+		cor(7);
+		if (opcao == -2)
+			cor(112);
+		cout << "  Apagar Conta  " << endl;
+		cor(7);
+		if (opcao == -3)
+			cor(124);
+		cout << "  SAIR  " << endl;
+		cor(7);
+
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+		{
+		case 0:          // 1a opcao
+			menuAlterarPass(mieic);
+			system("pause");
+			break;
+
+		case -1:         // 2a opcao
+			menuAlterarCartao(mieic);
+			system("pause");
+			break;
+		case -2:        // 3a opcao
+			menuApagarConta(mieic);
+			system("pause");
+			break;
+		case -3:        // 4a opcao
+			menuCliente(mieic); //
+			system("pause");
+			break;
+		}
+	}
+}
+
+void menuDeveloperGerirApps(AppStore& mieic) {
 
 }
 
-void menuDeveloperGerirApps(AppStore mieic) {
+void menuDeveloperDefinicoes(AppStore& mieic) {
 
 }
 
-void menuDeveloperDefinicoes(AppStore mieic) {
+void menuClienteCredito(AppStore& mieic) {
 
 }
 
-void menuClienteCredito(AppStore mieic) {
+void menuCestoCompras(AppStore& mieic) {
 
 }
 
-void menuCestoCompras(AppStore mieic) {
+void menuHistoricoVendas(AppStore& mieic) {
 
 }
 
-void menuHistoricoVendas(AppStore mieic){
+void menuAlterarPass(AppStore& mieic){
+
+}
+
+
+
+void menuAlterarCartao(AppStore& mieic){
+
+}
+
+void menuApagarConta(AppStore& mieic){
 
 }
