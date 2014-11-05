@@ -1117,7 +1117,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 		int opcao = 0;
 		for (;;) {
 			system("cls");
-			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state <<  endl << endl;
+			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state
+					<< endl << endl;
 
 			cout << "  Escolha como quer listar as apps  " << endl << endl;
 
@@ -1143,12 +1144,12 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			switch (opcao - 13) {
 			case 0:          // 1a opcao
-				menuVisitaStoreOrdenada(mieic, state, mieic.apps);
+				menuVisitaStoreOrdenada(mieic, state, mieic.apps, "Ordem Alfabetica");
 				system("pause");
 				break;
 
 			case -1:         // 2a opcao
-				menuVisitaStoreOrdenada(mieic, state, mieic.apps);
+				menuVisitaStoreOrdenada(mieic, state, mieic.apps, "Preco");
 				system("pause");
 				break;
 			case -2:        // 3a opcao
@@ -1268,17 +1269,19 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 }
 
 void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
-		vector<App> apps_ordenadas) {
+		vector<App> apps_ordenadas, string tipo) {
 
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 	int opcao = 0;
-	cout << "  Visita Store Ordenada  " << endl;
+	cout << "  Visita Store - Apps Ordenadas por " << tipo <<  endl;
 
 	if (state == 0) {
 		vector<string> menu_options = getAppNames(apps_ordenadas);
+		printMenuScroll(menu_options, opcao, 4);
+
 		int tecla;
 		tecla = getch();
 		if (tecla != 0) {
@@ -1286,13 +1289,24 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 			{
 				tecla = getch();
 				if (tecla == 72) //ACIMA
+						{
 					opcao--;
-				printMenuScroll(menu_options, opcao, 4);
+					if(opcao < 0)
+						opcao = 0;
+					system("cls");
+					printMenuScroll(menu_options, opcao, 4);
+				}
 				if (tecla == 80) //ABAIXO
+						{
 					opcao++;
-				printMenuScroll(menu_options, opcao, 4);
+					if (opcao > (menu_options.size()-1))
+						opcao = menu_options.size()-1;
+					system("cls");
+					printMenuScroll(menu_options, opcao, 4);
+				}
 			}
 		}
+		menuInicial(mieic);
 
 	}
 	if (state == 1) {
