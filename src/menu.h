@@ -38,10 +38,10 @@ void menuHistoricoVendas(AppStore& mieic);
 void menuAlterarPass(AppStore& mieic);
 void menuAlterarCartao(AppStore& mieic);
 void menuApagarConta(AppStore& mieic);
-void menuVisitaStore(AppStore& mieic);
-void menuVisitaAlfabetica(AppStore& mieic);
-void menuVisitaPreco(AppStore& mieic);
-void menuVisitaDeveloper(AppStore& mieic);
 
+// State will be needed to know who is visiting the store, what that person will see and where the "SAIR" button will lead the person
+void menuVisitaStore(AppStore& mieic, unsigned int& state);
+void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state, vector<App> apps_ordenadas);
+void menuListaDeveloper(AppStore& mieic, unsigned int& state);
 
 #endif /* MENU_H_ */

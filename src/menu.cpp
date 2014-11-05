@@ -14,7 +14,6 @@ void cor(int n) {
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hConsole, n);
 }
-
 int teclas() {
 	int tecla;
 	tecla = getch();
@@ -34,7 +33,6 @@ int teclas() {
 		return 13;
 	}
 }
-
 //FUNCAO RESPONSAVEL POR RESTRINGIR A VARIAVEL "opcao" APENAS ÁS OPÇÕES DO MENU
 int RestringeOpcaoTeclas(int min, int max, int opcao) {
 	if (opcao > min && opcao < ((max * -1) + 13))
@@ -45,6 +43,7 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 		return opcao; //se não se verificam as restrições, entao devolve-se novamente a variavel intacta
 }
 
+
 int menuInicial(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -52,6 +51,7 @@ int menuInicial(AppStore& mieic) {
 	Date data_atual(tm);
 	dev_act = NULL; // da reset aos indicadores de login atual, ou seja, faz logout
 	cli_act = NULL;
+	unsigned int state = 0; //state 0 is guest
 	int opcao = 0;
 	for (;;) {
 		system("cls");
@@ -102,7 +102,7 @@ int menuInicial(AppStore& mieic) {
 			// tambem listar por preco. Basta mudar as apps para estarem sorted por preco
 			// o que significa que se tem de fazer um operador que compare precos
 
-			menuVisitaStore(mieic);
+			menuVisitaStore(mieic, state);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
@@ -125,7 +125,6 @@ int menuInicial(AppStore& mieic) {
 		}
 	}
 }
-
 int menuLogin(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -174,7 +173,6 @@ int menuLogin(AppStore& mieic) {
 		}
 	}
 }
-
 int menuRegistar(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -236,7 +234,6 @@ int menuRegistar(AppStore& mieic) {
 		}
 	}
 }
-
 void menuLoginCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -338,7 +335,6 @@ void menuLoginCliente(AppStore& mieic) {
 	}
 
 }
-
 void menuLoginDeveloper(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -439,7 +435,6 @@ void menuLoginDeveloper(AppStore& mieic) {
 	}
 
 }
-
 void menuRegistarCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -567,7 +562,6 @@ void menuRegistarCliente(AppStore& mieic) {
 	}
 
 }
-
 void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -678,7 +672,6 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	}
 
 }
-
 void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 
 	system("cls");
@@ -802,12 +795,12 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	}
 
 }
-
 void menuCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
+	unsigned int state = 2; //state 2 is the client
 	int opcao = 0;
 
 	for (;;) {
@@ -841,7 +834,7 @@ void menuCliente(AppStore& mieic) {
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
 		case 0:          // 1a opcao
-			menuInicial(mieic); // TODO: implementar a listagem de apps
+			menuVisitaStore(mieic, state); // TODO: implementar a listagem de apps
 			system("pause");
 			break;
 
@@ -865,17 +858,17 @@ void menuCliente(AppStore& mieic) {
 		}
 	}
 }
-
 void menuDeveloper(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
+	unsigned int state = 1; // state = 1 is developer
 	int opcao = 0;
 
 	for (;;) {
 		system("cls");
-		cout << "  Menu Cliente  " << endl << endl;
+		cout << "  Menu Developer  " << endl << endl;
 
 		if (opcao == 0)
 			cor(112);
@@ -904,7 +897,7 @@ void menuDeveloper(AppStore& mieic) {
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
 		case 0:          // 1a opcao
-			menuVisitaStore(mieic);
+			menuVisitaStore(mieic, state);
 			system("pause");
 			break;
 
@@ -1070,71 +1063,174 @@ void menuApagarConta(AppStore& mieic) {
 
 }
 
-void menuVisitaStore(AppStore& mieic) {
+//TODO: fazer os subvetores e organizar vetores apps para por no argumento da StoreOrdenada
+//state 0 is when a guest is visiting the store.
+//state 1 is when a developer is visiting the store
+//state 2 is when a client is visiting the store
+void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
-	int opcao = 0;
 
-	for (;;) {
-		system("cls");
-		cout << "  AppStore MIEICPlay  " << endl << endl;
+	if (state == 0) {
 
-		cout << "  Escolha como quer listar as apps  " << endl << endl;
+		int opcao = 0;
+		for (;;) {
+			system("cls");
+			cout << "  AppStore MIEICPlay  " << endl << endl;
 
-		if (opcao == 0)
-			cor(112);
-		cout << "  Por Ordem Alfabetica  " << endl;
-		cor(7);
-		if (opcao == -1)
-			cor(112);
-		cout << "  Por Preco " << endl;
-		cor(7);
-		if (opcao == -2)
-			cor(112);
-		cout << "  Por developer  " << endl;
-		cor(7);
-		if (opcao == -3)
-			cor(124);
-		cout << "  SAIR  " << endl;
-		cor(7);
+			cout << "  Escolha como quer listar as apps  " << endl << endl;
 
-		opcao += teclas();
-		opcao = RestringeOpcaoTeclas(0, 3, opcao);
+			if (opcao == 0)
+				cor(112);
+			cout << "  Por Ordem Alfabetica  " << endl;
+			cor(7);
+			if (opcao == -1)
+				cor(112);
+			cout << "  Por Preco " << endl;
+			cor(7);
+			if (opcao == -2)
+				cor(112);
+			cout << "  Por developer  " << endl;
+			cor(7);
+			if (opcao == -3)
+				cor(124);
+			cout << "  SAIR  " << endl;
+			cor(7);
 
-		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
-		{
-		case 0:          // 1a opcao
-			menuVisitaAlfabetica(mieic); // TODO: implementar a listagem de apps
-			system("pause");
-			break;
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 3, opcao);
 
-		case -1:         // 2a opcao
-			menuVisitaPreco(mieic);
-			system("pause");
-			break;
-		case -2:        // 3a opcao
-			menuVisitaDeveloper(mieic);
-			system("pause");
-			break;
-		case -3:        // 4a opcao
-			menuInicial(mieic); // TODO: implementar a listagem atributos do cliente
-			system("pause");
-			break;
+			switch (opcao - 13) {
+			case 0:          // 1a opcao
+				//menuVisitaStoreOrdenada(mieic, state, apps)
+				system("pause");
+				break;
+
+			case -1:         // 2a opcao
+				//menuVisitaStoreOrdenada(mieic, state, apps)
+				system("pause");
+				break;
+			case -2:        // 3a opcao
+				//menuListaDeveloper(mieic,state); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
+				system("pause");
+				break;
+			case -3:        // 4a opcao
+				menuInicial(mieic);
+				system("pause");
+				break;
+			}
 		}
 	}
 
+	if (state == 1) { // a diferenca do guest para o dev e o que acontece ao escolher a opcao "SAIR"
+
+		int opcao = 0;
+		for (;;) {
+			system("cls");
+			cout << "  AppStore MIEICPlay  " << endl << endl;
+
+			cout << "  Escolha como quer listar as apps  " << endl << endl;
+
+			if (opcao == 0)
+				cor(112);
+			cout << "  Por Ordem Alfabetica  " << endl;
+			cor(7);
+			if (opcao == -1)
+				cor(112);
+			cout << "  Por Preco " << endl;
+			cor(7);
+			if (opcao == -2)
+				cor(112);
+			cout << "  Por developer  " << endl;
+			cor(7);
+			if (opcao == -3)
+				cor(124);
+			cout << "  SAIR  " << endl;
+			cor(7);
+
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+			{
+			case 0:          // 1a opcao
+				//menuVisitaStoreOrdenada(mieic, state, apps)
+				system("pause");
+				break;
+
+			case -1:         // 2a opcao
+				//menuVisitaStoreOrdenada(mieic, state, apps)
+				system("pause");
+				break;
+			case -2:        // 3a opcao
+				//menuListaDeveloper(mieic); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
+				system("pause");
+				break;
+			case -3:        // 4a opcao
+				menuDeveloper(mieic); // TODO: implementar a listagem atributos do cliente
+				system("pause");
+				break;
+			}
+		}
+	}
+
+	if (state == 2) {
+
+		int opcao = 0;
+		for (;;) {
+			system("cls");
+			cout << "  AppStore MIEICPlay  " << endl << endl;
+
+			cout << "  Escolha como quer listar as apps  " << endl << endl;
+
+			if (opcao == 0)
+				cor(112);
+			cout << "  Por Ordem Alfabetica  " << endl;
+			cor(7);
+			if (opcao == -1)
+				cor(112);
+			cout << "  Por Preco " << endl;
+			cor(7);
+			if (opcao == -2)
+				cor(112);
+			cout << "  Por developer  " << endl;
+			cor(7);
+			if (opcao == -3)
+				cor(124);
+			cout << "  SAIR  " << endl;
+			cor(7);
+
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+			switch (opcao - 13) {
+			case 0:          // 1a opcao
+				//menuVisitaStoreOrdenada(mieic, state, apps)
+				system("pause");
+				break;
+
+			case -1:         // 2a opcao
+				//menuVisitaStoreOrdenada(mieic, state, apps)
+				system("pause");
+				break;
+			case -2:        // 3a opcao
+				//menuListaDeveloper(mieic); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
+				system("pause");
+				break;
+			case -3:        // 4a opcao
+				menuCliente(mieic);
+				system("pause");
+				break;
+			}
+		}
+	}
 }
 
-void menuVisitaAlfabetica(AppStore& mieic){
+void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state, vector<App> apps_ordenadas){
 
 }
-
-void menuVisitaPreco(AppStore& mieic){
-
-}
-
-void menuVisitaDeveloper(AppStore& mieic){
+void menuListaDeveloper(AppStore& mieic, unsigned int& state){
 
 }
