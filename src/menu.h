@@ -38,6 +38,10 @@ void menuHistoricoVendas(AppStore& mieic);
 void menuAlterarPass(AppStore& mieic);
 void menuAlterarCartao(AppStore& mieic);
 void menuApagarConta(AppStore& mieic);
+void menuVisitaStore(AppStore& mieic);
+void menuVisitaAlfabetica(AppStore& mieic);
+void menuVisitaPreco(AppStore& mieic);
+void menuVisitaDeveloper(AppStore& mieic);
 
 
 #endif /* MENU_H_ */

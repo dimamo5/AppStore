@@ -102,7 +102,7 @@ int menuInicial(AppStore& mieic) {
 			// tambem listar por preco. Basta mudar as apps para estarem sorted por preco
 			// o que significa que se tem de fazer um operador que compare precos
 
-			cout << "Finge que esta aqui a AppStore, pliz" << endl;
+			menuVisitaStore(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
@@ -816,7 +816,7 @@ void menuCliente(AppStore& mieic) {
 
 		if (opcao == 0)
 			cor(112);
-		cout << "  Entrar na AppStore  " << endl;
+		cout << "  Entrar na AppStore  " << endl; // fazer listagem por apps compradas
 		cor(7);
 		if (opcao == -1)
 			cor(112);
@@ -904,7 +904,7 @@ void menuDeveloper(AppStore& mieic) {
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
 		case 0:          // 1a opcao
-			menuInicial(mieic); // visitar appstore - vai ser igual à listagem de apps SEM login
+			menuVisitaStore(mieic);
 			system("pause");
 			break;
 
@@ -1058,16 +1058,83 @@ void menuHistoricoVendas(AppStore& mieic) {
 
 }
 
-void menuAlterarPass(AppStore& mieic){
+void menuAlterarPass(AppStore& mieic) {
 
 }
 
-
-
-void menuAlterarCartao(AppStore& mieic){
+void menuAlterarCartao(AppStore& mieic) {
 
 }
 
-void menuApagarConta(AppStore& mieic){
+void menuApagarConta(AppStore& mieic) {
+
+}
+
+void menuVisitaStore(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+
+	for (;;) {
+		system("cls");
+		cout << "  AppStore MIEICPlay  " << endl << endl;
+
+		cout << "  Escolha como quer listar as apps  " << endl << endl;
+
+		if (opcao == 0)
+			cor(112);
+		cout << "  Por Ordem Alfabetica  " << endl;
+		cor(7);
+		if (opcao == -1)
+			cor(112);
+		cout << "  Por Preco " << endl;
+		cor(7);
+		if (opcao == -2)
+			cor(112);
+		cout << "  Por developer  " << endl;
+		cor(7);
+		if (opcao == -3)
+			cor(124);
+		cout << "  SAIR  " << endl;
+		cor(7);
+
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+		{
+		case 0:          // 1a opcao
+			menuVisitaAlfabetica(mieic); // TODO: implementar a listagem de apps
+			system("pause");
+			break;
+
+		case -1:         // 2a opcao
+			menuVisitaPreco(mieic);
+			system("pause");
+			break;
+		case -2:        // 3a opcao
+			menuVisitaDeveloper(mieic);
+			system("pause");
+			break;
+		case -3:        // 4a opcao
+			menuInicial(mieic); // TODO: implementar a listagem atributos do cliente
+			system("pause");
+			break;
+		}
+	}
+
+}
+
+void menuVisitaAlfabetica(AppStore& mieic){
+
+}
+
+void menuVisitaPreco(AppStore& mieic){
+
+}
+
+void menuVisitaDeveloper(AppStore& mieic){
 
 }
