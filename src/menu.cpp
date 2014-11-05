@@ -1117,7 +1117,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 		int opcao = 0;
 		for (;;) {
 			system("cls");
-			cout << "  AppStore MIEICPlay  " << endl << endl;
+			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state <<  endl << endl;
 
 			cout << "  Escolha como quer listar as apps  " << endl << endl;
 
