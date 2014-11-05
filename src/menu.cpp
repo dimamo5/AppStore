@@ -1321,7 +1321,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		int tecla;
 		tecla = getch();
 		if (tecla != 0) {
-			while (tecla != 13) //ENQUANTO DIFERENTE DE ENTER
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
 			{
 				tecla = getch();
 				if (tecla == 72) //ACIMA
@@ -1393,7 +1393,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 		int tecla;
 		tecla = getch();
 		if (tecla != 0) {
-			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
 			{
 				tecla = getch();
 				if (tecla == 72) //ACIMA
