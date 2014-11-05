@@ -9,6 +9,14 @@
 
 using namespace std;
 
+vector<string> getAppNames(vector<App> apps){
+	vector<string> app_names;
+	for(unsigned int i = 0; i< apps.size();i++){
+		app_names.push_back(apps[i].getNome());
+	}
+	return app_names;
+}
+
 void printMenuScroll(vector<string> options, int selected_option, const unsigned int max_per_screen) {
 	int min = selected_option - (max_per_screen / 2);
 	unsigned int max = selected_option + ((max_per_screen + 1) / 2);
@@ -1277,6 +1285,8 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					tecla = getch();
 					if (tecla == 72) //ACIMA
 						opcao--;
+					// funcao que recebe apps e retorna vetor de strings dos nomes
+					// printScroll(blahblah
 					if (tecla == 80) //ABAIXO
 						opcao++;
 				}
