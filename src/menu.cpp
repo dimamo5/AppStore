@@ -1275,6 +1275,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 	int opcao = 0;
+	cout << "  Visita Store Ordenada  " << endl;
 
 	if (state == 0) {
 		vector<string> menu_options = getAppNames(apps_ordenadas);
