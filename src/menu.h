@@ -14,6 +14,7 @@
 extern Developer* dev_act;
 extern Cliente* cli_act;
 
+void printMenuScroll(vector<string> options, int selected_option, const unsigned int max_per_screen);
 void cor(int n);
 int teclas();
 int RestringeOpcaoTeclas(int min, int max, int opcao);

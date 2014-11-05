@@ -9,6 +9,37 @@
 
 using namespace std;
 
+void printMenuScroll(vector<string> options, int selected_option, const unsigned int max_per_screen) {
+	int min = selected_option - (max_per_screen / 2);
+	unsigned int max = selected_option + ((max_per_screen + 1) / 2);
+
+	if (max < max_per_screen)
+		max = max_per_screen;
+
+	if (max > options.size())
+		max = options.size();
+
+	unsigned int range = max - min;
+
+	if (range < max_per_screen)
+		min = options.size() - max_per_screen;
+
+	if (min < 0)
+		min = 0;
+
+	string temp;
+
+	for (unsigned int i = min; i < max; i++) {
+		if (i == selected_option)
+			temp = "  -> " + options[i];
+		else
+			temp = "     " + options[i];
+
+		cout << temp;
+		cout << endl << endl;
+	}
+}
+
 void cor(int n) {
 	HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -42,7 +73,6 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 	else
 		return opcao; //se não se verificam as restrições, entao devolve-se novamente a variavel intacta
 }
-
 
 int menuInicial(AppStore& mieic) {
 	system("cls");
@@ -1228,9 +1258,39 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	}
 }
 
-void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state, vector<App> apps_ordenadas){
+void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
+		vector<App> apps_ordenadas) {
+
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+
+	if (state == 0){
+
+		int tecla;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) //ENQUANTO DIFERENTE DE ENTER
+				{
+					tecla = getch();
+					if (tecla == 72) //ACIMA
+						opcao--;
+					if (tecla == 80) //ABAIXO
+						opcao++;
+				}
+			}
+
+	}
+	if (state == 1){
+
+	}
+	if (state == 2){
+
+	}
 
 }
-void menuListaDeveloper(AppStore& mieic, unsigned int& state){
+void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 
 }
