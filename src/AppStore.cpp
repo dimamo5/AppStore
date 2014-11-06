@@ -13,6 +13,13 @@ AppStore::AppStore() {
 
 }
 
+Date AppStore::DataAtual(){
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(now);
+	return data_atual;
+}
+
 bool AppStore::save_clientes(ofstream& file) {
 	if (clientes.empty()) {
 		return false;

@@ -15,6 +15,7 @@
 #include "Date.h"
 #include <string>
 #include <fstream>
+#include <ctime>
 
 extern Developer* dev_act;
 extern Cliente* cli_act;
@@ -33,11 +34,14 @@ public:
 	vector<Cliente> clientes;
 	vector<Developer *> dev;
 	vector<Vendas> vendas;
+	Date data_atual;
+
+	Date DataAtual();
+
 	Developer* find_dev_id(unsigned int id) const;
 	Cliente* find_cliente_id(unsigned int id) ;
 	App* find_app_id(unsigned int id);
 	Vendas* find_vendas_id(unsigned int id);
-
 
 	vector<App> getApps(Developer* dev_act);
 	unsigned int getNrApps(Developer* dev_act);

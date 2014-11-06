@@ -27,8 +27,13 @@ const unsigned int MAX_PER_SCREEN = 6;
 #include "Cliente.h"
 #include "App.h"
 
+class Date;
+
 extern Developer* dev_act;
 extern Cliente* cli_act;
+
+void gotoxy(int xpos, int ypos);
+void porDataNoCanto(int xpos, int ypos);
 
 vector<string> getAppNames(vector<App> apps);
 vector<string> getDevNames(vector<Developer*> devs);
@@ -55,7 +60,7 @@ void menuClienteDefinicoes(AppStore& mieic);
 void menuDeveloperDefinicoes(AppStore& mieic);
 void menuDeveloperGerirApps(AppStore& mieic);
 void menuDeveloperModApp(AppStore& mieic);
-void menuClienteCredito(AppStore& mieic);
+void menuClienteAddCredito(AppStore& mieic);
 void menuCestoCompras(AppStore& mieic);
 void menuHistoricoVendas(AppStore& mieic);
 void menuAlterarPassCli(AppStore& mieic);

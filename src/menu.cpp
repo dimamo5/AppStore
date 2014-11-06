@@ -10,6 +10,21 @@
 
 using namespace std;
 
+void gotoxy(int xpos, int ypos)  // just take this function as it is.
+		{
+	COORD scrn;
+	HANDLE hOuput = GetStdHandle(STD_OUTPUT_HANDLE);
+	scrn.X = xpos;
+	scrn.Y = ypos;
+	SetConsoleCursorPosition(hOuput, scrn);
+}
+
+void porDataNoCanto(Date data, int xpos, int ypos) {
+	gotoxy(xpos, ypos);
+	cout << data.imprimeData();
+	gotoxy(0, 0);
+}
+
 vector<string> getAppNames(vector<App> apps) {
 	vector<string> app_names;
 	for (unsigned int i = 0; i < apps.size(); i++) {
@@ -31,9 +46,8 @@ bool verificaPass(T* dev_or_cli) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
-
 	string password;
 	bool inputFail = false;
 
@@ -136,15 +150,14 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 
 int menuInicial(AppStore& mieic) {
 	system("cls");
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+
 	dev_act = NULL; // da reset aos indicadores de login atual, ou seja, faz logout
 	cli_act = NULL;
 	unsigned int state = 0; //state 0 is guest
 	int opcao = 0;
 	for (;;) {
 		system("cls");
+		porDataNoCanto(mieic.DataAtual(), 1, 23);
 		cout << "  Bem-vindo a AppStore MIEICPlay  " << endl << endl;
 
 		if (opcao == 0)
@@ -196,7 +209,7 @@ int menuLogin(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 	for (;;) {
 		system("cls");
@@ -244,7 +257,7 @@ int menuRegistar(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 	for (;;) {
 		system("cls");
@@ -305,7 +318,7 @@ void menuLoginCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	bool loginCliente = false; // valor default = false
 	bool inputFail;
@@ -406,7 +419,7 @@ void menuLoginDeveloper(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	bool loginDeveloper; // valor default = false
 	bool inputFail;
@@ -506,7 +519,7 @@ void menuRegistarCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	// imprimeData(data_atual); fazer funcao para imprimir data
 
@@ -633,7 +646,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	// imprimeData(data_atual); fazer funcao para imprimir data
 
@@ -761,7 +774,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	// imprimeData(data_atual); fazer funcao para imprimir data
 
@@ -918,12 +931,13 @@ void menuCliente(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	unsigned int state = 2; //state 2 is the client
 	int opcao = 0;
 
 	for (;;) {
 		system("cls");
+		porDataNoCanto(mieic.DataAtual(), 1, 23);
 		cout << "  Menu Cliente  " << endl << endl;
 
 		if (opcao == 0)
@@ -981,12 +995,13 @@ void menuDeveloper(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	unsigned int state = 1; // state = 1 is developer
 	int opcao = 0;
 
 	for (;;) {
 		system("cls");
+		porDataNoCanto(mieic.DataAtual(), 1, 23);
 		cout << "  Menu Developer  " << endl << endl;
 
 		if (opcao == 0)
@@ -1045,7 +1060,7 @@ void menuClienteTransacoes(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 
 	for (;;) {
@@ -1075,7 +1090,7 @@ void menuClienteTransacoes(AppStore& mieic) {
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
 		case 0:          // 1a opcao
-			menuClienteCredito(mieic);
+			menuClienteAddCredito(mieic);
 			system("pause");
 			break;
 
@@ -1100,7 +1115,7 @@ void menuClienteDefinicoes(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 
 	for (;;) {
@@ -1154,7 +1169,7 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 
 	for (;;) {
@@ -1208,7 +1223,7 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 
 	if (dev_act->isEmpresa()) {
@@ -1313,8 +1328,104 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 	}
 }
 
-void menuClienteCredito(AppStore& mieic) {
+void menuClienteAddCredito(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(now);
+	int opcao = 0;
 
+	int cartao_credito;
+	float saldo_a_adicionar;
+	string password_nova;
+	bool inputFail = false;
+
+	cout << "  Adicionar Credito  " << endl << endl << endl << endl;
+
+	do {
+		system("cls");
+		cout << "  Adicionar Credito  " << endl << endl << endl << endl;
+		cout << "  Insira o Nr. do seu Cartao de Credito: ";
+		cin >> cartao_credito;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	do {
+		system("cls");
+		cout << "  Adicionar Credito  " << endl << endl << endl << endl;
+		cout << "  Insira o Nr. do seu Cartao de Credito: " << cartao_credito
+				<< endl;
+		cout << "  Insira o credito a adicionar: ";
+		cin >> saldo_a_adicionar;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	system("cls");
+	cout << "  Adicionar Credito  " << endl << endl << endl << endl;
+	cout << "  Insira o Nr. do seu Cartao de Credito: " << cartao_credito
+			<< endl;
+	cout << "  Insira o credito a adicionar: " << saldo_a_adicionar << endl
+			<< endl;
+	cout
+			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
+			<< endl << endl;
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+			tecla = getch();
+		}
+	}
+	if (tecla == 13) {
+		if (cli_act->getCartaoCredito() == cartao_credito) {
+
+			// modifica o saldo para ser o que ja tinha + o saldo a adicionar
+			cli_act->setSaldo(cli_act->getSaldo() + saldo_a_adicionar);
+
+			system("cls");
+			cout << "  Adicionar Credito  " << endl << endl << endl;
+			cout << "  Sucesso! Credito adicionado.  " << endl;
+			cout << "  O seu saldo e agora de " << cli_act->getSaldo()
+					<< " euros." << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+			}
+			menuClienteTransacoes(mieic);
+		} else
+			system("cls");
+		cout << "  Adicionar Credito " << endl << endl << endl;
+		cout << "  Tentativa falhada! Errou o Nr. do seu Cartao de Credito.  "
+				<< endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar de novo ou (Escape) para regressar "
+				<< endl;
+
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13) {
+			menuClienteAddCredito(mieic);
+		} else if (tecla == 27) {
+			menuClienteTransacoes(mieic);
+		}
+
+	} else if (tecla == 27) {
+		menuClienteTransacoes(mieic);
+	}
 }
 
 void menuCestoCompras(AppStore& mieic) {
@@ -1326,6 +1437,86 @@ void menuHistoricoVendas(AppStore& mieic) {
 }
 
 void menuAlterarPassCli(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(now);
+	int opcao = 0;
+
+	string password_nova;
+	bool passCerta = false;
+	bool inputFail = false;
+
+	passCerta = verificaPass(cli_act);
+
+	if (passCerta) {
+		do {
+			system("cls");
+			cout << "  Alterar Password  " << endl << endl << endl << endl;
+			cout << "  Insira a nova password para a sua conta: ";
+			cin >> password_nova;
+
+			inputFail = cin.fail();
+			cin.clear();  // da clear a flag do fail
+			cin.ignore(1000, '\n');
+		} while (inputFail == true);
+
+		system("cls");
+		cout << "  Alterar Password  " << endl << endl << endl << endl;
+		cout << "  Insira a nova password para a sua conta: " << password_nova
+				<< endl << endl;
+		cout
+				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem alterar "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
+		}
+		if (tecla == 13) {
+
+			cli_act->setIdPass(password_nova);
+
+			system("cls");
+			cout << "  Alterar Password  " << endl << endl << endl << endl;
+			cout << "  Sucesso! Password alterada.  " << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) {
+					tecla = getch();
+				}
+			}
+			menuClienteDefinicoes(mieic);
+		}
+		if (tecla == 27)
+			menuClienteDefinicoes(mieic);
+
+	} else if (!passCerta) {
+		system("cls");
+		cout << "  Alterar Password " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
+			menuAlterarPassCli(mieic);
+		if (tecla == 27)
+			menuClienteDefinicoes(mieic);
+
+	}
 
 }
 
@@ -1341,73 +1532,84 @@ void menuAlterarPassDev(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 
-	string password_atual, password_nova;
+	string password_nova;
+	bool passCerta = false;
 	bool inputFail = false;
 
-	cout << "  Alterar Password  " << endl << endl << endl << endl;
+	passCerta = verificaPass(dev_act);
 
-	do {
+	if (passCerta) {
+		do {
+			system("cls");
+			cout << "  Alterar Password  " << endl << endl << endl << endl;
+			cout << "  Insira a nova password para a sua conta: ";
+			cin >> password_nova;
+
+			inputFail = cin.fail();
+			cin.clear();  // da clear a flag do fail
+			cin.ignore(1000, '\n');
+		} while (inputFail == true);
+
 		system("cls");
 		cout << "  Alterar Password  " << endl << endl << endl << endl;
-		cout << "  Insira a password atual da sua conta: ";
-		cin >> password_atual;
+		cout << "  Insira a nova password para a sua conta: " << password_nova
+				<< endl << endl;
+		cout
+				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem alterar "
+				<< endl << endl;
 
-		inputFail = cin.fail();
-		cin.clear();  // da clear a flag do fail
-		cin.ignore(1000, '\n');
-	} while (inputFail == true);
-
-	do {
-		system("cls");
-		cout << "  Alterar Password  " << endl << endl << endl << endl;
-		cout << "  Insira a password atual da sua conta: " << password_atual;
-		cout << "  Insira a nova password: ";
-		cin >> password_nova;
-
-		inputFail = cin.fail();
-		cin.clear();  // da clear a flag do fail
-		cin.ignore(1000, '\n');
-	} while (inputFail == true);
-
-	cout << "  Alterar Password  " << endl << endl << endl << endl;
-	cout << "  Insira a password atual da sua conta: " << password_atual;
-	cout << "  Insira a nova password: " << password_nova;
-	cout
-			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
-			<< endl << endl;
-	int tecla;
-	tecla = getch();
-	if (tecla != 0) {
-		while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
-			tecla = getch();
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
 		}
-	}
-	if (tecla == 13) {
-		if (dev_act->getIdPass() == password_atual) {
+		if (tecla == 13) {
 
 			dev_act->setIdPass(password_nova);
 
 			system("cls");
-			cout << "  Alterar Password " << endl << endl;
+			cout << "  Alterar Password  " << endl << endl << endl << endl;
+			cout << "  Sucesso! Password alterada.  " << endl << endl;
 			cout << "  Prima (Enter) para continuar " << endl << endl;
-			cout << "  Sucesso! Password alterada.  " << endl;
 
 			tecla = getch();
 			if (tecla != 0) {
-				while (tecla != 13) { // enquanto nao prime enter para continuar
+				while (tecla != 13) {
 					tecla = getch();
 				}
 			}
 			menuDeveloperDefinicoes(mieic);
-		} else
+		}
+		if (tecla == 27)
+			menuDeveloperDefinicoes(mieic);
+
+	} else if (!passCerta) {
+		system("cls");
+		cout << "  Alterar Password " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
 			menuAlterarPassDev(mieic);
+		if (tecla == 27)
+			menuDeveloperDefinicoes(mieic);
+
 	}
-	else if (tecla == 27){
-		menuDeveloperDefinicoes(mieic);
-	}
+
 }
 
 void menuAlterarMorada(AppStore& mieic) {
@@ -1415,6 +1617,9 @@ void menuAlterarMorada(AppStore& mieic) {
 }
 
 void menuAlterarNIF(AppStore& mieic) {
+	system("cls");
+	int opcao = 0;
+	bool passCerta = false; // default para false
 
 }
 
@@ -1426,7 +1631,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	vector<App> apps_por_nome;
 	vector<App> apps_por_preco;
@@ -1616,7 +1821,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 
 	vector<string> menu_options = getAppNames(apps_ordenadas);
@@ -1789,7 +1994,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 	int opcao2 = 0;
 	vector<Developer*> devs_ordenados = mieic.dev;
@@ -1910,7 +2115,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 void menuVerDev(AppStore& mieic) {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	if (dev_act->isEmpresa()) {
 		system("cls");
@@ -1963,18 +2168,18 @@ void menuVerCli(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	cout << "  Atributos de Cliente"
 			"  " << endl << endl;
 	cout << "  Prima (Esc) para regressar " << endl << endl << endl;
 
 	cout << "  ID de Login: " << cli_act->getId() << endl;
-	cout << "  Saldo: " << cli_act->getSaldo() << endl;
+	cout << "  Saldo: " << cli_act->getSaldo() << " euros" << endl;
 	cout << "  Nome: " << cli_act->getNome() << endl;
 	cout << "  Idade: " << cli_act->getIdade() << endl;
 	cout << "  Sexo: " << cli_act->getSexo() << endl;
-	cout << "  Nr. Cartao de Credito: " << cli_act->getCartaoCredito() << endl;
+	cout << "  Nr. Cartao de Credito: " << "*********" << endl;
 	cout << "  Nr. de Vouchers disponiveis: " << cli_act->getVouchers() << endl;
 
 	int tecla;
@@ -1991,7 +2196,7 @@ void menuCriarApp(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 
 	bool nomeRepetido = false;
 	bool inputFail;
@@ -2114,7 +2319,7 @@ void menuRemoverApp(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 	bool passCerta = false; // default para false
 
@@ -2186,9 +2391,9 @@ void menuRemoverApp(AppStore& mieic) {
 
 			if (passCerta) {
 				system("cls");
-				cout << "  Remover Apps " << endl << endl;
+				cout << "  Remover Apps " << endl << endl << endl << endl;
+				cout << "  Sucesso! App removida.  " << endl << endl;
 				cout << "  Prima (Enter) para continuar " << endl << endl;
-				cout << "  Sucesso! App removida.  " << endl;
 
 				mieic.apps.erase(mieic.apps.begin() + opcao);
 
@@ -2203,8 +2408,7 @@ void menuRemoverApp(AppStore& mieic) {
 			} else if (!passCerta) {
 				system("cls");
 				cout << "  Remover Apps " << endl << endl;
-				cout << "  Prima (Enter) para continuar " << endl << endl;
-				cout << "  Password errada. Remocao nao efetuada.  " << endl;
+				cout << "  Password errada.  " << endl;
 
 				tecla = getch();
 				if (tecla != 0) {
@@ -2229,7 +2433,7 @@ void menuModificarApp(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
-	Date data_atual(tm);
+	Date data_atual(now);
 	int opcao = 0;
 	string nome_novo, categoria_nova, descricao_nova;
 	double preco_novo;
@@ -2306,7 +2510,7 @@ void menuModificarApp(AppStore& mieic) {
 
 				time_t t = time(0);
 				struct tm *now = localtime(&t);
-				Date data_atual(tm);
+				Date data_atual(now);
 				int opcao2 = 0;
 				bool inputFail = false;
 

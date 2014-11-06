@@ -52,7 +52,6 @@ public:
 	bool setYear(unsigned int year);
 
 	string imprimeData() const;
-	string imprimeHora() const;
 
 	bool operator< (const Date&) const;
 	bool operator> (const Date&) const;
