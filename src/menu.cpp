@@ -26,8 +26,34 @@ vector<string> getDevNames(vector<Developer*> devs) {
 	return dev_names;
 }
 
-bool verificaDevPass(Developer* dev_act){
+bool verificaDevPass(Developer* dev_act) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
 
+	string password;
+	bool inputFail = false;
+
+	cout << "  Verificacao por Password  " << endl << endl << endl << endl;
+
+	do {
+		system("cls");
+		cout << "  Verificacao por Password  " << endl << endl << endl << endl;
+		cout << "  Insira a password da sua conta: ";
+		cin >> password;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	if (password == dev_act->getIdPass()){
+		return true;
+	}
+	else
+		return false;
 }
 
 void printMenuScroll(vector<string> options, int selected_option,
@@ -2015,101 +2041,102 @@ void menuCriarApp(AppStore& mieic) {
 }
 
 void menuRemoverApp(AppStore& mieic) {
-	system("cls");
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(tm);
-	int opcao = 0;
-
-	// vai buscar apps do dev e ordena-as por nome
-	vector<App> apps_ordenadas = mieic.getApps(dev_act);
-	sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
-
-	//Vai criar a lista de opcoes com o nome das Apps do developer atual
-	vector<string> menu_options = getAppNames(apps_ordenadas);
-
-	if (apps_ordenadas.empty()) {
-		system("cls");
-		cout << "  Remover Apps " << endl << endl;
-		cout << "  Prima (Esc) para regressar  " << endl << endl;
-
-		cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
-
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-				tecla = getch();
-			}
-
-		}
-		menuDeveloperGerirApps(mieic);
-	} else {
-
-		cout << "  Remover Apps " << endl << endl;
-		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl << endl;
-		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
-
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
-			{
-				tecla = getch();
-				if (tecla == 72) //ACIMA
-						{
-					opcao--;
-					if (opcao < 0)
-						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
-					system("cls");
-					cout << "  Visita Store - Apps Ordenadas por "
-							<< tipo_ordenacao << endl << endl;
-					cout
-							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
-							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
-				}
-				if (tecla == 80) //ABAIXO
-						{
-					opcao++;
-					if (opcao > (menu_options.size() - 1))
-						opcao = 0; // se passar o fim, volta ao inicio
-					system("cls");
-					cout << "  Visita Store - Apps Ordenadas por "
-							<< tipo_ordenacao << endl << endl;
-					cout
-							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
-							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
-				}
-			}
-		}
-		if (tecla == 13) {
-			system("cls");
-			cout << "  Especificacoes da App  " << endl << endl;
-			cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
-			cout << apps_ordenadas[opcao].imprime() << endl;
-			int tecla;
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-					tecla = getch();
-				}
-			}
-			menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
-					tipo_ordenacao);
-		}
-
-		if (tecla == 27) {
-			if (tipo_ordenacao == "Developer e Nome"
-					|| tipo_ordenacao == "Developer e Preco") {
-				menuListaDeveloper(mieic, state);
-			} else {
-				menuVisitaStore(mieic, state);
-			}
-		}
-
-	}
+//	system("cls");
+//	time_t t = time(0);
+//	struct tm *now = localtime(&t);
+//	Date data_atual(tm);
+//	int opcao = 0;
+//
+//	// vai buscar apps do dev e ordena-as por nome
+//	vector<App> apps_ordenadas = mieic.getApps(dev_act);
+//	sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
+//
+//	//Vai criar a lista de opcoes com o nome das Apps do developer atual
+//	vector<string> menu_options = getAppNames(apps_ordenadas);
+//
+//	if (apps_ordenadas.empty()) {
+//		system("cls");
+//		cout << "  Remover Apps " << endl << endl;
+//		cout << "  Prima (Esc) para regressar  " << endl << endl;
+//
+//		cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
+//
+//		int tecla;
+//		tecla = getch();
+//		if (tecla != 0) {
+//			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+//				tecla = getch();
+//			}
+//
+//		}
+//		menuDeveloperGerirApps(mieic);
+//	} else {
+//
+//		cout << "  Remover Apps " << endl << endl;
+//		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+//				<< endl << endl;
+//		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+//
+//		int tecla;
+//		tecla = getch();
+//		if (tecla != 0) {
+//			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+//			{
+//				tecla = getch();
+//				if (tecla == 72) //ACIMA
+//						{
+//					opcao--;
+//					if (opcao < 0)
+//						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+//					system("cls");
+//					cout << "  Visita Store - Apps Ordenadas por "
+//							<< tipo_ordenacao << endl << endl;
+//					cout
+//							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+//							<< endl << endl;
+//					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+//				}
+//				if (tecla == 80) //ABAIXO
+//						{
+//					opcao++;
+//					if (opcao > (menu_options.size() - 1))
+//						opcao = 0; // se passar o fim, volta ao inicio
+//					system("cls");
+//					cout << "  Visita Store - Apps Ordenadas por "
+//							<< tipo_ordenacao << endl << endl;
+//					cout
+//							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+//							<< endl << endl;
+//					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+//				}
+//			}
+//		}
+//		if (tecla == 13) {
+//			system("cls");
+//			cout << "  Especificacoes da App  " << endl << endl;
+//			cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
+//			cout << apps_ordenadas[opcao].imprime() << endl;
+//			int tecla;
+//			tecla = getch();
+//			if (tecla != 0) {
+//				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+//					tecla = getch();
+//				}
+//			}
+//			menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+//					tipo_ordenacao);
+//		}
+//
+//		if (tecla == 27) {
+//			if (tipo_ordenacao == "Developer e Nome"
+//					|| tipo_ordenacao == "Developer e Preco") {
+//				menuListaDeveloper(mieic, state);
+//			} else {
+//				menuVisitaStore(mieic, state);
+//			}
+//		}
+//
+//	}
 
 }
 

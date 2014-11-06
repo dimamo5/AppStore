@@ -105,7 +105,7 @@ bool AppStore::save_app(ofstream& file) {
 	} else {
 		file << apps[0].getNextId() << endl;
 		for (unsigned int i = 0; i < apps.size(); i++) {
-			file << apps[i].get_id() << endl;
+			file << apps[i].getId() << endl;
 			file << apps[i].getNome() << endl;
 			file << apps[i].getCategoria() << endl;
 			file << apps[i].getDescricao() << endl;
@@ -301,7 +301,7 @@ bool AppStore::load_vendas(fstream &file) {
 
 App* AppStore::find_app_id(unsigned int id) {
 	for (unsigned int i = 0; i < apps.size(); i++) {
-		if (apps[i].get_id() == id) {
+		if (apps[i].getId() == id) {
 			return &apps[i];
 		}
 	}
@@ -317,11 +317,55 @@ Vendas* AppStore::find_vendas_id(unsigned int id) {
 	return NULL;
 }
 
+vector<App> AppStore::getApps(Developer* dev_act) {
+	vector<App> apps_do_developer;
+
+	for (unsigned int i = 0; i < apps.size(); i++) { // percorre as apps da store
+
+		// sempre que ha uma app cujo ID  do dev coincide, tendo em conta que todos teem IDs diferentes
+		if (apps[i].getDev()->getId() == dev_act->getId()) {
+			apps_do_developer.push_back(apps[i]);
+		}
+	}
+	return apps_do_developer;
+}
+
+unsigned int AppStore::getNrApps(Developer* dev_act) {
+	unsigned int counter = 0;
+
+	for (unsigned int i = 0; i < apps.size(); i++) {
+		if (apps[i].getDev()->getId() == dev_act->getId())
+			counter++;
+	}
+	return counter;
+}
+
 bool AppStore::existeNomeDev(string nome) const {
 
 	for (unsigned int i = 0; i < dev.size(); i++) {
 
 		if (dev[i]->getNome() == nome) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool AppStore::existeNomeApp(string nome) const {
+
+	for (unsigned int i = 0; i < apps.size(); i++) {
+		if (apps[i].getNome() == nome) {
+			return true;
+		}
+	}
+	return false;
+}
+
+bool AppStore::existeNomeDevEmp(string nome_dev, string nome_oficial) const {
+	for (unsigned int i = 0; i < dev.size(); i++) {
+
+		if (dev[i]->getNome() == nome_dev
+				|| dev[i]->getExtra() == nome_oficial) {
 			return true;
 		}
 	}

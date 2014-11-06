@@ -39,7 +39,12 @@ public:
 	Vendas* find_vendas_id(unsigned int id);
 
 
+	vector<App> getApps(Developer* dev_act);
+	unsigned int getNrApps(Developer* dev_act);
+
 	bool existeNomeDev(string nome) const;
+	bool existeNomeApp(string nome) const;
+	bool existeNomeDevEmp(string nome_dev, string nome_oficial) const;
 
 	bool verificaLoginCliente(unsigned int id, string pass) const;
 	// true - "faz login"  false - "combinacao errada" Alternativamente poderia ter feito -1 -> "cliente nao existe" 0 -> "login OK" 1 -> "password errada"
