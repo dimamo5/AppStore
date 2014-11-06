@@ -59,7 +59,7 @@ Cliente::Cliente(string nome, unsigned int idade, string sexo,int cartao_credito
 	this->id=next_id;
 	next_id++;
 	saldo=0;
-	nr_vouchers++;
+	nr_vouchers = 0;
 }
 
 bool Cliente::adicionarVenda(Vendas* v) {

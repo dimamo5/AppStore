@@ -1143,7 +1143,7 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 	if (dev_act->isEmpresa()) {
 		for (;;) {
 			system("cls");
-			cout << "  Definicoes de Developer  " << endl << endl;
+			cout << "  Definicoes de Developer Empresarial " << endl << endl;
 
 			if (opcao == 0)
 				cor(WHITE, BLACK);
@@ -1196,7 +1196,7 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 	} else if (!dev_act->isEmpresa()) {
 		for (;;) {
 			system("cls");
-			cout << "  Definicoes de Developer  " << endl << endl;
+			cout << "  Definicoes de Developer Individual  " << endl << endl;
 
 			if (opcao == 0)
 				cor(WHITE, BLACK);
@@ -1360,59 +1360,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 		int opcao = 0;
 		for (;;) {
 			system("cls");
-			cout << "  AppStore MIEICPlay  " << endl << endl;
-
-			cout << "  Escolha como quer listar as apps:  " << endl << endl;
-
-			if (opcao == 0)
-				cor(WHITE, BLACK);
-			cout << "  Por Ordem Alfabetica  " << endl;
-			cor(BLACK, WHITE);
-			if (opcao == -1)
-				cor(WHITE, BLACK);
-			cout << "  Por Preco " << endl;
-			cor(BLACK, WHITE);
-			if (opcao == -2)
-				cor(WHITE, BLACK);
-			cout << "  Por developer  " << endl;
-			cor(BLACK, WHITE);
-			if (opcao == -3)
-				cor(WHITE, LIGHT_RED);
-			cout << "  SAIR  " << endl;
-			cor(BLACK, WHITE);
-
-			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 3, opcao);
-
-			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
-			{
-			case 0:          // 1a opcao
-				//menuVisitaStoreOrdenada(mieic, state, apps)
-				system("pause");
-				break;
-
-			case -1:				// 2a opcao
-				//menuVisitaStoreOrdenada(mieic, state, apps)
-				system("pause");
-				break;
-			case -2:				// 3a opcao
-				//menuListaDeveloper(mieic); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
-				system("pause");
-				break;
-			case -3:				// 4a opcao
-				menuDeveloper(mieic);// TODO: implementar a listagem atributos do cliente
-				system("pause");
-				break;
-			}
-		}
-	}
-
-	if (state == 2) {
-
-		int opcao = 0;
-		for (;;) {
-			system("cls");
-			cout << "  AppStore MIEICPlay  " << endl << endl;
+			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state
+					<< endl << endl;
 
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
@@ -1438,20 +1387,86 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			switch (opcao - 13) {
 			case 0:          // 1a opcao
-				//menuVisitaStoreOrdenada(mieic, state, apps)
+				apps_por_nome = mieic.apps;
+				sort(apps_por_nome.begin(), apps_por_nome.end(),
+						appsComparaNome);
+				menuVisitaStoreOrdenada(mieic, state, apps_por_nome,
+						"Ordem Alfabetica");
 				system("pause");
 				break;
 
-			case -1:				// 2a opcao
-				//menuVisitaStoreOrdenada(mieic, state, apps)
+			case -1:          // 2a opcao
+				apps_por_preco = mieic.apps;
+				sort(apps_por_preco.begin(), apps_por_preco.end(),
+						appsComparaPreco);
+				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
 				system("pause");
 				break;
-			case -2:				// 3a opcao
-				//menuListaDeveloper(mieic,state); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
+			case -2:          // 3a opcao
+				menuListaDeveloper(mieic, state); //-> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
-			case -3:				// 4a opcao
-				menuCliente(mieic);
+			case -3:          // 4a opcao
+				menuDeveloper(mieic);
+				system("pause");
+				break;
+			}
+		}
+	}
+
+	if (state == 2) {
+
+		int opcao = 0;
+		for (;;) {
+			system("cls");
+			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state
+					<< endl << endl;
+
+			cout << "  Escolha como quer listar as apps:  " << endl << endl;
+
+			if (opcao == 0)
+				cor(WHITE, BLACK);
+			cout << "  Por Ordem Alfabetica  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -1)
+				cor(WHITE, BLACK);
+			cout << "  Por Preco " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -2)
+				cor(WHITE, BLACK);
+			cout << "  Por developer  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -3)
+				cor(WHITE, LIGHT_RED);
+			cout << "  SAIR  " << endl;
+			cor(BLACK, WHITE);
+
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+			switch (opcao - 13) {
+			case 0:          // 1a opcao
+				apps_por_nome = mieic.apps;
+				sort(apps_por_nome.begin(), apps_por_nome.end(),
+						appsComparaNome);
+				menuVisitaStoreOrdenada(mieic, state, apps_por_nome,
+						"Ordem Alfabetica");
+				system("pause");
+				break;
+
+			case -1:          // 2a opcao
+				apps_por_preco = mieic.apps;
+				sort(apps_por_preco.begin(), apps_por_preco.end(),
+						appsComparaPreco);
+				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
+				system("pause");
+				break;
+			case -2:          // 3a opcao
+				menuListaDeveloper(mieic, state); //-> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
+				system("pause");
+				break;
+			case -3:          // 4a opcao
+				menuInicial(mieic);
 				system("pause");
 				break;
 			}
@@ -1491,7 +1506,8 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 			}
 
 		}
-		if (tipo_ordenacao == "Developer e Nome") {
+		if (tipo_ordenacao == "Developer e Nome"
+				|| tipo_ordenacao == "Developer e Preco") {
 			menuListaDeveloper(mieic, state);
 		} else {
 
@@ -1499,6 +1515,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		}
 
 	}
+
 	if (state == 0) {
 
 		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
@@ -1553,16 +1570,77 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					tipo_ordenacao);
 		}
 
-		if (tecla == 27)
-			if (tipo_ordenacao == "Developer e Nome") {
+		if (tecla == 27) {
+			if (tipo_ordenacao == "Developer e Nome"
+					|| tipo_ordenacao == "Developer e Preco") {
 				menuListaDeveloper(mieic, state);
 			} else {
-
 				menuVisitaStore(mieic, state);
 			}
+		}
 	}
 	if (state == 1) {
 
+		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+						{
+					opcao--;
+					if (opcao < 0)
+						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+				if (tecla == 80) //ABAIXO
+						{
+					opcao++;
+					if (opcao > (menu_options.size() - 1))
+						opcao = 0; // se passar o fim, volta ao inicio
+					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+			}
+		}
+		if (tecla == 13) {
+			system("cls");
+			cout << "  Especificacoes da App  " << endl << endl;
+			cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
+			cout << apps_ordenadas[opcao].imprime() << endl;
+			int tecla;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+					tecla = getch();
+				}
+			}
+			menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+					tipo_ordenacao);
+		}
+
+		if (tecla == 27) {
+			if (tipo_ordenacao == "Developer e Nome"
+					|| tipo_ordenacao == "Developer e Preco") {
+				menuListaDeveloper(mieic, state);
+			} else {
+				menuVisitaStore(mieic, state);
+			}
+		}
 	}
 	if (state == 2) {
 
@@ -1577,14 +1655,12 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
 	int opcao = 0;
+	int opcao2 = 0;
 	vector<Developer*> devs_ordenados = mieic.dev;
 	sort(devs_ordenados.begin(), devs_ordenados.end(), devsComparaNome); // cria lista de devs ordenados
 
 	vector<App> apps_do_dev_por_nome;
-
-	cout << "  Visita Store - Devs Ordenados por Nome" << endl << endl;
-	cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl
-			<< endl;
+	vector<App> apps_do_dev_por_preco;
 
 	if (devs_ordenados.empty()) {
 		system("cls");
@@ -1603,8 +1679,12 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 		menuVisitaStore(mieic, state); // ao carregar escape, regressa a escolha de criterios da store
 	}
 
-	if (state == 0) {
+	if (state == 0 || state == 1) { // lista de devs e menus anteriores e posteriores vao ser iguais para state 0 e 1
 		vector<string> menu_options = getDevNames(devs_ordenados);
+
+		cout << "  Visita Store - Devs Ordenados por Nome" << endl << endl;
+		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+				<< endl << endl;
 		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 
 		int tecla;
@@ -1642,19 +1722,50 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 			}
 		}
 		if (tecla == 13) { // aqui tem um dev selecionado. opcao = indice
-			apps_do_dev_por_nome = getApps(devs_ordenados[opcao], mieic);
-			sort(apps_do_dev_por_nome.begin(), apps_do_dev_por_nome.end(),
-					appsComparaNome);
-			menuVisitaStoreOrdenada(mieic, state, apps_do_dev_por_nome,
-					"Developer e Nome");
+			for (;;) {
+				system("cls");
+				cout << "  Escolha como quer listar as apps:  " << endl << endl;
+
+				if (opcao2 == 0)
+					cor(WHITE, BLACK);
+				cout << "  Por Ordem Alfabetica  " << endl;
+				cor(BLACK, WHITE);
+				if (opcao2 == -1)
+					cor(WHITE, BLACK);
+				cout << "  Por Preco " << endl;
+				cor(BLACK, WHITE);
+
+				opcao2 += teclas();
+				opcao2 = RestringeOpcaoTeclas(0, 1, opcao2);
+
+				switch (opcao2 - 13) {
+				case 0:          // 1a opcao
+					apps_do_dev_por_nome = getApps(devs_ordenados[opcao],
+							mieic);
+					sort(apps_do_dev_por_nome.begin(),
+							apps_do_dev_por_nome.end(), appsComparaNome);
+					menuVisitaStoreOrdenada(mieic, state, apps_do_dev_por_nome,
+							"Developer e Nome");
+					system("pause");
+					break;
+
+				case -1:          // 2a opcao
+					apps_do_dev_por_preco = getApps(devs_ordenados[opcao],
+							mieic);
+					sort(apps_do_dev_por_preco.begin(),
+							apps_do_dev_por_preco.end(), appsComparaPreco);
+					menuVisitaStoreOrdenada(mieic, state, apps_do_dev_por_preco,
+							"Developer e Preco");
+					system("pause");
+					break;
+				}
+			}
 		}
 		if (tecla == 27)
 			menuVisitaStore(mieic, state); // se na listagem de devs carrega esc, volta para o menu inic.
 
 	}
-	if (state == 1) {
 
-	}
 	if (state == 2) {
 
 	}
@@ -1662,56 +1773,78 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 }
 
 void menuVerDev(AppStore& mieic) {
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(tm);
-	int opcao = 0;
+time_t t = time(0);
+struct tm *now = localtime(&t);
+Date data_atual(tm);
 
-	if (dev_act->isEmpresa()) {
-		system("cls");
-		cout << "  Atributos da Empresa  " << endl << endl;
-		cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+if (dev_act->isEmpresa()) {
+	system("cls");
+	cout << "  Atributos da Empresa  " << endl << endl;
+	cout << "  Prima (Esc) para regressar " << endl << endl << endl;
 
-		cout << "  Nome Oficial: " << dev_act->getExtra() << endl;
-		cout << "  Nome de Developer: " << dev_act->getNome() << endl;
-		cout << "  ID de Login: " << dev_act->getId() << endl;
-		cout << "  Saldo: " << dev_act->getSaldo() << endl;
-		cout << "  NIF: " << dev_act->getNIF() << endl;
-		cout << "  Morada: " << dev_act->getMorada() << endl;
+	cout << "  ID de Login: " << dev_act->getId() << endl;
+	cout << "  Saldo: " << dev_act->getSaldo() << endl;
+	cout << "  Nome Oficial: " << dev_act->getExtra() << endl;
+	cout << "  Nome de Developer: " << dev_act->getNome() << endl;
+	cout << "  NIF: " << dev_act->getNIF() << endl;
+	cout << "  Morada: " << dev_act->getMorada() << endl;
 
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-				tecla = getch();
-			}
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+			tecla = getch();
 		}
-		menuDeveloper(mieic);
-
-	} else if (!dev_act->isEmpresa()) {
-		system("cls");
-		cout << "  Atributos do developer Individual  " << endl << endl;
-		cout << "  Prima (Esc) para regressar " << endl << endl << endl;
-
-		cout << "  Atributos da Empresa  " << endl << endl << endl << endl;
-		cout << "  Nome Oficial: " << dev_act->getExtra() << endl;
-		cout << "  Nome de Developer: " << dev_act->getNome() << endl;
-		cout << "  ID de Login: " << dev_act->getId() << endl;
-		cout << "  Saldo: " << dev_act->getSaldo() << endl;
-		cout << "  NIF: " << dev_act->getNIF() << endl;
-		cout << "  Morada: " << dev_act->getMorada() << endl;
-
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-				tecla = getch();
-			}
-		}
-		menuDeveloper(mieic);
 	}
+	menuDeveloper(mieic);
+
+} else if (!dev_act->isEmpresa()) {
+	system("cls");
+	cout << "  Atributos do developer Individual  " << endl << endl;
+	cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+
+	cout << "  ID de Login: " << dev_act->getId() << endl;
+	cout << "  Saldo: " << dev_act->getSaldo() << endl;
+	cout << "  Nome Pessoal: " << dev_act->getExtra() << endl;
+	cout << "  Nome de Developer: " << dev_act->getNome() << endl;
+	cout << "  Morada: " << dev_act->getMorada() << endl;
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+			tecla = getch();
+		}
+	}
+	menuDeveloper(mieic);
+}
 }
 
 void menuVerCli(AppStore& mieic) {
-	system("cls");
+system("cls");
+time_t t = time(0);
+struct tm *now = localtime(&t);
+Date data_atual(tm);
+
+cout << "  Atributos de Cliente"
+		"  " << endl << endl;
+cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+
+cout << "  ID de Login: " << cli_act->getId() << endl;
+cout << "  Saldo: " << cli_act->getSaldo() << endl;
+cout << "  Nome: " << cli_act->getNome() << endl;
+cout << "  Idade: " << cli_act->getIdade() << endl;
+cout << "  Sexo: " << cli_act->getSexo() << endl;
+cout << "  Nr. Cartao de Credito: " << cli_act->getCartaoCredito() << endl;
+cout << "  Nr. de Vouchers disponiveis: " << cli_act->getVouchers() << endl;
+
+int tecla;
+tecla = getch();
+if (tecla != 0) {
+	while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+		tecla = getch();
+	}
 }
+menuCliente(mieic);
+}
+
