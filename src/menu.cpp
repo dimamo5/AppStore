@@ -642,15 +642,15 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	} while (nome_dev == "");
 
 	do {
-			system("cls");
-			cout << "  Insira os seus dados para registo de developer  " << endl
-					<< endl << endl;
-			cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
-			cout << "  Indique o seu nome de developer: " << nome_dev << endl;
-			cout << "  Indique a sua morada: ";
-			fflush(stdin);
-			getline(cin, morada);
-		} while (morada == "");
+		system("cls");
+		cout << "  Insira os seus dados para registo de developer  " << endl
+				<< endl << endl;
+		cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
+		cout << "  Indique o seu nome de developer: " << nome_dev << endl;
+		cout << "  Indique a sua morada: ";
+		fflush(stdin);
+		getline(cin, morada);
+	} while (morada == "");
 
 	do {
 		system("cls");
@@ -673,7 +673,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 			<< endl;
 	cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
 	cout << "  Indique o seu nome de developer: " << nome_dev << endl;
-	cout << "  Indique a sua morada: " <<morada <<  endl;
+	cout << "  Indique a sua morada: " << morada << endl;
 	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
@@ -696,7 +696,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			Developer* individ_temp = new Individual(nome_dev, password,morada,
+			Developer* individ_temp = new Individual(nome_dev, password, morada,
 					nome_pessoal);
 			mieic.dev.push_back(individ_temp);
 
@@ -747,7 +747,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	bool nomeRepetido = false;
 	bool inputFail;
 	string nome_dev, password, morada;
-	string NIF,nome_oficial;
+	string NIF, nome_oficial;
 
 	do {
 		system("cls");
@@ -827,13 +827,12 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 
 	system("cls");
 	cout << "  Insira os dados para registo da empresa  " << endl << endl
-					<< endl;
-			cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
-			cout << "  Indique o nome de developer da empresa: " << nome_dev
-					<< endl;
-			cout << "  Indique o NIF da empresa: " << NIF <<endl;
-			cout << "  Indique a morada da empresa  " << morada << endl;
-			cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
+			<< endl;
+	cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
+	cout << "  Indique o nome de developer da empresa: " << nome_dev << endl;
+	cout << "  Indique o NIF da empresa: " << NIF << endl;
+	cout << "  Indique a morada da empresa  " << morada << endl;
+	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
 			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
@@ -856,8 +855,8 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			Developer* empresa_temp = new Empresa(nome_dev, password, NIF,morada,
-					nome_oficial);
+			Developer* empresa_temp = new Empresa(nome_dev, password, NIF,
+					morada, nome_oficial);
 			mieic.dev.push_back(empresa_temp);
 
 			cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
@@ -1152,19 +1151,23 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
-			cout << "  Alterar NIF " << endl;
+			cout << "  Alterar Morada " << endl;
 			cor(BLACK, WHITE);
 			if (opcao == -2)
 				cor(WHITE, BLACK);
-			cout << "  Apagar Conta  " << endl;
+			cout << "  Alterar NIF  " << endl;
 			cor(BLACK, WHITE);
 			if (opcao == -3)
+				cor(WHITE, BLACK);
+			cout << "  Apagar Conta  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -4)
 				cor(WHITE, LIGHT_RED);
 			cout << "  SAIR  " << endl;
 			cor(BLACK, WHITE);
 
 			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+			opcao = RestringeOpcaoTeclas(0, 4, opcao);
 
 			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 			{
@@ -1172,16 +1175,19 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 				menuAlterarPassDev(mieic);
 				system("pause");
 				break;
-
-			case -1:          // 2a opcao
+			case 1:          // 1a opcao
+				menuAlterarMorada(mieic);
+				system("pause");
+				break;
+			case -2:          // 2a opcao
 				menuAlterarNIF(mieic);
 				system("pause");
 				break;
-			case -2:          // 3a opcao
+			case -3:          // 3a opcao
 				menuApagarContaDev(mieic);
 				system("pause");
 				break;
-			case -3:          // 4a opcao
+			case -4:          // 4a opcao
 				menuDeveloper(mieic);          //
 				system("pause");
 				break;
@@ -1198,7 +1204,7 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
-			cout << "  Alterar nome_pessoal " << endl;
+			cout << "  Alterar Morada " << endl;
 			cor(BLACK, WHITE);
 			if (opcao == -2)
 				cor(WHITE, BLACK);
@@ -1220,7 +1226,7 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 				break;
 
 			case -1:          // 2a opcao
-				menuAlterarNomePessoal(mieic);
+				menuAlterarMorada(mieic);
 				system("pause");
 				break;
 			case -2:          // 3a opcao
@@ -1261,6 +1267,10 @@ void menuApagarContaCli(AppStore& mieic) {
 }
 
 void menuAlterarPassDev(AppStore& mieic) {
+
+}
+
+void menuAlterarMorada(AppStore& mieic){
 
 }
 
