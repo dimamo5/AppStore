@@ -62,21 +62,28 @@ void printMenuScroll(vector<string> options, int selected_option,
 	string temp;
 
 	for (unsigned int i = min; i < max; i++) {
-		if (i == selected_option)
-			temp = "  -> " + options[i];
-		else
-			temp = "     " + options[i];
+		if (i == selected_option) {
+			cor(WHITE, BLACK);
+			temp = "  " + options[i];
+			cout << temp;
+			cout << endl << endl;
+			cor(BLACK, WHITE);  // reset a cor
+		} else {
+			temp = "  " + options[i];
+			cout << temp;
+			cout << endl << endl;
+		}
 
-		cout << temp;
-		cout << endl << endl;
 	}
 }
 
-void cor(int n) {
+// First 4 bits are background, last 4 bits are foreground
+void cor(int background, int foreground) {
 	HANDLE hConsole;
 	hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, n);
+	SetConsoleTextAttribute(hConsole, foreground + 16 * background);
 }
+
 int teclas() {
 	int tecla;
 	tecla = getch();
@@ -120,21 +127,21 @@ int menuInicial(AppStore& mieic) {
 		cout << "  Bem-vindo a AppStore MIEICPlay  " << endl << endl;
 
 		if (opcao == 0)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Visitar AppStore  " << endl;
-		cor(7);
+		cor(BLACK, WHITE); // apos imprimir com a cor anterior, da reset à cor para o normal
 		if (opcao == -1)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Login na AppStore  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -2)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Registar na AppStore  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -3)
-			cor(124);
+			cor(WHITE, LIGHT_RED);
 		cout << "  SAIR  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 3, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
@@ -142,47 +149,24 @@ int menuInicial(AppStore& mieic) {
 		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
-			// COMO LISTAR APPS ALFABETICAMENTE, POR PRECO E POR DEV:
-			// na lista de apps vai ser precisa uma funcao que imprime todas por ordem.
-			// Para ficarem ordenadas alfabeticamente, e necessario o operador < , que vai
-			// comparar so as strings dos nomes das apps. Depois pode-se criar um vetor cópia
-			// (ou usar original) das apps e usar o sort nesse vetor e imprimir.
-			// Cria-se uma funcao entao que imprime e que vai ter uma variavel "opcao" que
-			// varia quando andamos com as setas. Ao carregar enter retorna essa opcao
-			// (que vai ser o indice no vetor, da app selecionada).
-			// ps: a funcao podera receber como argumento o tal vetor copiado e sorted
-			// depois e so usar esse indice retornado para imprimir no ecra as infos dessa app
-			// e aceder ao que for preciso dela. No caso de ordenacao de app por developer
-			// vai ser preciso criar um vetor de apps desse  developer a partir do vetor
-			// de todas as apps existentes (a qual se podera fazer sort alfabetico depois).
-			// Isto e feito listando os developers e usando
-			// o metodo acima para ter o indice do developer pretendido. Ou seja, navega-se
-			// pelos developers e vai haver uma funcao que retorna a opcao/indice quando
-			// se carrega no enter. Depois usa-se esse developer para pesquisar as apps dele
-			// e ir adicionando-as a um vetor temporario (ao qual se podera fazer sort).
-			// ps: alternativamente à lista de apps alfabeticamente e por dev, poder-se-a
-			// tambem listar por preco. Basta mudar as apps para estarem sorted por preco
-			// o que significa que se tem de fazer um operador que compare precos
-
 			menuVisitaStore(mieic, state);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-
-		case -1:         // 2a opcao
+		case -1: // 2a opcao
 			menuLogin(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case -2:        // 3a opcao
+		case -2: // 3a opcao
 			menuRegistar(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case -3:        // ultima opcao
+		case -3: // ultima opcao
 			// E NECESSARIO CHAMAR OS SAVES DE FICHEIROS AQUI!!!!!!!!
 			exit(0);
-			return 0; // indica ao menu que o programa vai fechar
+			return 0;			// indica ao menu que o programa vai fechar
 			break;
 		}
 	}
@@ -198,17 +182,17 @@ int menuLogin(AppStore& mieic) {
 		cout << "  Faca Login: escolha o seu tipo de conta  " << endl << endl;
 
 		if (opcao == 0)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Cliente  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -1)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Developer " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -2)
-			cor(124);
+			cor(WHITE, LIGHT_RED);
 		cout << "  SAIR  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 2, opcao);
@@ -221,12 +205,12 @@ int menuLogin(AppStore& mieic) {
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
-		case -1:         // 2a opcao
+		case -1: // 2a opcao
 			menuLoginDeveloper(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case -2:        // 3a opcao
+		case -2: // 3a opcao
 			menuInicial(mieic);
 			system("pause");
 			return 0; // indica ao menu que ainda vai continuar o programa
@@ -247,24 +231,24 @@ int menuRegistar(AppStore& mieic) {
 				<< endl;
 
 		if (opcao == 0)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Cliente  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		if (opcao == -1)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Developer Individual  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		if (opcao == -2)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Developer Empresa  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		if (opcao == -3)
-			cor(124);
+			cor(WHITE, LIGHT_RED);
 		cout << "  SAIR  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 3, opcao);
@@ -277,17 +261,17 @@ int menuRegistar(AppStore& mieic) {
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
-		case -1:         // 2a opcao
+		case -1: // 2a opcao
 			menuRegistarDeveloperIndividual(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case -2:         // 2a opcao
+		case -2: // 2a opcao
 			menuRegistarDeveloperEmpresa(mieic);
 			system("pause");
 			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
-		case -3:        // 3a opcao
+		case -3: // 3a opcao
 			menuInicial(mieic);
 			system("pause");
 			return 0; // indica ao menu que ainda vai continuar o programa
@@ -371,7 +355,7 @@ void menuLoginCliente(AppStore& mieic) {
 				// usa o ID de login para devolver um pointer para o cliente atual
 				// cli_act e a variavel global do cliente currently logged in
 				cli_act = mieic.find_cliente_id(id);
-				menuCliente(mieic); // continua para o menu de Cliente
+				menuCliente(mieic);			// continua para o menu de Cliente
 			}
 		} else if (!loginCliente) {
 			cout << "  Acesso negado! Combinacao ID/Password errada " << endl
@@ -389,7 +373,7 @@ void menuLoginCliente(AppStore& mieic) {
 			if (tecla == 13)
 				menuLoginCliente(mieic); // retry o login
 			else if (tecla == 27)
-				menuInicial(mieic);  // desistir do login
+				menuInicial(mieic); // desistir do login
 		}
 
 	} else if (tecla == 27) {  // se o user premir (Esc) logo, sai para tras
@@ -471,7 +455,7 @@ void menuLoginDeveloper(AppStore& mieic) {
 				// usa o ID de login para devolver um pointer para o cliente atual
 				// cli_act e a variavel global do cliente currently logged in
 				dev_act = mieic.find_dev_id(id);
-				menuDeveloper(mieic); // segue para o menu de Dev
+				menuDeveloper(mieic);				// segue para o menu de Dev
 			}
 		} else if (!loginDeveloper) {
 			cout << "  Acesso negado! Combinacao ID/Password errada " << endl
@@ -526,7 +510,7 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Indique a sua idade: ";
 		cin >> idade;
 		inputFail = cin.fail(); // guarda a flag do fail
-		cin.clear();  // da clear a flag do fail
+		cin.clear(); // da clear a flag do fail
 		cin.ignore(1000, '\n');
 	} while (inputFail == true);
 
@@ -634,33 +618,48 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 
 	bool nomeRepetido = false;
 	bool inputFail;
-	string nome, morada, password;
+	string nome_dev, password, morada;
+	string nome_pessoal;
 
 	do {
 		system("cls");
 		cout << "  Insira os seus dados para registo de developer  " << endl
 				<< endl << endl;
-		cout << "  Indique o seu nome: ";
+		cout << "  Indique o seu nome pessoal: ";
 		fflush(stdin);
-		getline(cin, nome);
-	} while (nome == "");
+		getline(cin, nome_pessoal);
+	} while (nome_pessoal == "");
 
 	do {
 		system("cls");
 		cout << "  Insira os seus dados para registo de developer  " << endl
 				<< endl << endl;
-		cout << "  Indique o seu nome: " << nome << endl;
-		cout << "  Indique a sua morada: ";
+		cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
+		cout << "  Indique o seu nome de developer: ";
+
 		fflush(stdin);
-		getline(cin, morada);
-	} while (morada == "");
+		getline(cin, nome_dev);
+	} while (nome_dev == "");
+
+	do {
+			system("cls");
+			cout << "  Insira os seus dados para registo de developer  " << endl
+					<< endl << endl;
+			cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
+			cout << "  Indique o seu nome de developer: " << nome_dev << endl;
+			cout << "  Indique a sua morada: ";
+			fflush(stdin);
+			getline(cin, morada);
+		} while (morada == "");
 
 	do {
 		system("cls");
 		cout << "  Insira os seus dados para registo de developer  " << endl
 				<< endl << endl;
-		cout << "  Indique o seu nome: " << nome << endl;
-		cout << "  Indique a sua morada: " << morada << endl << endl;
+		cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
+		cout << "  Indique o seu nome de developer: " << nome_dev << endl
+				<< endl;
+		cout << "  Indique a sua morada: " << morada;
 		cout << "  Introduza agora a password que pretende:  ";
 
 		cin >> password;
@@ -673,8 +672,9 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	system("cls");
 	cout << "  Insira os seus dados para registo de developer  " << endl << endl
 			<< endl;
-	cout << "  Indique o seu nome: " << nome << endl;
-	cout << "  Indique a sua morada: " << morada << endl << endl;
+	cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
+	cout << "  Indique o seu nome de developer: " << nome_dev << endl;
+	cout << "  Indique a sua morada: " << endl;
 	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
@@ -692,12 +692,13 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	}
 	if (tecla == 13) { // se o user premir (Enter)
 
-		// verifica se na appstore mieic ja ha algum developer com este nome
-		nomeRepetido = mieic.existeNomeDev(nome);
+		// verifica se na appstore mieic ja ha algum developer com este nome de dev
+		nomeRepetido = mieic.existeNomeDev(nome_dev);
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			Developer* individ_temp = new Individual(nome, password, morada);
+			Developer* individ_temp = new Individual(nome_dev, password,morada,
+					nome_pessoal);
 			mieic.dev.push_back(individ_temp);
 
 			cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
@@ -711,7 +712,8 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 				menuInicial(mieic);
 			}
 		} else if (nomeRepetido) { // se o nome for repetido, retry ou regressa
-			cout << "  Registo invalido! Um developer com esse nome ja existe. "
+			cout
+					<< "  Registo invalido! Um developer com esse nome de developer ja existe. "
 					<< endl << endl;
 			cout
 					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
@@ -745,24 +747,37 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 
 	bool nomeRepetido = false;
 	bool inputFail;
-	string nome, password;
-	string NIF;
+	string nome_dev, password, morada;
+	string NIF,nome_oficial;
 
 	do {
 		system("cls");
 		cout << "  Insira os dados para registo da empresa  " << endl << endl
 				<< endl;
-		cout << "  Indique o nome da empresa: ";
+		cout << "  Indique o nome oficial da empresa: ";
 		fflush(stdin);
-		getline(cin, nome);
+		getline(cin, nome_oficial);
 
-	} while (nome == "");
+	} while (nome_oficial == "");
 
 	do {
 		system("cls");
 		cout << "  Insira os dados para registo da empresa  " << endl << endl
 				<< endl;
-		cout << "  Indique o nome da empresa: " << nome << endl;
+		cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
+		cout << "  Indique o nome de developer da empresa: ";
+		fflush(stdin);
+		getline(cin, nome_dev);
+
+	} while (nome_dev == "");
+
+	do {
+		system("cls");
+		cout << "  Insira os dados para registo da empresa  " << endl << endl
+				<< endl;
+		cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
+		cout << "  Indique o nome de developer da empresa: " << nome_dev
+				<< endl;
 		cout << "  Indique o NIF da empresa: ";
 		cin >> NIF;
 
@@ -782,8 +797,26 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 		system("cls");
 		cout << "  Insira os dados para registo da empresa  " << endl << endl
 				<< endl;
-		cout << "  Indique o nome da empresa: " << nome << endl;
-		cout << "  Indique o NIF da empresa: " << NIF << endl << endl;
+		cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
+		cout << "  Indique o nome de developer da empresa: " << nome_dev
+				<< endl;
+		cout << "  Indique o NIF da empresa: " << NIF << endl;
+		cout << "  Indique a morada da empresa  ";
+
+		fflush(stdin);
+		getline(cin, morada);
+
+	} while (morada == "");
+
+	do {
+		system("cls");
+		cout << "  Insira os dados para registo da empresa  " << endl << endl
+				<< endl;
+		cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
+		cout << "  Indique o nome de developer da empresa: " << nome_dev
+				<< endl;
+		cout << "  Indique o NIF da empresa: " << NIF << endl;
+		cout << "  Indique a morada da empresa  " << morada << endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
 		cin >> password;
@@ -795,10 +828,13 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 
 	system("cls");
 	cout << "  Insira os dados para registo da empresa  " << endl << endl
-			<< endl;
-	cout << "  Indique o nome da empresa: " << nome << endl;
-	cout << "  Indique o NIF da empresa: " << NIF << endl << endl;
-	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
+					<< endl;
+			cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
+			cout << "  Indique o nome de developer da empresa: " << nome_dev
+					<< endl;
+			cout << "  Indique o NIF da empresa: " << NIF <<endl;
+			cout << "  Indique a morada da empresa  " << morada << endl;
+			cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
 			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
@@ -815,12 +851,14 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	}
 	if (tecla == 13) { // se o user premir (Enter)
 
-		// verifica se na appstore mieic ja ha algum developer com este nome
-		nomeRepetido = mieic.existeNomeDev(nome);
+		// se alguma das 2 condicoes for verdadeira, significa que o nome e repetido
+		nomeRepetido = (mieic.existeNomeDev(nome_dev)
+				|| mieic.existeNomeDev(nome_oficial));
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			Developer* empresa_temp = new Empresa(nome, password, NIF);
+			Developer* empresa_temp = new Empresa(nome_dev, password, NIF,morada,
+					nome_oficial);
 			mieic.dev.push_back(empresa_temp);
 
 			cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
@@ -870,25 +908,25 @@ void menuCliente(AppStore& mieic) {
 		cout << "  Menu Cliente  " << endl << endl;
 
 		if (opcao == 0)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Entrar na AppStore  " << endl; // fazer listagem por apps compradas
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -1)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Transacoes e Credito " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -2)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Definicoes da Conta  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -3)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Visualisar Atributos de Cliente  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -4)
-			cor(124);
+			cor(WHITE, LIGHT_RED);
 		cout << "  LOGOUT  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 4, opcao);
@@ -900,19 +938,19 @@ void menuCliente(AppStore& mieic) {
 			system("pause");
 			break;
 
-		case -1:         // 2a opcao
+		case -1:          // 2a opcao
 			menuClienteTransacoes(mieic);
 			system("pause");
 			break;
-		case -2:        // 3a opcao
+		case -2:          // 3a opcao
 			menuClienteDefinicoes(mieic);
 			system("pause");
 			break;
-		case -3:        // 4a opcao
+		case -3:          // 4a opcao
 			menuInicial(mieic); // TODO: implementar a listagem atributos do cliente
 			system("pause");
 			break;
-		case -4:        // 5a opcao
+		case -4:          // 5a opcao
 			menuInicial(mieic);
 			system("pause");
 			break;
@@ -933,25 +971,25 @@ void menuDeveloper(AppStore& mieic) {
 		cout << "  Menu Developer  " << endl << endl;
 
 		if (opcao == 0)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Visitar AppStore  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -1)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Gerir Apps " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -2)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Definicoes da Conta  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -3)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Visualisar Atributos de Developer  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -4)
-			cor(124);
+			cor(WHITE, LIGHT_RED);
 		cout << "  LOGOUT  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 4, opcao);
@@ -963,19 +1001,19 @@ void menuDeveloper(AppStore& mieic) {
 			system("pause");
 			break;
 
-		case -1:         // 2a opcao
+		case -1:          // 2a opcao
 			menuDeveloperGerirApps(mieic);
 			system("pause");
 			break;
-		case -2:        // 3a opcao
+		case -2:          // 3a opcao
 			menuDeveloperDefinicoes(mieic);
 			system("pause");
 			break;
-		case -3:        // 4a opcao
+		case -3:          // 4a opcao
 			menuInicial(mieic); // TODO: implementar a listagem atributos do developer
 			system("pause");
 			break;
-		case -4:        // 5a opcao
+		case -4:          // 5a opcao
 			menuInicial(mieic);
 			system("pause");
 			break;
@@ -996,21 +1034,21 @@ void menuClienteTransacoes(AppStore& mieic) {
 		cout << "  Transacoes e Credito do Cliente  " << endl << endl;
 
 		if (opcao == 0)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Adicionar Credito  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -1)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Cesto de Compras " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -2)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Historico de Vendas  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -3)
-			cor(124);
+			cor(WHITE, LIGHT_RED);
 		cout << "  SAIR  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 3, opcao);
@@ -1022,15 +1060,15 @@ void menuClienteTransacoes(AppStore& mieic) {
 			system("pause");
 			break;
 
-		case -1:         // 2a opcao
+		case -1:          // 2a opcao
 			menuCestoCompras(mieic);
 			system("pause");
 			break;
-		case -2:        // 3a opcao
+		case -2:          // 3a opcao
 			menuHistoricoVendas(mieic);
 			system("pause");
 			break;
-		case -3:        // 4a opcao
+		case -3:          // 4a opcao
 			menuCliente(mieic);
 			system("pause");
 			break;
@@ -1051,21 +1089,21 @@ void menuClienteDefinicoes(AppStore& mieic) {
 		cout << "  Definicoes de Cliente  " << endl << endl;
 
 		if (opcao == 0)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Alterar Password  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -1)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Alterar Nr. de Cartao de Credito " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -2)
-			cor(112);
+			cor(WHITE, BLACK);
 		cout << "  Apagar Conta  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 		if (opcao == -3)
-			cor(124);
+			cor(WHITE, LIGHT_RED);
 		cout << "  SAIR  " << endl;
-		cor(7);
+		cor(BLACK, WHITE);
 
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 3, opcao);
@@ -1073,20 +1111,20 @@ void menuClienteDefinicoes(AppStore& mieic) {
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
 		case 0:          // 1a opcao
-			menuAlterarPass(mieic);
+			menuAlterarPassCli(mieic);
 			system("pause");
 			break;
 
-		case -1:         // 2a opcao
+		case -1:          // 2a opcao
 			menuAlterarCartao(mieic);
 			system("pause");
 			break;
-		case -2:        // 3a opcao
-			menuApagarConta(mieic);
+		case -2:          // 3a opcao
+			menuApagarContaCli(mieic);
 			system("pause");
 			break;
-		case -3:        // 4a opcao
-			menuCliente(mieic); //
+		case -3:          // 4a opcao
+			menuCliente(mieic);          //
 			system("pause");
 			break;
 		}
@@ -1098,7 +1136,105 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 }
 
 void menuDeveloperDefinicoes(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
 
+	if (dev_act->isEmpresa()) {
+		for (;;) {
+			system("cls");
+			cout << "  Definicoes de Developer  " << endl << endl;
+
+			if (opcao == 0)
+				cor(WHITE, BLACK);
+			cout << "  Alterar Password  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -1)
+				cor(WHITE, BLACK);
+			cout << "  Alterar NIF " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -2)
+				cor(WHITE, BLACK);
+			cout << "  Apagar Conta  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -3)
+				cor(WHITE, LIGHT_RED);
+			cout << "  SAIR  " << endl;
+			cor(BLACK, WHITE);
+
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+			{
+			case 0:          // 1a opcao
+				menuAlterarPassDev(mieic);
+				system("pause");
+				break;
+
+			case -1:          // 2a opcao
+				menuAlterarNIF(mieic);
+				system("pause");
+				break;
+			case -2:          // 3a opcao
+				menuApagarContaDev(mieic);
+				system("pause");
+				break;
+			case -3:          // 4a opcao
+				menuDeveloper(mieic);          //
+				system("pause");
+				break;
+			}
+		}
+	} else if (!dev_act->isEmpresa()) {
+		for (;;) {
+			system("cls");
+			cout << "  Definicoes de Developer  " << endl << endl;
+
+			if (opcao == 0)
+				cor(WHITE, BLACK);
+			cout << "  Alterar Password  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -1)
+				cor(WHITE, BLACK);
+			cout << "  Alterar nome_pessoal " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -2)
+				cor(WHITE, BLACK);
+			cout << "  Apagar Conta  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -3)
+				cor(WHITE, LIGHT_RED);
+			cout << "  SAIR  " << endl;
+			cor(BLACK, WHITE);
+
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+			{
+			case 0:          // 1a opcao
+				menuAlterarPassDev(mieic);
+				system("pause");
+				break;
+
+			case -1:          // 2a opcao
+				menuAlterarNomePessoal(mieic);
+				system("pause");
+				break;
+			case -2:          // 3a opcao
+				menuApagarContaDev(mieic);
+				system("pause");
+				break;
+			case -3:          // 4a opcao
+				menuDeveloper(mieic);          //
+				system("pause");
+				break;
+			}
+		}
+	}
 }
 
 void menuClienteCredito(AppStore& mieic) {
@@ -1113,7 +1249,7 @@ void menuHistoricoVendas(AppStore& mieic) {
 
 }
 
-void menuAlterarPass(AppStore& mieic) {
+void menuAlterarPassCli(AppStore& mieic) {
 
 }
 
@@ -1121,7 +1257,23 @@ void menuAlterarCartao(AppStore& mieic) {
 
 }
 
-void menuApagarConta(AppStore& mieic) {
+void menuApagarContaCli(AppStore& mieic) {
+
+}
+
+void menuAlterarPassDev(AppStore& mieic) {
+
+}
+
+void menuAlterarNIF(AppStore& mieic) {
+
+}
+
+void menuAlterarNomePessoal(AppStore& mieic) {
+
+}
+
+void menuApagarContaDev(AppStore& mieic) {
 
 }
 
@@ -1146,21 +1298,21 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -1)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por Preco " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -2)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por developer  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -3)
-				cor(124);
+				cor(WHITE, LIGHT_RED);
 			cout << "  SAIR  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 
 			opcao += teclas();
 			opcao = RestringeOpcaoTeclas(0, 3, opcao);
@@ -1175,18 +1327,18 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 
-			case -1:         // 2a opcao
+			case -1:          // 2a opcao
 				apps_por_preco = mieic.apps;
 				sort(apps_por_preco.begin(), apps_por_preco.end(),
 						appsComparaPreco);
 				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
 				system("pause");
 				break;
-			case -2:        // 3a opcao
+			case -2:          // 3a opcao
 				menuListaDeveloper(mieic, state); //-> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
-			case -3:        // 4a opcao
+			case -3:          // 4a opcao
 				menuInicial(mieic);
 				system("pause");
 				break;
@@ -1204,21 +1356,21 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -1)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por Preco " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -2)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por developer  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -3)
-				cor(124);
+				cor(WHITE, LIGHT_RED);
 			cout << "  SAIR  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 
 			opcao += teclas();
 			opcao = RestringeOpcaoTeclas(0, 3, opcao);
@@ -1230,16 +1382,16 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 
-			case -1:         // 2a opcao
+			case -1:				// 2a opcao
 				//menuVisitaStoreOrdenada(mieic, state, apps)
 				system("pause");
 				break;
-			case -2:        // 3a opcao
+			case -2:				// 3a opcao
 				//menuListaDeveloper(mieic); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
-			case -3:        // 4a opcao
-				menuDeveloper(mieic); // TODO: implementar a listagem atributos do cliente
+			case -3:				// 4a opcao
+				menuDeveloper(mieic);// TODO: implementar a listagem atributos do cliente
 				system("pause");
 				break;
 			}
@@ -1256,21 +1408,21 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -1)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por Preco " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -2)
-				cor(112);
+				cor(WHITE, BLACK);
 			cout << "  Por developer  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 			if (opcao == -3)
-				cor(124);
+				cor(WHITE, LIGHT_RED);
 			cout << "  SAIR  " << endl;
-			cor(7);
+			cor(BLACK, WHITE);
 
 			opcao += teclas();
 			opcao = RestringeOpcaoTeclas(0, 3, opcao);
@@ -1281,15 +1433,15 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 
-			case -1:         // 2a opcao
+			case -1:				// 2a opcao
 				//menuVisitaStoreOrdenada(mieic, state, apps)
 				system("pause");
 				break;
-			case -2:        // 3a opcao
+			case -2:				// 3a opcao
 				//menuListaDeveloper(mieic,state); -> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
-			case -3:        // 4a opcao
+			case -3:				// 4a opcao
 				menuCliente(mieic);
 				system("pause");
 				break;
@@ -1410,6 +1562,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 }
 
 void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
+
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -1498,3 +1651,4 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 	}
 
 }
+

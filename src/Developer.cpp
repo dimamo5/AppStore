@@ -8,14 +8,14 @@
 
 unsigned int Developer::next_id = 1;
 
-Developer::Developer(string nome, string id_pass) :
-		nome(nome), id_pass(id_pass) {
+Developer::Developer(string nome, string id_pass, string morada) :
+		nome(nome), id_pass(id_pass), morada(morada) {
 	id = next_id;
 	next_id++;
 }
 
-Developer::Developer(int id, string nome, double saldo, string id_pass) :
-		id(id), nome(nome), saldo(saldo), id_pass(id_pass) {
+Developer::Developer(int id, string nome, double saldo, string id_pass, string morada) :
+		id(id), nome(nome), saldo(saldo), id_pass(id_pass), morada(morada) {
 
 }
 //vector<Vendas*> Developer::get_vendas() {
@@ -46,14 +46,14 @@ void Developer::setSaldo(unsigned int s) {
 //	return true;
 //}
 
-Individual::Individual(string nome, string id_pass, string morada) :
-		Developer(nome, id_pass) {
-	this->morada = morada;
+Individual::Individual(string nome, string id_pass, string morada, string NomePessoal) :
+		Developer(nome, id_pass, morada) {
+	this->NomePessoal = NomePessoal;
 }
 
-Individual::Individual(int id, string nome, double saldo, string id_pass,
-		string morada) :
-		Developer(id, nome, saldo, id_pass), morada(morada) {
+Individual::Individual(int id, string nome, double saldo, string id_pass,string morada,
+		string NomePessoal) :
+		Developer(id, nome, saldo, id_pass, morada), NomePessoal(NomePessoal) {
 
 }
 
@@ -61,13 +61,14 @@ void Developer::setNextID(unsigned int i) {
 	next_id = i;
 }
 
-Empresa::Empresa(string nome, string id_pass, string NIF) :
-		Developer(nome, id_pass) {
+Empresa::Empresa(string nome, string id_pass,string morada, string NIF, string NomeEmpresa) :
+		Developer(nome, id_pass, morada) {
 	this->NIF = NIF;
+	this->NomeEmpresa = NomeEmpresa;
 }
 
-Empresa::Empresa(int id, string nome, double saldo, string id_pass, string NIF) :
-		Developer(id, nome, saldo, id_pass), NIF(NIF) {
+Empresa::Empresa(int id, string nome, double saldo, string id_pass,string morada, string NIF, string NomeEmpresa) :
+		Developer(id, nome, saldo, id_pass,morada), NIF(NIF), NomeEmpresa(NomeEmpresa) {
 
 }
 
@@ -88,11 +89,11 @@ unsigned int Developer::getNextId() const {
 }
 
 string Individual::getExtra() const {
-	return morada;
+	return NomePessoal;
 }
 
 void Individual::setExtra(string info) {
-	morada = info;
+	NomePessoal = info;
 }
 
 string Empresa::getExtra() const {
@@ -111,4 +112,11 @@ string Individual::getType() const {
 	return "ind";
 }
 
+bool Individual::isEmpresa(){
+	return false;
+}
+
+bool Empresa::isEmpresa(){
+	return true;
+}
 

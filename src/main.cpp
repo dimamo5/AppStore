@@ -16,14 +16,21 @@ int main() {
 AppStore MIEIC_Play;
 
 //VARIAVEIS PARA TESTES
-Developer* individ1 = new Individual("APedro", "1", "Rua do Francial, lote 5, Rio de Loba");
+
+Cliente cli_temp("APedro Cliente", 18, "M", 123123123, "1");
+MIEIC_Play.clientes.push_back(cli_temp);
+
+Developer* individ1 = new Individual("APedro", "1", "Rua do Francial, lote 5, Rio de Loba", "Pedro Costa");
 MIEIC_Play.dev.push_back(individ1);
 
-Developer* individ2 = new Individual("BPedro", "2", "Rua do Francial, lote 5, Rio de Loba");
+Developer* individ2 = new Individual("BPedro", "1", "Rua do Francial, lote 5, Rio de Loba", "Pedro Costa");
 MIEIC_Play.dev.push_back(individ2);
 
-Developer* individ3 = new Individual("CPedro", "3", "Rua do Francial, lote 5, Rio de Loba");
+Developer* individ3 = new Individual("CPedro", "1", "Rua do Francial, lote 5, Rio de Loba", "Pedro Costa");
 MIEIC_Play.dev.push_back(individ3);
+
+Developer* empresa1 = new Empresa("CPedro", "1","Rua do Francial, lote 5, Rio de Loba", "123123123", "CPedro  AT Inc.");
+MIEIC_Play.dev.push_back(empresa1);
 
 App app1("aaa","jogos","jogo-accao",4);
 MIEIC_Play.apps.push_back(app1);
