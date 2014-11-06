@@ -41,6 +41,7 @@ public:
 	int getId() const;
 	void setId(int id);
 	string getIdPass() const;
+	void setIdPass(string id_pass);
 	unsigned int getNextId() const;
 
 };

@@ -26,6 +26,7 @@ private:
 	int cartao_credito;
 	float saldo;
 	vector<Vendas *> historico;
+	vector<string> cesto_compras;
 	unsigned int nr_vouchers;
 	string id_pass; //TODO: implementar nos ficheiros
 public:

@@ -84,6 +84,10 @@ string Developer::getIdPass() const {
 	return id_pass;
 }
 
+void Developer::setIdPass(string id_pass){
+	this->id_pass = id_pass;
+}
+
 unsigned int Developer::getNextId() const {
 	return next_id;
 }

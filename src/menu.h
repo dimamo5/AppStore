@@ -64,7 +64,6 @@ void menuApagarContaCli(AppStore& mieic);
 void menuAlterarPassDev(AppStore& mieic);
 void menuAlterarMorada(AppStore& mieic);
 void menuAlterarNIF(AppStore& mieic);
-void menuAlterarNomePessoal(AppStore& mieic);
 void menuApagarContaDev(AppStore& mieic);
 void menuVerDev(AppStore& mieic);
 void menuVerCli(AppStore& mieic);

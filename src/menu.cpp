@@ -1375,12 +1375,39 @@ void menuAlterarPassDev(AppStore& mieic) {
 	cout << "  Alterar Password  " << endl << endl << endl << endl;
 	cout << "  Insira a password atual da sua conta: " << password_atual;
 	cout << "  Insira a nova password: " << password_nova;
-
-	if(dev_act->getIdPass() == password_atual)
-	{
-
+	cout
+			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
+			<< endl << endl;
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+			tecla = getch();
+		}
 	}
+	if (tecla == 13) {
+		if (dev_act->getIdPass() == password_atual) {
 
+			dev_act->setIdPass(password_nova);
+
+			system("cls");
+			cout << "  Alterar Password " << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl << endl;
+			cout << "  Sucesso! Password alterada.  " << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+			}
+			menuDeveloperDefinicoes(mieic);
+		} else
+			menuAlterarPassDev(mieic);
+	}
+	else if (tecla == 27){
+		menuDeveloperDefinicoes(mieic);
+	}
 }
 
 void menuAlterarMorada(AppStore& mieic) {
@@ -1388,10 +1415,6 @@ void menuAlterarMorada(AppStore& mieic) {
 }
 
 void menuAlterarNIF(AppStore& mieic) {
-
-}
-
-void menuAlterarNomePessoal(AppStore& mieic) {
 
 }
 
