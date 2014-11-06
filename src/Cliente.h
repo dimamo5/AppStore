@@ -37,6 +37,8 @@ public:
 	int getId() const;
 	unsigned int getIdade() const;
 	string getNome() const;
+	bool adicionaAppCesto(string app_name);
+	bool eliminaAppCest(unsigned int i);
 	float getSaldo() const;
 	string getIdPass() const;
 	void setIdPass(string id_pass);
