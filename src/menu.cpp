@@ -673,7 +673,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 			<< endl;
 	cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
 	cout << "  Indique o seu nome de developer: " << nome_dev << endl;
-	cout << "  Indique a sua morada: " << endl;
+	cout << "  Indique a sua morada: " <<morada <<  endl;
 	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
