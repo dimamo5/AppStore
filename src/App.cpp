@@ -85,8 +85,8 @@ string ret = "";
 ss << this->preco;  // Transformar preco de double para string
 ss >> str_preco;
 
-ret += "Nome: " + this->nome + "\n" + "Categoria: " + this->categoria + "\n"
-  + "Descricao: " + this->descricao + "\n" + "Preco: " + str_preco;
+ret += "Nome: " + this->nome + "\n\n" + "Categoria: " + this->categoria + "\n\n"
+  + "Descricao: " + this->descricao + "\n\n" + "Preco: " + str_preco;
 
 return ret;
 }
@@ -97,7 +97,4 @@ return ret;
  *  Created on: 22/10/2014
  *      Author: Moura
  */
-
-
-
 

@@ -23,9 +23,10 @@ protected:
 	string nome;
 	double saldo=0;
 	string id_pass;
+	string morada;
 public:
-	Developer(string nome,string id_pass);
-	Developer(int id,string nome,double saldo,string id_pass);
+	Developer(string nome,string id_pass,string morada);
+	Developer(int id,string nome,double saldo,string id_pass,string morada);
 	string getNome() const;
 	double getSaldo() const;
 	void setSaldo(unsigned int s);
@@ -33,6 +34,7 @@ public:
 	virtual string getType() const =0;
 	virtual string getExtra() const=0;
 	virtual void setExtra(string info)=0;
+	virtual bool isEmpresa() = 0;
 	int getId() const;
 	void setId(int id);
 	string getIdPass() const;
@@ -43,24 +45,27 @@ public:
 
 
 class Individual: public Developer{
-	string morada;
+	string NomePessoal;
 public:
-	Individual(string nome,string id_pass,string morada);
-	Individual(int id,string nome,double saldo,string id_pass,string morada);
+	Individual(string nome,string id_pass,string morada,string NomePessoal);
+	Individual(int id,string nome,double saldo,string id_pass,string morada,string NomePessoal);
 	string getExtra() const;
 	void setExtra(string info);
 	string getType() const;
+	bool isEmpresa();
 
 };
 
 class Empresa: public Developer{
 	string NIF;
+	string NomeEmpresa;
 public:
-	Empresa(string nome,string id_pass,string NIF);
-	Empresa(int id,string nome,double saldo,string id_pass,string NIF);
+	Empresa(string nome,string id_pass,string morada,string NIF, string NomeEmpresa);
+	Empresa(int id,string nome,double saldo,string id_pass,string morada,string NIF, string NomeEmpresa);
 	string getExtra() const;
 	string getType() const;
 	void setExtra(string info);
+	bool isEmpresa();
 };
 
 
