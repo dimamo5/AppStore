@@ -34,10 +34,11 @@ private:
 	Date data_venda;
 	bool retorno;
 	string reclamacao; //TODO construtor e getters (aka cenas daa reclamacao)
+	string app_removida_nome="";
 
 public:
 	Vendas(float preco,Date data_venda);
-	Vendas(int id,float preco,Date data_venda,bool retorno,string reclamacao);
+	Vendas(int id,float preco,Date data_venda,bool retorno,string reclamacao,string app_removida_nome);
 	int getId() const;
 	float getPreco() const;
 	Date getData() const;
@@ -49,6 +50,8 @@ public:
 	string getReclamacao() const;
 	bool isRetorno() const;
 	void reclamar(string reclamacao);
+	string getAppRemovidaNome() const;
+	void setAppRemovidaNome(string appRemovidaNome);
 };
 
 #endif /* VENDAS_H_ */
