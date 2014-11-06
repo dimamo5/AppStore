@@ -68,6 +68,14 @@ void App::setPreco(double p){
 	this->preco=p;
 }
 
+void App::setNome(string nome){
+	this->nome = nome;
+}
+
+void App::setCategoria(string categoria){
+	this->categoria = categoria;
+}
+
 double App::getPreco() const {
 	return preco;
 }

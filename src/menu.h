@@ -33,7 +33,9 @@ extern Cliente* cli_act;
 vector<string> getAppNames(vector<App> apps);
 vector<string> getDevNames(vector<Developer*> devs);
 
-bool verificaDevPass(Developer* dev_act);
+template<typename T>
+bool verificaPass(T* dev_or_cli);
+bool verificaCartao(Cliente* cli);
 void printMenuScroll(vector<string> options, int selected_option, const unsigned int max_per_screen);
 void cor(int background, int foreground);
 int teclas();
@@ -69,6 +71,7 @@ void menuVerCli(AppStore& mieic);
 void menuCriarApp(AppStore& mieic);
 void menuRemoverApp(AppStore& mieic);
 void menuModificarApp(AppStore& mieic);
+
 
 // State will be needed to know who is visiting the store, what that person will see and where the "SAIR" button will lead the person
 void menuVisitaStore(AppStore& mieic, unsigned int& state);

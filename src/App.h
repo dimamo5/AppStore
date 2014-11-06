@@ -47,6 +47,8 @@ public:
 	Developer* getDev() const;
 	double getPreco() const;
 	void setPreco(double p);
+	void setNome(string nome);
+	void setCategoria(string categoria);
 	void setComentarios(const vector<Comentario>& comentarios);
 	void setDev(Developer* dev);
 	unsigned int getId() const;
