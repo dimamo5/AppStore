@@ -41,6 +41,10 @@ void Cliente::setSaldo(float saldo) {
 	this->saldo = saldo;
 }
 
+void Cliente::setCartao(int cartao_credito){
+	this->cartao_credito = cartao_credito;
+}
+
 Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers, string id_pass):
 		nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito),nr_vouchers(nr_vouchers),id_pass(id_pass){
 	this->id=id;

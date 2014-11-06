@@ -675,16 +675,36 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 		getline(cin, nome_dev);
 	} while (nome_dev == "");
 
-	do {
+	char key;
+
+	while (1) {
 		system("cls");
 		cout << "  Insira os seus dados para registo de developer  " << endl
 				<< endl << endl;
 		cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
 		cout << "  Indique o seu nome de developer: " << nome_dev << endl;
-		cout << "  Indique a sua morada: ";
+		cout << "  Indique a sua morada: " << morada;
+
 		fflush(stdin);
-		getline(cin, morada);
-	} while (morada == "");
+
+		key = _getch();
+
+		if (key == 13) {
+			if (morada != "") {
+				break;
+			}
+		} else if (key == 8) {
+			// Backspace detected, delete last input character from string
+			if (morada.length() > 0)
+				morada = morada.substr(0, morada.length() - 1);
+		} else {
+			if (key == 0 || key == 224) {
+				// An arrow or function key was pressed, run _getch again to remove the second return value from buffer
+				_getch();
+			} else if (key >= 32 && key <= 126) // It's a valid ASCII caracter
+				morada += (char) key;
+		}
+	}
 
 	do {
 		system("cls");
@@ -693,7 +713,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 		cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
 		cout << "  Indique o seu nome de developer: " << nome_dev << endl;
 		cout << "  Indique a sua morada: " << morada << endl;
-		cout << "  Introduza agora a password que pretende:  ";
+		cout << "  Introduza agora a password que pretende: ";
 
 		cin >> password;
 
@@ -708,7 +728,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	cout << "  Indique o seu nome pessoal: " << nome_pessoal << endl;
 	cout << "  Indique o seu nome de developer: " << nome_dev << endl;
 	cout << "  Indique a sua morada: " << morada << endl;
-	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
+	cout << "  Introduza agora a password que pretende: " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
 			<< "  Prima (Enter) para validar ou (Esc) para regressar sem registar  "
@@ -1438,9 +1458,6 @@ void menuHistoricoVendas(AppStore& mieic) {
 
 void menuAlterarPassCli(AppStore& mieic) {
 	system("cls");
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(now);
 	int opcao = 0;
 
 	string password_nova;
@@ -1521,7 +1538,85 @@ void menuAlterarPassCli(AppStore& mieic) {
 }
 
 void menuAlterarCartao(AppStore& mieic) {
+	system("cls");
+	int opcao = 0;
 
+	int cartao_credito;
+	bool passCerta = false;
+	bool inputFail = false;
+
+	passCerta = verificaPass(cli_act);
+
+	if (passCerta) {
+		do {
+			system("cls");
+			cout << "  Alterar Cartao Credito  " << endl << endl << endl
+					<< endl;
+			cout
+					<< "  Insira o Nr. do novo de Cartao de Credito para a sua conta: ";
+			cin >> cartao_credito;
+
+			inputFail = cin.fail();
+			cin.clear();  // da clear a flag do fail
+			cin.ignore(1000, '\n');
+		} while (inputFail == true);
+
+		system("cls");
+		cout << "  Alterar Cartao Credito  " << endl << endl << endl << endl;
+		cout << "  Insira o Nr. do novo de Cartao de Credito para a sua conta: "
+				<< cartao_credito << endl << endl;
+		cout
+				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem alterar "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
+		}
+		if (tecla == 13) {
+
+			cli_act->setCartao(cartao_credito);
+
+			system("cls");
+			cout << "  Alterar Cartao  " << endl << endl << endl << endl;
+			cout << "  Sucesso! Cartao Credito alterado.  " << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) {
+					tecla = getch();
+				}
+			}
+			menuClienteDefinicoes(mieic);
+		}
+		if (tecla == 27)
+			menuClienteDefinicoes(mieic);
+
+	} else if (!passCerta) {
+		system("cls");
+		cout << "  Alterar Cartao Credito " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
+			menuAlterarCartao(mieic);
+		if (tecla == 27)
+			menuClienteDefinicoes(mieic);
+
+	}
 }
 
 void menuApagarContaCli(AppStore& mieic) {
@@ -1530,9 +1625,6 @@ void menuApagarContaCli(AppStore& mieic) {
 
 void menuAlterarPassDev(AppStore& mieic) {
 	system("cls");
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(now);
 	int opcao = 0;
 
 	string password_nova;
@@ -1613,13 +1705,188 @@ void menuAlterarPassDev(AppStore& mieic) {
 }
 
 void menuAlterarMorada(AppStore& mieic) {
+	system("cls");
+	int opcao = 0;
+
+	string morada_nova;
+	bool passCerta = false;
+	bool inputFail = false;
+
+	passCerta = verificaPass(dev_act);
+
+	if (passCerta) {
+
+		char key;
+
+		while (1) {
+			system("cls");
+			cout << "  Alterar Morada  " << endl << endl << endl << endl;
+			cout << "  Insira a nova morada para a sua conta: " << morada_nova;
+
+			fflush(stdin);
+
+			key = _getch();
+
+			if (key == 13) {
+				if (morada_nova != "") {
+					break;
+				}
+			} else if (key == 8) {
+				// Backspace detected, delete last input character from string
+				if (morada_nova.length() > 0)
+					morada_nova = morada_nova.substr(0,
+							morada_nova.length() - 1);
+			} else {
+				if (key == 0 || key == 224) {
+					// An arrow or function key was pressed, run _getch again to remove the second return value from buffer
+					_getch();
+				} else if (key >= 32 && key <= 126) // It's a valid ASCII caracter
+					morada_nova += (char) key;
+			}
+		}
+
+		system("cls");
+		cout << "  Alterar Morada  " << endl << endl << endl << endl;
+		cout << "  Insira a nova morada para a sua conta: " << morada_nova
+				<< endl << endl;
+		cout
+				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem alterar "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
+		}
+		if (tecla == 13) {
+
+			dev_act->setMorada(morada_nova);
+
+			system("cls");
+			cout << "  Alterar Morada  " << endl << endl << endl << endl;
+			cout << "  Sucesso! Morada alterado.  " << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) {
+					tecla = getch();
+				}
+			}
+			menuDeveloperDefinicoes(mieic);
+		}
+		if (tecla == 27)
+			menuDeveloperDefinicoes(mieic);
+
+	} else if (!passCerta) {
+		system("cls");
+		cout << "  Alterar Morada  " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
+			menuAlterarMorada(mieic);
+		if (tecla == 27)
+			menuDeveloperDefinicoes(mieic);
+
+	}
 
 }
 
 void menuAlterarNIF(AppStore& mieic) {
 	system("cls");
 	int opcao = 0;
-	bool passCerta = false; // default para false
+
+	string NIF_novo;
+	bool passCerta = false;
+	bool inputFail = false;
+
+	passCerta = verificaPass(dev_act);
+
+	if (passCerta) {
+		do {
+			system("cls");
+			cout << "  Alterar NIF  " << endl << endl << endl << endl;
+			cout << "  Insira o novo NIF para a sua conta: ";
+			cin >> NIF_novo;
+
+			inputFail = cin.fail();
+			for (unsigned int i = 0; i < NIF_novo.size(); i++) { //verifica se NIF so tem numeros
+				if (!isdigit(NIF_novo[i])) {
+					inputFail = true;
+				}
+			}
+			cin.clear();  // da clear a flag do fail
+			cin.ignore(1000, '\n');
+		} while (inputFail == true);
+
+		system("cls");
+		cout << "  Alterar NIF  " << endl << endl << endl << endl;
+		cout << "  Insira o novo NIF para a sua conta: " << NIF_novo << endl
+				<< endl;
+		cout
+				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem alterar "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
+		}
+		if (tecla == 13) {
+
+			dev_act->setNIF(NIF_novo);
+
+			system("cls");
+			cout << "  Alterar NIF  " << endl << endl << endl << endl;
+			cout << "  Sucesso! NIF alterado.  " << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) {
+					tecla = getch();
+				}
+			}
+			menuDeveloperDefinicoes(mieic);
+		}
+		if (tecla == 27)
+			menuDeveloperDefinicoes(mieic);
+
+	} else if (!passCerta) {
+		system("cls");
+		cout << "  Alterar NIF  " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
+			menuAlterarNIF(mieic);
+		if (tecla == 27)
+			menuDeveloperDefinicoes(mieic);
+
+	}
 
 }
 

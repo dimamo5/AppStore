@@ -47,6 +47,7 @@ public:
 	void addVoucher();
 	void removeVoucher();
 	void setSaldo(float saldo);
+	void setCartao(int cartao_credito);
 	string getSexo() const;
 	bool adicionarVenda(Vendas* v);
 	vector<Vendas *> getHistorico() const;
