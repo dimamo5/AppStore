@@ -18,7 +18,7 @@
 #define WHITE 7  // 0111       then 4 for the foreground
 #define GRAY 8   // 1000
 #define LIGHT_GREEN 10 // 1010  -> GREEN with intensity at 1
-#define LIGHT_RED 12 // 1100  -> RED with intensity at 1
+#define LIGHT_RED 12  // 1100  -> RED with intensity at 1
 
 const unsigned int MAX_PER_SCREEN = 6;
 

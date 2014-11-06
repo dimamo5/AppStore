@@ -1713,5 +1713,5 @@ void menuVerDev(AppStore& mieic) {
 }
 
 void menuVerCli(AppStore& mieic) {
-
+	system("cls");
 }
