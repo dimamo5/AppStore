@@ -42,7 +42,6 @@ public:
 	string getCategoria() const;
 	double getClassificacaoFinal() const;
 	vector<Comentario> getComentarios() const;
-	unsigned int get_id()const;
 	string getDescricao() const;
 	string getNome() const;
 	Developer* getDev() const;

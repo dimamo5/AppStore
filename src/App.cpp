@@ -72,10 +72,6 @@ double App::getPreco() const {
 	return preco;
 }
 
-unsigned int App::get_id()const{
-	return id;
-}
-
 string App::imprime() const{
 
 stringstream ss;

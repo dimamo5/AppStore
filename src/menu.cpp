@@ -10,20 +10,6 @@
 
 using namespace std;
 
-vector<App> getApps(Developer* dev, AppStore mieic) {
-	vector<App> apps_do_developer;
-	vector<App> apps_da_store = mieic.apps;
-
-	for (unsigned int i = 0; i < apps_da_store.size(); i++) { // percorre as apps da store
-
-		// sempre que ha uma app cujo dev coincide, tendo em conta que todos teem nomes diferentes
-		if (dev->getNome() == apps_da_store[i].getDev()->getNome()) {
-			apps_do_developer.push_back(apps_da_store[i]);
-		}
-	}
-	return apps_do_developer;
-}
-
 vector<string> getAppNames(vector<App> apps) {
 	vector<string> app_names;
 	for (unsigned int i = 0; i < apps.size(); i++) {
@@ -38,6 +24,10 @@ vector<string> getDevNames(vector<Developer*> devs) {
 		dev_names.push_back(devs[i]->getNome());
 	}
 	return dev_names;
+}
+
+bool verificaDevPass(Developer* dev_act){
+
 }
 
 void printMenuScroll(vector<string> options, int selected_option,
@@ -850,8 +840,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	if (tecla == 13) { // se o user premir (Enter)
 
 		// se alguma das 2 condicoes for verdadeira, significa que o nome e repetido
-		nomeRepetido = (mieic.existeNomeDev(nome_dev)
-				|| mieic.existeNomeDev(nome_oficial));
+		nomeRepetido = mieic.existeNomeDevEmp(nome_dev, nome_oficial);
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
@@ -870,7 +859,8 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 				menuInicial(mieic);
 			}
 		} else if (nomeRepetido) { // se o nome for repetido, retry ou regressa
-			cout << "  Registo invalido! Um developer com esse nome ja existe. "
+			cout
+					<< "  Registo invalido! Um developer com esse nome de developer ou pertencente a empresa ja existe. "
 					<< endl << endl;
 			cout
 					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
@@ -1130,6 +1120,56 @@ void menuClienteDefinicoes(AppStore& mieic) {
 }
 
 void menuDeveloperGerirApps(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+
+	for (;;) {
+		system("cls");
+		cout << "  Gestao de Apps  " << endl << endl;
+
+		if (opcao == 0)
+			cor(WHITE, BLACK);
+		cout << "  Adicionar App  " << endl;
+		cor(BLACK, WHITE);
+		if (opcao == -1)
+			cor(WHITE, BLACK);
+		cout << "  Remover App " << endl;
+		cor(BLACK, WHITE);
+		if (opcao == -2)
+			cor(WHITE, BLACK);
+		cout << "  Modificar App  " << endl;
+		cor(BLACK, WHITE);
+		if (opcao == -3)
+			cor(WHITE, LIGHT_RED);
+		cout << "  SAIR  " << endl;
+		cor(BLACK, WHITE);
+
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+		{
+		case 0:          // 1a opcao
+			menuCriarApp(mieic);
+			system("pause");
+			break;
+		case 1:          // 1a opcao
+			menuRemoverApp(mieic);
+			system("pause");
+			break;
+		case -2:          // 2a opcao
+			menuModificarApp(mieic);
+			system("pause");
+			break;
+		case -3:          // 4a opcao
+			menuDeveloper(mieic);          //
+			system("pause");
+			break;
+		}
+	}
 
 }
 
@@ -1481,9 +1521,9 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(tm);
+	int opcao = 0;
 
 	vector<string> menu_options = getAppNames(apps_ordenadas);
-	int opcao = 0;
 
 	cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl
 			<< endl;
@@ -1740,8 +1780,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 
 				switch (opcao2 - 13) {
 				case 0:          // 1a opcao
-					apps_do_dev_por_nome = getApps(devs_ordenados[opcao],
-							mieic);
+					apps_do_dev_por_nome = mieic.getApps(devs_ordenados[opcao]);
 					sort(apps_do_dev_por_nome.begin(),
 							apps_do_dev_por_nome.end(), appsComparaNome);
 					menuVisitaStoreOrdenada(mieic, state, apps_do_dev_por_nome,
@@ -1750,8 +1789,8 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 					break;
 
 				case -1:          // 2a opcao
-					apps_do_dev_por_preco = getApps(devs_ordenados[opcao],
-							mieic);
+					apps_do_dev_por_preco = mieic.getApps(
+							devs_ordenados[opcao]);
 					sort(apps_do_dev_por_preco.begin(),
 							apps_do_dev_por_preco.end(), appsComparaPreco);
 					menuVisitaStoreOrdenada(mieic, state, apps_do_dev_por_preco,
@@ -1773,78 +1812,308 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 }
 
 void menuVerDev(AppStore& mieic) {
-time_t t = time(0);
-struct tm *now = localtime(&t);
-Date data_atual(tm);
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
 
-if (dev_act->isEmpresa()) {
-	system("cls");
-	cout << "  Atributos da Empresa  " << endl << endl;
-	cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+	if (dev_act->isEmpresa()) {
+		system("cls");
+		cout << "  Atributos da Empresa  " << endl << endl;
+		cout << "  Prima (Esc) para regressar " << endl << endl << endl;
 
-	cout << "  ID de Login: " << dev_act->getId() << endl;
-	cout << "  Saldo: " << dev_act->getSaldo() << endl;
-	cout << "  Nome Oficial: " << dev_act->getExtra() << endl;
-	cout << "  Nome de Developer: " << dev_act->getNome() << endl;
-	cout << "  NIF: " << dev_act->getNIF() << endl;
-	cout << "  Morada: " << dev_act->getMorada() << endl;
+		cout << "  ID de Login: " << dev_act->getId() << endl;
+		cout << "  Saldo: " << dev_act->getSaldo() << endl;
+		cout << "  Nr. de Aplicacoes na Store: " << mieic.getNrApps(dev_act)
+				<< endl;
+		cout << "  Nome Oficial: " << dev_act->getExtra() << endl;
+		cout << "  Nome de Developer: " << dev_act->getNome() << endl;
+		cout << "  NIF: " << dev_act->getNIF() << endl;
+		cout << "  Morada: " << dev_act->getMorada() << endl;
 
-	int tecla;
-	tecla = getch();
-	if (tecla != 0) {
-		while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-			tecla = getch();
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
 		}
-	}
-	menuDeveloper(mieic);
+		menuDeveloper(mieic);
 
-} else if (!dev_act->isEmpresa()) {
-	system("cls");
-	cout << "  Atributos do developer Individual  " << endl << endl;
-	cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+	} else if (!dev_act->isEmpresa()) {
+		system("cls");
+		cout << "  Atributos do developer Individual  " << endl << endl;
+		cout << "  Prima (Esc) para regressar " << endl << endl << endl;
 
-	cout << "  ID de Login: " << dev_act->getId() << endl;
-	cout << "  Saldo: " << dev_act->getSaldo() << endl;
-	cout << "  Nome Pessoal: " << dev_act->getExtra() << endl;
-	cout << "  Nome de Developer: " << dev_act->getNome() << endl;
-	cout << "  Morada: " << dev_act->getMorada() << endl;
+		cout << "  ID de Login: " << dev_act->getId() << endl;
+		cout << "  Saldo: " << dev_act->getSaldo() << endl;
+		cout << "  Nr. de Aplicacoes na Store: " << mieic.getNrApps(dev_act)
+				<< endl;
+		cout << "  Nome Pessoal: " << dev_act->getExtra() << endl;
+		cout << "  Nome de Developer: " << dev_act->getNome() << endl;
+		cout << "  Morada: " << dev_act->getMorada() << endl;
 
-	int tecla;
-	tecla = getch();
-	if (tecla != 0) {
-		while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-			tecla = getch();
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
 		}
+		menuDeveloper(mieic);
 	}
-	menuDeveloper(mieic);
-}
 }
 
 void menuVerCli(AppStore& mieic) {
-system("cls");
-time_t t = time(0);
-struct tm *now = localtime(&t);
-Date data_atual(tm);
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
 
-cout << "  Atributos de Cliente"
-		"  " << endl << endl;
-cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+	cout << "  Atributos de Cliente"
+			"  " << endl << endl;
+	cout << "  Prima (Esc) para regressar " << endl << endl << endl;
 
-cout << "  ID de Login: " << cli_act->getId() << endl;
-cout << "  Saldo: " << cli_act->getSaldo() << endl;
-cout << "  Nome: " << cli_act->getNome() << endl;
-cout << "  Idade: " << cli_act->getIdade() << endl;
-cout << "  Sexo: " << cli_act->getSexo() << endl;
-cout << "  Nr. Cartao de Credito: " << cli_act->getCartaoCredito() << endl;
-cout << "  Nr. de Vouchers disponiveis: " << cli_act->getVouchers() << endl;
+	cout << "  ID de Login: " << cli_act->getId() << endl;
+	cout << "  Saldo: " << cli_act->getSaldo() << endl;
+	cout << "  Nome: " << cli_act->getNome() << endl;
+	cout << "  Idade: " << cli_act->getIdade() << endl;
+	cout << "  Sexo: " << cli_act->getSexo() << endl;
+	cout << "  Nr. Cartao de Credito: " << cli_act->getCartaoCredito() << endl;
+	cout << "  Nr. de Vouchers disponiveis: " << cli_act->getVouchers() << endl;
 
-int tecla;
-tecla = getch();
-if (tecla != 0) {
-	while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-		tecla = getch();
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+			tecla = getch();
+		}
+	}
+	menuCliente(mieic);
+}
+
+void menuCriarApp(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+
+	bool nomeRepetido = false;
+	bool inputFail;
+	string nome_app, categoria, descricao;
+	double preco;
+
+	do {
+		system("cls");
+		cout << "  Criar Apps - Insira os dados da App que pretende criar  "
+				<< endl << endl << endl;
+		cout << "  Indique o seu nome da App: ";
+		fflush(stdin);
+		getline(cin, nome_app);
+	} while (nome_app == "");
+
+	do {
+		system("cls");
+		cout << "  Criar Apps - Insira os dados da App que pretende criar  "
+				<< endl << endl << endl;
+		cout << "  Indique o seu nome da App: " << nome_app << endl;
+		cout << "  Indique a categoria em que se insere: ";
+
+		fflush(stdin);
+		getline(cin, categoria);
+	} while (categoria == "");
+
+	do {
+		system("cls");
+		cout << "  Criar Apps - Insira os dados da App que pretende criar  "
+				<< endl << endl << endl;
+		cout << "  Indique o seu nome da App: " << nome_app << endl;
+		cout << "  Indique a categoria em que se insere: " << categoria << endl;
+		cout << "  Faca uma pequena descricao da App: ";
+		fflush(stdin);
+		getline(cin, descricao);
+	} while (descricao == "");
+
+	do {
+		system("cls");
+		cout << "  Criar Apps - Insira os dados da App que pretende criar  "
+				<< endl << endl << endl;
+		cout << "  Indique o seu nome da App: " << nome_app << endl;
+		cout << "  Indique a categoria em que se insere: " << categoria << endl;
+		cout << "  Faca uma pequena descricao da App: " << descricao << endl;
+		cout << "  Indique o preco da App:  ";
+
+		cin >> preco;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	system("cls");
+	cout << "  Criar Apps - Insira os dados da App que pretende criar  " << endl
+			<< endl << endl;
+	cout << "  Indique o seu nome da App: " << nome_app << endl;
+	cout << "  Indique a categoria em que se insere: " << categoria << endl;
+	cout << "  Faca uma pequena descricao da App: " << descricao << endl;
+	cout << "  Indique o preco da App:  " << preco;
+	cout << endl << endl << endl;
+	cout
+			<< "  Prima (Enter) para validar a criacao ou (Esc) para regressar sem criar a App  "
+			<< endl << endl;
+
+	cin.clear();
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) {
+			tecla = getch();
+		}
+	}
+	if (tecla == 13) { // se o user premir (Enter)
+
+		// verifica se na appstore mieic ja ha algum developer com este nome de dev
+		nomeRepetido = mieic.existeNomeApp(nome_app);
+
+		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
+
+			App app_temp(nome_app, categoria, descricao, preco);
+			app_temp.setDev(dev_act);
+			mieic.apps.push_back(app_temp);
+
+			cout << "  Sucesso! App criada. " << endl << endl;
+			cout << "  Prima (Enter) para continuar  " << endl;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+				menuDeveloperGerirApps(mieic);
+			}
+		} else if (nomeRepetido) { // se o nome for repetido, retry ou regressa
+			cout << "  App invalida! Uma App com esse nome ja existe. " << endl
+					<< endl;
+			cout
+					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+					<< endl;
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+					tecla = getch();
+				}
+			}
+			if (tecla == 13)
+				menuCriarApp(mieic);
+			else if (tecla == 27)
+				menuDeveloperGerirApps(mieic);
+		}
+
+	} else if (tecla == 27) {  // se o user premir (Esc)
+		menuDeveloperGerirApps(mieic);
 	}
 }
-menuCliente(mieic);
+
+void menuRemoverApp(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+
+	// vai buscar apps do dev e ordena-as por nome
+	vector<App> apps_ordenadas = mieic.getApps(dev_act);
+	sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
+
+	//Vai criar a lista de opcoes com o nome das Apps do developer atual
+	vector<string> menu_options = getAppNames(apps_ordenadas);
+
+	if (apps_ordenadas.empty()) {
+		system("cls");
+		cout << "  Remover Apps " << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+		cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
+
+		}
+		menuDeveloperGerirApps(mieic);
+	} else {
+
+		cout << "  Remover Apps " << endl << endl;
+		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl << endl;
+		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+						{
+					opcao--;
+					if (opcao < 0)
+						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+				if (tecla == 80) //ABAIXO
+						{
+					opcao++;
+					if (opcao > (menu_options.size() - 1))
+						opcao = 0; // se passar o fim, volta ao inicio
+					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+			}
+		}
+		if (tecla == 13) {
+			system("cls");
+			cout << "  Especificacoes da App  " << endl << endl;
+			cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
+			cout << apps_ordenadas[opcao].imprime() << endl;
+			int tecla;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+					tecla = getch();
+				}
+			}
+			menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+					tipo_ordenacao);
+		}
+
+		if (tecla == 27) {
+			if (tipo_ordenacao == "Developer e Nome"
+					|| tipo_ordenacao == "Developer e Preco") {
+				menuListaDeveloper(mieic, state);
+			} else {
+				menuVisitaStore(mieic, state);
+			}
+		}
+
+	}
+
+}
+
+void menuModificarApp(AppStore& mieic) {
+
 }
 
