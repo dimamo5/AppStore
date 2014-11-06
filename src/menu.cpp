@@ -945,7 +945,7 @@ void menuCliente(AppStore& mieic) {
 			system("pause");
 			break;
 		case -3:          // 4a opcao
-			menuInicial(mieic); // TODO: implementar a listagem atributos do cliente
+			menuVerCli(mieic); // TODO: implementar a listagem atributos do cliente
 			system("pause");
 			break;
 		case -4:          // 5a opcao
@@ -1008,7 +1008,7 @@ void menuDeveloper(AppStore& mieic) {
 			system("pause");
 			break;
 		case -3:          // 4a opcao
-			menuInicial(mieic); // TODO: implementar a listagem atributos do developer
+			menuVerDev(mieic); // TODO: implementar a listagem atributos do developer
 			system("pause");
 			break;
 		case -4:          // 5a opcao
@@ -1270,7 +1270,7 @@ void menuAlterarPassDev(AppStore& mieic) {
 
 }
 
-void menuAlterarMorada(AppStore& mieic){
+void menuAlterarMorada(AppStore& mieic) {
 
 }
 
@@ -1661,3 +1661,57 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 
 }
 
+void menuVerDev(AppStore& mieic) {
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(tm);
+	int opcao = 0;
+
+	if (dev_act->isEmpresa()) {
+		system("cls");
+		cout << "  Atributos da Empresa  " << endl << endl;
+		cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+
+		cout << "  Nome Oficial: " << dev_act->getExtra() << endl;
+		cout << "  Nome de Developer: " << dev_act->getNome() << endl;
+		cout << "  ID de Login: " << dev_act->getId() << endl;
+		cout << "  Saldo: " << dev_act->getSaldo() << endl;
+		cout << "  NIF: " << dev_act->getNIF() << endl;
+		cout << "  Morada: " << dev_act->getMorada() << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
+		}
+		menuDeveloper(mieic);
+
+	} else if (!dev_act->isEmpresa()) {
+		system("cls");
+		cout << "  Atributos do developer Individual  " << endl << endl;
+		cout << "  Prima (Esc) para regressar " << endl << endl << endl;
+
+		cout << "  Atributos da Empresa  " << endl << endl << endl << endl;
+		cout << "  Nome Oficial: " << dev_act->getExtra() << endl;
+		cout << "  Nome de Developer: " << dev_act->getNome() << endl;
+		cout << "  ID de Login: " << dev_act->getId() << endl;
+		cout << "  Saldo: " << dev_act->getSaldo() << endl;
+		cout << "  NIF: " << dev_act->getNIF() << endl;
+		cout << "  Morada: " << dev_act->getMorada() << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
+		}
+		menuDeveloper(mieic);
+	}
+}
+
+void menuVerCli(AppStore& mieic) {
+
+}

@@ -64,6 +64,8 @@ void menuAlterarMorada(AppStore& mieic);
 void menuAlterarNIF(AppStore& mieic);
 void menuAlterarNomePessoal(AppStore& mieic);
 void menuApagarContaDev(AppStore& mieic);
+void menuVerDev(AppStore& mieic);
+void menuVerCli(AppStore& mieic);
 
 // State will be needed to know who is visiting the store, what that person will see and where the "SAIR" button will lead the person
 void menuVisitaStore(AppStore& mieic, unsigned int& state);
