@@ -86,9 +86,17 @@ bool AppStore::save_dev(ofstream& file) {
 			file << dev[i]->getSaldo() << endl;
 			file << dev[i]->getIdPass() << endl;
 			file << dev[i]->getExtra() << endl;
+			file<< dev[i]->getMorada()<<endl;
+			if(dev[i]->isEmpresa()){
+				file <<"emp"<<endl;
+				file<<dev[i]->getNIF()<<endl;
+			}else{
+				file <<"ind"<<endl;
+			}
+
 		}
-		return true;
 	}
+	return true;
 }
 
 bool AppStore::save_app(ofstream& file) {
@@ -349,7 +357,7 @@ bool AppStore::load_dev(fstream& file) {
 
 	unsigned int next_id, id;
 	float saldo;
-	string nome, pass, extra, temp, type;
+	string nome, pass, extra, temp, type,nif,morada;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
 	Developer::setNextID(next_id);
@@ -365,12 +373,16 @@ bool AppStore::load_dev(fstream& file) {
 		getline(file, temp);
 		extra = temp;
 		getline(file, temp);
+		morada = temp;
+		getline(file, temp);
 		type = temp;
 		if (type == "ind") {
-			Developer * dev_temp = new Individual(id, nome, saldo, pass, extra);
+			Developer * dev_temp = new Individual(id, nome, saldo, pass,morada, extra);
 			dev.push_back(dev_temp);
 		} else if (type == "emp") {
-			Developer * dev_temp = new Empresa(id, nome, saldo, pass, extra);
+			getline(file, temp);
+			nif = temp;
+			Developer * dev_temp = new Empresa(id, nome, saldo, pass,morada,nif, extra);
 			dev.push_back(dev_temp);
 		}
 

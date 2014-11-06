@@ -31,8 +31,11 @@ public:
 	double getSaldo() const;
 	void setSaldo(unsigned int s);
 	static void setNextID(unsigned int i);
-	virtual string getType() const =0;
+	virtual string getMorada() const=0;
+	virtual bool setMorada(string morada)=0;
 	virtual string getExtra() const=0;
+	virtual string getNIF() const =0;
+	virtual bool setNIF(string nif) =0;
 	virtual void setExtra(string info)=0;
 	virtual bool isEmpresa() = 0;
 	int getId() const;
@@ -51,7 +54,10 @@ public:
 	Individual(int id,string nome,double saldo,string id_pass,string morada,string NomePessoal);
 	string getExtra() const;
 	void setExtra(string info);
-	string getType() const;
+	bool setNIF(string nif);
+	string getNIF() const;
+	string getMorada() const;
+	bool setMorada(string morada);
 	bool isEmpresa();
 
 };
@@ -63,7 +69,10 @@ public:
 	Empresa(string nome,string id_pass,string morada,string NIF, string NomeEmpresa);
 	Empresa(int id,string nome,double saldo,string id_pass,string morada,string NIF, string NomeEmpresa);
 	string getExtra() const;
-	string getType() const;
+	string getNIF() const;
+	string getMorada() const;
+	bool setMorada(string morada);
+	bool setNIF(string nif);
 	void setExtra(string info);
 	bool isEmpresa();
 };

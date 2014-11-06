@@ -97,26 +97,50 @@ void Individual::setExtra(string info) {
 }
 
 string Empresa::getExtra() const {
-	return NIF;
-}
-
-string Empresa::getType() const {
-	return "emp";
+	return NomeEmpresa;
 }
 
 void Empresa::setExtra(string info) {
-	NIF = info;
+	NomeEmpresa = info;
 }
 
-string Individual::getType() const {
-	return "ind";
+string Individual::getMorada() const {
+	return morada;
+}
+
+bool Individual::setMorada(string morada) {
+	this->morada=morada;
 }
 
 bool Individual::isEmpresa(){
 	return false;
 }
 
+string Empresa::getMorada() const {
+	return morada;
+}
+
+bool Empresa::setMorada(string morada) {
+	this->morada=morada;
+}
+
 bool Empresa::isEmpresa(){
 	return true;
+}
+
+string Empresa::getNIF() const{
+	return NIF;
+}
+
+bool Empresa::setNIF(string nif){
+	NIF=nif;
+}
+
+string Individual::getNIF() const{
+	//throw Dev_Exp("") TODO exception
+}
+
+bool Individual::setNIF(string nif){
+	//throw Dev_Exp("") TODO exception
 }
 
