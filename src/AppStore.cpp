@@ -86,12 +86,12 @@ bool AppStore::save_dev(ofstream& file) {
 			file << dev[i]->getSaldo() << endl;
 			file << dev[i]->getIdPass() << endl;
 			file << dev[i]->getExtra() << endl;
-			file<< dev[i]->getMorada()<<endl;
-			if(dev[i]->isEmpresa()){
-				file <<"emp"<<endl;
-				file<<dev[i]->getNIF()<<endl;
-			}else{
-				file <<"ind"<<endl;
+			file << dev[i]->getMorada() << endl;
+			if (dev[i]->isEmpresa()) {
+				file << "emp" << endl;
+				file << dev[i]->getNIF() << endl;
+			} else {
+				file << "ind" << endl;
 			}
 
 		}
@@ -252,7 +252,8 @@ bool AppStore::save_vendas(ofstream &file) {
 			file << vendas[i].getDataVenda().getMinute() << endl;
 			file << vendas[i].isRetorno() << endl;
 			file << vendas[i].getReclamacao() << endl;
-			file << vendas[i].getApp()->getId();
+			file << vendas[i].getApp()->getId() << endl;
+			file << vendas[i].getAppRemovidaNome() << endl;
 		}
 	}
 	return true;
@@ -262,7 +263,7 @@ bool AppStore::load_vendas(fstream &file) {
 	unsigned int next_id, id, ano, mes, dia, hora, minuto, id_app;
 	float preco;
 	bool retorno;
-	string reclamacao, temp;
+	string reclamacao, nome_app_removida, temp;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
 	Vendas::setNextId(next_id);
@@ -288,8 +289,10 @@ bool AppStore::load_vendas(fstream &file) {
 		reclamacao = temp;
 		getline(file, temp);
 		stringstream(temp) >> id_app;
+		getline(file, temp);
+		nome_app_removida = temp;
 		Vendas *venda_temp = new Vendas(id, preco, *date_temp, retorno,
-				reclamacao);
+				reclamacao, nome_app_removida);
 		venda_temp->setApp(find_app_id(id_app));
 		vendas.push_back(*venda_temp);
 	}
@@ -357,7 +360,7 @@ bool AppStore::load_dev(fstream& file) {
 
 	unsigned int next_id, id;
 	float saldo;
-	string nome, pass, extra, temp, type,nif,morada;
+	string nome, pass, extra, temp, type, nif, morada;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
 	Developer::setNextID(next_id);
@@ -377,12 +380,14 @@ bool AppStore::load_dev(fstream& file) {
 		getline(file, temp);
 		type = temp;
 		if (type == "ind") {
-			Developer * dev_temp = new Individual(id, nome, saldo, pass,morada, extra);
+			Developer * dev_temp = new Individual(id, nome, saldo, pass, morada,
+					extra);
 			dev.push_back(dev_temp);
 		} else if (type == "emp") {
 			getline(file, temp);
 			nif = temp;
-			Developer * dev_temp = new Empresa(id, nome, saldo, pass,morada,nif, extra);
+			Developer * dev_temp = new Empresa(id, nome, saldo, pass, morada,
+					nif, extra);
 			dev.push_back(dev_temp);
 		}
 

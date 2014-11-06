@@ -16,8 +16,8 @@ Vendas::Vendas(float preco, Date data_venda):preco(preco),data_venda(data_venda)
 	reclamacao="";
 }
 
-Vendas::Vendas(int id, float preco, Date data_venda, bool retorno,string reclamacao):id(id),preco(preco),
-		data_venda(data_venda),retorno(retorno),reclamacao(reclamacao) {
+Vendas::Vendas(int id, float preco, Date data_venda, bool retorno,string reclamacao,string app_removida_nome):id(id),preco(preco),
+		data_venda(data_venda),retorno(retorno),reclamacao(reclamacao),app_removida_nome(app_removida_nome) {
 }
 
 
@@ -71,4 +71,12 @@ void Vendas::reclamar(string reclamacao) {
 		retorno=true;
 		this->reclamacao=reclamacao;
 	}
+}
+
+string Vendas::getAppRemovidaNome() const {
+	return app_removida_nome;
+}
+
+void Vendas::setAppRemovidaNome(string appRemovidaNome) {
+	app_removida_nome = appRemovidaNome;
 }
