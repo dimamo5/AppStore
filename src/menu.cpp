@@ -1466,7 +1466,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 			case -3:          // 4a opcao
-				menuInicial(mieic);
+				menuCliente(mieic);
 				system("pause");
 				break;
 			}
