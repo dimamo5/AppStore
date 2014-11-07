@@ -59,3 +59,4 @@ public:
 };
 
 #endif /* VENDAS_H_ */
+
