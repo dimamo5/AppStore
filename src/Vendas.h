@@ -38,7 +38,7 @@ private:
 	string nome_app_momento_venda = "";
 
 public:
-	Vendas(float preco, Date data_venda);
+	Vendas(float preco, Date data_venda, string app_removida_nome);
 	Vendas(int id, float preco, Date data_venda, bool retorno, bool app_apagada,
 			int id_app_vendida, string reclamacao, string app_removida_nome);
 	int getId() const;

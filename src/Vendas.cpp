@@ -9,8 +9,8 @@
 
 unsigned int Vendas::next_id = 1;
 
-Vendas::Vendas(float preco, Date data_venda) :
-		preco(preco), data_venda(data_venda) {
+Vendas::Vendas(float preco, Date data_venda, string app_removida_nome) :
+		preco(preco), data_venda(data_venda),nome_app_momento_venda(app_removida_nome) {
 	id = next_id;
 	next_id++;
 	retorno = false;
