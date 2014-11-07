@@ -52,6 +52,13 @@ for(unsigned int i = 0; i< MIEIC_Play.apps.size(); i++){
 MIEIC_Play.apps[4].setDev(individ2);
 MIEIC_Play.apps[5].setDev(individ3);
 
+Comentario comment1("app muito boa - comment1",1,5); // app muito boa, cliente 1, 5 estrelas
+Comentario comment2("app muito boa - comment2",1,5);
+
+MIEIC_Play.apps[0].addComentario(comment1);
+MIEIC_Play.apps[0].addComentario(comment2);
+
+
 	int opc=0;
 		do
 		{

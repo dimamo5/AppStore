@@ -124,6 +124,9 @@ public:
 	 * Setter Developer(usado principalmente para carregar os ficheiros)
 	 * @param Novo developer responsavel pela App
 	 */
+
+	void addComentario(Comentario coment);
+
 	void setDev(Developer* dev);
 	/**
 	 * Getter Id

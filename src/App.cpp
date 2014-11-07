@@ -40,6 +40,10 @@ void App::setComentarios(const vector<Comentario>& comentarios) {
 	this->comentarios = comentarios;
 }
 
+void App::addComentario(Comentario coment){
+	comentarios.push_back(coment);
+}
+
 void App::setDev(Developer* dev) {
 	this->dev = dev;
 }
@@ -89,8 +93,8 @@ string ret = "";
 ss << this->preco;  // Transformar preco de double para string
 ss >> str_preco;
 
-ret += "Nome: " + this->nome + "\n\n" + "Categoria: " + this->categoria + "\n\n"
-  + "Descricao: " + this->descricao + "\n\n" + "Developer: "+ dev->getNome()+ "\n\n"+ "Preco: " + str_preco;
+ret += "  Nome: " + this->nome + "\n\n" + "  Categoria: " + this->categoria + "\n\n"
+  + "  Descricao: " + this->descricao + "\n\n" + "  Developer: "+ dev->getNome()+ "\n\n"+ "  Preco: " + str_preco;
 
 return ret;
 }
