@@ -30,7 +30,7 @@ extern Cliente* cli_act;
 
 class App{
 private:
-	unsigned int id;/**< ID unico de cada App*/
+	unsigned int id;/**< @brief ID unico de cada App*/
 	static unsigned int next_id;/**< Proximo Id quando c se cria uma App */
 	string nome;/**< Nome da App */
 	string categoria;/**< Categoria em que se insere a App */

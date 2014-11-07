@@ -1,30 +1,125 @@
 \hypertarget{class_comentario}{\section{Comentario Class Reference}
 \label{class_comentario}\index{Comentario@{Comentario}}
 }
+
+
+Classe para criar um comentario que esta associado a um cliente que é includo na \hyperlink{class_app}{App}.  
+
+
+
+
+{\ttfamily \#include $<$Comentario.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_comentario_a86098067f03cec1a3b0f11e1890b48d1}{{\bfseries Comentario} (string descricao, unsigned int id\+\_\+cliente, double classificacao)}\label{class_comentario_a86098067f03cec1a3b0f11e1890b48d1}
-
+\hyperlink{class_comentario_a86098067f03cec1a3b0f11e1890b48d1}{Comentario} (string descricao, unsigned int id\+\_\+cliente, double classificacao)
 \item 
-\hypertarget{class_comentario_a72b3f558e4efa7aa193a4a8dcf584342}{double {\bfseries get\+Classificacao} () const }\label{class_comentario_a72b3f558e4efa7aa193a4a8dcf584342}
-
+double \hyperlink{class_comentario_a72b3f558e4efa7aa193a4a8dcf584342}{get\+Classificacao} () const 
 \item 
-\hypertarget{class_comentario_af9f6f741bc2b95e4b9457eae446e8f39}{void {\bfseries set\+Classificacao} (double classificacao)}\label{class_comentario_af9f6f741bc2b95e4b9457eae446e8f39}
-
+void \hyperlink{class_comentario_af9f6f741bc2b95e4b9457eae446e8f39}{set\+Classificacao} (double classificacao)
 \item 
-\hypertarget{class_comentario_a1b9f374ef488c1fb1332081e767e14e8}{string {\bfseries get\+Descricao} () const }\label{class_comentario_a1b9f374ef488c1fb1332081e767e14e8}
-
+string \hyperlink{class_comentario_a1b9f374ef488c1fb1332081e767e14e8}{get\+Descricao} () const 
 \item 
-\hypertarget{class_comentario_a40aefe877479a08900a1e25803fa8616}{void {\bfseries set\+Descricao} (const string \&descricao)}\label{class_comentario_a40aefe877479a08900a1e25803fa8616}
-
+void \hyperlink{class_comentario_a40aefe877479a08900a1e25803fa8616}{set\+Descricao} (const string \&descricao)
 \item 
-\hypertarget{class_comentario_ab3f00d37b18638e59b7e8e5a8f15c8d5}{unsigned int {\bfseries get\+Id\+Client} () const }\label{class_comentario_ab3f00d37b18638e59b7e8e5a8f15c8d5}
-
+unsigned int \hyperlink{class_comentario_ab3f00d37b18638e59b7e8e5a8f15c8d5}{get\+Id\+Client} () const 
 \item 
-\hypertarget{class_comentario_ab74417e4b1ab747486355e425e1e515a}{void {\bfseries set\+Id\+Client} (unsigned int id\+Client)}\label{class_comentario_ab74417e4b1ab747486355e425e1e515a}
-
+void \hyperlink{class_comentario_ab74417e4b1ab747486355e425e1e515a}{set\+Id\+Client} (unsigned int id\+Client)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe para criar um comentario que esta associado a um cliente que é includo na \hyperlink{class_app}{App}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_comentario_a86098067f03cec1a3b0f11e1890b48d1}{\index{Comentario@{Comentario}!Comentario@{Comentario}}
+\index{Comentario@{Comentario}!Comentario@{Comentario}}
+\subsubsection[{Comentario}]{\setlength{\rightskip}{0pt plus 5cm}Comentario\+::\+Comentario (
+\begin{DoxyParamCaption}
+\item[{string}]{descricao, }
+\item[{unsigned int}]{id\+\_\+cliente, }
+\item[{double}]{classificacao}
+\end{DoxyParamCaption}
+)}}\label{class_comentario_a86098067f03cec1a3b0f11e1890b48d1}
+Construtor de \hyperlink{class_comentario}{Comentario} 
+\begin{DoxyParams}{Parameters}
+{\em descricao} & Pequeno testo de apreciacao da \hyperlink{class_app}{App} \\
+\hline
+{\em id\+\_\+cliente} & Id do cliente que criou a app \\
+\hline
+{\em classificacao} & Classificao que atribui a uma \hyperlink{class_app}{App} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_comentario_a72b3f558e4efa7aa193a4a8dcf584342}{\index{Comentario@{Comentario}!get\+Classificacao@{get\+Classificacao}}
+\index{get\+Classificacao@{get\+Classificacao}!Comentario@{Comentario}}
+\subsubsection[{get\+Classificacao}]{\setlength{\rightskip}{0pt plus 5cm}double Comentario\+::get\+Classificacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_comentario_a72b3f558e4efa7aa193a4a8dcf584342}
+Getter Classificao \begin{DoxyReturn}{Returns}
+Classificao atribuida na avaliacao 
+\end{DoxyReturn}
+\hypertarget{class_comentario_a1b9f374ef488c1fb1332081e767e14e8}{\index{Comentario@{Comentario}!get\+Descricao@{get\+Descricao}}
+\index{get\+Descricao@{get\+Descricao}!Comentario@{Comentario}}
+\subsubsection[{get\+Descricao}]{\setlength{\rightskip}{0pt plus 5cm}string Comentario\+::get\+Descricao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_comentario_a1b9f374ef488c1fb1332081e767e14e8}
+Getter Descricao \begin{DoxyReturn}{Returns}
+Descricao da avaliacao 
+\end{DoxyReturn}
+\hypertarget{class_comentario_ab3f00d37b18638e59b7e8e5a8f15c8d5}{\index{Comentario@{Comentario}!get\+Id\+Client@{get\+Id\+Client}}
+\index{get\+Id\+Client@{get\+Id\+Client}!Comentario@{Comentario}}
+\subsubsection[{get\+Id\+Client}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Comentario\+::get\+Id\+Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_comentario_ab3f00d37b18638e59b7e8e5a8f15c8d5}
+Getter Id do \hyperlink{class_cliente}{Cliente} \begin{DoxyReturn}{Returns}
+Id do \hyperlink{class_cliente}{Cliente} que fez o \hyperlink{class_comentario}{Comentario} 
+\end{DoxyReturn}
+\hypertarget{class_comentario_af9f6f741bc2b95e4b9457eae446e8f39}{\index{Comentario@{Comentario}!set\+Classificacao@{set\+Classificacao}}
+\index{set\+Classificacao@{set\+Classificacao}!Comentario@{Comentario}}
+\subsubsection[{set\+Classificacao}]{\setlength{\rightskip}{0pt plus 5cm}void Comentario\+::set\+Classificacao (
+\begin{DoxyParamCaption}
+\item[{double}]{classificacao}
+\end{DoxyParamCaption}
+)}}\label{class_comentario_af9f6f741bc2b95e4b9457eae446e8f39}
+Setter Classificao 
+\begin{DoxyParams}{Parameters}
+{\em classificacao} & Nova Classificacao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_comentario_a40aefe877479a08900a1e25803fa8616}{\index{Comentario@{Comentario}!set\+Descricao@{set\+Descricao}}
+\index{set\+Descricao@{set\+Descricao}!Comentario@{Comentario}}
+\subsubsection[{set\+Descricao}]{\setlength{\rightskip}{0pt plus 5cm}void Comentario\+::set\+Descricao (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{descricao}
+\end{DoxyParamCaption}
+)}}\label{class_comentario_a40aefe877479a08900a1e25803fa8616}
+Setter Descricao 
+\begin{DoxyParams}{Parameters}
+{\em descricao} & Nova Descricao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_comentario_ab74417e4b1ab747486355e425e1e515a}{\index{Comentario@{Comentario}!set\+Id\+Client@{set\+Id\+Client}}
+\index{set\+Id\+Client@{set\+Id\+Client}!Comentario@{Comentario}}
+\subsubsection[{set\+Id\+Client}]{\setlength{\rightskip}{0pt plus 5cm}void Comentario\+::set\+Id\+Client (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id\+Client}
+\end{DoxyParamCaption}
+)}}\label{class_comentario_ab74417e4b1ab747486355e425e1e515a}
+Setter Id \hyperlink{class_cliente}{Cliente} 
+\begin{DoxyParams}{Parameters}
+{\em id\+Client} & Novo Id da Avaliacao \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
