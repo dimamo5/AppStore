@@ -14,7 +14,11 @@ extern Developer* dev_act;
 extern Cliente* cli_act;
 
 using namespace std;
-
+/*
+ * @class Developer
+ * @brief Classe referente a developers.
+ * Contem 2 subclasses - Individual e Empresa
+ */
 
 class Developer{
 protected:
@@ -25,14 +29,48 @@ protected:
 	string id_pass;
 	string morada;
 public:
+	/**
+	 * Construtor Developer
+	 * @param nome Nome
+	 * @param id_pass Password de acesso à AppStore
+	 * @param morada Morada
+	 */
 	Developer(string nome,string id_pass,string morada);
+	/**
+	 *  Construtor Developer(usado para carregar objectos dos ficheiros)
+	 * @param id Id unico de cada Developer
+	 * @param nome Nome
+	 * @param saldo Saldo da conta
+	 * @param id_pass Password de acesso à AppStore
+	 * @param morada Morada
+	 */
 	Developer(int id,string nome,double saldo,string id_pass,string morada);
+	/**
+	 * Getter Nome
+	 * @return String Nome
+	 */
 	string getNome() const;
+	/**
+	 * Getter Saldo
+	 * @return Double Saldo
+	 */
 	double getSaldo() const;
+	/**
+	 * Setter Saldo
+	 * @param s Novo Saldo
+	 */
 	void setSaldo(unsigned int s);
+	/**
+	 * Setter Next Id
+	 * @param i Id do proximo objecto criado por esta classe
+	 */
 	static void setNextID(unsigned int i);
-	virtual string getMorada() const=0;
-	virtual bool setMorada(string morada)=0;
+	/**
+	 * Getter de Morada
+	 * @return String Morada
+	 */
+	virtual string getMorada() const;
+	virtual bool setMorada(string morada);
 	virtual string getExtra() const=0;
 	virtual string getNIF() const =0;
 	virtual bool setNIF(string nif) =0;
@@ -57,8 +95,6 @@ public:
 	void setExtra(string info);
 	bool setNIF(string nif);
 	string getNIF() const;
-	string getMorada() const;
-	bool setMorada(string morada);
 	bool isEmpresa();
 
 };
@@ -71,8 +107,6 @@ public:
 	Empresa(int id,string nome,double saldo,string id_pass,string morada,string NIF, string NomeEmpresa);
 	string getExtra() const;
 	string getNIF() const;
-	string getMorada() const;
-	bool setMorada(string morada);
 	bool setNIF(string nif);
 	void setExtra(string info);
 	bool isEmpresa();

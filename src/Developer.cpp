@@ -108,23 +108,16 @@ void Empresa::setExtra(string info) {
 	NomeEmpresa = info;
 }
 
-string Individual::getMorada() const {
-	return morada;
-}
-
-bool Individual::setMorada(string morada) {
-	this->morada=morada;
-}
 
 bool Individual::isEmpresa(){
 	return false;
 }
 
-string Empresa::getMorada() const {
+string Developer::getMorada() const {
 	return morada;
 }
 
-bool Empresa::setMorada(string morada) {
+bool Developer::setMorada(string morada) {
 	this->morada=morada;
 }
 
