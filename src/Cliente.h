@@ -11,9 +11,11 @@
 #include <string>
 #include "Vendas.h"
 #include "Developer.h"
+#include "App.h"
 
 using namespace std;
 
+class App;
 class Vendas;
 
 class Cliente {
@@ -38,7 +40,7 @@ public:
 	unsigned int getIdade() const;
 	string getNome() const;
 	bool adicionaAppCesto(string app_name);
-	bool eliminaAppCest(unsigned int i);
+	bool eliminaAppCesto(unsigned int i);
 	float getSaldo() const;
 	string getIdPass() const;
 	void setIdPass(string id_pass);
@@ -53,6 +55,7 @@ public:
 	vector<Vendas *> getHistorico() const;
 	void setHistorico(vector<Vendas *> v);
 	static void setNextID(unsigned int i);
+	bool jaComprou(App app_option);
 };
 
 #endif /* CLIENTE_H_ */

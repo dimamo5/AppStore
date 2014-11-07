@@ -105,6 +105,14 @@ bool Cliente::adicionaAppCesto(string app_name) {
 	cesto_compras.push_back(app_name);
 }
 
-bool Cliente::eliminaAppCest(unsigned int i) {
+bool Cliente::eliminaAppCesto(unsigned int i) {
 	cesto_compras.erase(cesto_compras.begin()+i);
+}
+
+bool Cliente::jaComprou(App app_option){
+	for(unsigned int i = 0; i < historico.size(); i++){
+		if(app_option.getId() == historico[i]->getAppVendidaId()) //se a app a ser analisada ja esta em alguma venda do historico
+			return true;
+	}
+	return false;
 }

@@ -1982,7 +1982,8 @@ void menuApagarContaDev(AppStore& mieic) {
 				//apaga o dev
 				for (unsigned int i = 0; i < mieic.dev.size(); i++) {
 					if (mieic.dev[i] == dev_act) {
-						cout << "O dev " << mieic.dev[i]->getNome() << "foi apagado." << endl;
+						cout << "O dev " << mieic.dev[i]->getNome()
+								<< "foi apagado." << endl;
 						mieic.dev.erase(mieic.dev.begin() + i);
 						break;
 					}
@@ -2417,9 +2418,114 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		}
 	}
 	if (state == 2) {
+		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+						{
+					opcao--;
+					if (opcao < 0)
+						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+				if (tecla == 80) //ABAIXO
+						{
+					opcao++;
+					if (opcao > (menu_options.size() - 1))
+						opcao = 0; // se passar o fim, volta ao inicio
+					system("cls");
+					cout << "  Visita Store - Apps Ordenadas por "
+							<< tipo_ordenacao << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+			}
+		}
+		if (tecla == 13) {
+			system("cls");
+			cout << "  Especificacoes da App  " << endl << endl;
+			cout << endl << endl << endl;
+			cout << apps_ordenadas[opcao].imprime() << endl;
+
+			bool comprado = cli_act->jaComprou(apps_ordenadas[opcao]);
+			if (comprado) {  //so pode comentar/classificar ou fazer download
+
+				for (;;) {
+					system("cls");
+					cout << "  Especificacoes da App  " << endl << endl;
+					cout << endl << endl << endl;
+					cout << apps_ordenadas[opcao].imprime() << endl;
+
+					if (opcao == 0)
+						cor(WHITE, BLACK);
+					cout << "  Fazer Download " << endl;
+					cor(BLACK, WHITE);
+					if (opcao == -1)
+						cor(WHITE, BLACK);
+					cout << "  Submeter comentario/classificacao " << endl;
+					cor(BLACK, WHITE);
+					if (opcao == -2)
+						cor(WHITE, BLACK);
+					cout << "  Ler Comentarios  " << endl;
+					cor(BLACK, WHITE);
+					if (opcao == -3)
+						cor(WHITE, LIGHT_RED);
+					cout << "  SAIR  " << endl;
+					cor(BLACK, WHITE);
+
+					opcao += teclas();
+					opcao = RestringeOpcaoTeclas(0, 3, opcao);
+
+					switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+					{
+					case 0:          // 1a opcao
+						menuAlterarPassCli(mieic);
+						system("pause");
+						break;
+
+					case -1:          // 2a opcao
+						menuAlterarCartao(mieic);
+						system("pause");
+						break;
+					case -2:          // 3a opcao
+						menuApagarContaCli(mieic);
+						system("pause");
+						break;
+					case -3:          // 4a opcao
+						menuCliente(mieic);          //
+						system("pause");
+						break;
+					}
+				}
+
+			}
+			if (!comprado) { //so pode adicionar ao cart ou sair
+
+			}
+		}
+
+		if (tecla == 27) {
+			if (tipo_ordenacao == "Developer e Nome"
+					|| tipo_ordenacao == "Developer e Preco") {
+				menuListaDeveloper(mieic, state);
+			} else {
+				menuVisitaStore(mieic, state);
+			}
+		}
 	}
-
 }
 
 void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
@@ -2453,7 +2559,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 		menuVisitaStore(mieic, state); // ao carregar escape, regressa a escolha de criterios da store
 	}
 
-	if (state == 0 || state == 1) { // lista de devs e menus anteriores e posteriores vao ser iguais para state 0 e 1
+	if (state == 0 || state == 1 || state == 2) { // lista de devs e menus anteriores e posteriores vao ser iguais para state 0 e 1
 		vector<string> menu_options = getDevNames(devs_ordenados);
 
 		cout << "  Visita Store - Devs Ordenados por Nome" << endl << endl;
@@ -2536,10 +2642,6 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 		}
 		if (tecla == 27)
 			menuVisitaStore(mieic, state); // se na listagem de devs carrega esc, volta para o menu inic.
-
-	}
-
-	if (state == 2) {
 
 	}
 
