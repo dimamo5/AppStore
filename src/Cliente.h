@@ -27,8 +27,8 @@ private:
 	string sexo;
 	int cartao_credito;
 	float saldo;
-	vector<Vendas* > historico;
-	vector<int> cesto_compras; //IMP - EM VEZ DOS NOMES DAS APPS, PASSA A TER OS IDS DAS APPS. PARA O CASO DE O NOME SER MUDADO
+	vector<Vendas *> historico;
+	vector<int> cesto_compras;
 	unsigned int nr_vouchers;
 	string id_pass; //TODO: implementar nos ficheiros
 public:

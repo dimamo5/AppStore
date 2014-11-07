@@ -1,12 +1,6 @@
 var searchData=
 [
-  ['setcategoria',['setCategoria',['../class_app.html#add85e6926cb052edac84f210889df476',1,'App']]],
-  ['setclassificacao',['setClassificacao',['../class_comentario.html#af9f6f741bc2b95e4b9457eae446e8f39',1,'Comentario']]],
-  ['setcomentarios',['setComentarios',['../class_app.html#a40d8afcc9663054f4f5445a37dfd542d',1,'App']]],
-  ['setdescricao',['setDescricao',['../class_app.html#af0140ea32801ddf481e61fda65024ba8',1,'App::setDescricao()'],['../class_comentario.html#a40aefe877479a08900a1e25803fa8616',1,'Comentario::setDescricao()']]],
-  ['setdev',['setDev',['../class_app.html#aa2d4de1233b4a07def3cdae0d165d4cf',1,'App']]],
-  ['setidclient',['setIdClient',['../class_comentario.html#ab74417e4b1ab747486355e425e1e515a',1,'Comentario']]],
-  ['setnextid',['setNextId',['../class_app.html#ac02dab3cd7642d98173bfd6365eb6d9e',1,'App']]],
-  ['setnome',['setNome',['../class_app.html#a779936463595bd7babe3fabdd3b81530',1,'App']]],
-  ['setpreco',['setPreco',['../class_app.html#ab9723a9ef1383d41b9960e07de4c5691',1,'App']]]
+  ['imprime',['imprime',['../class_app.html#af3a98845da9ba10769df22e1e21f3db0',1,'App']]],
+  ['individual',['Individual',['../class_individual.html#abb6c669a8218f6fc95d985f2219c7d2b',1,'Individual::Individual(string nome, string id_pass, string morada, string NomePessoal)'],['../class_individual.html#adfda751f854c8687761fdd8f803096b2',1,'Individual::Individual(int id, string nome, double saldo, string id_pass, string morada, string NomePessoal)']]],
+  ['isempresa',['isEmpresa',['../class_developer.html#aa77ea0a6dd6234c5d724c28c1971aa4e',1,'Developer::isEmpresa()'],['../class_individual.html#ae2705598212cf7aafb460b9a49d858cd',1,'Individual::isEmpresa()'],['../class_empresa.html#ae8f46765b750fac2520ad6d4068b9beb',1,'Empresa::isEmpresa()']]]
 ];
