@@ -33,6 +33,22 @@ vector<string> getAppNames(vector<App> apps) {
 	return app_names;
 }
 
+// pega em vector de Comentarios e retorn vetor de strings com classificacao-descricao
+vector<string> getAppComentarios(vector<Comentario> comentarios_app) {
+	string temp_str = "";
+	vector<string> temp_comentarios;
+	stringstream ss;
+	string classificacao;
+	for (unsigned int i = 0; i < comentarios_app.size(); i++) {
+		ss << comentarios_app[i].getClassificacao();
+		ss >> classificacao; // transforma classificacao em string
+		temp_str = temp_str + "  " + classificacao + "-"
+				+ comentarios_app[i].getDescricao();
+		temp_comentarios.push_back(temp_str);
+	}
+	return temp_comentarios;
+}
+
 vector<string> getDevNames(vector<Developer*> devs) {
 	vector<string> dev_names;
 	for (unsigned int i = 0; i < devs.size(); i++) {
@@ -1620,96 +1636,91 @@ void menuAlterarCartao(AppStore& mieic) {
 void menuApagarContaCli(AppStore& mieic) {
 	system("cls");
 
-		string NIF_novo;
-		bool passCerta = false;
-		bool inputFail = false;
-		int opcao = 0;
-		passCerta = verificaPass(cli_act);
+	string NIF_novo;
+	bool passCerta = false;
+	bool inputFail = false;
+	int opcao = 0;
+	passCerta = verificaPass(cli_act);
 
-		if (passCerta) {
+	if (passCerta) {
 
-			for (;;) {
-				system("cls");
-				cout << "  Apagar Conta  " << endl << endl << endl;
-				cout << "  Tem a certeza que pretende apagar a sua conta?" << endl
-						<< endl << endl;
-
-				if (opcao == 0)
-					cor(WHITE, LIGHT_RED);
-				cout << "  SIM  " << endl;
-				cor(BLACK, WHITE);
-				if (opcao == -1)
-					cor(WHITE, BLACK);
-				cout << "  NAO " << endl;
-				cor(BLACK, WHITE);
-
-				opcao += teclas();
-				opcao = RestringeOpcaoTeclas(0, 1, opcao);
-
-				switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
-				{
-				case 0: // SIM - em 1o apagam-se as vendas associadas ao historico do cliente
-					    //       e depois apaga-se o cliente
-
-
-
-					// apagar vendas aqui
-
-
-					//apaga o cliente
-					for (unsigned int i = 0; i < mieic.clientes.size(); i++) {
-						if (mieic.clientes[i].getId() == cli_act->getId()) {
-							mieic.clientes.erase(mieic.clientes.begin() + i);
-							break;
-						}
-					}
-					system("cls");
-					cout << "  Apagar Conta  " << endl << endl << endl << endl;
-					cout << "  Sucesso. A sua conta foi apagada.  " << endl << endl;
-					cout
-							<< "  Prima (Enter) para ser redirigido para o Menu Inicial  "
-							<< endl;
-					int tecla;
-					tecla = getch();
-					if (tecla != 0) {
-						while (tecla != 13) {
-							tecla = getch();
-						}
-					}
-	//				delete cli_act;
-					cli_act = NULL;
-					menuInicial(mieic);
-					break;
-
-				case -1:
-					// NAO
-					menuClienteDefinicoes(mieic);
-					system("pause");
-					break;
-				}
-			}
-
-		} else if (!passCerta) {
+		for (;;) {
 			system("cls");
-			cout << "  Apagar Conta  " << endl << endl << endl << endl;
-			cout << "  Password errada.  " << endl << endl;
-			cout
-					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+			cout << "  Apagar Conta  " << endl << endl << endl;
+			cout << "  Tem a certeza que pretende apagar a sua conta?" << endl
 					<< endl << endl;
 
-			int tecla;
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 13 && tecla != 27) {
-					tecla = getch();
-				}
-			}
-			if (tecla == 13)
-				menuApagarContaDev(mieic);
-			if (tecla == 27)
-				menuDeveloperDefinicoes(mieic);
+			if (opcao == 0)
+				cor(WHITE, LIGHT_RED);
+			cout << "  SIM  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -1)
+				cor(WHITE, BLACK);
+			cout << "  NAO " << endl;
+			cor(BLACK, WHITE);
 
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 1, opcao);
+
+			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+			{
+			case 0: // SIM - apaga-se o cliente (vendas nao se apagam, tem de ficar registadas a mesma)
+
+				//apaga o cliente
+				for (unsigned int i = 0; i < mieic.clientes.size(); i++) {
+					if (mieic.clientes[i].getId() == cli_act->getId()) {
+						mieic.clientes.erase(mieic.clientes.begin() + i);
+						break;
+					}
+				}
+
+				system("cls");
+				cout << "  Apagar Conta  " << endl << endl << endl << endl;
+				cout << "  Sucesso. A sua conta foi apagada.  " << endl << endl;
+				cout
+						<< "  Prima (Enter) para ser redirigido para o Menu Inicial  "
+						<< endl;
+				int tecla;
+				tecla = getch();
+				if (tecla != 0) {
+					while (tecla != 13) {
+						tecla = getch();
+					}
+				}
+
+				cli_act = NULL;
+				menuInicial(mieic);
+				break;
+
+			case -1:
+				// NAO
+				menuClienteDefinicoes(mieic);
+				system("pause");
+				break;
+			}
 		}
+
+	} else if (!passCerta) {
+		system("cls");
+		cout << "  Apagar Conta  " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
+			menuApagarContaCli(mieic);
+		if (tecla == 27)
+			menuClienteDefinicoes(mieic);
+
+	}
 }
 
 void menuAlterarPassDev(AppStore& mieic) {
@@ -2006,7 +2017,6 @@ void menuApagarContaDev(AppStore& mieic) {
 			opcao += teclas();
 			opcao = RestringeOpcaoTeclas(0, 1, opcao);
 
-
 			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 			{
 			case 0: // SIM - em 1o apagam-se as apps do Dev e as vendas ficam com o historico do nome
@@ -2286,14 +2296,9 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
-	int opcao = 0;
+	int opcao_app = 0;
 
 	vector<string> menu_options = getAppNames(apps_ordenadas);
-
-	cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl
-			<< endl;
-	cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  " << endl
-			<< endl;
 
 	if (apps_ordenadas.empty()) {
 		system("cls");
@@ -2323,7 +2328,11 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 	if (state == 0) {
 
-		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+		cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl
+				<< endl;
+		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+				<< endl << endl;
+		printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 
 		int tecla;
 		tecla = getch();
@@ -2333,49 +2342,136 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 				tecla = getch();
 				if (tecla == 72) //ACIMA
 						{
-					opcao--;
-					if (opcao < 0)
-						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					opcao_app--;
+					if (opcao_app < 0)
+						opcao_app = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
 							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 				}
 				if (tecla == 80) //ABAIXO
 						{
-					opcao++;
-					if (opcao > (menu_options.size() - 1))
-						opcao = 0; // se passar o fim, volta ao inicio
+					opcao_app++;
+					if (opcao_app > (menu_options.size() - 1))
+						opcao_app = 0; // se passar o fim, volta ao inicio
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
 							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 				}
 			}
 		}
-		if (tecla == 13) {
-			system("cls");
-			cout << "  Especificacoes da App  " << endl << endl;
-			cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
-			cout << apps_ordenadas[opcao].imprime() << endl;
-			int tecla;
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+		if (tecla == 13) { // visita a App - imprime as especificacoes desta e da opcao de ler comentarios
+			int opcao_menu = 0;
+			int opcao_comentario = 0; // por default o scroll ira comecar no 1o comentario
+			vector<Comentario> menu_comentarios =
+					apps_ordenadas[opcao_app].getComentarios();
+			vector<string> lista_comentarios = getAppComentarios(
+					menu_comentarios);
+			for (;;) {
+				system("cls");
+				cout << "  Especificacoes da App  " << endl << endl;
+				cout << endl << endl << endl;
+				cout << apps_ordenadas[opcao_app].imprime() << endl << endl;
+
+				if (opcao_menu == 0)
+					cor(WHITE, BLACK);
+				cout << "  Ler Comentarios " << endl;
+				cor(BLACK, WHITE);
+				if (opcao_menu == -1)
+					cor(WHITE, LIGHT_RED);
+				cout << "  SAIR  " << endl;
+				cor(BLACK, WHITE);
+
+				opcao_menu += teclas();
+				opcao_menu = RestringeOpcaoTeclas(0, 1, opcao_menu);
+
+				switch (opcao_menu - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+				{
+				case 0:          // 1a opcao
+
+					system("cls");
+					cout << "  Comentarios da App  " << endl << endl;
+					cout << "  Prima (Esc) para regressar " << endl;
+					printMenuScroll(lista_comentarios, opcao_comentario,
+							MAX_PER_SCREEN);
+
+					// no caso de nao haver comentarios
+					if (menu_comentarios.empty()) {
+						cout << endl << endl << "Nao ha comentarios a mostrar." << endl;
+						int tecla;
+						tecla = getch();
+						if (tecla != 0) {
+							while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+								tecla = getch();
+							}
+
+						}
+						menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+													tipo_ordenacao);
+
+					}
+
+					//mas, se houver comentarios, entao vai exibi-los enquanto nao se carrega ESC
+					int tecla;
 					tecla = getch();
+					if (tecla != 0) {
+						while (tecla != 27) //ENQUANTO DIFERENTE DE ESCAPE
+						{
+							tecla = getch();
+							if (tecla == 72) //ACIMA
+									{
+								opcao_comentario--;
+								if (opcao_comentario < 0)
+									opcao_comentario = lista_comentarios.size()
+											- 1; // se subir mais que o inicio, passa para o fim
+								system("cls");
+								cout << "  Comentarios da App  " << endl
+										<< endl;
+								cout << "  Prima (Esc) para regressar " << endl
+										<< endl;
+								printMenuScroll(lista_comentarios,
+										opcao_comentario, MAX_PER_SCREEN);
+							}
+							if (tecla == 80) //ABAIXO
+									{
+								opcao_comentario++;
+								if (opcao_comentario
+										> (lista_comentarios.size() - 1))
+									opcao_comentario = 0; // se passar o fim, volta ao inicio
+								system("cls");
+								cout << "  Comentarios da App  " << endl
+										<< endl;
+								cout << endl << endl << endl;
+								cout << "  Prima (Esc) para regressar " << endl
+										<< endl;
+								printMenuScroll(lista_comentarios,
+										opcao_comentario, MAX_PER_SCREEN);
+							}
+						}
+					} // ao sair do ciclo e porque o user carregou escape
+
+					menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+							tipo_ordenacao);
+
+					break;
+
+				case -1:          // 2a opcao
+					menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+							tipo_ordenacao);
+					break;
 				}
 			}
-			menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
-					tipo_ordenacao);
 		}
 
-		if (tecla == 27) {
+		if (tecla == 27) { // volta da lista de apps para o menu anterior
 			if (tipo_ordenacao == "Developer e Nome"
 					|| tipo_ordenacao == "Developer e Preco") {
 				menuListaDeveloper(mieic, state);
@@ -2386,7 +2482,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	}
 	if (state == 1) {
 
-		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+		printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 
 		int tecla;
 		tecla = getch();
@@ -2396,49 +2492,72 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 				tecla = getch();
 				if (tecla == 72) //ACIMA
 						{
-					opcao--;
-					if (opcao < 0)
-						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					opcao_app--;
+					if (opcao_app < 0)
+						opcao_app = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
 							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 				}
 				if (tecla == 80) //ABAIXO
 						{
-					opcao++;
-					if (opcao > (menu_options.size() - 1))
-						opcao = 0; // se passar o fim, volta ao inicio
+					opcao_app++;
+					if (opcao_app > (menu_options.size() - 1))
+						opcao_app = 0; // se passar o fim, volta ao inicio
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
 							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 				}
 			}
 		}
-		if (tecla == 13) {
-			system("cls");
-			cout << "  Especificacoes da App  " << endl << endl;
-			cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
-			cout << apps_ordenadas[opcao].imprime() << endl;
-			int tecla;
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-					tecla = getch();
+		if (tecla == 13) { // visita a App - imprime as especificacoes desta e da opcao de ler comentarios
+			int opcao_menu = 0;
+			for (;;) {
+				system("cls");
+				cout << "  Especificacoes da App  " << endl << endl;
+				cout << endl << endl << endl;
+				cout << apps_ordenadas[opcao_app].imprime() << endl << endl;
+
+				if (opcao_menu == 0)
+					cor(WHITE, BLACK);
+				cout << "  Ler Comentarios " << endl;
+				cor(BLACK, WHITE);
+				if (opcao_menu == -1)
+					cor(WHITE, LIGHT_RED);
+				cout << "  SAIR  " << endl;
+				cor(BLACK, WHITE);
+
+				opcao_menu += teclas();
+				opcao_menu = RestringeOpcaoTeclas(0, 1, opcao_menu);
+
+				switch (opcao_menu - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+				{
+				case 0:          // 1a opcao
+					system("cls");
+					cout << "  Comentarios da App  " << endl << endl;
+					cout << endl << endl << endl;
+					cout << "  Prima (Esc) para regressar " << endl;
+					// LER COMENTARIOS COM SCROLL
+
+					break;
+
+				case -1:          // 2a opcao
+					menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+							tipo_ordenacao);
+					break;
 				}
 			}
-			menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
-					tipo_ordenacao);
 		}
 
-		if (tecla == 27) {
+		if (tecla == 27) { // volta da lista de apps para o menu anterior
 			if (tipo_ordenacao == "Developer e Nome"
 					|| tipo_ordenacao == "Developer e Preco") {
 				menuListaDeveloper(mieic, state);
@@ -2448,7 +2567,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		}
 	}
 	if (state == 2) {
-		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+		printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 
 		int tecla;
 		tecla = getch();
@@ -2458,29 +2577,29 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 				tecla = getch();
 				if (tecla == 72) //ACIMA
 						{
-					opcao--;
-					if (opcao < 0)
-						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					opcao_app--;
+					if (opcao_app < 0)
+						opcao_app = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
 							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 				}
 				if (tecla == 80) //ABAIXO
 						{
-					opcao++;
-					if (opcao > (menu_options.size() - 1))
-						opcao = 0; // se passar o fim, volta ao inicio
+					opcao_app++;
+					if (opcao_app > (menu_options.size() - 1))
+						opcao_app = 0; // se passar o fim, volta ao inicio
 					system("cls");
 					cout << "  Visita Store - Apps Ordenadas por "
 							<< tipo_ordenacao << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
-					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					printMenuScroll(menu_options, opcao_app, MAX_PER_SCREEN);
 				}
 			}
 		}
@@ -2488,38 +2607,39 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 			system("cls");
 			cout << "  Especificacoes da App  " << endl << endl;
 			cout << endl << endl << endl;
-			cout << apps_ordenadas[opcao].imprime() << endl;
+			cout << apps_ordenadas[opcao_app].imprime() << endl;
 
-			bool comprado = cli_act->jaComprou(apps_ordenadas[opcao]);
+			int opcao_menu = 0;
+			bool comprado = cli_act->jaComprou(apps_ordenadas[opcao_app]);
 			if (comprado) {  //so pode comentar/classificar ou fazer download
 
 				for (;;) {
 					system("cls");
 					cout << "  Especificacoes da App  " << endl << endl;
 					cout << endl << endl << endl;
-					cout << apps_ordenadas[opcao].imprime() << endl;
+					cout << apps_ordenadas[opcao_app].imprime() << endl;
 
-					if (opcao == 0)
+					if (opcao_menu == 0)
 						cor(WHITE, BLACK);
 					cout << "  Fazer Download " << endl;
 					cor(BLACK, WHITE);
-					if (opcao == -1)
+					if (opcao_menu == -1)
 						cor(WHITE, BLACK);
 					cout << "  Submeter comentario/classificacao " << endl;
 					cor(BLACK, WHITE);
-					if (opcao == -2)
+					if (opcao_menu == -2)
 						cor(WHITE, BLACK);
 					cout << "  Ler Comentarios  " << endl;
 					cor(BLACK, WHITE);
-					if (opcao == -3)
+					if (opcao_menu == -3)
 						cor(WHITE, LIGHT_RED);
 					cout << "  SAIR  " << endl;
 					cor(BLACK, WHITE);
 
-					opcao += teclas();
-					opcao = RestringeOpcaoTeclas(0, 3, opcao);
+					opcao_menu += teclas();
+					opcao_menu = RestringeOpcaoTeclas(0, 3, opcao_menu);
 
-					switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+					switch (opcao_menu - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 					{
 					case 0:          // 1a opcao
 						menuAlterarPassCli(mieic);
@@ -2543,7 +2663,47 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 			}
 			if (!comprado) { //so pode adicionar ao cart ou sair
+				system("cls");
+				cout << "  Especificacoes da App  " << endl << endl;
+				cout << endl << endl << endl;
+				cout << apps_ordenadas[opcao_app].imprime() << endl;
 
+				if (opcao_menu == 0)
+					cor(WHITE, BLACK);
+				cout << "  Por no Cesto de Compras " << endl;
+				cor(BLACK, WHITE);
+				if (opcao_menu == -1)
+					cor(WHITE, BLACK);
+				cout << "  Ler Comentarios  " << endl;
+				cor(BLACK, WHITE);
+				if (opcao_menu == -2)
+					cor(WHITE, LIGHT_RED);
+				cout << "  SAIR  " << endl;
+				cor(BLACK, WHITE);
+
+				opcao_menu += teclas();
+				opcao_menu = RestringeOpcaoTeclas(0, 2, opcao_menu);
+
+				switch (opcao_menu - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+				{
+				case 0:          // 1a opcao
+					menuAlterarPassCli(mieic);
+					system("pause");
+					break;
+
+				case -1:          // 2a opcao
+					menuAlterarCartao(mieic);
+					system("pause");
+					break;
+				case -2:          // 3a opcao
+					menuApagarContaCli(mieic);
+					system("pause");
+					break;
+				case -3:          // 4a opcao
+					menuCliente(mieic);          //
+					system("pause");
+					break;
+				}
 			}
 		}
 

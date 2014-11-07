@@ -36,6 +36,7 @@ void gotoxy(int xpos, int ypos);
 void porDataNoCanto(int xpos, int ypos);
 
 vector<string> getAppNames(vector<App> apps);
+vector<string> getAppComentarios(vector<Comentario>);
 vector<string> getDevNames(vector<Developer*> devs);
 
 template<typename T>
