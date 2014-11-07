@@ -28,7 +28,7 @@ private:
 	int cartao_credito;
 	float saldo;
 	vector<Vendas *> historico;
-	vector<string> cesto_compras;
+	vector<int> cesto_compras; //IMP - EM VEZ DOS NOMES DAS APPS, PASSA A TER OS IDS DAS APPS. PARA O CASO DE O NOME SER MUDADO
 	unsigned int nr_vouchers;
 	string id_pass; //TODO: implementar nos ficheiros
 public:
@@ -39,7 +39,7 @@ public:
 	int getId() const;
 	unsigned int getIdade() const;
 	string getNome() const;
-	bool adicionaAppCesto(string app_name);
+	bool adicionaAppCesto(int app_id);
 	bool eliminaAppCesto(unsigned int i);
 	float getSaldo() const;
 	string getIdPass() const;

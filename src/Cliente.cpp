@@ -101,8 +101,8 @@ void Cliente::addVoucher(){
 	nr_vouchers++;
 }
 
-bool Cliente::adicionaAppCesto(string app_name) {
-	cesto_compras.push_back(app_name);
+bool Cliente::adicionaAppCesto(int app_id) {
+	cesto_compras.push_back(app_id);
 }
 
 bool Cliente::eliminaAppCesto(unsigned int i) {
