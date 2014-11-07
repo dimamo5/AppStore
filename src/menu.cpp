@@ -2368,6 +2368,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 				}
 			}
 		}
+
 		if (tecla == 13) { // visita a App - imprime as especificacoes desta e da opcao de ler comentarios
 			int opcao_menu = 0;
 			int opcao_comentario = 0; // por default o scroll ira comecar no 1o comentario

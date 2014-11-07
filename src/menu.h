@@ -32,6 +32,7 @@ class Date;
 extern Developer* dev_act;
 extern Cliente* cli_act;
 
+
 void gotoxy(int xpos, int ypos);
 void porDataNoCanto(int xpos, int ypos);
 
