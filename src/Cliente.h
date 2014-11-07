@@ -59,6 +59,7 @@ public:
 	void setHistorico(vector<Vendas *> v);
 	static void setNextID(unsigned int i);
 	bool jaComprou(App app_option);
+	bool historicoVazio();
 };
 
 #endif /* CLIENTE_H_ */

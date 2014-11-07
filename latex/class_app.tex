@@ -41,7 +41,10 @@ void \hyperlink{class_app_add85e6926cb052edac84f210889df476}{set\+Categoria} (st
 \item 
 void \hyperlink{class_app_a40d8afcc9663054f4f5445a37dfd542d}{set\+Comentarios} (const vector$<$ \hyperlink{class_comentario}{Comentario} $>$ \&comentarios)
 \item 
-void \hyperlink{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}{set\+Dev} (\hyperlink{class_developer}{Developer} $\ast$dev)
+void \hyperlink{class_app_a4291a68b048c4976186ac2dc58062873}{add\+Comentario} (\hyperlink{class_comentario}{Comentario} coment)
+\item 
+\hypertarget{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}{void {\bfseries set\+Dev} (\hyperlink{class_developer}{Developer} $\ast$dev)}\label{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}
+
 \item 
 unsigned int \hyperlink{class_app_a17d1e4e52f2357b25437d21d21728bcb}{get\+Id} () const 
 \item 
@@ -118,6 +121,18 @@ Construtor usado na para carregar informacao dos ficheiros
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_app_a4291a68b048c4976186ac2dc58062873}{\index{App@{App}!add\+Comentario@{add\+Comentario}}
+\index{add\+Comentario@{add\+Comentario}!App@{App}}
+\subsubsection[{add\+Comentario}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::add\+Comentario (
+\begin{DoxyParamCaption}
+\item[{{\bf Comentario}}]{coment}
+\end{DoxyParamCaption}
+)}}\label{class_app_a4291a68b048c4976186ac2dc58062873}
+Setter \hyperlink{class_developer}{Developer(usado principalmente para carregar os ficheiros)} 
+\begin{DoxyParams}{Parameters}
+{\em Novo} & developer responsavel pela \hyperlink{class_app}{App} \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_app_a58076d5e40336d8f1489f49ebcc648ac}{\index{App@{App}!get\+Categoria@{get\+Categoria}}
 \index{get\+Categoria@{get\+Categoria}!App@{App}}
 \subsubsection[{get\+Categoria}]{\setlength{\rightskip}{0pt plus 5cm}string App\+::get\+Categoria (
@@ -262,18 +277,6 @@ Setter Comentarios (usado para carregar dos ficheiros)
 Setter Descricao 
 \begin{DoxyParams}{Parameters}
 {\em descricao} & Nova Descricao \\
-\hline
-\end{DoxyParams}
-\hypertarget{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}{\index{App@{App}!set\+Dev@{set\+Dev}}
-\index{set\+Dev@{set\+Dev}!App@{App}}
-\subsubsection[{set\+Dev}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Dev (
-\begin{DoxyParamCaption}
-\item[{{\bf Developer} $\ast$}]{dev}
-\end{DoxyParamCaption}
-)}}\label{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}
-Setter \hyperlink{class_developer}{Developer(usado principalmente para carregar os ficheiros)} 
-\begin{DoxyParams}{Parameters}
-{\em Novo} & developer responsavel pela \hyperlink{class_app}{App} \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_ac02dab3cd7642d98173bfd6365eb6d9e}{\index{App@{App}!set\+Next\+Id@{set\+Next\+Id}}
