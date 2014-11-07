@@ -1620,64 +1620,96 @@ void menuAlterarCartao(AppStore& mieic) {
 void menuApagarContaCli(AppStore& mieic) {
 	system("cls");
 
-	string NIF_novo;
-	bool passCerta = false;
-	bool inputFail = false;
-	int opcao = 0;
+		string NIF_novo;
+		bool passCerta = false;
+		bool inputFail = false;
+		int opcao = 0;
+		passCerta = verificaPass(cli_act);
 
-	passCerta = verificaPass(cli_act);
+		if (passCerta) {
 
-	if (passCerta) {
-		for (;;) {
+			for (;;) {
+				system("cls");
+				cout << "  Apagar Conta  " << endl << endl << endl;
+				cout << "  Tem a certeza que pretende apagar a sua conta?" << endl
+						<< endl << endl;
+
+				if (opcao == 0)
+					cor(WHITE, LIGHT_RED);
+				cout << "  SIM  " << endl;
+				cor(BLACK, WHITE);
+				if (opcao == -1)
+					cor(WHITE, BLACK);
+				cout << "  NAO " << endl;
+				cor(BLACK, WHITE);
+
+				opcao += teclas();
+				opcao = RestringeOpcaoTeclas(0, 1, opcao);
+
+				switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+				{
+				case 0: // SIM - em 1o apagam-se as vendas associadas ao historico do cliente
+					    //       e depois apaga-se o cliente
+
+
+
+					// apagar vendas aqui
+
+
+					//apaga o cliente
+					for (unsigned int i = 0; i < mieic.clientes.size(); i++) {
+						if (mieic.clientes[i].getId() == cli_act->getId()) {
+							mieic.clientes.erase(mieic.clientes.begin() + i);
+							break;
+						}
+					}
+					system("cls");
+					cout << "  Apagar Conta  " << endl << endl << endl << endl;
+					cout << "  Sucesso. A sua conta foi apagada.  " << endl << endl;
+					cout
+							<< "  Prima (Enter) para ser redirigido para o Menu Inicial  "
+							<< endl;
+					int tecla;
+					tecla = getch();
+					if (tecla != 0) {
+						while (tecla != 13) {
+							tecla = getch();
+						}
+					}
+	//				delete cli_act;
+					cli_act = NULL;
+					menuInicial(mieic);
+					break;
+
+				case -1:
+					// NAO
+					menuClienteDefinicoes(mieic);
+					system("pause");
+					break;
+				}
+			}
+
+		} else if (!passCerta) {
 			system("cls");
-			cout << "  Apagar Conta  " << endl << endl << endl;
-			cout << "  Tem a certeza que pretende apagar a sua conta?" << endl
+			cout << "  Apagar Conta  " << endl << endl << endl << endl;
+			cout << "  Password errada.  " << endl << endl;
+			cout
+					<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
 					<< endl << endl;
 
-			if (opcao == 0)
-				cor(WHITE, LIGHT_RED);
-			cout << "  SIM  " << endl;
-			cor(BLACK, WHITE);
-			if (opcao == -1)
-				cor(WHITE, BLACK);
-			cout << "  NAO " << endl;
-			cor(BLACK, WHITE);
-
-			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 1, opcao);
-
-			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
-			{
-			case 0:          // SIM
-
-			case -1:          // NAO
+			int tecla;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13 && tecla != 27) {
+					tecla = getch();
+				}
+			}
+			if (tecla == 13)
+				menuApagarContaDev(mieic);
+			if (tecla == 27)
 				menuDeveloperDefinicoes(mieic);
-				system("pause");
-				break;
-			}
+
 		}
-
-	} else if (!passCerta) {
-		system("cls");
-		cout << "  Apagar Conta  " << endl << endl << endl << endl;
-		cout << "  Password errada.  " << endl << endl;
-		cout
-				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
-				<< endl << endl;
-
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
-				tecla = getch();
-			}
-		}
-		if (tecla == 13)
-			menuApagarContaCli(mieic);
-		if (tecla == 27)
-			menuClienteDefinicoes(mieic);
-
-	}
 }
 
 void menuAlterarPassDev(AppStore& mieic) {
@@ -1974,7 +2006,7 @@ void menuApagarContaDev(AppStore& mieic) {
 			opcao += teclas();
 			opcao = RestringeOpcaoTeclas(0, 1, opcao);
 
-			vector<App> apps_copy = mieic.apps;
+
 			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 			{
 			case 0: // SIM - em 1o apagam-se as apps do Dev e as vendas ficam com o historico do nome
@@ -1982,8 +2014,6 @@ void menuApagarContaDev(AppStore& mieic) {
 				//apaga o dev
 				for (unsigned int i = 0; i < mieic.dev.size(); i++) {
 					if (mieic.dev[i] == dev_act) {
-						cout << "O dev " << mieic.dev[i]->getNome()
-								<< "foi apagado." << endl;
 						mieic.dev.erase(mieic.dev.begin() + i);
 						break;
 					}
@@ -2011,7 +2041,7 @@ void menuApagarContaDev(AppStore& mieic) {
 						}
 				}
 
-//				system("cls");
+				system("cls");
 				cout << "  Apagar Conta  " << endl << endl << endl << endl;
 				cout << "  Sucesso. A sua conta foi apagada.  " << endl << endl;
 				cout

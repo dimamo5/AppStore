@@ -30,10 +30,10 @@ private:
 	int id;
 	static unsigned int next_id;
 	float preco;
-	App* app;
+	App* app;            // membro para remover a implementacao no ficheiro
 	Date data_venda;
-	int id_app_vendida;
-	bool app_apagada;
+	int id_app_vendida; // membro novo para implementar no ficheiro
+	bool app_apagada;   // membro novo para implementar no ficheiro
 	bool retorno;
 	string reclamacao; //TODO construtor e getters (aka cenas daa reclamacao)
 	string nome_app_momento_venda="";
