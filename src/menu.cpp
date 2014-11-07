@@ -2539,6 +2539,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					apps_ordenadas[opcao_app].getComentarios();
 			vector<string> lista_comentarios = getAppComentarios(
 					menu_comentarios);
+
 			bool comprado = cli_act->jaComprou(apps_ordenadas[opcao_app]);
 
 			if (comprado) {

@@ -25,7 +25,7 @@ MIEIC_Play.clientes.push_back(cli_temp2);
 
 Date data_venda1(2014,11,7,10,10);
 Vendas venda1(10, data_venda1,"App-Fixe-Vendida");
-venda1.setAppVendidaId(2);
+venda1.setAppVendidaId(1);
 MIEIC_Play.vendas.push_back(venda1);
 cli_temp2.adicionarVenda(&MIEIC_Play.vendas[MIEIC_Play.vendas.size()-1]); // puxa o pointer do ultimo elemento do vetor a ser adicionado
 

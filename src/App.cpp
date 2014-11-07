@@ -2,7 +2,10 @@
 
 unsigned int App::next_id=1;
 
-App::App(string nome,string categoria,string descricao,double preco):nome(nome),categoria(categoria),descricao(descricao),preco(preco){};
+App::App(string nome,string categoria,string descricao,double preco):nome(nome),categoria(categoria),descricao(descricao),preco(preco){
+	this->id = next_id;
+		next_id++;
+};
 
 App::App(unsigned int id,string nome,string categoria,string descricao,double preco,double classificacao_final,int num_classificacoes):
 	id(id),nome(nome),categoria(categoria),descricao(descricao),preco(preco),classificacao_final(classificacao_final),num_classificacoes(num_classificacoes){
