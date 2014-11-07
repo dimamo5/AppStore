@@ -40,11 +40,17 @@ App app3("ccc","livros","livro-policial",2);
 MIEIC_Play.apps.push_back(app3);
 App app4("ddd","musica","musica-rock",1);
 MIEIC_Play.apps.push_back(app4);
+App app5("abc","musica","musica-rock",1);
+MIEIC_Play.apps.push_back(app5);
+App app6("cdd","musica","musica-rock",1);
+MIEIC_Play.apps.push_back(app6);
+
 
 for(unsigned int i = 0; i< MIEIC_Play.apps.size(); i++){
 	MIEIC_Play.apps[i].setDev(individ1);
 }
-
+MIEIC_Play.apps[4].setDev(individ2);
+MIEIC_Play.apps[5].setDev(individ3);
 
 	int opc=0;
 		do

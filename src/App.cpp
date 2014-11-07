@@ -90,7 +90,7 @@ ss << this->preco;  // Transformar preco de double para string
 ss >> str_preco;
 
 ret += "Nome: " + this->nome + "\n\n" + "Categoria: " + this->categoria + "\n\n"
-  + "Descricao: " + this->descricao + "\n\n" + "Preco: " + str_preco;
+  + "Descricao: " + this->descricao + "\n\n" + "Developer: "+ dev->getNome()+ "\n\n"+ "Preco: " + str_preco;
 
 return ret;
 }

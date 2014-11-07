@@ -244,6 +244,8 @@ bool AppStore::save_all() {
 //	//developer->app->vendas->cliente
 //}
 
+
+//TODO: remover cenas que tenham o pointer da app e adicionar o bool e a cena do ID
 bool AppStore::save_vendas(ofstream &file) {
 	if (vendas.empty()) {
 		return false;
@@ -260,7 +262,7 @@ bool AppStore::save_vendas(ofstream &file) {
 			file << vendas[i].isRetorno() << endl;
 			file << vendas[i].getReclamacao() << endl;
 			file << vendas[i].getApp()->getId() << endl;
-			file << vendas[i].getAppRemovidaNome() << endl;
+			file << vendas[i].getAppVendidaNome() << endl;
 		}
 	}
 	return true;
@@ -270,7 +272,7 @@ bool AppStore::load_vendas(fstream &file) {
 	unsigned int next_id, id, ano, mes, dia, hora, minuto, id_app;
 	float preco;
 	bool retorno;
-	string reclamacao, nome_app_removida, temp;
+	string reclamacao, nome_app_vendida, temp;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
 	Vendas::setNextId(next_id);
@@ -297,9 +299,9 @@ bool AppStore::load_vendas(fstream &file) {
 		getline(file, temp);
 		stringstream(temp) >> id_app;
 		getline(file, temp);
-		nome_app_removida = temp;
+		nome_app_vendida = temp;
 		Vendas *venda_temp = new Vendas(id, preco, *date_temp, retorno,
-				reclamacao, nome_app_removida);
+				reclamacao, nome_app_vendida);
 		venda_temp->setApp(find_app_id(id_app));
 		vendas.push_back(*venda_temp);
 	}
