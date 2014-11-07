@@ -1,87 +1,405 @@
 \hypertarget{class_cliente}{\section{Cliente Class Reference}
 \label{class_cliente}\index{Cliente@{Cliente}}
 }
+
+
+Classe responsavel pela Gestao de \hyperlink{class_cliente}{Cliente}.  
+
+
+
+
+{\ttfamily \#include $<$Cliente.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_cliente_a60db1e1e5141e29c8888a48f9b5140bb}{{\bfseries Cliente} (int id, string nome, unsigned int idade, string sexo, int cartao\+\_\+credito, float saldo, unsigned int nr\+\_\+vouchers, string id\+\_\+pass)}\label{class_cliente_a60db1e1e5141e29c8888a48f9b5140bb}
-
+\hyperlink{class_cliente_a60db1e1e5141e29c8888a48f9b5140bb}{Cliente} (int id, string nome, unsigned int idade, string sexo, int cartao\+\_\+credito, float saldo, unsigned int nr\+\_\+vouchers, string id\+\_\+pass)
 \item 
-\hypertarget{class_cliente_a76a537299eb371d3b2b1d0f7bdf7a7e8}{{\bfseries Cliente} (string nome, unsigned int idade, string sexo, int cartao\+\_\+credito, string id\+\_\+pass)}\label{class_cliente_a76a537299eb371d3b2b1d0f7bdf7a7e8}
-
+\hyperlink{class_cliente_a76a537299eb371d3b2b1d0f7bdf7a7e8}{Cliente} (string nome, unsigned int idade, string sexo, int cartao\+\_\+credito, string id\+\_\+pass)
 \item 
-\hypertarget{class_cliente_af76bd3dca7cc6a21f94ee57c06de4427}{unsigned int {\bfseries get\+Next\+\_\+id} () const }\label{class_cliente_af76bd3dca7cc6a21f94ee57c06de4427}
-
+unsigned int \hyperlink{class_cliente_af76bd3dca7cc6a21f94ee57c06de4427}{get\+Next\+\_\+id} () const 
 \item 
-\hypertarget{class_cliente_a9303d7e564ead678ba2bcb13157524a5}{int {\bfseries get\+Cartao\+Credito} () const }\label{class_cliente_a9303d7e564ead678ba2bcb13157524a5}
-
+int \hyperlink{class_cliente_a9303d7e564ead678ba2bcb13157524a5}{get\+Cartao\+Credito} () const 
 \item 
-\hypertarget{class_cliente_a57130129d927bb9e777ccdecb8918db4}{int {\bfseries get\+Id} () const }\label{class_cliente_a57130129d927bb9e777ccdecb8918db4}
-
+int \hyperlink{class_cliente_a57130129d927bb9e777ccdecb8918db4}{get\+Id} () const 
 \item 
-\hypertarget{class_cliente_ac182c452fcf4daac306280f707b16992}{unsigned int {\bfseries get\+Idade} () const }\label{class_cliente_ac182c452fcf4daac306280f707b16992}
-
+unsigned int \hyperlink{class_cliente_ac182c452fcf4daac306280f707b16992}{get\+Idade} () const 
 \item 
-\hypertarget{class_cliente_a0325de899469e2fed48ffda2b5b291cf}{string {\bfseries get\+Nome} () const }\label{class_cliente_a0325de899469e2fed48ffda2b5b291cf}
-
+string \hyperlink{class_cliente_a0325de899469e2fed48ffda2b5b291cf}{get\+Nome} () const 
 \item 
-\hypertarget{class_cliente_ae3840fd9746f6d047a519fd63d14d9e4}{bool {\bfseries adiciona\+App\+Cesto} (int app\+\_\+id)}\label{class_cliente_ae3840fd9746f6d047a519fd63d14d9e4}
-
+vector$<$ int $>$ \hyperlink{class_cliente_af347523a22d5ac88fc32de2096799e0e}{get\+Cesto} () const 
 \item 
-\hypertarget{class_cliente_a9e8ccf7381214170da3c8c1e5b0bfde1}{bool {\bfseries elimina\+App\+Cesto} (unsigned int i)}\label{class_cliente_a9e8ccf7381214170da3c8c1e5b0bfde1}
-
+bool \hyperlink{class_cliente_ae3840fd9746f6d047a519fd63d14d9e4}{adiciona\+App\+Cesto} (int app\+\_\+id)
 \item 
-\hypertarget{class_cliente_ac91943541afd55e1b8e7d3139197b3b0}{float {\bfseries get\+Saldo} () const }\label{class_cliente_ac91943541afd55e1b8e7d3139197b3b0}
-
+bool \hyperlink{class_cliente_a9e8ccf7381214170da3c8c1e5b0bfde1}{elimina\+App\+Cesto} (unsigned int i)
 \item 
-\hypertarget{class_cliente_aa43047aa16c5f72c46a082dfb990074f}{string {\bfseries get\+Id\+Pass} () const }\label{class_cliente_aa43047aa16c5f72c46a082dfb990074f}
-
+float \hyperlink{class_cliente_ac91943541afd55e1b8e7d3139197b3b0}{get\+Saldo} () const 
 \item 
-\hypertarget{class_cliente_a646583af1403099173848eda00f99ce7}{void {\bfseries set\+Id\+Pass} (string id\+\_\+pass)}\label{class_cliente_a646583af1403099173848eda00f99ce7}
-
+string \hyperlink{class_cliente_aa43047aa16c5f72c46a082dfb990074f}{get\+Id\+Pass} () const 
 \item 
-\hypertarget{class_cliente_a1984ef662ce9ae14dbf654c0a6b8fb09}{unsigned int {\bfseries get\+Vouchers} () const }\label{class_cliente_a1984ef662ce9ae14dbf654c0a6b8fb09}
-
+void \hyperlink{class_cliente_a646583af1403099173848eda00f99ce7}{set\+Id\+Pass} (string id\+\_\+pass)
 \item 
-\hypertarget{class_cliente_aeb1b9cce72b0d01ce9bf1771a6b95c2d}{void {\bfseries set\+Vouchers} (unsigned int voucher)}\label{class_cliente_aeb1b9cce72b0d01ce9bf1771a6b95c2d}
-
+unsigned int \hyperlink{class_cliente_a1984ef662ce9ae14dbf654c0a6b8fb09}{get\+Vouchers} () const 
 \item 
-\hypertarget{class_cliente_a0779a68f66b79b31e6dd8e5a25128f18}{void {\bfseries add\+Voucher} ()}\label{class_cliente_a0779a68f66b79b31e6dd8e5a25128f18}
-
+void \hyperlink{class_cliente_aeb1b9cce72b0d01ce9bf1771a6b95c2d}{set\+Vouchers} (unsigned int voucher)
 \item 
-\hypertarget{class_cliente_a73277ee6744a63e34233823634ec47df}{void {\bfseries remove\+Voucher} ()}\label{class_cliente_a73277ee6744a63e34233823634ec47df}
-
+void \hyperlink{class_cliente_a0779a68f66b79b31e6dd8e5a25128f18}{add\+Voucher} ()
 \item 
-\hypertarget{class_cliente_a78fe91598a0632e05d09c9341c4b0716}{void {\bfseries set\+Saldo} (float saldo)}\label{class_cliente_a78fe91598a0632e05d09c9341c4b0716}
-
+void \hyperlink{class_cliente_a73277ee6744a63e34233823634ec47df}{remove\+Voucher} ()
 \item 
-\hypertarget{class_cliente_a90e6e08c252e4eee99858af9f9b4eb99}{void {\bfseries set\+Cartao} (int cartao\+\_\+credito)}\label{class_cliente_a90e6e08c252e4eee99858af9f9b4eb99}
-
+void \hyperlink{class_cliente_a78fe91598a0632e05d09c9341c4b0716}{set\+Saldo} (float saldo)
 \item 
-\hypertarget{class_cliente_a5e51d7c8aef74564f7e9770cd12b7fcf}{string {\bfseries get\+Sexo} () const }\label{class_cliente_a5e51d7c8aef74564f7e9770cd12b7fcf}
-
+void \hyperlink{class_cliente_a90e6e08c252e4eee99858af9f9b4eb99}{set\+Cartao} (int cartao\+\_\+credito)
 \item 
-\hypertarget{class_cliente_a56fd118de07cc418426f5f54c3f4935f}{bool {\bfseries adicionar\+Venda} (\hyperlink{class_vendas}{Vendas} $\ast$v)}\label{class_cliente_a56fd118de07cc418426f5f54c3f4935f}
-
+string \hyperlink{class_cliente_a5e51d7c8aef74564f7e9770cd12b7fcf}{get\+Sexo} () const 
 \item 
-\hypertarget{class_cliente_ad2d27cf5a6a187c6a5faa4fee88cfd9f}{vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ {\bfseries get\+Historico} () const }\label{class_cliente_ad2d27cf5a6a187c6a5faa4fee88cfd9f}
-
+bool \hyperlink{class_cliente_a56fd118de07cc418426f5f54c3f4935f}{adicionar\+Venda} (\hyperlink{class_vendas}{Vendas} $\ast$v)
 \item 
-\hypertarget{class_cliente_a340b3c4b25009f1020984743eb371208}{void {\bfseries set\+Historico} (vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ v)}\label{class_cliente_a340b3c4b25009f1020984743eb371208}
-
+vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ \hyperlink{class_cliente_ad2d27cf5a6a187c6a5faa4fee88cfd9f}{get\+Historico} () const 
 \item 
-\hypertarget{class_cliente_a452fdbf8832d1f7dd89a76b876aed67d}{bool {\bfseries ja\+Comprou} (\hyperlink{class_app}{App} app\+\_\+option)}\label{class_cliente_a452fdbf8832d1f7dd89a76b876aed67d}
-
+void \hyperlink{class_cliente_a340b3c4b25009f1020984743eb371208}{set\+Historico} (vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ v)
 \item 
-\hypertarget{class_cliente_ab3e8ad3e04c826799a307d1a50f38fb8}{bool {\bfseries historico\+Vazio} ()}\label{class_cliente_ab3e8ad3e04c826799a307d1a50f38fb8}
-
+bool \hyperlink{class_cliente_a452fdbf8832d1f7dd89a76b876aed67d}{ja\+Comprou} (\hyperlink{class_app}{App} app\+\_\+option)
+\item 
+bool \hyperlink{class_cliente_ab3e8ad3e04c826799a307d1a50f38fb8}{historico\+Vazio} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_cliente_a072628868d4165e0b7915d975621bc8a}{static void {\bfseries set\+Next\+I\+D} (unsigned int i)}\label{class_cliente_a072628868d4165e0b7915d975621bc8a}
-
+static void \hyperlink{class_cliente_a072628868d4165e0b7915d975621bc8a}{set\+Next\+I\+D} (unsigned int i)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe responsavel pela Gestao de \hyperlink{class_cliente}{Cliente}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_cliente_a60db1e1e5141e29c8888a48f9b5140bb}{\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\subsubsection[{Cliente}]{\setlength{\rightskip}{0pt plus 5cm}Cliente\+::\+Cliente (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{string}]{nome, }
+\item[{unsigned int}]{idade, }
+\item[{string}]{sexo, }
+\item[{int}]{cartao\+\_\+credito, }
+\item[{float}]{saldo, }
+\item[{unsigned int}]{nr\+\_\+vouchers, }
+\item[{string}]{id\+\_\+pass}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a60db1e1e5141e29c8888a48f9b5140bb}
+Construtor \hyperlink{class_cliente}{Cliente} (usado para carregar objectos do ficheiros) 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id unico dos clientes \\
+\hline
+{\em nome} & Nome \\
+\hline
+{\em idade} & Idade \\
+\hline
+{\em sexo} & Sexo \\
+\hline
+{\em cartao\+\_\+credito} & Cartao Credito \\
+\hline
+{\em saldo} & Saldo \\
+\hline
+{\em nr\+\_\+vouchers} & Nr. Vouchers \\
+\hline
+{\em id\+\_\+pass} & Pass para Login \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cliente_a76a537299eb371d3b2b1d0f7bdf7a7e8}{\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\subsubsection[{Cliente}]{\setlength{\rightskip}{0pt plus 5cm}Cliente\+::\+Cliente (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{unsigned int}]{idade, }
+\item[{string}]{sexo, }
+\item[{int}]{cartao\+\_\+credito, }
+\item[{string}]{id\+\_\+pass}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a76a537299eb371d3b2b1d0f7bdf7a7e8}
+Construtor \hyperlink{class_cliente}{Cliente} 
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome \\
+\hline
+{\em idade} & Idade \\
+\hline
+{\em sexo} & Sexo \\
+\hline
+{\em cartao\+\_\+credito} & Cartao Credito \\
+\hline
+{\em id\+\_\+pass} & Pass para Login \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_cliente_a0779a68f66b79b31e6dd8e5a25128f18}{\index{Cliente@{Cliente}!add\+Voucher@{add\+Voucher}}
+\index{add\+Voucher@{add\+Voucher}!Cliente@{Cliente}}
+\subsubsection[{add\+Voucher}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::add\+Voucher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a0779a68f66b79b31e6dd8e5a25128f18}
+Adiciona 1 Voucher ao numero total de Vouchers \hypertarget{class_cliente_ae3840fd9746f6d047a519fd63d14d9e4}{\index{Cliente@{Cliente}!adiciona\+App\+Cesto@{adiciona\+App\+Cesto}}
+\index{adiciona\+App\+Cesto@{adiciona\+App\+Cesto}!Cliente@{Cliente}}
+\subsubsection[{adiciona\+App\+Cesto}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::adiciona\+App\+Cesto (
+\begin{DoxyParamCaption}
+\item[{int}]{app\+\_\+id}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_ae3840fd9746f6d047a519fd63d14d9e4}
+Adiciona uma \hyperlink{class_app}{App} ao cesto de compras 
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+id} & Id da app a adicionar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True em sucesso caso contrario False 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a56fd118de07cc418426f5f54c3f4935f}{\index{Cliente@{Cliente}!adicionar\+Venda@{adicionar\+Venda}}
+\index{adicionar\+Venda@{adicionar\+Venda}!Cliente@{Cliente}}
+\subsubsection[{adicionar\+Venda}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::adicionar\+Venda (
+\begin{DoxyParamCaption}
+\item[{{\bf Vendas} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a56fd118de07cc418426f5f54c3f4935f}
+Adiciona uma Venda ao \hyperlink{class_cliente}{Cliente} 
+\begin{DoxyParams}{Parameters}
+{\em v} & Venda a ser adiciona ao vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True em sucesso caso contrario False 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a9e8ccf7381214170da3c8c1e5b0bfde1}{\index{Cliente@{Cliente}!elimina\+App\+Cesto@{elimina\+App\+Cesto}}
+\index{elimina\+App\+Cesto@{elimina\+App\+Cesto}!Cliente@{Cliente}}
+\subsubsection[{elimina\+App\+Cesto}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::elimina\+App\+Cesto (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a9e8ccf7381214170da3c8c1e5b0bfde1}
+Elimina uma \hyperlink{class_app}{App} do Cesto de Compras 
+\begin{DoxyParams}{Parameters}
+{\em i} & Id da \hyperlink{class_app}{App} a remover \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True em sucesso caso contrario False 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a9303d7e564ead678ba2bcb13157524a5}{\index{Cliente@{Cliente}!get\+Cartao\+Credito@{get\+Cartao\+Credito}}
+\index{get\+Cartao\+Credito@{get\+Cartao\+Credito}!Cliente@{Cliente}}
+\subsubsection[{get\+Cartao\+Credito}]{\setlength{\rightskip}{0pt plus 5cm}int Cliente\+::get\+Cartao\+Credito (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_a9303d7e564ead678ba2bcb13157524a5}
+Getter Cartao Credito \begin{DoxyReturn}{Returns}
+Int Cartao Credito 
+\end{DoxyReturn}
+\hypertarget{class_cliente_af347523a22d5ac88fc32de2096799e0e}{\index{Cliente@{Cliente}!get\+Cesto@{get\+Cesto}}
+\index{get\+Cesto@{get\+Cesto}!Cliente@{Cliente}}
+\subsubsection[{get\+Cesto}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ Cliente\+::get\+Cesto (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_af347523a22d5ac88fc32de2096799e0e}
+Getter Cesto das Compras$<$\+Id App$>$ do Cleinte \begin{DoxyReturn}{Returns}
+vector Cesto Compras 
+\end{DoxyReturn}
+\hypertarget{class_cliente_ad2d27cf5a6a187c6a5faa4fee88cfd9f}{\index{Cliente@{Cliente}!get\+Historico@{get\+Historico}}
+\index{get\+Historico@{get\+Historico}!Cliente@{Cliente}}
+\subsubsection[{get\+Historico}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Vendas} $\ast$ $>$ Cliente\+::get\+Historico (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_ad2d27cf5a6a187c6a5faa4fee88cfd9f}
+Getter Historico \begin{DoxyReturn}{Returns}
+Historico de Transacoes do \hyperlink{class_cliente}{Cliente} 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a57130129d927bb9e777ccdecb8918db4}{\index{Cliente@{Cliente}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Cliente@{Cliente}}
+\subsubsection[{get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Cliente\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_a57130129d927bb9e777ccdecb8918db4}
+Getter Id \begin{DoxyReturn}{Returns}
+Int Id 
+\end{DoxyReturn}
+\hypertarget{class_cliente_ac182c452fcf4daac306280f707b16992}{\index{Cliente@{Cliente}!get\+Idade@{get\+Idade}}
+\index{get\+Idade@{get\+Idade}!Cliente@{Cliente}}
+\subsubsection[{get\+Idade}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Cliente\+::get\+Idade (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_ac182c452fcf4daac306280f707b16992}
+Getter Idade \begin{DoxyReturn}{Returns}
+Int Idade 
+\end{DoxyReturn}
+\hypertarget{class_cliente_aa43047aa16c5f72c46a082dfb990074f}{\index{Cliente@{Cliente}!get\+Id\+Pass@{get\+Id\+Pass}}
+\index{get\+Id\+Pass@{get\+Id\+Pass}!Cliente@{Cliente}}
+\subsubsection[{get\+Id\+Pass}]{\setlength{\rightskip}{0pt plus 5cm}string Cliente\+::get\+Id\+Pass (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_aa43047aa16c5f72c46a082dfb990074f}
+Getter Pass \begin{DoxyReturn}{Returns}
+String Pass 
+\end{DoxyReturn}
+\hypertarget{class_cliente_af76bd3dca7cc6a21f94ee57c06de4427}{\index{Cliente@{Cliente}!get\+Next\+\_\+id@{get\+Next\+\_\+id}}
+\index{get\+Next\+\_\+id@{get\+Next\+\_\+id}!Cliente@{Cliente}}
+\subsubsection[{get\+Next\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Cliente\+::get\+Next\+\_\+id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_af76bd3dca7cc6a21f94ee57c06de4427}
+Getter Next Id \begin{DoxyReturn}{Returns}
+Int Next Id 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a0325de899469e2fed48ffda2b5b291cf}{\index{Cliente@{Cliente}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Cliente@{Cliente}}
+\subsubsection[{get\+Nome}]{\setlength{\rightskip}{0pt plus 5cm}string Cliente\+::get\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_a0325de899469e2fed48ffda2b5b291cf}
+Getter Nome \begin{DoxyReturn}{Returns}
+String Nome 
+\end{DoxyReturn}
+\hypertarget{class_cliente_ac91943541afd55e1b8e7d3139197b3b0}{\index{Cliente@{Cliente}!get\+Saldo@{get\+Saldo}}
+\index{get\+Saldo@{get\+Saldo}!Cliente@{Cliente}}
+\subsubsection[{get\+Saldo}]{\setlength{\rightskip}{0pt plus 5cm}float Cliente\+::get\+Saldo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_ac91943541afd55e1b8e7d3139197b3b0}
+Getter Saldo \begin{DoxyReturn}{Returns}
+Float Saldo 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a5e51d7c8aef74564f7e9770cd12b7fcf}{\index{Cliente@{Cliente}!get\+Sexo@{get\+Sexo}}
+\index{get\+Sexo@{get\+Sexo}!Cliente@{Cliente}}
+\subsubsection[{get\+Sexo}]{\setlength{\rightskip}{0pt plus 5cm}string Cliente\+::get\+Sexo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_a5e51d7c8aef74564f7e9770cd12b7fcf}
+Getter Sexo \begin{DoxyReturn}{Returns}
+String Masculino/ Feminino 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a1984ef662ce9ae14dbf654c0a6b8fb09}{\index{Cliente@{Cliente}!get\+Vouchers@{get\+Vouchers}}
+\index{get\+Vouchers@{get\+Vouchers}!Cliente@{Cliente}}
+\subsubsection[{get\+Vouchers}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Cliente\+::get\+Vouchers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_cliente_a1984ef662ce9ae14dbf654c0a6b8fb09}
+Getter Voucher \begin{DoxyReturn}{Returns}
+Int Nr. Vouchers 
+\end{DoxyReturn}
+\hypertarget{class_cliente_ab3e8ad3e04c826799a307d1a50f38fb8}{\index{Cliente@{Cliente}!historico\+Vazio@{historico\+Vazio}}
+\index{historico\+Vazio@{historico\+Vazio}!Cliente@{Cliente}}
+\subsubsection[{historico\+Vazio}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::historico\+Vazio (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_ab3e8ad3e04c826799a307d1a50f38fb8}
+Verifica se o Historico de um \hyperlink{class_cliente}{Cliente} está Vazio \begin{DoxyReturn}{Returns}
+True em sucesso caso contrario False 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a452fdbf8832d1f7dd89a76b876aed67d}{\index{Cliente@{Cliente}!ja\+Comprou@{ja\+Comprou}}
+\index{ja\+Comprou@{ja\+Comprou}!Cliente@{Cliente}}
+\subsubsection[{ja\+Comprou}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::ja\+Comprou (
+\begin{DoxyParamCaption}
+\item[{{\bf App}}]{app\+\_\+option}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a452fdbf8832d1f7dd89a76b876aed67d}
+Verifica se o \hyperlink{class_cliente}{Cliente} ja comprou uma determinada \hyperlink{class_app}{App} 
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+option} & \hyperlink{class_app}{App} a ser verificada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True caso ja tenha comprado ou False no contrario 
+\end{DoxyReturn}
+\hypertarget{class_cliente_a73277ee6744a63e34233823634ec47df}{\index{Cliente@{Cliente}!remove\+Voucher@{remove\+Voucher}}
+\index{remove\+Voucher@{remove\+Voucher}!Cliente@{Cliente}}
+\subsubsection[{remove\+Voucher}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::remove\+Voucher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a73277ee6744a63e34233823634ec47df}
+Remove 1 Voucher ao numero total de Vouchers \hypertarget{class_cliente_a90e6e08c252e4eee99858af9f9b4eb99}{\index{Cliente@{Cliente}!set\+Cartao@{set\+Cartao}}
+\index{set\+Cartao@{set\+Cartao}!Cliente@{Cliente}}
+\subsubsection[{set\+Cartao}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::set\+Cartao (
+\begin{DoxyParamCaption}
+\item[{int}]{cartao\+\_\+credito}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a90e6e08c252e4eee99858af9f9b4eb99}
+Setetr Cartao de Credito 
+\begin{DoxyParams}{Parameters}
+{\em cartao\+\_\+credito} & Novo Cartao de Credito \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cliente_a340b3c4b25009f1020984743eb371208}{\index{Cliente@{Cliente}!set\+Historico@{set\+Historico}}
+\index{set\+Historico@{set\+Historico}!Cliente@{Cliente}}
+\subsubsection[{set\+Historico}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::set\+Historico (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Vendas} $\ast$ $>$}]{v}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a340b3c4b25009f1020984743eb371208}
+Setter Historico 
+\begin{DoxyParams}{Parameters}
+{\em v} & Novo Historico de Transacoes \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cliente_a646583af1403099173848eda00f99ce7}{\index{Cliente@{Cliente}!set\+Id\+Pass@{set\+Id\+Pass}}
+\index{set\+Id\+Pass@{set\+Id\+Pass}!Cliente@{Cliente}}
+\subsubsection[{set\+Id\+Pass}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::set\+Id\+Pass (
+\begin{DoxyParamCaption}
+\item[{string}]{id\+\_\+pass}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a646583af1403099173848eda00f99ce7}
+Setter Pass 
+\begin{DoxyParams}{Parameters}
+{\em id\+\_\+pass} & Nova Pass do login \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cliente_a072628868d4165e0b7915d975621bc8a}{\index{Cliente@{Cliente}!set\+Next\+I\+D@{set\+Next\+I\+D}}
+\index{set\+Next\+I\+D@{set\+Next\+I\+D}!Cliente@{Cliente}}
+\subsubsection[{set\+Next\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::set\+Next\+I\+D (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_cliente_a072628868d4165e0b7915d975621bc8a}
+Setter Next Id 
+\begin{DoxyParams}{Parameters}
+{\em i} & Proximo Id de um novo \hyperlink{class_cliente}{Cliente} Criado \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cliente_a78fe91598a0632e05d09c9341c4b0716}{\index{Cliente@{Cliente}!set\+Saldo@{set\+Saldo}}
+\index{set\+Saldo@{set\+Saldo}!Cliente@{Cliente}}
+\subsubsection[{set\+Saldo}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::set\+Saldo (
+\begin{DoxyParamCaption}
+\item[{float}]{saldo}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a78fe91598a0632e05d09c9341c4b0716}
+Setter Saldo 
+\begin{DoxyParams}{Parameters}
+{\em saldo} & Novo Saldo do \hyperlink{class_cliente}{Cliente} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_cliente_aeb1b9cce72b0d01ce9bf1771a6b95c2d}{\index{Cliente@{Cliente}!set\+Vouchers@{set\+Vouchers}}
+\index{set\+Vouchers@{set\+Vouchers}!Cliente@{Cliente}}
+\subsubsection[{set\+Vouchers}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::set\+Vouchers (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{voucher}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_aeb1b9cce72b0d01ce9bf1771a6b95c2d}
+Setter Voucher 
+\begin{DoxyParams}{Parameters}
+{\em voucher} & Nr. Voucher que o \hyperlink{class_cliente}{Cliente} passa a ter \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

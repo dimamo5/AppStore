@@ -1,63 +1,275 @@
 \hypertarget{class_vendas}{\section{Vendas Class Reference}
 \label{class_vendas}\index{Vendas@{Vendas}}
 }
+
+
+Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app.  
+
+
+
+
+{\ttfamily \#include $<$Vendas.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_vendas_ac2ccb77508f649d75e3635c9d51d27fc}{{\bfseries Vendas} (float preco, \hyperlink{class_date}{Date} data\+\_\+venda, string app\+\_\+removida\+\_\+nome)}\label{class_vendas_ac2ccb77508f649d75e3635c9d51d27fc}
-
+\hyperlink{class_vendas_ac2ccb77508f649d75e3635c9d51d27fc}{Vendas} (float preco, \hyperlink{class_date}{Date} data\+\_\+venda, string app\+\_\+removida\+\_\+nome)
 \item 
-\hypertarget{class_vendas_a770db3bf09757d984d4335eae6b25802}{{\bfseries Vendas} (int id, float preco, \hyperlink{class_date}{Date} data\+\_\+venda, bool retorno, bool app\+\_\+apagada, int id\+\_\+app\+\_\+vendida, string reclamacao, string app\+\_\+removida\+\_\+nome)}\label{class_vendas_a770db3bf09757d984d4335eae6b25802}
-
+\hyperlink{class_vendas_a770db3bf09757d984d4335eae6b25802}{Vendas} (int id, float preco, \hyperlink{class_date}{Date} data\+\_\+venda, bool retorno, bool app\+\_\+apagada, int id\+\_\+app\+\_\+vendida, string reclamacao, string app\+\_\+removida\+\_\+nome)
 \item 
-\hypertarget{class_vendas_a7e36a98494bec3b57d90afa0536a1be5}{int {\bfseries get\+Id} () const }\label{class_vendas_a7e36a98494bec3b57d90afa0536a1be5}
-
+int \hyperlink{class_vendas_a7e36a98494bec3b57d90afa0536a1be5}{get\+Id} () const 
 \item 
-\hypertarget{class_vendas_aa5c8bcaced98ded9a22444ddf5935566}{float {\bfseries get\+Preco} () const }\label{class_vendas_aa5c8bcaced98ded9a22444ddf5935566}
-
+float \hyperlink{class_vendas_aa5c8bcaced98ded9a22444ddf5935566}{get\+Preco} () const 
 \item 
-\hypertarget{class_vendas_ab4f3bd058d7cfe6fc837e7804b9b3dcf}{\hyperlink{class_date}{Date} {\bfseries get\+Data} () const }\label{class_vendas_ab4f3bd058d7cfe6fc837e7804b9b3dcf}
-
+\hyperlink{class_date}{Date} \hyperlink{class_vendas_ab4f3bd058d7cfe6fc837e7804b9b3dcf}{get\+Data} () const 
 \item 
-\hypertarget{class_vendas_a26578f098712d9ff4cca17e0d8ac86ab}{unsigned int {\bfseries get\+App\+Id} () const }\label{class_vendas_a26578f098712d9ff4cca17e0d8ac86ab}
-
+unsigned int \hyperlink{class_vendas_a26578f098712d9ff4cca17e0d8ac86ab}{get\+App\+Id} () const 
 \item 
-\hypertarget{class_vendas_a3a23da44b124f50b3e73e5f568046695}{unsigned int {\bfseries get\+Next\+Id} () const }\label{class_vendas_a3a23da44b124f50b3e73e5f568046695}
-
+unsigned int \hyperlink{class_vendas_a3a23da44b124f50b3e73e5f568046695}{get\+Next\+Id} () const 
 \item 
-\hypertarget{class_vendas_a13064baa0f6c550cd433946c96a6d0aa}{string {\bfseries get\+Reclamacao} () const }\label{class_vendas_a13064baa0f6c550cd433946c96a6d0aa}
-
+string \hyperlink{class_vendas_a13064baa0f6c550cd433946c96a6d0aa}{get\+Reclamacao} () const 
 \item 
-\hypertarget{class_vendas_a1f5542e8c66cbe9114a7968ffd10d5e2}{bool {\bfseries is\+Retorno} () const }\label{class_vendas_a1f5542e8c66cbe9114a7968ffd10d5e2}
-
+bool \hyperlink{class_vendas_a1f5542e8c66cbe9114a7968ffd10d5e2}{is\+Retorno} () const 
 \item 
-\hypertarget{class_vendas_ac5bf776bb0b33835e5a3d8728db851fc}{void {\bfseries reclamar} (string reclamacao)}\label{class_vendas_ac5bf776bb0b33835e5a3d8728db851fc}
-
+void \hyperlink{class_vendas_ac5bf776bb0b33835e5a3d8728db851fc}{reclamar} (string reclamacao)
 \item 
-\hypertarget{class_vendas_abde676427ad64a74b541df93296c7479}{bool {\bfseries get\+App\+Apagada} () const }\label{class_vendas_abde676427ad64a74b541df93296c7479}
-
+bool \hyperlink{class_vendas_abde676427ad64a74b541df93296c7479}{get\+App\+Apagada} () const 
 \item 
-\hypertarget{class_vendas_a683753180c7f1e4914a4dd65a143bbb9}{void {\bfseries set\+App\+Apagada} (bool value)}\label{class_vendas_a683753180c7f1e4914a4dd65a143bbb9}
-
+void \hyperlink{class_vendas_a683753180c7f1e4914a4dd65a143bbb9}{set\+App\+Apagada} (bool value)
 \item 
-\hypertarget{class_vendas_aa947fe71f5a490a0e7de5c0bc3935f03}{string {\bfseries get\+App\+Vendida\+Nome} () const }\label{class_vendas_aa947fe71f5a490a0e7de5c0bc3935f03}
-
+string \hyperlink{class_vendas_aa947fe71f5a490a0e7de5c0bc3935f03}{get\+App\+Vendida\+Nome} () const 
 \item 
-\hypertarget{class_vendas_a59eceff4e8b258dfbe6ba62518de11f6}{int {\bfseries get\+App\+Vendida\+Id} () const }\label{class_vendas_a59eceff4e8b258dfbe6ba62518de11f6}
-
+int \hyperlink{class_vendas_a59eceff4e8b258dfbe6ba62518de11f6}{get\+App\+Vendida\+Id} () const 
 \item 
-\hypertarget{class_vendas_a63d71d63281a1984b95091b77fe76bd2}{void {\bfseries set\+App\+Vendida\+Id} (int id)}\label{class_vendas_a63d71d63281a1984b95091b77fe76bd2}
-
+void \hyperlink{class_vendas_a63d71d63281a1984b95091b77fe76bd2}{set\+App\+Vendida\+Id} (int id)
 \item 
-\hypertarget{class_vendas_a1d3312e8ad12ccde515ae6c5b1788beb}{void {\bfseries set\+App\+Vendida\+Nome} (string app\+Removida\+Nome)}\label{class_vendas_a1d3312e8ad12ccde515ae6c5b1788beb}
-
+void \hyperlink{class_vendas_a1d3312e8ad12ccde515ae6c5b1788beb}{set\+App\+Vendida\+Nome} (string app\+Removida\+Nome)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_vendas_a6b007d0524e51c0a48796a6d9fb9948e}{static void {\bfseries set\+Next\+Id} (unsigned int next\+Id)}\label{class_vendas_a6b007d0524e51c0a48796a6d9fb9948e}
-
+static void \hyperlink{class_vendas_a6b007d0524e51c0a48796a6d9fb9948e}{set\+Next\+Id} (unsigned int next\+Id)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vendas_ac2ccb77508f649d75e3635c9d51d27fc}{\index{Vendas@{Vendas}!Vendas@{Vendas}}
+\index{Vendas@{Vendas}!Vendas@{Vendas}}
+\subsubsection[{Vendas}]{\setlength{\rightskip}{0pt plus 5cm}Vendas\+::\+Vendas (
+\begin{DoxyParamCaption}
+\item[{float}]{preco, }
+\item[{{\bf Date}}]{data\+\_\+venda, }
+\item[{string}]{app\+\_\+removida\+\_\+nome}
+\end{DoxyParamCaption}
+)}}\label{class_vendas_ac2ccb77508f649d75e3635c9d51d27fc}
+Construtor Venda 
+\begin{DoxyParams}{Parameters}
+{\em preco} & Preco da \hyperlink{class_app}{App} na altura da compra \\
+\hline
+{\em data\+\_\+venda} & Data da Compra \\
+\hline
+{\em app\+\_\+removida\+\_\+nome} & Nome da \hyperlink{class_app}{App} Comprada \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vendas_a770db3bf09757d984d4335eae6b25802}{\index{Vendas@{Vendas}!Vendas@{Vendas}}
+\index{Vendas@{Vendas}!Vendas@{Vendas}}
+\subsubsection[{Vendas}]{\setlength{\rightskip}{0pt plus 5cm}Vendas\+::\+Vendas (
+\begin{DoxyParamCaption}
+\item[{int}]{id, }
+\item[{float}]{preco, }
+\item[{{\bf Date}}]{data\+\_\+venda, }
+\item[{bool}]{retorno, }
+\item[{bool}]{app\+\_\+apagada, }
+\item[{int}]{id\+\_\+app\+\_\+vendida, }
+\item[{string}]{reclamacao, }
+\item[{string}]{app\+\_\+removida\+\_\+nome}
+\end{DoxyParamCaption}
+)}}\label{class_vendas_a770db3bf09757d984d4335eae6b25802}
+Construtor Venda (usada da carregar objecto dos ficheiros) 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id unco da Venda \\
+\hline
+{\em preco} & Preco da \hyperlink{class_app}{App} na altura da compra \\
+\hline
+{\em data\+\_\+venda} & Data da Compra \\
+\hline
+{\em retorno} & Venda retornada ou nao \\
+\hline
+{\em app\+\_\+apagada} & \hyperlink{class_app}{App} ainda existe ou ja foi removida pelo developer \\
+\hline
+{\em id\+\_\+app\+\_\+vendida} & Nome da \hyperlink{class_app}{App} associada à venda \\
+\hline
+{\em reclamacao} & Reclamacao escrita pelo cliente quando este devolveu a compra da app \\
+\hline
+{\em app\+\_\+removida\+\_\+nome} & Nome da \hyperlink{class_app}{App} Comprada \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_vendas_abde676427ad64a74b541df93296c7479}{\index{Vendas@{Vendas}!get\+App\+Apagada@{get\+App\+Apagada}}
+\index{get\+App\+Apagada@{get\+App\+Apagada}!Vendas@{Vendas}}
+\subsubsection[{get\+App\+Apagada}]{\setlength{\rightskip}{0pt plus 5cm}bool Vendas\+::get\+App\+Apagada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_abde676427ad64a74b541df93296c7479}
+Getter Flag \hyperlink{class_app}{App} Apagada \begin{DoxyReturn}{Returns}
+True se \hyperlink{class_app}{App} for apagada da \hyperlink{class_app_store}{App\+Store}, False caso contrario 
+\end{DoxyReturn}
+\hypertarget{class_vendas_a26578f098712d9ff4cca17e0d8ac86ab}{\index{Vendas@{Vendas}!get\+App\+Id@{get\+App\+Id}}
+\index{get\+App\+Id@{get\+App\+Id}!Vendas@{Vendas}}
+\subsubsection[{get\+App\+Id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Vendas\+::get\+App\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_a26578f098712d9ff4cca17e0d8ac86ab}
+Getter App\+Id \begin{DoxyReturn}{Returns}
+Int App\+Id 
+\end{DoxyReturn}
+\hypertarget{class_vendas_a59eceff4e8b258dfbe6ba62518de11f6}{\index{Vendas@{Vendas}!get\+App\+Vendida\+Id@{get\+App\+Vendida\+Id}}
+\index{get\+App\+Vendida\+Id@{get\+App\+Vendida\+Id}!Vendas@{Vendas}}
+\subsubsection[{get\+App\+Vendida\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Vendas\+::get\+App\+Vendida\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_a59eceff4e8b258dfbe6ba62518de11f6}
+Getter Id da \hyperlink{class_app}{App} associada com a venda \begin{DoxyReturn}{Returns}
+Int Id da \hyperlink{class_app}{App} 
+\end{DoxyReturn}
+\hypertarget{class_vendas_aa947fe71f5a490a0e7de5c0bc3935f03}{\index{Vendas@{Vendas}!get\+App\+Vendida\+Nome@{get\+App\+Vendida\+Nome}}
+\index{get\+App\+Vendida\+Nome@{get\+App\+Vendida\+Nome}!Vendas@{Vendas}}
+\subsubsection[{get\+App\+Vendida\+Nome}]{\setlength{\rightskip}{0pt plus 5cm}string Vendas\+::get\+App\+Vendida\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_aa947fe71f5a490a0e7de5c0bc3935f03}
+Getter Nome da \hyperlink{class_app}{App} associada com a Venda \begin{DoxyReturn}{Returns}
+String Nome 
+\end{DoxyReturn}
+\hypertarget{class_vendas_ab4f3bd058d7cfe6fc837e7804b9b3dcf}{\index{Vendas@{Vendas}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Vendas@{Vendas}}
+\subsubsection[{get\+Data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Date} Vendas\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_ab4f3bd058d7cfe6fc837e7804b9b3dcf}
+Getter Data \begin{DoxyReturn}{Returns}
+Data Venda 
+\end{DoxyReturn}
+\hypertarget{class_vendas_a7e36a98494bec3b57d90afa0536a1be5}{\index{Vendas@{Vendas}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Vendas@{Vendas}}
+\subsubsection[{get\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int Vendas\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_a7e36a98494bec3b57d90afa0536a1be5}
+Getter Id \begin{DoxyReturn}{Returns}
+Int id 
+\end{DoxyReturn}
+\hypertarget{class_vendas_a3a23da44b124f50b3e73e5f568046695}{\index{Vendas@{Vendas}!get\+Next\+Id@{get\+Next\+Id}}
+\index{get\+Next\+Id@{get\+Next\+Id}!Vendas@{Vendas}}
+\subsubsection[{get\+Next\+Id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Vendas\+::get\+Next\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_a3a23da44b124f50b3e73e5f568046695}
+Getter Next Id \begin{DoxyReturn}{Returns}
+Int Proximo Id 
+\end{DoxyReturn}
+\hypertarget{class_vendas_aa5c8bcaced98ded9a22444ddf5935566}{\index{Vendas@{Vendas}!get\+Preco@{get\+Preco}}
+\index{get\+Preco@{get\+Preco}!Vendas@{Vendas}}
+\subsubsection[{get\+Preco}]{\setlength{\rightskip}{0pt plus 5cm}float Vendas\+::get\+Preco (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_aa5c8bcaced98ded9a22444ddf5935566}
+Getter Preco \begin{DoxyReturn}{Returns}
+float preco 
+\end{DoxyReturn}
+\hypertarget{class_vendas_a13064baa0f6c550cd433946c96a6d0aa}{\index{Vendas@{Vendas}!get\+Reclamacao@{get\+Reclamacao}}
+\index{get\+Reclamacao@{get\+Reclamacao}!Vendas@{Vendas}}
+\subsubsection[{get\+Reclamacao}]{\setlength{\rightskip}{0pt plus 5cm}string Vendas\+::get\+Reclamacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_a13064baa0f6c550cd433946c96a6d0aa}
+Getter Reclamacao \begin{DoxyReturn}{Returns}
+String Reclamacao 
+\end{DoxyReturn}
+\hypertarget{class_vendas_a1f5542e8c66cbe9114a7968ffd10d5e2}{\index{Vendas@{Vendas}!is\+Retorno@{is\+Retorno}}
+\index{is\+Retorno@{is\+Retorno}!Vendas@{Vendas}}
+\subsubsection[{is\+Retorno}]{\setlength{\rightskip}{0pt plus 5cm}bool Vendas\+::is\+Retorno (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_vendas_a1f5542e8c66cbe9114a7968ffd10d5e2}
+Analisa se a Venda foi retornada ou nao \begin{DoxyReturn}{Returns}
+True or false 
+\end{DoxyReturn}
+\hypertarget{class_vendas_ac5bf776bb0b33835e5a3d8728db851fc}{\index{Vendas@{Vendas}!reclamar@{reclamar}}
+\index{reclamar@{reclamar}!Vendas@{Vendas}}
+\subsubsection[{reclamar}]{\setlength{\rightskip}{0pt plus 5cm}void Vendas\+::reclamar (
+\begin{DoxyParamCaption}
+\item[{string}]{reclamacao}
+\end{DoxyParamCaption}
+)}}\label{class_vendas_ac5bf776bb0b33835e5a3d8728db851fc}
+Reclamacao ao retornar uma Venda 
+\begin{DoxyParams}{Parameters}
+{\em reclamacao} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vendas_a683753180c7f1e4914a4dd65a143bbb9}{\index{Vendas@{Vendas}!set\+App\+Apagada@{set\+App\+Apagada}}
+\index{set\+App\+Apagada@{set\+App\+Apagada}!Vendas@{Vendas}}
+\subsubsection[{set\+App\+Apagada}]{\setlength{\rightskip}{0pt plus 5cm}void Vendas\+::set\+App\+Apagada (
+\begin{DoxyParamCaption}
+\item[{bool}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_vendas_a683753180c7f1e4914a4dd65a143bbb9}
+Setter Flag \hyperlink{class_app}{App} Apagada 
+\begin{DoxyParams}{Parameters}
+{\em value} & True se \hyperlink{class_app}{App} for apagada da \hyperlink{class_app_store}{App\+Store}, False caso contrario \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vendas_a63d71d63281a1984b95091b77fe76bd2}{\index{Vendas@{Vendas}!set\+App\+Vendida\+Id@{set\+App\+Vendida\+Id}}
+\index{set\+App\+Vendida\+Id@{set\+App\+Vendida\+Id}!Vendas@{Vendas}}
+\subsubsection[{set\+App\+Vendida\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void Vendas\+::set\+App\+Vendida\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_vendas_a63d71d63281a1984b95091b77fe76bd2}
+Setter Id da \hyperlink{class_app}{App} associada com a Venda 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id da \hyperlink{class_app}{App} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vendas_a1d3312e8ad12ccde515ae6c5b1788beb}{\index{Vendas@{Vendas}!set\+App\+Vendida\+Nome@{set\+App\+Vendida\+Nome}}
+\index{set\+App\+Vendida\+Nome@{set\+App\+Vendida\+Nome}!Vendas@{Vendas}}
+\subsubsection[{set\+App\+Vendida\+Nome}]{\setlength{\rightskip}{0pt plus 5cm}void Vendas\+::set\+App\+Vendida\+Nome (
+\begin{DoxyParamCaption}
+\item[{string}]{app\+Removida\+Nome}
+\end{DoxyParamCaption}
+)}}\label{class_vendas_a1d3312e8ad12ccde515ae6c5b1788beb}
+Setter Nome da \hyperlink{class_app}{App} associada com a venda 
+\begin{DoxyParams}{Parameters}
+{\em app\+Removida\+Nome} & Nome da \hyperlink{class_app}{App} \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_vendas_a6b007d0524e51c0a48796a6d9fb9948e}{\index{Vendas@{Vendas}!set\+Next\+Id@{set\+Next\+Id}}
+\index{set\+Next\+Id@{set\+Next\+Id}!Vendas@{Vendas}}
+\subsubsection[{set\+Next\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void Vendas\+::set\+Next\+Id (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{next\+Id}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_vendas_a6b007d0524e51c0a48796a6d9fb9948e}
+Setter Next Id 
+\begin{DoxyParams}{Parameters}
+{\em next\+Id} & Id da proxima Venda criada \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

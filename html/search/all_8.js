@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['update_5fclassificacao',['update_classificacao',['../class_app.html#ac720715c2e11bfc218842141b9c6e0d2',1,'App']]]
+  ['operator_3c',['operator&lt;',['../class_date.html#a691bafd5bba9540f3c540f7327a758c2',1,'Date']]],
+  ['operator_3e',['operator&gt;',['../class_date.html#a0bd06d545842c948cdca8ccc60d7d68d',1,'Date']]]
 ];

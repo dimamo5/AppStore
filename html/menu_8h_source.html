@@ -116,72 +116,74 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;Cliente.h&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;App.h&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span><a class="code" href="class_date.html">Date</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_developer.html">Developer</a>* dev_act;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_cliente.html">Cliente</a>* cli_act;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span><a class="code" href="class_date.html">Date</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_developer.html">Developer</a>* dev_act;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_cliente.html">Cliente</a>* cli_act;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> gotoxy(<span class="keywordtype">int</span> xpos, <span class="keywordtype">int</span> ypos);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> porDataNoCanto(<span class="keywordtype">int</span> xpos, <span class="keywordtype">int</span> ypos);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;vector&lt;string&gt; getAppNames(vector&lt;App&gt; apps);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;vector&lt;string&gt; getAppComentarios(vector&lt;Comentario&gt;);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;vector&lt;string&gt; getDevNames(vector&lt;Developer*&gt; devs);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">bool</span> verificaPass(T* dev_or_cli);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">bool</span> verificaCartao(<a class="code" href="class_cliente.html">Cliente</a>* cli);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> printMenuScroll(vector&lt;string&gt; options, <span class="keywordtype">int</span> selected_option, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_per_screen);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">void</span> cor(<span class="keywordtype">int</span> background, <span class="keywordtype">int</span> foreground);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> teclas();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">int</span> RestringeOpcaoTeclas(<span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max, <span class="keywordtype">int</span> opcao);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">int</span> menuInicial(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">int</span> menuLogin(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">int</span> menuRegistar(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> menuLoginCliente(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> menuLoginDeveloper(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> menuRegistarCliente(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> menuRegistarDeveloperIndividual(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> menuRegistarDeveloperEmpresa(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">void</span> menuCliente(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> menuDeveloper(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> menuClienteTransacoes(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> menuClienteDefinicoes(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> menuDeveloperDefinicoes(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> menuDeveloperGerirApps(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> menuDeveloperModApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> menuClienteAddCredito(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> menuCestoCompras(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> menuHistoricoVendas(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> menuAlterarPassCli(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> menuAlterarCartao(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> menuApagarContaCli(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> menuAlterarPassDev(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> menuAlterarMorada(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> menuAlterarNIF(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">void</span> menuApagarContaDev(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> menuVerDev(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> menuVerCli(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> menuCriarApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> menuRemoverApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> menuModificarApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">// State will be needed to know who is visiting the store, what that person will see and where the &quot;SAIR&quot; button will lead the person</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keywordtype">void</span> menuVisitaStore(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; state);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">void</span> menuVisitaStoreOrdenada(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; state, vector&lt;App&gt; apps_ordenadas, <span class="keywordtype">string</span> tipo_ordenacao);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> menuListaDeveloper(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; state);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MENU_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> loadbar(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> x, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> w = 50);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> gotoxy(<span class="keywordtype">int</span> xpos, <span class="keywordtype">int</span> ypos);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> porDataNoCanto(<span class="keywordtype">int</span> xpos, <span class="keywordtype">int</span> ypos);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;vector&lt;string&gt; getAppNames(vector&lt;App&gt; apps);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;vector&lt;string&gt; getAppComentarios(vector&lt;Comentario&gt;);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;vector&lt;string&gt; getDevNames(vector&lt;Developer*&gt; devs);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">bool</span> verificaPass(T* dev_or_cli);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">bool</span> verificaCartao(<a class="code" href="class_cliente.html">Cliente</a>* cli);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> printMenuScroll(vector&lt;string&gt; options, <span class="keywordtype">int</span> selected_option, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> max_per_screen);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> cor(<span class="keywordtype">int</span> background, <span class="keywordtype">int</span> foreground);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">int</span> teclas();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">int</span> RestringeOpcaoTeclas(<span class="keywordtype">int</span> min, <span class="keywordtype">int</span> max, <span class="keywordtype">int</span> opcao);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">int</span> menuInicial(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">int</span> menuLogin(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">int</span> menuRegistar(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> menuLoginCliente(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> menuLoginDeveloper(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keywordtype">void</span> menuRegistarCliente(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">void</span> menuRegistarDeveloperIndividual(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keywordtype">void</span> menuRegistarDeveloperEmpresa(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> menuCliente(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> menuDeveloper(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> menuClienteTransacoes(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> menuClienteDefinicoes(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> menuDeveloperDefinicoes(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> menuDeveloperGerirApps(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keywordtype">void</span> menuDeveloperModApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> menuClienteAddCredito(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> menuCestoCompras(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keywordtype">void</span> menuHistoricoVendas(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> menuAlterarPassCli(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> menuAlterarCartao(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> menuApagarContaCli(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> menuAlterarPassDev(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keywordtype">void</span> menuAlterarMorada(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">void</span> menuAlterarNIF(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> menuApagarContaDev(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> menuVerDev(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">void</span> menuVerCli(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keywordtype">void</span> menuCriarApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keywordtype">void</span> menuRemoverApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> menuModificarApp(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">// State will be needed to know who is visiting the store, what that person will see and where the &quot;SAIR&quot; button will lead the person</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> menuVisitaStore(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; state);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">void</span> menuVisitaStoreOrdenada(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; state, vector&lt;App&gt; apps_ordenadas, <span class="keywordtype">string</span> tipo_ordenacao);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> menuListaDeveloper(<a class="code" href="class_app_store.html">AppStore</a>&amp; mieic, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>&amp; state);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MENU_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> Date.h:27</div></div>
 <div class="ttc" id="class_developer_html"><div class="ttname"><a href="class_developer.html">Developer</a></div><div class="ttdef"><b>Definition:</b> Developer.h:23</div></div>
 <div class="ttc" id="class_app_store_html"><div class="ttname"><a href="class_app_store.html">AppStore</a></div><div class="ttdef"><b>Definition:</b> AppStore.h:30</div></div>
-<div class="ttc" id="class_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definition:</b> Cliente.h:21</div></div>
+<div class="ttc" id="class_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdoc">Classe responsavel pela Gestao de Cliente. </div><div class="ttdef"><b>Definition:</b> Cliente.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 7 2014 19:59:06 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 23:44:36 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
