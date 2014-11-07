@@ -13,7 +13,7 @@ AppStore::AppStore() {
 
 }
 
-Date AppStore::DataAtual(){
+Date AppStore::DataAtual() {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
@@ -244,7 +244,6 @@ bool AppStore::save_all() {
 //	//developer->app->vendas->cliente
 //}
 
-
 //TODO: remover cenas que tenham o pointer da app e adicionar o bool e a cena do ID
 bool AppStore::save_vendas(ofstream &file) {
 	if (vendas.empty()) {
@@ -254,14 +253,15 @@ bool AppStore::save_vendas(ofstream &file) {
 		for (unsigned int i = 0; i < vendas.size(); i++) {
 			file << vendas[i].getId() << endl;
 			file << vendas[i].getPreco() << endl;
-			file << vendas[i].getDataVenda().getYear() << endl; //TODO melhor escrita data
-			file << vendas[i].getDataVenda().getMonth() << endl;
-			file << vendas[i].getDataVenda().getDay() << endl;
-			file << vendas[i].getDataVenda().getHour() << endl;
-			file << vendas[i].getDataVenda().getMinute() << endl;
+			file << vendas[i].getData().getYear() << endl; //TODO melhor escrita data
+			file << vendas[i].getData().getMonth() << endl;
+			file << vendas[i].getData().getDay() << endl;
+			file << vendas[i].getData().getHour() << endl;
+			file << vendas[i].getData().getMinute() << endl;
 			file << vendas[i].isRetorno() << endl;
+			file << vendas[i].getAppApagada() << endl;
 			file << vendas[i].getReclamacao() << endl;
-			file << vendas[i].getApp()->getId() << endl;
+			file << vendas[i].getAppVendidaId() << endl;
 			file << vendas[i].getAppVendidaNome() << endl;
 		}
 	}
@@ -271,7 +271,7 @@ bool AppStore::save_vendas(ofstream &file) {
 bool AppStore::load_vendas(fstream &file) {
 	unsigned int next_id, id, ano, mes, dia, hora, minuto, id_app;
 	float preco;
-	bool retorno;
+	bool retorno, app_apagada;
 	string reclamacao, nome_app_vendida, temp;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
@@ -295,14 +295,15 @@ bool AppStore::load_vendas(fstream &file) {
 		getline(file, temp);
 		stringstream(temp) >> retorno;
 		getline(file, temp);
+		stringstream(temp) >> app_apagada;
+		getline(file, temp);
 		reclamacao = temp;
 		getline(file, temp);
 		stringstream(temp) >> id_app;
 		getline(file, temp);
 		nome_app_vendida = temp;
 		Vendas *venda_temp = new Vendas(id, preco, *date_temp, retorno,
-				reclamacao, nome_app_vendida);
-		venda_temp->setApp(find_app_id(id_app));
+				app_apagada, id_app, reclamacao, nome_app_vendida);
 		vendas.push_back(*venda_temp);
 	}
 	return true;

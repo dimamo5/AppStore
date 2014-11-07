@@ -25,28 +25,26 @@ extern Cliente* cli_act;
 
 class App;
 
-class Vendas{
+class Vendas {
 private:
 	int id;
 	static unsigned int next_id;
 	float preco;
-	App* app;
 	Date data_venda;
 	int id_app_vendida;
 	bool app_apagada;
 	bool retorno;
 	string reclamacao; //TODO construtor e getters (aka cenas daa reclamacao)
-	string nome_app_momento_venda="";
+	string nome_app_momento_venda = "";
 
 public:
-	Vendas(float preco,Date data_venda);
-	Vendas(int id,float preco,Date data_venda,bool retorno,string reclamacao,string app_removida_nome);
+	Vendas(float preco, Date data_venda);
+	Vendas(int id, float preco, Date data_venda, bool retorno, bool app_apagada,
+			int id_app_vendida, string reclamacao, string app_removida_nome);
 	int getId() const;
 	float getPreco() const;
 	Date getData() const;
-	App* getApp() const;
-	void setApp(App* app);
-	Date getDataVenda() const;
+	unsigned int getAppId() const;
 	unsigned int getNextId() const;
 	static void setNextId(unsigned int nextId);
 	string getReclamacao() const;

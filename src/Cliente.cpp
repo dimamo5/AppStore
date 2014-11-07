@@ -7,7 +7,7 @@
 
 #include "Cliente.h"
 
-unsigned int Cliente::next_id=1;
+unsigned int Cliente::next_id = 1;
 
 int Cliente::getCartaoCredito() const {
 	return cartao_credito;
@@ -29,11 +29,11 @@ float Cliente::getSaldo() const {
 	return saldo;
 }
 
-string Cliente::getIdPass() const{
+string Cliente::getIdPass() const {
 	return id_pass;
 }
 
-void Cliente::setIdPass(string id_pass){
+void Cliente::setIdPass(string id_pass) {
 	this->id_pass = id_pass;
 }
 
@@ -41,14 +41,17 @@ void Cliente::setSaldo(float saldo) {
 	this->saldo = saldo;
 }
 
-void Cliente::setCartao(int cartao_credito){
+void Cliente::setCartao(int cartao_credito) {
 	this->cartao_credito = cartao_credito;
 }
 
-Cliente::Cliente(int id,string nome,unsigned int idade,string sexo,int cartao_credito,float saldo,unsigned int nr_vouchers, string id_pass):
-		nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito),nr_vouchers(nr_vouchers),id_pass(id_pass){
-	this->id=id;
-	this->saldo=saldo;
+Cliente::Cliente(int id, string nome, unsigned int idade, string sexo,
+		int cartao_credito, float saldo, unsigned int nr_vouchers,
+		string id_pass) :
+		nome(nome), idade(idade), sexo(sexo), cartao_credito(cartao_credito), nr_vouchers(
+				nr_vouchers), id_pass(id_pass) {
+	this->id = id;
+	this->saldo = saldo;
 }
 
 string Cliente::getSexo() const {
@@ -59,10 +62,13 @@ unsigned int Cliente::getNext_id() const {
 	return next_id;
 }
 
-Cliente::Cliente(string nome, unsigned int idade, string sexo,int cartao_credito, string id_pass):nome(nome),idade(idade),sexo(sexo),cartao_credito(cartao_credito), id_pass(id_pass) {
-	this->id=next_id;
+Cliente::Cliente(string nome, unsigned int idade, string sexo,
+		int cartao_credito, string id_pass) :
+		nome(nome), idade(idade), sexo(sexo), cartao_credito(cartao_credito), id_pass(
+				id_pass) {
+	this->id = next_id;
 	next_id++;
-	saldo=0;
+	saldo = 0;
 	nr_vouchers = 0;
 }
 
@@ -76,28 +82,28 @@ vector<Vendas*> Cliente::getHistorico() const {
 }
 
 void Cliente::setHistorico(vector<Vendas*> v) {
-	historico=v;
+	historico = v;
 }
 
 void Cliente::setNextID(unsigned int i) {
-	next_id=i;
+	next_id = i;
 }
 
-unsigned int Cliente::getVouchers() const{
+unsigned int Cliente::getVouchers() const {
 	return nr_vouchers;
 }
 
-void Cliente::setVouchers(unsigned int voucher){
+void Cliente::setVouchers(unsigned int voucher) {
 	nr_vouchers = voucher;
 }
 
-void Cliente::removeVoucher(){
-	if(nr_vouchers >1){
+void Cliente::removeVoucher() {
+	if (nr_vouchers > 1) {
 		nr_vouchers = nr_vouchers - 1;
 	}
 }
 
-void Cliente::addVoucher(){
+void Cliente::addVoucher() {
 	nr_vouchers++;
 }
 
@@ -106,12 +112,12 @@ bool Cliente::adicionaAppCesto(int app_id) {
 }
 
 bool Cliente::eliminaAppCesto(unsigned int i) {
-	cesto_compras.erase(cesto_compras.begin()+i);
+	cesto_compras.erase(cesto_compras.begin() + i);
 }
 
-bool Cliente::jaComprou(App app_option){
-	for(unsigned int i = 0; i < historico.size(); i++){
-		if(app_option.getId() == historico[i]->getAppVendidaId()) //se a app a ser analisada ja esta em alguma venda do historico
+bool Cliente::jaComprou(App app_option) {
+	for (unsigned int i = 0; i < historico.size(); i++) {
+		if (app_option.getId() == historico[i]->getAppVendidaId()) //se a app a ser analisada ja esta em alguma venda do historico
 			return true;
 	}
 	return false;

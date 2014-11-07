@@ -16,29 +16,28 @@
 #include <iomanip>
 #include "time.h"
 
-
 using namespace std;
 
-
 tm make_tm(int year, int month, int day);
-double daysBetweenDates(int year1, int month1, int day1,int year2, int month2, int day2);
+double daysBetweenDates(int year1, int month1, int day1, int year2, int month2,
+		int day2);
 
 string nomeDoMes(unsigned int month);
 
 class Date {
 
-
-unsigned int minute;
-unsigned int hour;
-unsigned int day;
-unsigned int month;
-unsigned int year;
+	unsigned int minute;
+	unsigned int hour;
+	unsigned int day;
+	unsigned int month;
+	unsigned int year;
 
 public:
 
 	Date();
-	Date(struct tm* time_struct );
-	Date(unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute);
+	Date(struct tm* time_struct);
+	Date(unsigned int year, unsigned int month, unsigned int day,
+			unsigned int hour, unsigned int minute);
 	unsigned int getMinute() const;
 	unsigned int getHour() const;
 	unsigned int getDay() const;
@@ -52,17 +51,22 @@ public:
 	bool setYear(unsigned int year);
 
 	string imprimeData() const;
-
-	bool operator< (const Date&) const;
-	bool operator> (const Date&) const;
+	/**
+	 * Overload operador < para classe Date
+	 * @param data
+	 * @return true se menor-false se maior
+	 */
+	bool operator<(const Date&) const;
+	/**
+	 *
+	 * @param
+	 * @return
+	 */
+	bool operator>(const Date&) const;
 	bool operator==(const Date&) const;
-	bool operator<= (const Date&) const;
-	bool operator>= (const Date&) const;
+	bool operator<=(const Date&) const;
+	bool operator>=(const Date&) const;
 
-
-
-	//time_t t = time(0);
-	//struct tm *now = localtime(&t);
 };
 
 #endif /* DATE_H_ */

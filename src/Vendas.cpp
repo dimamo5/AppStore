@@ -7,43 +7,34 @@
 
 #include "Vendas.h"
 
-unsigned int Vendas::next_id=1;
+unsigned int Vendas::next_id = 1;
 
-Vendas::Vendas(float preco, Date data_venda):preco(preco),data_venda(data_venda) {
-	id=next_id;
+Vendas::Vendas(float preco, Date data_venda) :
+		preco(preco), data_venda(data_venda) {
+	id = next_id;
 	next_id++;
-	retorno=false;
-	reclamacao="";
+	retorno = false;
+	reclamacao = "";
 }
 
-Vendas::Vendas(int id, float preco, Date data_venda, bool retorno,string reclamacao,string app_removida_nome):id(id),preco(preco),
-		data_venda(data_venda),retorno(retorno),reclamacao(reclamacao),nome_app_momento_venda(nome_app_momento_venda) {
+Vendas::Vendas(int id, float preco, Date data_venda, bool retorno,
+		bool app_apagada, int id_app_vendida, string reclamacao,
+		string app_removida_nome) :
+		id(id), preco(preco), data_venda(data_venda), retorno(retorno), reclamacao(
+				reclamacao), nome_app_momento_venda(app_removida_nome), app_apagada(
+				app_apagada), id_app_vendida(id_app_vendida) {
 }
 
-
-float Vendas::getPreco() const{
+float Vendas::getPreco() const {
 	return preco;
 }
 
-
-Date Vendas::getData() const{
+Date Vendas::getData() const {
 	return data_venda;
 }
 
 int Vendas::getId() const {
 	return id;
-}
-
-App* Vendas::getApp() const {
-	return app;
-}
-
-void Vendas::setApp(App* app) {
-	this->app = app;
-}
-
-Date Vendas::getDataVenda() const {
-	return data_venda;
 }
 
 unsigned int Vendas::getNextId() const {
@@ -58,18 +49,16 @@ string Vendas::getReclamacao() const {
 	return reclamacao;
 }
 
-
 bool Vendas::isRetorno() const {
 	return retorno;
 }
 
 void Vendas::reclamar(string reclamacao) {
-	if(retorno){
+	if (retorno) {
 		//throw Venda_Exp("App já foi retornada"); //TODO exception
-	}
-	else{
-		retorno=true;
-		this->reclamacao=reclamacao;
+	} else {
+		retorno = true;
+		this->reclamacao = reclamacao;
 	}
 }
 
@@ -81,18 +70,18 @@ void Vendas::setAppVendidaNome(string nome_app_momento_venda) {
 	this->nome_app_momento_venda = nome_app_momento_venda;
 }
 
-int Vendas::getAppVendidaId() const{
+int Vendas::getAppVendidaId() const {
 	return id_app_vendida;
 }
-void Vendas::setAppVendidaId(int id_app_vendida){
+void Vendas::setAppVendidaId(int id_app_vendida) {
 	this->id_app_vendida = id_app_vendida;
 
 }
 
-bool Vendas::getAppApagada() const{
+bool Vendas::getAppApagada() const {
 	return app_apagada;
 }
 
-void Vendas::setAppApagada(bool value){
+void Vendas::setAppApagada(bool value) {
 	this->app_apagada = value;
 }
