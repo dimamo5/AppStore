@@ -27,6 +27,7 @@ const unsigned int MAX_PER_SCREEN = 6;
 #include "Cliente.h"
 #include "App.h"
 
+
 class Date;
 
 extern Developer* dev_act;

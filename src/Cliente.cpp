@@ -115,6 +115,7 @@ bool Cliente::eliminaAppCesto(unsigned int i) {
 	cesto_compras.erase(cesto_compras.begin() + i);
 }
 
+
 vector<int> Cliente::getCesto() const{
 	return cesto_compras;
 }
