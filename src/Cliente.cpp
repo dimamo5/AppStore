@@ -115,6 +115,10 @@ bool Cliente::eliminaAppCesto(unsigned int i) {
 	cesto_compras.erase(cesto_compras.begin() + i);
 }
 
+vector<int> Cliente::getCesto() const{
+	return cesto_compras;
+}
+
 bool Cliente::jaComprou(App app_option) {
 	for (unsigned int i = 0; i < historico.size(); i++) {
 		if (app_option.getId() == historico[i]->getAppVendidaId()) //se a app a ser analisada ja esta em alguma venda do historico

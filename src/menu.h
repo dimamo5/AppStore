@@ -32,9 +32,10 @@ class Date;
 extern Developer* dev_act;
 extern Cliente* cli_act;
 
-
+static inline void loadbar(unsigned int x, unsigned int n, unsigned int w = 50);
 void gotoxy(int xpos, int ypos);
 void porDataNoCanto(int xpos, int ypos);
+
 
 vector<string> getAppNames(vector<App> apps);
 vector<string> getAppComentarios(vector<Comentario>);

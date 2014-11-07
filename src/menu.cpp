@@ -38,6 +38,7 @@ vector<string> getAppComentarios(vector<Comentario> comentarios_app) {
 	string temp_str = "";
 	vector<string> temp_comentarios;
 	stringstream ss;
+	stringstream ss2;
 	string classificacao;
 	string id_cliente;
 	for (unsigned int i = 0; i < comentarios_app.size(); i++) {
@@ -46,6 +47,7 @@ vector<string> getAppComentarios(vector<Comentario> comentarios_app) {
 		ss.clear();
 		ss << comentarios_app[i].getIdClient();
 		ss >> id_cliente;
+		ss.clear();
 		temp_str = "Cliente " + id_cliente + " - " + classificacao + "* - "
 				+ comentarios_app[i].getDescricao();
 		temp_comentarios.push_back(temp_str);
@@ -969,9 +971,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 }
 void menuCliente(AppStore& mieic) {
 	system("cls");
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(now);
+
 	unsigned int state = 2; //state 2 is the client
 	int opcao = 0;
 
@@ -1033,9 +1033,7 @@ void menuCliente(AppStore& mieic) {
 }
 void menuDeveloper(AppStore& mieic) {
 	system("cls");
-	time_t t = time(0);
-	struct tm *now = localtime(&t);
-	Date data_atual(now);
+
 	unsigned int state = 1; // state = 1 is developer
 	int opcao = 0;
 
@@ -1469,7 +1467,50 @@ void menuClienteAddCredito(AppStore& mieic) {
 }
 
 void menuCestoCompras(AppStore& mieic) {
+	system("cls");
 
+		unsigned int state = 1; // state = 1 is developer
+		int opcao = 0;
+
+		for (;;) {
+			system("cls");
+			porDataNoCanto(mieic.DataAtual(), 1, 23);
+			cout << "  Cesto de Compras  " << endl << endl;
+
+			if (opcao == 0)
+				cor(WHITE, BLACK);
+			cout << "  Remover app do cesto  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -1)
+				cor(WHITE, BLACK);
+			cout << "  Checkout das apps  " << endl;
+			cor(BLACK, WHITE);
+			if (opcao == -2)
+				cor(WHITE, LIGHT_RED);
+			cout << "  SAIR  " << endl;
+			cor(BLACK, WHITE);
+
+			opcao += teclas();
+			opcao = RestringeOpcaoTeclas(0, 4, opcao);
+
+			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+			{
+			case 0:          // 1a opcao
+				menuVisitaStore(mieic, state);
+				system("pause");
+				break;
+
+			case -1:          // 2a opcao
+				menuDeveloperGerirApps(mieic);
+				system("pause");
+				break;
+			case -2:          // 5a opcao
+				menuCliente(mieic);
+				system("pause");
+				break;
+
+			}
+		}
 }
 
 void menuHistoricoVendas(AppStore& mieic) {
@@ -2570,6 +2611,10 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					opcao_menu += teclas();
 					opcao_menu = RestringeOpcaoTeclas(0, 3, opcao_menu);
 
+					string comentario_str;
+					bool inputFail = false;
+					float progress = 0.0;
+					int i = 0;
 					switch (opcao_menu - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 					{
 					case 0:          // 1a opcao
@@ -2646,8 +2691,166 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 					case -1:          // 2a opcao
 
+						unsigned int classificacao;
+						char key;
+
+						while (1) {
+							system("cls");
+							cout
+									<< "  Escreva o seu comentario e classificacao para a App   "
+									<< endl << endl << endl;
+							cout << "  Comentario: " << comentario_str;
+
+							fflush(stdin);
+
+							key = _getch();
+
+							if (key == 13) {
+								if (comentario_str != "") {
+									break;
+								}
+							} else if (key == 8) {
+								// Backspace detected, delete last input character from string
+								if (comentario_str.length() > 0)
+									comentario_str = comentario_str.substr(0,
+											comentario_str.length() - 1);
+							} else {
+								if (key == 0 || key == 224) {
+									// An arrow or function key was pressed, run _getch again to remove the second return value from buffer
+									_getch();
+								} else if (key >= 32 && key <= 126) // It's a valid ASCII caracter
+									comentario_str += (char) key;
+							}
+						}
+
+						do {
+
+							system("cls");
+							cout
+									<< "  Escreva o seu comentario e classificacao para a App   "
+									<< endl << endl << endl;
+							cout << "  Comentario: " << comentario_str << endl;
+							cout << "  Classificacao: ";
+
+							cin >> classificacao;
+
+							inputFail = cin.fail();
+							if (classificacao < 1 || classificacao > 5)
+								inputFail = true;
+							cin.clear();  // da clear a flag do fail
+							cin.ignore(1000, '\n');
+						} while (inputFail == true);
+
+						system("cls");
+						cout
+								<< "  Escreva o seu comentario e classificacao para a App   "
+								<< endl << endl << endl;
+						cout << "  Comentario: " << comentario_str << endl;
+						cout << "  Classificacao: " << classificacao;
+						cout << endl << endl << endl;
+						cout
+								<< "  Prima (Enter) para validar ou (Esc) para regressar a lista de apps"
+								<< endl << endl;
+
+						cin.clear();
+
+						tecla = getch();
+						if (tecla != 0) {
+							while (tecla != 13 && tecla != 27) {
+								tecla = getch();
+							}
+						}
+						if (tecla == 13) {
+
+							Comentario comment(comentario_str, cli_act->getId(),
+									classificacao);
+
+							// a partir do id da app vai-se descobrir o indice da app no vetor
+							// do mieic.apps para poder adicionar o comentario diretamente
+							// nesse vetor
+							int id_da_app = apps_ordenadas[opcao_app].getId();
+
+							for (unsigned int j = 0; j < mieic.apps.size();
+									j++) {
+								if (id_da_app == mieic.apps[j].getId()) {
+									mieic.apps[j].addComentario(comment);
+									break;
+								}
+							}
+							// esta linha serve para o comentario atualizar imediatamente sem
+							// necessitar de sair da store
+							apps_ordenadas[opcao_app].addComentario(comment);
+
+							system("cls");
+							cout
+									<< "  Escreva o seu comentario e classificacao para a App   "
+									<< endl << endl << endl;
+							cout
+									<< "  Sucesso. Comentario adicionado a lista de comentarios da App. "
+									<< endl << endl;
+							cout
+									<< "  Prime (Enter) para regressar a lista de apps ";
+
+							tecla = getch();
+							if (tecla != 0) {
+								while (tecla != 13) {
+									tecla = getch();
+								}
+							}
+							menuVisitaStoreOrdenada(mieic, state,
+									apps_ordenadas, tipo_ordenacao);
+						}
+						if (tecla == 27) {
+							menuVisitaStoreOrdenada(mieic, state,
+									apps_ordenadas, tipo_ordenacao);
+						}
+
 						break;
 					case -2:
+						system("cls");
+						cout << "  Download " << endl << endl << endl;
+
+						while (progress <= 1.01) {
+							int barWidth = 70;
+
+							cout << "[";
+							int pos = barWidth * progress;
+							for (int i = 0; i < barWidth; ++i) {
+								if (i < pos)
+									cout << "=";
+								else if (i == pos)
+									cout << ">";
+								else
+									cout << " ";
+							}
+							cout << "] " << int(progress * 100.0) << " %\r";
+							cout.flush();
+
+							progress += 0.01; // for demonstration only
+							Sleep(50);
+						}
+						cout << endl;
+
+						while (i < 100) {
+							ungetch(13);
+							i++;
+						}
+
+						cout
+								<< "  Download efetuado! Prima (Enter) para regressar.";
+
+						fflush(stdin);
+						cin.ignore(10000, '\n');
+
+						tecla = getch();
+						if (tecla != 0) {
+							while (tecla != 13) {
+								tecla = getch();
+							}
+						}
+						menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
+								tipo_ordenacao);
+
 						break;
 					case -3:
 						menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
@@ -2681,6 +2884,8 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					opcao_menu += teclas();
 					opcao_menu = RestringeOpcaoTeclas(0, 2, opcao_menu);
 
+					bool ja_existe_no_cesto = false;
+					vector<int> cesto_temp = cli_act->getCesto();
 					switch (opcao_menu - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 					{
 					case 0:
@@ -2754,6 +2959,54 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 						break;
 					case -1:
+
+						// percorre o cesto e verifica se a app ja la esta
+						for (unsigned int l = 0; l < cesto_temp.size(); l++) {
+							if (cesto_temp[l]
+									== apps_ordenadas[opcao_app].getId()) {
+								ja_existe_no_cesto = true;
+								break;
+							}
+							ja_existe_no_cesto = false;
+						}
+
+						if (!ja_existe_no_cesto) {
+							// adiciona ao cesto do cliente atual a app que estava a ver
+							cli_act->adicionaAppCesto(
+									apps_ordenadas[opcao_app].getId());
+
+							system("cls");
+							cout << "  Cesto de Compras " << endl << endl
+									<< endl;
+							cout
+									<< "  App adicionada ao cesto! Prima (Enter) para regressar."
+									<< endl;
+
+							tecla = getch();
+							if (tecla != 0) {
+								while (tecla != 13) {
+									tecla = getch();
+								}
+							}
+							menuVisitaStoreOrdenada(mieic, state,
+									apps_ordenadas, tipo_ordenacao);
+						} else if (ja_existe_no_cesto) {
+							system("cls");
+							cout << "  Cesto de Compras " << endl << endl
+									<< endl;
+							cout
+									<< "  App ja pertencia ao cesto. Prima (Enter) para regressar."
+									<< endl;
+
+							tecla = getch();
+														if (tecla != 0) {
+															while (tecla != 13) {
+																tecla = getch();
+															}
+														}
+														menuVisitaStoreOrdenada(mieic, state,
+																apps_ordenadas, tipo_ordenacao);
+						}
 						break;
 					case -2:
 						menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
@@ -2964,11 +3217,7 @@ void menuVerCli(AppStore& mieic) {
 	cout << "  Sexo: " << cli_act->getSexo() << endl;
 	cout << "  Nr. Cartao de Credito: " << "*********" << endl;
 	cout << "  Nr. de Vouchers disponiveis: " << cli_act->getVouchers() << endl;
-	cout << " O historico de vendas com os pointers ";
-	if(cli_act->historicoVazio())
-		cout<<" esta vazio";
-	else
-		cout << " tem algo";
+
 	int tecla;
 	tecla = getch();
 	if (tecla != 0) {
@@ -3384,7 +3633,7 @@ void menuModificarApp(AppStore& mieic) {
 								menuModificarApp(mieic);
 							}
 
-						} else if (tecla2 == 27) {  // se o user premir (Esc)
+						} else if (tecla2 == 27) { // se o user premir (Esc)
 							menuModificarApp(mieic);
 						}
 					case -1:          // 1a opcao
@@ -3427,7 +3676,7 @@ void menuModificarApp(AppStore& mieic) {
 								menuModificarApp(mieic);
 							}
 
-						} else if (tecla2 == 27) {  // se o user premir (Esc)
+						} else if (tecla2 == 27) { // se o user premir (Esc)
 							menuModificarApp(mieic);
 						}
 						break;
@@ -3472,7 +3721,7 @@ void menuModificarApp(AppStore& mieic) {
 								menuModificarApp(mieic);
 							}
 
-						} else if (tecla2 == 27) {  // se o user premir (Esc)
+						} else if (tecla2 == 27) { // se o user premir (Esc)
 							menuModificarApp(mieic);
 						}
 						break;
@@ -3519,7 +3768,7 @@ void menuModificarApp(AppStore& mieic) {
 								menuModificarApp(mieic);
 							}
 
-						} else if (tecla2 == 27) {  // se o user premir (Esc)
+						} else if (tecla2 == 27) { // se o user premir (Esc)
 							menuModificarApp(mieic);
 						}
 					case -4:          // 5a opcao

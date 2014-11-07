@@ -42,6 +42,7 @@ public:
 	int getId() const;
 	unsigned int getIdade() const;
 	string getNome() const;
+	vector<int> getCesto() const;
 	bool adicionaAppCesto(int app_id);
 	bool eliminaAppCesto(unsigned int i);
 	float getSaldo() const;
