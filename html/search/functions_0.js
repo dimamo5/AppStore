@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_3c',['operator&lt;',['../class_date.html#a691bafd5bba9540f3c540f7327a758c2',1,'Date']]],
-  ['operator_3e',['operator&gt;',['../class_date.html#a0bd06d545842c948cdca8ccc60d7d68d',1,'Date']]]
+  ['app',['App',['../class_app.html#ae491b91a0a622aa5f78559403b83e0df',1,'App::App(string nome, string categoria, string descricao, double preco)'],['../class_app.html#a77f4deed2edae59b74f5aca757c1368a',1,'App::App(unsigned int id, string nome, string categoria, string descricao, double preco, double classificacao_final, int num_classificacoes)']]]
 ];
