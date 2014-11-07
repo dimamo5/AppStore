@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,9 +96,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a82262941ae2af8e2527d1859ebc7f5cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82262941ae2af8e2527d1859ebc7f5cd"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Vendas</b> (float preco, <a class="el" href="class_date.html">Date</a> data_venda)</td></tr>
 <tr class="separator:a82262941ae2af8e2527d1859ebc7f5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84f1ab71befc84a221bc4961f11cb934"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84f1ab71befc84a221bc4961f11cb934"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Vendas</b> (int id, float preco, <a class="el" href="class_date.html">Date</a> data_venda, bool retorno, string reclamacao)</td></tr>
-<tr class="separator:a84f1ab71befc84a221bc4961f11cb934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a770db3bf09757d984d4335eae6b25802"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a770db3bf09757d984d4335eae6b25802"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Vendas</b> (int id, float preco, <a class="el" href="class_date.html">Date</a> data_venda, bool retorno, bool app_apagada, int id_app_vendida, string reclamacao, string app_removida_nome)</td></tr>
+<tr class="separator:a770db3bf09757d984d4335eae6b25802"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e36a98494bec3b57d90afa0536a1be5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e36a98494bec3b57d90afa0536a1be5"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
 <tr class="separator:a7e36a98494bec3b57d90afa0536a1be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,15 +108,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getPreco</b> () cons
 <tr class="memitem:ab4f3bd058d7cfe6fc837e7804b9b3dcf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4f3bd058d7cfe6fc837e7804b9b3dcf"></a>
 <a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getData</b> () const </td></tr>
 <tr class="separator:ab4f3bd058d7cfe6fc837e7804b9b3dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab900328b9ac3c5e072ad6d7a42f530a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab900328b9ac3c5e072ad6d7a42f530a3"></a>
-<a class="el" href="class_app.html">App</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getApp</b> () const </td></tr>
-<tr class="separator:ab900328b9ac3c5e072ad6d7a42f530a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb3fa665d5c3aaf74caf7c1f024f545c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeb3fa665d5c3aaf74caf7c1f024f545c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setApp</b> (<a class="el" href="class_app.html">App</a> *app)</td></tr>
-<tr class="separator:aeb3fa665d5c3aaf74caf7c1f024f545c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a558102d2f9a43bd42bffcdbdd5289555"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a558102d2f9a43bd42bffcdbdd5289555"></a>
-<a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getDataVenda</b> () const </td></tr>
-<tr class="separator:a558102d2f9a43bd42bffcdbdd5289555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26578f098712d9ff4cca17e0d8ac86ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26578f098712d9ff4cca17e0d8ac86ab"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getAppId</b> () const </td></tr>
+<tr class="separator:a26578f098712d9ff4cca17e0d8ac86ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a23da44b124f50b3e73e5f568046695"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a23da44b124f50b3e73e5f568046695"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNextId</b> () const </td></tr>
 <tr class="separator:a3a23da44b124f50b3e73e5f568046695"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +123,24 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRetorno</b> () cons
 <tr class="memitem:ac5bf776bb0b33835e5a3d8728db851fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5bf776bb0b33835e5a3d8728db851fc"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>reclamar</b> (string reclamacao)</td></tr>
 <tr class="separator:ac5bf776bb0b33835e5a3d8728db851fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abde676427ad64a74b541df93296c7479"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abde676427ad64a74b541df93296c7479"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>getAppApagada</b> () const </td></tr>
+<tr class="separator:abde676427ad64a74b541df93296c7479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a683753180c7f1e4914a4dd65a143bbb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a683753180c7f1e4914a4dd65a143bbb9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAppApagada</b> (bool value)</td></tr>
+<tr class="separator:a683753180c7f1e4914a4dd65a143bbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa947fe71f5a490a0e7de5c0bc3935f03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa947fe71f5a490a0e7de5c0bc3935f03"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>getAppVendidaNome</b> () const </td></tr>
+<tr class="separator:aa947fe71f5a490a0e7de5c0bc3935f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59eceff4e8b258dfbe6ba62518de11f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a59eceff4e8b258dfbe6ba62518de11f6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>getAppVendidaId</b> () const </td></tr>
+<tr class="separator:a59eceff4e8b258dfbe6ba62518de11f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63d71d63281a1984b95091b77fe76bd2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a63d71d63281a1984b95091b77fe76bd2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAppVendidaId</b> (int id)</td></tr>
+<tr class="separator:a63d71d63281a1984b95091b77fe76bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d3312e8ad12ccde515ae6c5b1788beb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d3312e8ad12ccde515ae6c5b1788beb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAppVendidaNome</b> (string appRemovidaNome)</td></tr>
+<tr class="separator:a1d3312e8ad12ccde515ae6c5b1788beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -141,7 +155,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setNextId</b> 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:33 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:42 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

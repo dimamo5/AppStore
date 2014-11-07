@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,30 +89,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p>This is the complete list of members for <a class="el" href="class_empresa.html">Empresa</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Developer</b>(string nome, string id_pass) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Developer</b>(int id, string nome, double saldo, string id_pass) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Empresa</b>(string nome, string id_pass, string NIF) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Empresa</b>(int id, string nome, double saldo, string id_pass, string NIF) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Developer</b>(string nome, string id_pass, string morada) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Developer</b>(int id, string nome, double saldo, string id_pass, string morada) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Empresa</b>(string nome, string id_pass, string morada, string NIF, string NomeEmpresa) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Empresa</b>(int id, string nome, double saldo, string id_pass, string morada, string NIF, string NomeEmpresa) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getExtra</b>() const  (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getId</b>() const  (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getIdPass</b>() const  (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getNextId</b>() const  (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getMorada</b>() const  (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getNextId</b>() const  (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getNIF</b>() const  (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getNome</b>() const  (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getSaldo</b>() const  (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getType</b>() const  (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>id</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>id_pass</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>next_id</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">static</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>nome</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>saldo</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setExtra</b>(string info) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setId</b>(int id) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setNextID</b>(unsigned int i) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>id</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>id_pass</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>isEmpresa</b>() (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>morada</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>next_id</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>nome</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>saldo</b> (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setExtra</b>(string info) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setId</b>(int id) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setIdPass</b>(string id_pass) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setMorada</b>(string morada) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setNextID</b>(unsigned int i) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setNIF</b>(string nif) (defined in <a class="el" href="class_empresa.html">Empresa</a>)</td><td class="entry"><a class="el" href="class_empresa.html">Empresa</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setSaldo</b>(unsigned int s) (defined in <a class="el" href="class_developer.html">Developer</a>)</td><td class="entry"><a class="el" href="class_developer.html">Developer</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:33 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:42 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

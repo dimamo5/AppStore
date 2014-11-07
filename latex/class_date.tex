@@ -43,14 +43,9 @@
 \hypertarget{class_date_a5b5824086305fb1da07e18b78646f755}{string {\bfseries imprime\+Data} () const }\label{class_date_a5b5824086305fb1da07e18b78646f755}
 
 \item 
-\hypertarget{class_date_a95be256ae75e67109d5352728c4d9028}{string {\bfseries imprime\+Hora} () const }\label{class_date_a95be256ae75e67109d5352728c4d9028}
-
+bool \hyperlink{class_date_a691bafd5bba9540f3c540f7327a758c2}{operator$<$} (const \hyperlink{class_date}{Date} \&) const 
 \item 
-\hypertarget{class_date_a691bafd5bba9540f3c540f7327a758c2}{bool {\bfseries operator$<$} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a691bafd5bba9540f3c540f7327a758c2}
-
-\item 
-\hypertarget{class_date_a0bd06d545842c948cdca8ccc60d7d68d}{bool {\bfseries operator$>$} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a0bd06d545842c948cdca8ccc60d7d68d}
-
+bool \hyperlink{class_date_a0bd06d545842c948cdca8ccc60d7d68d}{operator$>$} (const \hyperlink{class_date}{Date} \&) const 
 \item 
 \hypertarget{class_date_ad54d8e4b8f2ad6df8eda3b8615c3c0b2}{bool {\bfseries operator==} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_ad54d8e4b8f2ad6df8eda3b8615c3c0b2}
 
@@ -61,6 +56,39 @@
 \hypertarget{class_date_ae4802fa52cf81f1a259b4a3b88bffc0d}{bool {\bfseries operator$>$=} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_ae4802fa52cf81f1a259b4a3b88bffc0d}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_date_a691bafd5bba9540f3c540f7327a758c2}{\index{Date@{Date}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Date@{Date}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Date} \&}]{dat}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a691bafd5bba9540f3c540f7327a758c2}
+Overload operador $<$ para classe \hyperlink{class_date}{Date} 
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se menor-\/false se maior 
+\end{DoxyReturn}
+\hypertarget{class_date_a0bd06d545842c948cdca8ccc60d7d68d}{\index{Date@{Date}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Date@{Date}}
+\subsubsection[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Date} \&}]{dat}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a0bd06d545842c948cdca8ccc60d7d68d}
+Overload operador $>$ para classe \hyperlink{class_date}{Date} 
+\begin{DoxyParams}{Parameters}
+{\em data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se maior-\/false se menor 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

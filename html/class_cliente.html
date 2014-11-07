@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,6 +114,12 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getIdade</b> 
 <tr class="memitem:a0325de899469e2fed48ffda2b5b291cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0325de899469e2fed48ffda2b5b291cf"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getNome</b> () const </td></tr>
 <tr class="separator:a0325de899469e2fed48ffda2b5b291cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3840fd9746f6d047a519fd63d14d9e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3840fd9746f6d047a519fd63d14d9e4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>adicionaAppCesto</b> (int app_id)</td></tr>
+<tr class="separator:ae3840fd9746f6d047a519fd63d14d9e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e8ccf7381214170da3c8c1e5b0bfde1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9e8ccf7381214170da3c8c1e5b0bfde1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>eliminaAppCesto</b> (unsigned int i)</td></tr>
+<tr class="separator:a9e8ccf7381214170da3c8c1e5b0bfde1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac91943541afd55e1b8e7d3139197b3b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac91943541afd55e1b8e7d3139197b3b0"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getSaldo</b> () const </td></tr>
 <tr class="separator:ac91943541afd55e1b8e7d3139197b3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +144,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeVoucher</b> ()<
 <tr class="memitem:a78fe91598a0632e05d09c9341c4b0716"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78fe91598a0632e05d09c9341c4b0716"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setSaldo</b> (float saldo)</td></tr>
 <tr class="separator:a78fe91598a0632e05d09c9341c4b0716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90e6e08c252e4eee99858af9f9b4eb99"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90e6e08c252e4eee99858af9f9b4eb99"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCartao</b> (int cartao_credito)</td></tr>
+<tr class="separator:a90e6e08c252e4eee99858af9f9b4eb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e51d7c8aef74564f7e9770cd12b7fcf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e51d7c8aef74564f7e9770cd12b7fcf"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getSexo</b> () const </td></tr>
 <tr class="separator:a5e51d7c8aef74564f7e9770cd12b7fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +159,9 @@ vector&lt; <a class="el" href="class_vendas.html">Vendas</a> * &gt;&#160;</td><t
 <tr class="memitem:a340b3c4b25009f1020984743eb371208"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a340b3c4b25009f1020984743eb371208"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setHistorico</b> (vector&lt; <a class="el" href="class_vendas.html">Vendas</a> * &gt; v)</td></tr>
 <tr class="separator:a340b3c4b25009f1020984743eb371208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a452fdbf8832d1f7dd89a76b876aed67d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a452fdbf8832d1f7dd89a76b876aed67d"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>jaComprou</b> (<a class="el" href="class_app.html">App</a> app_option)</td></tr>
+<tr class="separator:a452fdbf8832d1f7dd89a76b876aed67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -162,7 +176,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setNextID</b> 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:40 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

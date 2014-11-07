@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,12 +92,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>apps</b> (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>AppStore</b>() (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>clientes</b> (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>data_atual</b> (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>DataAtual</b>() (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>dev</b> (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>existeNomeDev</b>(string nome) const  (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>existeNomeApp</b>(string nome) const  (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>existeNomeDev</b>(string nome) const  (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>existeNomeDevEmp</b>(string nome_dev, string nome_oficial) const  (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>find_app_id</b>(unsigned int id) (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>find_cliente_id</b>(unsigned int id) (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>find_dev_id</b>(unsigned int id) const  (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>find_vendas_id</b>(unsigned int id) (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>getApps</b>(Developer *dev_act) (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getNrApps</b>(Developer *dev_act) (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>load_all</b>() (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>load_app</b>(fstream &amp;file) (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>load_clientes</b>(fstream &amp;file) (defined in <a class="el" href="class_app_store.html">AppStore</a>)</td><td class="entry"><a class="el" href="class_app_store.html">AppStore</a></td><td class="entry"></td></tr>
@@ -112,7 +120,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:40 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

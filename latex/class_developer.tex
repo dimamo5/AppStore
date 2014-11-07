@@ -10,10 +10,10 @@ Inheritance diagram for Developer\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_developer_abc9b3e48c4a74a074a9a236a58cd76d4}{{\bfseries Developer} (string nome, string id\+\_\+pass)}\label{class_developer_abc9b3e48c4a74a074a9a236a58cd76d4}
+\hypertarget{class_developer_ae4f4db0c4c035986c4f79d95e1e10625}{{\bfseries Developer} (string nome, string id\+\_\+pass, string morada)}\label{class_developer_ae4f4db0c4c035986c4f79d95e1e10625}
 
 \item 
-\hypertarget{class_developer_a6db6c9b58043644f773bd39cf8d0207a}{{\bfseries Developer} (int id, string nome, double saldo, string id\+\_\+pass)}\label{class_developer_a6db6c9b58043644f773bd39cf8d0207a}
+\hypertarget{class_developer_a2d288a82267b7ac9c52b2f42011277e5}{{\bfseries Developer} (int id, string nome, double saldo, string id\+\_\+pass, string morada)}\label{class_developer_a2d288a82267b7ac9c52b2f42011277e5}
 
 \item 
 \hypertarget{class_developer_a45a0742f3889353f6d17f1f92cb9060f}{string {\bfseries get\+Nome} () const }\label{class_developer_a45a0742f3889353f6d17f1f92cb9060f}
@@ -25,13 +25,25 @@ Inheritance diagram for Developer\+:\begin{figure}[H]
 \hypertarget{class_developer_a6d56d8bd26ad1df91a2b29ce87e504e4}{void {\bfseries set\+Saldo} (unsigned int s)}\label{class_developer_a6d56d8bd26ad1df91a2b29ce87e504e4}
 
 \item 
-\hypertarget{class_developer_aeb475466479de236692d58dfde6ac191}{virtual string {\bfseries get\+Type} () const =0}\label{class_developer_aeb475466479de236692d58dfde6ac191}
+\hypertarget{class_developer_a523b1e80d0c888db3055e34976bfe36d}{virtual string {\bfseries get\+Morada} () const =0}\label{class_developer_a523b1e80d0c888db3055e34976bfe36d}
+
+\item 
+\hypertarget{class_developer_a3fd6a92281dedc259d9c1a1069808273}{virtual bool {\bfseries set\+Morada} (string morada)=0}\label{class_developer_a3fd6a92281dedc259d9c1a1069808273}
 
 \item 
 \hypertarget{class_developer_a38d348d3bb05d3505222bee95c29b2f5}{virtual string {\bfseries get\+Extra} () const =0}\label{class_developer_a38d348d3bb05d3505222bee95c29b2f5}
 
 \item 
+\hypertarget{class_developer_a2ee5f2e93f589ce1ab5a9a615623ae4a}{virtual string {\bfseries get\+N\+I\+F} () const =0}\label{class_developer_a2ee5f2e93f589ce1ab5a9a615623ae4a}
+
+\item 
+\hypertarget{class_developer_a59f76d61fc8548eb227df5c9bbd9984a}{virtual bool {\bfseries set\+N\+I\+F} (string nif)=0}\label{class_developer_a59f76d61fc8548eb227df5c9bbd9984a}
+
+\item 
 \hypertarget{class_developer_affa6ed0c90caf781a20d6fb32940f092}{virtual void {\bfseries set\+Extra} (string info)=0}\label{class_developer_affa6ed0c90caf781a20d6fb32940f092}
+
+\item 
+\hypertarget{class_developer_aa77ea0a6dd6234c5d724c28c1971aa4e}{virtual bool {\bfseries is\+Empresa} ()=0}\label{class_developer_aa77ea0a6dd6234c5d724c28c1971aa4e}
 
 \item 
 \hypertarget{class_developer_a62488b1ca4ddd82fc0797d3de0123bde}{int {\bfseries get\+Id} () const }\label{class_developer_a62488b1ca4ddd82fc0797d3de0123bde}
@@ -41,6 +53,9 @@ Inheritance diagram for Developer\+:\begin{figure}[H]
 
 \item 
 \hypertarget{class_developer_a8e5fdafcd4f78c1ea913e2dc09086caa}{string {\bfseries get\+Id\+Pass} () const }\label{class_developer_a8e5fdafcd4f78c1ea913e2dc09086caa}
+
+\item 
+\hypertarget{class_developer_ad1a95c48872bc06136dd787cdc39e6fe}{void {\bfseries set\+Id\+Pass} (string id\+\_\+pass)}\label{class_developer_ad1a95c48872bc06136dd787cdc39e6fe}
 
 \item 
 \hypertarget{class_developer_a89801e2863c0548f539beb3077e4f6fc}{unsigned int {\bfseries get\+Next\+Id} () const }\label{class_developer_a89801e2863c0548f539beb3077e4f6fc}
@@ -65,6 +80,9 @@ Inheritance diagram for Developer\+:\begin{figure}[H]
 
 \item 
 \hypertarget{class_developer_a2747bee58df1c3c0a74a7932d1cb8d3e}{string {\bfseries id\+\_\+pass}}\label{class_developer_a2747bee58df1c3c0a74a7932d1cb8d3e}
+
+\item 
+\hypertarget{class_developer_af0287828e5cc0be78ee1d9b140405ff0}{string {\bfseries morada}}\label{class_developer_af0287828e5cc0be78ee1d9b140405ff0}
 
 \end{DoxyCompactItemize}
 \subsection*{Static Protected Attributes}

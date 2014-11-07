@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -109,9 +111,6 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getClassificacaoFin
 <tr class="memitem:a55940da54fefa49300678f6ce87eeb04"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a55940da54fefa49300678f6ce87eeb04"></a>
 vector&lt; <a class="el" href="class_comentario.html">Comentario</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getComentarios</b> () const </td></tr>
 <tr class="separator:a55940da54fefa49300678f6ce87eeb04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5618097d1b98a8482e3b179139d9b8be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5618097d1b98a8482e3b179139d9b8be"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>get_id</b> () const </td></tr>
-<tr class="separator:a5618097d1b98a8482e3b179139d9b8be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dcf86011e3b1e8dc8d027f4b4b4b253"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2dcf86011e3b1e8dc8d027f4b4b4b253"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getDescricao</b> () const </td></tr>
 <tr class="separator:a2dcf86011e3b1e8dc8d027f4b4b4b253"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +126,12 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getPreco</b> () con
 <tr class="memitem:ab9723a9ef1383d41b9960e07de4c5691"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9723a9ef1383d41b9960e07de4c5691"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPreco</b> (double p)</td></tr>
 <tr class="separator:ab9723a9ef1383d41b9960e07de4c5691"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a779936463595bd7babe3fabdd3b81530"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a779936463595bd7babe3fabdd3b81530"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setNome</b> (string nome)</td></tr>
+<tr class="separator:a779936463595bd7babe3fabdd3b81530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add85e6926cb052edac84f210889df476"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add85e6926cb052edac84f210889df476"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setCategoria</b> (string categoria)</td></tr>
+<tr class="separator:add85e6926cb052edac84f210889df476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40d8afcc9663054f4f5445a37dfd542d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40d8afcc9663054f4f5445a37dfd542d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setComentarios</b> (const vector&lt; <a class="el" href="class_comentario.html">Comentario</a> &gt; &amp;comentarios)</td></tr>
 <tr class="separator:a40d8afcc9663054f4f5445a37dfd542d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,7 +167,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>setNextId</b> 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:40 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

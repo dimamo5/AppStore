@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,9 +90,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>This is the complete list of members for <a class="el" href="class_cliente.html">Cliente</a>, including all inherited members.</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>addVoucher</b>() (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>adicionarVenda</b>(Vendas *v) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Cliente</b>(int id, string nome, unsigned int idade, string sexo, int cartao_credito, float saldo, unsigned int nr_vouchers, string id_pass) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Cliente</b>(string nome, unsigned int idade, string sexo, int cartao_credito, string id_pass) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>adicionaAppCesto</b>(int app_id) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>adicionarVenda</b>(Vendas *v) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Cliente</b>(int id, string nome, unsigned int idade, string sexo, int cartao_credito, float saldo, unsigned int nr_vouchers, string id_pass) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Cliente</b>(string nome, unsigned int idade, string sexo, int cartao_credito, string id_pass) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>eliminaAppCesto</b>(unsigned int i) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getCartaoCredito</b>() const  (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getHistorico</b>() const  (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getId</b>() const  (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
@@ -101,7 +105,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getSaldo</b>() const  (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getSexo</b>() const  (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getVouchers</b>() const  (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>removeVoucher</b>() (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>jaComprou</b>(App app_option) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>removeVoucher</b>() (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setCartao</b>(int cartao_credito) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setHistorico</b>(vector&lt; Vendas * &gt; v) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setIdPass</b>(string id_pass) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setNextID</b>(unsigned int i) (defined in <a class="el" href="class_cliente.html">Cliente</a>)</td><td class="entry"><a class="el" href="class_cliente.html">Cliente</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
@@ -110,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:41 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

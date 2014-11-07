@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,28 +101,40 @@ Inheritance diagram for Empresa:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a340762d9313904da4b41b722ea63935e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a340762d9313904da4b41b722ea63935e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Empresa</b> (string nome, string id_pass, string NIF)</td></tr>
-<tr class="separator:a340762d9313904da4b41b722ea63935e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc6cc9b9831e31ede97e4505e0446280"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc6cc9b9831e31ede97e4505e0446280"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Empresa</b> (int id, string nome, double saldo, string id_pass, string NIF)</td></tr>
-<tr class="separator:acc6cc9b9831e31ede97e4505e0446280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5251256f7e8fdaca8857bde0323a75c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5251256f7e8fdaca8857bde0323a75c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Empresa</b> (string nome, string id_pass, string morada, string NIF, string NomeEmpresa)</td></tr>
+<tr class="separator:ab5251256f7e8fdaca8857bde0323a75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2bbc40fff2c297a56dc73deb9202ae3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae2bbc40fff2c297a56dc73deb9202ae3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Empresa</b> (int id, string nome, double saldo, string id_pass, string morada, string NIF, string NomeEmpresa)</td></tr>
+<tr class="separator:ae2bbc40fff2c297a56dc73deb9202ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0c678ba135778e8c62ba4944a68e925"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0c678ba135778e8c62ba4944a68e925"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getExtra</b> () const </td></tr>
 <tr class="separator:ac0c678ba135778e8c62ba4944a68e925"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85c63a96090672cbc2a572865ec20f44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85c63a96090672cbc2a572865ec20f44"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> () const </td></tr>
-<tr class="separator:a85c63a96090672cbc2a572865ec20f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a637ca93cd186c92c08d052182883dad6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a637ca93cd186c92c08d052182883dad6"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>getNIF</b> () const </td></tr>
+<tr class="separator:a637ca93cd186c92c08d052182883dad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfda583f23a4374fe6a9602cb9322992"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfda583f23a4374fe6a9602cb9322992"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>getMorada</b> () const </td></tr>
+<tr class="separator:acfda583f23a4374fe6a9602cb9322992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab6d20d5d48259da372efb149edf4f0c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab6d20d5d48259da372efb149edf4f0c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setMorada</b> (string morada)</td></tr>
+<tr class="separator:aab6d20d5d48259da372efb149edf4f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4dc3fdd2a56f820063e7b67282e6e5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4dc3fdd2a56f820063e7b67282e6e5f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>setNIF</b> (string nif)</td></tr>
+<tr class="separator:ac4dc3fdd2a56f820063e7b67282e6e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6923e466ff3289e0bfb2e777ef41ee9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6923e466ff3289e0bfb2e777ef41ee9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setExtra</b> (string info)</td></tr>
 <tr class="separator:ad6923e466ff3289e0bfb2e777ef41ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8f46765b750fac2520ad6d4068b9beb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8f46765b750fac2520ad6d4068b9beb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isEmpresa</b> ()</td></tr>
+<tr class="separator:ae8f46765b750fac2520ad6d4068b9beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_developer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_developer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_developer.html">Developer</a></td></tr>
-<tr class="memitem:abc9b3e48c4a74a074a9a236a58cd76d4 inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc9b3e48c4a74a074a9a236a58cd76d4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Developer</b> (string nome, string id_pass)</td></tr>
-<tr class="separator:abc9b3e48c4a74a074a9a236a58cd76d4 inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6db6c9b58043644f773bd39cf8d0207a inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6db6c9b58043644f773bd39cf8d0207a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Developer</b> (int id, string nome, double saldo, string id_pass)</td></tr>
-<tr class="separator:a6db6c9b58043644f773bd39cf8d0207a inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f4db0c4c035986c4f79d95e1e10625 inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4f4db0c4c035986c4f79d95e1e10625"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Developer</b> (string nome, string id_pass, string morada)</td></tr>
+<tr class="separator:ae4f4db0c4c035986c4f79d95e1e10625 inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d288a82267b7ac9c52b2f42011277e5 inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d288a82267b7ac9c52b2f42011277e5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Developer</b> (int id, string nome, double saldo, string id_pass, string morada)</td></tr>
+<tr class="separator:a2d288a82267b7ac9c52b2f42011277e5 inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45a0742f3889353f6d17f1f92cb9060f inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45a0742f3889353f6d17f1f92cb9060f"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getNome</b> () const </td></tr>
 <tr class="separator:a45a0742f3889353f6d17f1f92cb9060f inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -139,6 +153,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (int id)</t
 <tr class="memitem:a8e5fdafcd4f78c1ea913e2dc09086caa inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e5fdafcd4f78c1ea913e2dc09086caa"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getIdPass</b> () const </td></tr>
 <tr class="separator:a8e5fdafcd4f78c1ea913e2dc09086caa inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1a95c48872bc06136dd787cdc39e6fe inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad1a95c48872bc06136dd787cdc39e6fe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setIdPass</b> (string id_pass)</td></tr>
+<tr class="separator:ad1a95c48872bc06136dd787cdc39e6fe inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89801e2863c0548f539beb3077e4f6fc inherit pub_methods_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89801e2863c0548f539beb3077e4f6fc"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNextId</b> () const </td></tr>
 <tr class="separator:a89801e2863c0548f539beb3077e4f6fc inherit pub_methods_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,6 +179,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>saldo</b> =0</td></
 <tr class="memitem:a2747bee58df1c3c0a74a7932d1cb8d3e inherit pro_attribs_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2747bee58df1c3c0a74a7932d1cb8d3e"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>id_pass</b></td></tr>
 <tr class="separator:a2747bee58df1c3c0a74a7932d1cb8d3e inherit pro_attribs_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0287828e5cc0be78ee1d9b140405ff0 inherit pro_attribs_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0287828e5cc0be78ee1d9b140405ff0"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>morada</b></td></tr>
+<tr class="separator:af0287828e5cc0be78ee1d9b140405ff0 inherit pro_attribs_class_developer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_static_attribs_class_developer"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_class_developer')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="class_developer.html">Developer</a></td></tr>
 <tr class="memitem:a54dcfbe646de46842a473b19ff56a3fd inherit pro_static_attribs_class_developer"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54dcfbe646de46842a473b19ff56a3fd"></a>
 static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_id</b> = 1</td></tr>
@@ -174,7 +194,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_i
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:33 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:41 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

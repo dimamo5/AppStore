@@ -58,9 +58,9 @@ public:
 	 */
 	bool operator<(const Date&) const;
 	/**
-	 *
-	 * @param
-	 * @return
+	 *	Overload operador > para classe Date
+	 * @param data
+	 * @return true se maior-false se menor
 	 */
 	bool operator>(const Date&) const;
 	bool operator==(const Date&) const;

@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -129,14 +131,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>setYear</b> (unsigned
 <tr class="memitem:a5b5824086305fb1da07e18b78646f755"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b5824086305fb1da07e18b78646f755"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>imprimeData</b> () const </td></tr>
 <tr class="separator:a5b5824086305fb1da07e18b78646f755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95be256ae75e67109d5352728c4d9028"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95be256ae75e67109d5352728c4d9028"></a>
-string&#160;</td><td class="memItemRight" valign="bottom"><b>imprimeHora</b> () const </td></tr>
-<tr class="separator:a95be256ae75e67109d5352728c4d9028"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a691bafd5bba9540f3c540f7327a758c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a691bafd5bba9540f3c540f7327a758c2"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
+<tr class="memitem:a691bafd5bba9540f3c540f7327a758c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#a691bafd5bba9540f3c540f7327a758c2">operator&lt;</a> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
 <tr class="separator:a691bafd5bba9540f3c540f7327a758c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bd06d545842c948cdca8ccc60d7d68d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bd06d545842c948cdca8ccc60d7d68d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
+<tr class="memitem:a0bd06d545842c948cdca8ccc60d7d68d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date.html#a0bd06d545842c948cdca8ccc60d7d68d">operator&gt;</a> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
 <tr class="separator:a0bd06d545842c948cdca8ccc60d7d68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad54d8e4b8f2ad6df8eda3b8615c3c0b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad54d8e4b8f2ad6df8eda3b8615c3c0b2"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
@@ -148,6 +145,53 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;=</b> (co
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="class_date.html">Date</a> &amp;) const </td></tr>
 <tr class="separator:ae4802fa52cf81f1a259b4a3b88bffc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a691bafd5bba9540f3c540f7327a758c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Date::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_date.html">Date</a> &amp;&#160;</td>
+          <td class="paramname"><em>dat</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Overload operador &lt; para classe <a class="el" href="class_date.html">Date</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se menor-false se maior </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0bd06d545842c948cdca8ccc60d7d68d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Date::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_date.html">Date</a> &amp;&#160;</td>
+          <td class="paramname"><em>dat</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Overload operador &gt; para classe <a class="el" href="class_date.html">Date</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se maior-false se menor </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_date_8h_source.html">Date.h</a></li>
 <li>src/Date.cpp</li>
@@ -155,7 +199,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;=</b> (co
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:41 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

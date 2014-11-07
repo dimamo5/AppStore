@@ -23,6 +23,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname">AppStore
+   &#160;<span id="projectnumber">1.0</span>
    </div>
   </td>
  </tr>
@@ -62,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,6 +93,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ac89c1f1d006b53ba99661a4c5fccfce1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac89c1f1d006b53ba99661a4c5fccfce1"></a>
+<a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DataAtual</b> ()</td></tr>
+<tr class="separator:ac89c1f1d006b53ba99661a4c5fccfce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a846404e97e4d559aafdb52be79cea7c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a846404e97e4d559aafdb52be79cea7c7"></a>
 <a class="el" href="class_developer.html">Developer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_dev_id</b> (unsigned int id) const </td></tr>
 <tr class="separator:a846404e97e4d559aafdb52be79cea7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,9 +108,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad27a968e34cfe98fceca2b78fe1b2b70"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad27a968e34cfe98fceca2b78fe1b2b70"></a>
 <a class="el" href="class_vendas.html">Vendas</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_vendas_id</b> (unsigned int id)</td></tr>
 <tr class="separator:ad27a968e34cfe98fceca2b78fe1b2b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72f40c3c07e2207d9157533426d64ceb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72f40c3c07e2207d9157533426d64ceb"></a>
+vector&lt; <a class="el" href="class_app.html">App</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getApps</b> (<a class="el" href="class_developer.html">Developer</a> *dev_act)</td></tr>
+<tr class="separator:a72f40c3c07e2207d9157533426d64ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae62d409b52edfc19e35f0388a26d9911"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae62d409b52edfc19e35f0388a26d9911"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNrApps</b> (<a class="el" href="class_developer.html">Developer</a> *dev_act)</td></tr>
+<tr class="separator:ae62d409b52edfc19e35f0388a26d9911"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3332b74ff7a7afea68b2834ffe1cdd58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3332b74ff7a7afea68b2834ffe1cdd58"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>existeNomeDev</b> (string nome) const </td></tr>
 <tr class="separator:a3332b74ff7a7afea68b2834ffe1cdd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d4c84aab2fdbbfb28f53f17a40fb2ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d4c84aab2fdbbfb28f53f17a40fb2ff"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>existeNomeApp</b> (string nome) const </td></tr>
+<tr class="separator:a2d4c84aab2fdbbfb28f53f17a40fb2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a955c333e245cc31226c60d17d04254c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a955c333e245cc31226c60d17d04254c6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>existeNomeDevEmp</b> (string nome_dev, string nome_oficial) const </td></tr>
+<tr class="separator:a955c333e245cc31226c60d17d04254c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e8ce8e16ba9ff688af3604da47aceed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e8ce8e16ba9ff688af3604da47aceed"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>verificaLoginCliente</b> (unsigned int id, string pass) const </td></tr>
 <tr class="separator:a3e8ce8e16ba9ff688af3604da47aceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -157,6 +174,9 @@ vector&lt; <a class="el" href="class_developer.html">Developer</a> * &gt;&#160;<
 <tr class="memitem:a0b519316efd39486e4577dc95f1dfea3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b519316efd39486e4577dc95f1dfea3"></a>
 vector&lt; <a class="el" href="class_vendas.html">Vendas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vendas</b></td></tr>
 <tr class="separator:a0b519316efd39486e4577dc95f1dfea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d50396ada945dfa3e439d28650a3aee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d50396ada945dfa3e439d28650a3aee"></a>
+<a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>data_atual</b></td></tr>
+<tr class="separator:a5d50396ada945dfa3e439d28650a3aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_app_store_8h_source.html">AppStore.h</a></li>
@@ -165,7 +185,7 @@ vector&lt; <a class="el" href="class_vendas.html">Vendas</a> &gt;&#160;</td><td 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 5 2014 20:35:32 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 7 2014 15:33:40 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
