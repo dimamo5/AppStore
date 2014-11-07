@@ -2964,7 +2964,11 @@ void menuVerCli(AppStore& mieic) {
 	cout << "  Sexo: " << cli_act->getSexo() << endl;
 	cout << "  Nr. Cartao de Credito: " << "*********" << endl;
 	cout << "  Nr. de Vouchers disponiveis: " << cli_act->getVouchers() << endl;
-
+	cout << " O historico de vendas com os pointers ";
+	if(cli_act->historicoVazio())
+		cout<<" esta vazio";
+	else
+		cout << " tem algo";
 	int tecla;
 	tecla = getch();
 	if (tecla != 0) {

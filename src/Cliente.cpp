@@ -122,3 +122,10 @@ bool Cliente::jaComprou(App app_option) {
 	}
 	return false;
 }
+
+bool Cliente::historicoVazio(){
+	if(historico.size() == 0)
+		return true;
+	else
+		return false;
+}

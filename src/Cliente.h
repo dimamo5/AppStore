@@ -27,7 +27,7 @@ private:
 	string sexo;
 	int cartao_credito;
 	float saldo;
-	vector<Vendas *> historico;
+	vector<Vendas* > historico;
 	vector<int> cesto_compras; //IMP - EM VEZ DOS NOMES DAS APPS, PASSA A TER OS IDS DAS APPS. PARA O CASO DE O NOME SER MUDADO
 	unsigned int nr_vouchers;
 	string id_pass; //TODO: implementar nos ficheiros
@@ -59,6 +59,7 @@ public:
 	void setHistorico(vector<Vendas *> v);
 	static void setNextID(unsigned int i);
 	bool jaComprou(App app_option);
+	bool historicoVazio();
 };
 
 #endif /* CLIENTE_H_ */
