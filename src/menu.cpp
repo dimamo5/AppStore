@@ -177,14 +177,7 @@ void menuInicial(AppStore& mieic) {
 	cli_act = NULL;
 	unsigned int state = 0; //state 0 is guest
 	int opcao = 0;
-	/*try {
-		//mieic.load_all();
-	} catch (File_Exp& exp) {
-		cor(BLACK, RED);
-		cerr << "Error" + exp.getIdErro() << endl;
-		cerr << exp.getDescricaoErro();
-		cor(BLACK,WHITE);//reset à cor
-	}*/
+
 	for (;;) {
 		system("cls");
 		porDataNoCanto(mieic.DataAtual(), 1, 23);
@@ -226,14 +219,14 @@ void menuInicial(AppStore& mieic) {
 			break;
 		case -3: // ultima opcao
 			//try {
-				mieic.save_dev("bosta");
+			mieic.save_all();
 			/*} catch (File_Exp& exp) {
-				cor(BLACK, RED);
-				cerr << "Error" + exp.getIdErro() << endl;
-				cerr << exp.getDescricaoErro()<<endl;
-				system ("pause");
-			}*/
-			system ("pause");
+			 cor(BLACK, RED);
+			 cerr << "Error" + exp.getIdErro() << endl;
+			 cerr << exp.getDescricaoErro()<<endl;
+			 system ("pause");
+			 }*/
+			system("pause");
 			exit(0);
 			break;
 		}

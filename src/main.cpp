@@ -13,19 +13,25 @@ Cliente* cli_act = NULL;
 int main() {
 
 	AppStore MIEIC_Play;
-
+	try {
+		MIEIC_Play.load_all();
+		} catch (File_Exp& exp) {
+			cor(BLACK, RED);
+			cerr << "Error" + exp.getIdErro() << endl;
+			cerr << exp.getDescricaoErro();
+			cor(BLACK, WHITE); //reset à cor
+		}
 //VARIAVEIS PARA TESTES
 
-	Cliente cli_temp("APedro Cliente", 18, "M", 123123123, "1");
+/*	Cliente cli_temp("APedro Cliente", 18, "M", 123123123, "1");
 
 	Date data_venda1(2014, 11, 7, 10, 10);
-	Vendas*  venda1 = new Vendas(10, data_venda1, "App-Fixe-Vendida-1"); //preco - data - nome
+	Vendas* venda1 = new Vendas(10, data_venda1, "App-Fixe-Vendida-1"); //preco - data - nome
 	venda1->setAppVendidaId(1);
 	MIEIC_Play.vendas.push_back(venda1);
 	cli_temp.adicionarVenda(venda1); // puxa o pointer do ultimo elemento do vetor a ser adicionado
 
-
-	Vendas*  venda2 = new Vendas(20, data_venda1, "App-Fixe-Vendida-2"); //preco - data - nome
+	Vendas* venda2 = new Vendas(20, data_venda1, "App-Fixe-Vendida-2"); //preco - data - nome
 	venda2->setAppVendidaId(2);
 	MIEIC_Play.vendas.push_back(venda2);
 
@@ -77,9 +83,7 @@ int main() {
 
 	MIEIC_Play.apps[0].addComentario(comment1);
 	MIEIC_Play.apps[0].addComentario(comment2);
-
-
-
+*/
 	menuInicial(MIEIC_Play);
 
 	return 0;

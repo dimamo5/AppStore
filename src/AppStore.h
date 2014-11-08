@@ -188,7 +188,7 @@ public:
 	 * @param file ficheiro para onde é gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
-	bool save_dev(string file_name);
+	bool save_dev(ofstream &file);
 	/**
 	 * Faz load de todos os Developers da AppStore
 	 * @param file ficheiro de onde é carregada a informacao

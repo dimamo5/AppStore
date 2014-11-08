@@ -24,7 +24,7 @@ bool AppStore::save_clientes(ofstream& file) {
 	if (clientes.empty()) {
 		return false;
 	} else {
-		file << clientes[0].getNext_id();
+		file << clientes[0].getNext_id() << endl;
 		for (unsigned int i = 0; i < clientes.size(); i++) {
 			file << clientes[i].getId() << endl;
 			file << clientes[i].getNome() << endl;
@@ -32,12 +32,19 @@ bool AppStore::save_clientes(ofstream& file) {
 			file << clientes[i].getSexo() << endl;
 			file << clientes[i].getCartaoCredito() << endl;
 			file << clientes[i].getSaldo() << endl;
-			file << clientes[i].getVouchers();
+			file << clientes[i].getVouchers() << endl;
 			file << clientes[i].getIdPass() << endl;
-			file << clientes[i].getHistorico().size() << endl;
+			if ((i + 1 == clientes.size())
+					&& (clientes[i].getHistorico().size() == 0))
+				file << clientes[i].getHistorico().size();
+			else
+				file << clientes[i].getHistorico().size() << endl;
 			for (unsigned int m = 0; m < clientes[i].getHistorico().size();
 					m++) {
-				file << clientes[i].getHistorico()[m]->getId();
+				if (i + 1 == clientes.size())
+					file << clientes[i].getHistorico()[m]->getId();
+				else
+					file << clientes[i].getHistorico()[m]->getId() << endl;
 			}
 		}
 		return true;
@@ -85,36 +92,36 @@ bool AppStore::load_clientes(fstream& file) {
 	return true;
 }
 
-bool AppStore::save_dev(string file_name) {
-	ofstream file_dev;
-	file_dev.open("developer.txt");
-	if(file_dev.fail()){
-		cout<<"agora é que fodeu";
-	}
+bool AppStore::save_dev(ofstream &file) {
+
 	if (dev.empty()) {
-		file_dev.close();
 		return false;
 	} else {
-		file_dev<<"merda";
-		cout<<"merda";
-		file_dev << Developer::getNextId() << endl;
+		file << Developer::getNextId() << endl;
 		for (unsigned int i = 0; i < dev.size(); i++) {
-			file_dev << dev[i]->getId() << endl;
-			file_dev << dev[i]->getNome() << endl;
-			file_dev << dev[i]->getSaldo() << endl;
-			file_dev << dev[i]->getIdPass() << endl;
-			file_dev << dev[i]->getExtra() << endl;
-			file_dev << dev[i]->getMorada() << endl;
+			file << dev[i]->getId() << endl;
+			file << dev[i]->getNome() << endl;
+			file << dev[i]->getSaldo() << endl;
+			file << dev[i]->getIdPass() << endl;
+			file << dev[i]->getExtra() << endl;
+			file << dev[i]->getMorada() << endl;
 			if (dev[i]->isEmpresa()) {
-				file_dev << "emp" << endl;
-				file_dev << dev[i]->getNIF() << endl;
+				if (i + 1 == dev.size()) {
+					file << "emp";
+					file << dev[i]->getNIF();
+				} else {
+					file << "emp" << endl;
+					file << dev[i]->getNIF() << endl;
+				}
 			} else {
-				file_dev << "ind" << endl;
+				if (i + 1 == dev.size())
+					file << "ind";
+				else
+					file << "ind" << endl;
 			}
 
 		}
 	}
-	file_dev.close();
 	return true;
 }
 
@@ -132,15 +139,19 @@ bool AppStore::save_app(ofstream& file) {
 			file << apps[i].getClassificacaoFinal() << endl;
 			file << apps[i].getNumClassificacoes() << endl;
 			file << apps[i].getComentarios().size() << endl;
-			if (apps[i].getComentarios().size()!=0) {
+			if (apps[i].getComentarios().size() != 0) {
 				for (unsigned int m = 0; m < apps[i].getComentarios().size();
 						m++) {
-					file << apps[i].getComentarios()[m].getIdClient();
-					file << apps[i].getComentarios()[m].getDescricao();
-					file << apps[i].getComentarios()[m].getClassificacao();
+					file << apps[i].getComentarios()[m].getIdClient() << endl;
+					file << apps[i].getComentarios()[m].getDescricao() << endl;
+					file << apps[i].getComentarios()[m].getClassificacao()
+							<< endl;
 				}
 			}
-			file << apps[i].getDev()->getId();
+			if (apps.size() == i + 1) {
+				file << apps[i].getDev()->getId();
+			} else
+				file << apps[i].getDev()->getId() << endl;
 		}
 	}
 	return true;
@@ -216,12 +227,13 @@ Cliente* AppStore::find_cliente_id(unsigned int id) {
 }
 
 bool AppStore::save_all() {
-	string file_developer; ofstream file_vendas, file_apps, file_clientes;
-	file_developer="developer.txt";
+	ofstream file_developer, file_vendas, file_apps, file_clientes;
+
+	file_developer.open("../files/developer.txt");
 	save_dev(file_developer);
 	cout << "developer passou";
 
-	file_apps.open("app.txt");
+	file_apps.open("../files/app.txt");
 	if (!file_apps.is_open()) {
 		//throw File_Exp(1, "Ficheiro App nao foi correctamente gravado!");
 	}
@@ -229,7 +241,7 @@ bool AppStore::save_all() {
 	file_apps.close();
 	cout << "apps passou";
 
-	file_vendas.open("/files/vendas.txt");
+	file_vendas.open("../files/vendas.txt");
 	if (!file_vendas.is_open()) {
 		//throw File_Exp(1, "Ficheiro Vendas nao foi correctamente gravado!");
 	}
@@ -237,7 +249,7 @@ bool AppStore::save_all() {
 	file_vendas.close();
 	cout << "vendas passou";
 
-	file_clientes.open("files/clientes.txt");
+	file_clientes.open("../files/clientes.txt");
 	if (!file_clientes.is_open()) {
 		//throw File_Exp(1, "Ficheiro Clientes nao foi correctamente gravado!");
 	}
@@ -250,28 +262,28 @@ bool AppStore::save_all() {
 bool AppStore::load_all() {
 	fstream file_developer, file_vendas, file_apps, file_clientes;
 
-	file_developer.open("files/developer.txt");
+	file_developer.open("../files/developer.txt");
 	if (!file_developer.is_open()) {
 		throw File_Exp(1, "Ficheiro Developer nao foi correctamente aberto!");
 	}
 	load_dev(file_developer);
 	file_developer.close();
 
-	file_apps.open("files/app.txt");
+	file_apps.open("../files/app.txt");
 	if (!file_apps.is_open()) {
 		throw File_Exp(1, "Ficheiro Apps nao foi correctamente aberto!");
 	}
 	load_app(file_apps);
 	file_apps.close();
 
-	file_vendas.open("files/vendas.txt");
+	file_vendas.open("../files/vendas.txt");
 	if (!file_vendas.is_open()) {
 		throw File_Exp(1, "Ficheiro Vendas nao foi correctamente aberto!");
 	}
 	load_vendas(file_vendas);
 	file_vendas.close();
 
-	file_clientes.open("files/clientes.txt");
+	file_clientes.open("../files/clientes.txt");
 	if (!file_clientes.is_open()) {
 		throw File_Exp(1, "Ficheiro Clientes nao foi correctamente aberto!");
 	}
@@ -299,7 +311,10 @@ bool AppStore::save_vendas(ofstream &file) {
 			file << vendas[i]->getAppApagada() << endl;
 			file << vendas[i]->getReclamacao() << endl;
 			file << vendas[i]->getAppVendidaId() << endl;
-			file << vendas[i]->getAppVendidaNome() << endl;
+			if (i + 1 == vendas.size())
+				file << vendas[i]->getAppVendidaNome();
+			else
+				file << vendas[i]->getAppVendidaNome() << endl;
 		}
 	}
 	return true;
@@ -364,7 +379,7 @@ Vendas* AppStore::find_vendas_id(unsigned int id) {
 	return NULL;
 }
 
-vector<App> AppStore::getApps(Developer* dev_act) {
+vector<App> AppStore::getApps(Developer * dev_act) {
 	vector<App> apps_do_developer;
 
 	for (unsigned int i = 0; i < apps.size(); i++) { // percorre as apps da store
