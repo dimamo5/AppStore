@@ -1503,7 +1503,7 @@ void menuCestoCompras(AppStore& mieic) {
 			system("pause");
 			break;
 		case -2:          // 5a opcao
-			menuCliente(mieic);
+			menuClienteTransacoes(mieic);
 			system("pause");
 			break;
 
@@ -1512,6 +1512,78 @@ void menuCestoCompras(AppStore& mieic) {
 }
 
 void menuHistoricoVendas(AppStore& mieic) {
+	int opcao_venda = 0;
+	vector<string> menu_options;
+
+	if (cli_act->getHistorico().empty()) { // se estiver vazio
+		system("cls");
+		cout << "  Historico de Vendas " << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
+		cout << "  Nao existem vendas para exibir. " << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+			{
+				tecla = getch();
+
+			}
+		}
+		menuClienteTransacoes(mieic);
+	}
+
+	vector <Vendas*> historico = cli_act->getHistorico();
+	for (unsigned int i = 0; i < historico.size(); i++) {
+		string temp = "";
+		string preco;
+		stringstream ss;
+		ss << historico[i]->getPreco();
+		ss >> preco;
+		temp = "Data: " + historico[i]->getData().imprimeData()+"\n"
+				+ "  Preco: " + preco + "  Nome: "
+				+ historico[i]->getAppVendidaNome();
+		menu_options.push_back(temp);
+
+	}
+
+	system("cls");
+	cout << "  Historico de Vendas - " << cli_act->getHistorico().size() << " vendas" << endl << endl;
+	cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
+	printMenuScroll(menu_options, opcao_venda, 5);
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+		{
+			tecla = getch();
+			if (tecla == 72) //ACIMA
+					{
+				opcao_venda--;
+				if (opcao_venda < 0)
+					opcao_venda = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+				system("cls");
+				cout << "  Historico de Vendas " << endl << endl;
+				cout << "  Prima (Esc) para regressar  " << endl << endl
+						<< endl;
+				printMenuScroll(menu_options, opcao_venda, 5);
+
+			}
+			if (tecla == 80) //ABAIXO
+					{
+				opcao_venda++;
+				if (opcao_venda > (menu_options.size() - 1))
+					opcao_venda = 0; // se passar o fim, volta ao inicio
+				system("cls");
+				cout << "  Historico de Vendas " << endl << endl;
+				cout << "  Prima (Esc) para regressar  " << endl << endl
+						<< endl;
+				printMenuScroll(menu_options, opcao_venda, 5);
+			}
+		}
+	}
+	menuClienteTransacoes(mieic);
 
 }
 
@@ -2355,7 +2427,6 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		menu_options.push_back(temp_str);
 	}
 
-
 	if (apps_ordenadas.empty()) {
 		system("cls");
 		cout << "  Visita Store - Apps Ordenadas por " << tipo_ordenacao << endl
@@ -2524,7 +2595,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 					break;
 
-				case -1:          // 2a opcao
+				case -1: // 2a opcao
 					menuVisitaStoreOrdenada(mieic, state, apps_ordenadas,
 							tipo_ordenacao);
 					break;
@@ -2700,7 +2771,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 						break;
 
-					case -1:          // 2a opcao
+					case -1: // 2a opcao
 
 						unsigned int classificacao;
 						char key;
@@ -3976,13 +4047,15 @@ void menuCheckoutApps(AppStore& mieic) {
 						}
 						menuCheckoutApps(mieic);
 					} else if (preco_total * 0.95 <= saldo_disponivel) {
-						// Retira o preço a pagar ao saldo do cliente
+						// Retira o preço a pagar ao saldo do cliente, adiciona 1 voucher e esvazia o cesto de compras
 						cli_act->setSaldo(
 								cli_act->getSaldo() - preco_total * 0.95);
 						cli_act->addVoucher();
 						cli_act->emptyCesto();
 
 						// Para cada app, vai ao developer e da-lhe a sua parte do dinheiro
+						// Depois cria o objeto Venda e adiciona-o tanto ao historico do cliente
+						// como ao vetor de Vendas da AppStore
 						for (unsigned int k = 0; k < ids_apps_cesto.size();
 								k++) {
 							for (unsigned int p = 0; p < mieic.apps.size();

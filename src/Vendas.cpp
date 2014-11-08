@@ -25,7 +25,7 @@ Vendas::Vendas(int id, float preco, Date data_venda, bool retorno,
 				app_apagada), id_app_vendida(id_app_vendida) {
 }
 
-float Vendas::getPreco() const {
+float Vendas::getPreco() const{
 	return preco;
 }
 
@@ -62,7 +62,7 @@ void Vendas::reclamar(string reclamacao) {
 	}
 }
 
-string Vendas::getAppVendidaNome() const {
+string Vendas::getAppVendidaNome() const{
 	return nome_app_momento_venda;
 }
 
