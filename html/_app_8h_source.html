@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,8 +108,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">class </span><a class="code" href="class_developer.html">Developer</a>;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_developer.html">Developer</a>* dev_act;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_cliente.html">Cliente</a>* cli_act;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_developer.html">Developer</a>* <a class="code" href="menu_8h.html#a2f1da29a33c4776c66ea396c75b634c7">dev_act</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_cliente.html">Cliente</a>* <a class="code" href="menu_8h.html#a10cde3b7e2aaa878766a5afb37113065">cli_act</a>;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_app.html">   31</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_app.html">App</a>{</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
@@ -151,14 +152,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* APP_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="menu_8h_html_a10cde3b7e2aaa878766a5afb37113065"><div class="ttname"><a href="menu_8h.html#a10cde3b7e2aaa878766a5afb37113065">cli_act</a></div><div class="ttdeci">Cliente * cli_act</div><div class="ttdef"><b>Definition:</b> main.cpp:11</div></div>
 <div class="ttc" id="class_app_html"><div class="ttname"><a href="class_app.html">App</a></div><div class="ttdoc">Classe que contem informacao sofre apps. </div><div class="ttdef"><b>Definition:</b> App.h:31</div></div>
+<div class="ttc" id="menu_8h_html_a2f1da29a33c4776c66ea396c75b634c7"><div class="ttname"><a href="menu_8h.html#a2f1da29a33c4776c66ea396c75b634c7">dev_act</a></div><div class="ttdeci">Developer * dev_act</div><div class="ttdef"><b>Definition:</b> main.cpp:10</div></div>
 <div class="ttc" id="class_developer_html"><div class="ttname"><a href="class_developer.html">Developer</a></div><div class="ttdef"><b>Definition:</b> Developer.h:23</div></div>
 <div class="ttc" id="class_comentario_html"><div class="ttname"><a href="class_comentario.html">Comentario</a></div><div class="ttdoc">Classe para criar um comentario que esta associado a um cliente que e includo na App. </div><div class="ttdef"><b>Definition:</b> Comentario.h:19</div></div>
 <div class="ttc" id="class_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdoc">Classe responsavel pela Gestao de Cliente. </div><div class="ttdef"><b>Definition:</b> Cliente.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 8 2014 01:12:34 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 8 2014 16:26:37 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

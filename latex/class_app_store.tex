@@ -25,9 +25,9 @@ Classe Principal do projecto que contem toda a informacao sofre a \hyperlink{cla
 \item 
 \hyperlink{class_vendas}{Vendas} $\ast$ \hyperlink{class_app_store_ad27a968e34cfe98fceca2b78fe1b2b70}{find\+\_\+vendas\+\_\+id} (unsigned int id)
 \item 
-vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_a72f40c3c07e2207d9157533426d64ceb}{get\+Apps} (\hyperlink{class_developer}{Developer} $\ast$dev\+\_\+act)
+vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_a72f40c3c07e2207d9157533426d64ceb}{get\+Apps} (\hyperlink{class_developer}{Developer} $\ast$\hyperlink{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{dev\+\_\+act})
 \item 
-unsigned int \hyperlink{class_app_store_ae62d409b52edfc19e35f0388a26d9911}{get\+Nr\+Apps} (\hyperlink{class_developer}{Developer} $\ast$dev\+\_\+act)
+unsigned int \hyperlink{class_app_store_ae62d409b52edfc19e35f0388a26d9911}{get\+Nr\+Apps} (\hyperlink{class_developer}{Developer} $\ast$\hyperlink{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{dev\+\_\+act})
 \item 
 bool \hyperlink{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}{existe\+Nome\+Dev} (string nome) const 
 \item 
@@ -68,7 +68,7 @@ vector$<$ \hyperlink{class_cliente}{Cliente} $>$ \hyperlink{class_app_store_a6f1
 \item 
 vector$<$ \hyperlink{class_developer}{Developer} $\ast$ $>$ \hyperlink{class_app_store_af62367eceae89987728c11c70318a93a}{dev}
 \item 
-vector$<$ \hyperlink{class_vendas}{Vendas} $>$ \hyperlink{class_app_store_a0b519316efd39486e4577dc95f1dfea3}{vendas}
+vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ \hyperlink{class_app_store_a4e97a65b4daee5f339c307669075b90d}{vendas}
 \item 
 \hyperlink{class_date}{Date} \hyperlink{class_app_store_a5d50396ada945dfa3e439d28650a3aee}{data\+\_\+atual}
 \end{DoxyCompactItemize}
@@ -427,9 +427,9 @@ Vector com todos os Clientes activos na Store \hypertarget{class_app_store_a5d50
 Data Actual \hypertarget{class_app_store_af62367eceae89987728c11c70318a93a}{\index{App\+Store@{App\+Store}!dev@{dev}}
 \index{dev@{dev}!App\+Store@{App\+Store}}
 \subsubsection[{dev}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Developer} $\ast$$>$ App\+Store\+::dev}}\label{class_app_store_af62367eceae89987728c11c70318a93a}
-Vector com todos os Developers activos na Store \hypertarget{class_app_store_a0b519316efd39486e4577dc95f1dfea3}{\index{App\+Store@{App\+Store}!vendas@{vendas}}
+Vector com todos os Developers activos na Store \hypertarget{class_app_store_a4e97a65b4daee5f339c307669075b90d}{\index{App\+Store@{App\+Store}!vendas@{vendas}}
 \index{vendas@{vendas}!App\+Store@{App\+Store}}
-\subsubsection[{vendas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Vendas}$>$ App\+Store\+::vendas}}\label{class_app_store_a0b519316efd39486e4577dc95f1dfea3}
+\subsubsection[{vendas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Vendas} $\ast$$>$ App\+Store\+::vendas}}\label{class_app_store_a4e97a65b4daee5f339c307669075b90d}
 Vector com todos os \hyperlink{class_vendas}{Vendas} activos na Store 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

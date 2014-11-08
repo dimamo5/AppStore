@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['data_5fatual',['data_atual',['../class_app_store.html#a5d50396ada945dfa3e439d28650a3aee',1,'AppStore']]],
-  ['dataatual',['DataAtual',['../class_app_store.html#ac89c1f1d006b53ba99661a4c5fccfce1',1,'AppStore']]],
-  ['date',['Date',['../class_date.html',1,'']]],
-  ['dev',['dev',['../class_app_store.html#af62367eceae89987728c11c70318a93a',1,'AppStore']]],
-  ['developer',['Developer',['../class_developer.html',1,'Developer'],['../class_developer.html#ae4f4db0c4c035986c4f79d95e1e10625',1,'Developer::Developer(string nome, string id_pass, string morada)'],['../class_developer.html#a2d288a82267b7ac9c52b2f42011277e5',1,'Developer::Developer(int id, string nome, double saldo, string id_pass, string morada)']]]
+  ['cli_5fact',['cli_act',['../menu_8h.html#a10cde3b7e2aaa878766a5afb37113065',1,'main.cpp']]],
+  ['cliente',['Cliente',['../class_cliente.html',1,'Cliente'],['../class_cliente.html#a60db1e1e5141e29c8888a48f9b5140bb',1,'Cliente::Cliente(int id, string nome, unsigned int idade, string sexo, int cartao_credito, float saldo, unsigned int nr_vouchers, string id_pass)'],['../class_cliente.html#a76a537299eb371d3b2b1d0f7bdf7a7e8',1,'Cliente::Cliente(string nome, unsigned int idade, string sexo, int cartao_credito, string id_pass)']]],
+  ['clientes',['clientes',['../class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea',1,'AppStore']]],
+  ['comentario',['Comentario',['../class_comentario.html',1,'Comentario'],['../class_comentario.html#a86098067f03cec1a3b0f11e1890b48d1',1,'Comentario::Comentario()']]],
+  ['cor',['cor',['../menu_8h.html#af40cdeed8b371e9f442b720ef3bd5a85',1,'menu.cpp']]]
 ];

@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['imprime',['imprime',['../class_app.html#af3a98845da9ba10769df22e1e21f3db0',1,'App']]],
-  ['individual',['Individual',['../class_individual.html',1,'Individual'],['../class_individual.html#abb6c669a8218f6fc95d985f2219c7d2b',1,'Individual::Individual(string nome, string id_pass, string morada, string NomePessoal)'],['../class_individual.html#adfda751f854c8687761fdd8f803096b2',1,'Individual::Individual(int id, string nome, double saldo, string id_pass, string morada, string NomePessoal)']]],
-  ['isempresa',['isEmpresa',['../class_developer.html#aa77ea0a6dd6234c5d724c28c1971aa4e',1,'Developer::isEmpresa()'],['../class_individual.html#ae2705598212cf7aafb460b9a49d858cd',1,'Individual::isEmpresa()'],['../class_empresa.html#ae8f46765b750fac2520ad6d4068b9beb',1,'Empresa::isEmpresa()']]],
-  ['isretorno',['isRetorno',['../class_vendas.html#a1f5542e8c66cbe9114a7968ffd10d5e2',1,'Vendas']]]
+  ['historicovazio',['historicoVazio',['../class_cliente.html#ab3e8ad3e04c826799a307d1a50f38fb8',1,'Cliente']]]
 ];

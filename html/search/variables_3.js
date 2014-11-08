@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vendas',['vendas',['../class_app_store.html#a0b519316efd39486e4577dc95f1dfea3',1,'AppStore']]]
+  ['max_5fper_5fscreen',['MAX_PER_SCREEN',['../menu_8h.html#a7454417415ab1b179bb0a6a707aa4d69',1,'menu.h']]]
 ];

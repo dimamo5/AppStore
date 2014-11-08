@@ -53,11 +53,13 @@ void \hyperlink{class_cliente_a90e6e08c252e4eee99858af9f9b4eb99}{set\+Cartao} (i
 \item 
 string \hyperlink{class_cliente_a5e51d7c8aef74564f7e9770cd12b7fcf}{get\+Sexo} () const 
 \item 
-bool \hyperlink{class_cliente_a56fd118de07cc418426f5f54c3f4935f}{adicionar\+Venda} (\hyperlink{class_vendas}{Vendas} $\ast$v)
+void \hyperlink{class_cliente_a4d662c19cdc22851ce327e117fd78c58}{adicionar\+Venda} (\hyperlink{class_vendas}{Vendas} $\ast$v)
 \item 
 vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ \hyperlink{class_cliente_ad2d27cf5a6a187c6a5faa4fee88cfd9f}{get\+Historico} () const 
 \item 
 void \hyperlink{class_cliente_a340b3c4b25009f1020984743eb371208}{set\+Historico} (vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ v)
+\item 
+void \hyperlink{class_cliente_a70cc5c2fa16a9c77a2d955201fcc7176}{empty\+Cesto} ()
 \item 
 bool \hyperlink{class_cliente_a452fdbf8832d1f7dd89a76b876aed67d}{ja\+Comprou} (\hyperlink{class_app}{App} app\+\_\+option)
 \item 
@@ -156,21 +158,18 @@ Adiciona uma \hyperlink{class_app}{App} ao cesto de compras
 \begin{DoxyReturn}{Returns}
 True em sucesso caso contrario False 
 \end{DoxyReturn}
-\hypertarget{class_cliente_a56fd118de07cc418426f5f54c3f4935f}{\index{Cliente@{Cliente}!adicionar\+Venda@{adicionar\+Venda}}
+\hypertarget{class_cliente_a4d662c19cdc22851ce327e117fd78c58}{\index{Cliente@{Cliente}!adicionar\+Venda@{adicionar\+Venda}}
 \index{adicionar\+Venda@{adicionar\+Venda}!Cliente@{Cliente}}
-\subsubsection[{adicionar\+Venda}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::adicionar\+Venda (
+\subsubsection[{adicionar\+Venda}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::adicionar\+Venda (
 \begin{DoxyParamCaption}
 \item[{{\bf Vendas} $\ast$}]{v}
 \end{DoxyParamCaption}
-)}}\label{class_cliente_a56fd118de07cc418426f5f54c3f4935f}
+)}}\label{class_cliente_a4d662c19cdc22851ce327e117fd78c58}
 Adiciona uma Venda ao \hyperlink{class_cliente}{Cliente} 
 \begin{DoxyParams}{Parameters}
 {\em v} & Venda a ser adiciona ao vector \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True em sucesso caso contrario False 
-\end{DoxyReturn}
 \hypertarget{class_cliente_a9e8ccf7381214170da3c8c1e5b0bfde1}{\index{Cliente@{Cliente}!elimina\+App\+Cesto@{elimina\+App\+Cesto}}
 \index{elimina\+App\+Cesto@{elimina\+App\+Cesto}!Cliente@{Cliente}}
 \subsubsection[{elimina\+App\+Cesto}]{\setlength{\rightskip}{0pt plus 5cm}bool Cliente\+::elimina\+App\+Cesto (
@@ -186,7 +185,14 @@ Elimina uma \hyperlink{class_app}{App} do Cesto de Compras
 \begin{DoxyReturn}{Returns}
 True em sucesso caso contrario False 
 \end{DoxyReturn}
-\hypertarget{class_cliente_a9303d7e564ead678ba2bcb13157524a5}{\index{Cliente@{Cliente}!get\+Cartao\+Credito@{get\+Cartao\+Credito}}
+\hypertarget{class_cliente_a70cc5c2fa16a9c77a2d955201fcc7176}{\index{Cliente@{Cliente}!empty\+Cesto@{empty\+Cesto}}
+\index{empty\+Cesto@{empty\+Cesto}!Cliente@{Cliente}}
+\subsubsection[{empty\+Cesto}]{\setlength{\rightskip}{0pt plus 5cm}void Cliente\+::empty\+Cesto (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_cliente_a70cc5c2fa16a9c77a2d955201fcc7176}
+Esvazia o Cesto de compras. E normalmente usado apos checkout do cesto. \hypertarget{class_cliente_a9303d7e564ead678ba2bcb13157524a5}{\index{Cliente@{Cliente}!get\+Cartao\+Credito@{get\+Cartao\+Credito}}
 \index{get\+Cartao\+Credito@{get\+Cartao\+Credito}!Cliente@{Cliente}}
 \subsubsection[{get\+Cartao\+Credito}]{\setlength{\rightskip}{0pt plus 5cm}int Cliente\+::get\+Cartao\+Credito (
 \begin{DoxyParamCaption}

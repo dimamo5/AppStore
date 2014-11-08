@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,6 +115,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a81f51af18ee657401e680deb1fe9f38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d56d8bd26ad1df91a2b29ce87e504e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#a6d56d8bd26ad1df91a2b29ce87e504e4">setSaldo</a> (unsigned int s)</td></tr>
 <tr class="separator:a6d56d8bd26ad1df91a2b29ce87e504e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa931e664723c27c1a8502c503d664438"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#aa931e664723c27c1a8502c503d664438">addSaldo</a> (double saldo_add)</td></tr>
+<tr class="separator:aa931e664723c27c1a8502c503d664438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9afd98db61b4a61529b3ffab441c3ac"><td class="memItemLeft" align="right" valign="top">virtual string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#ad9afd98db61b4a61529b3ffab441c3ac">getMorada</a> () const </td></tr>
 <tr class="separator:ad9afd98db61b4a61529b3ffab441c3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac494290b89f4cce3f73e86d7f465e0b8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#ac494290b89f4cce3f73e86d7f465e0b8">setMorada</a> (string morada)</td></tr>
@@ -265,6 +267,28 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_i
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa931e664723c27c1a8502c503d664438"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Developer::addSaldo </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>saldo_add</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Metodo para adicionar saldo a um developer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">saldo_add</td><td>Saldo a adicionar ao saldo ja existente do developer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a38d348d3bb05d3505222bee95c29b2f5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -646,7 +670,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_i
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 8 2014 01:12:36 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 8 2014 16:26:37 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -2,6 +2,7 @@ var searchData=
 [
   ['getappapagada',['getAppApagada',['../class_vendas.html#abde676427ad64a74b541df93296c7479',1,'Vendas']]],
   ['getappid',['getAppId',['../class_vendas.html#a26578f098712d9ff4cca17e0d8ac86ab',1,'Vendas']]],
+  ['getappnames',['getAppNames',['../menu_8h.html#a8dcf1d43c378c94f999008cd5c141435',1,'menu.cpp']]],
   ['getapps',['getApps',['../class_app_store.html#a72f40c3c07e2207d9157533426d64ceb',1,'AppStore']]],
   ['getappvendidaid',['getAppVendidaId',['../class_vendas.html#a59eceff4e8b258dfbe6ba62518de11f6',1,'Vendas']]],
   ['getappvendidanome',['getAppVendidaNome',['../class_vendas.html#aa947fe71f5a490a0e7de5c0bc3935f03',1,'Vendas']]],
@@ -33,5 +34,6 @@ var searchData=
   ['getreclamacao',['getReclamacao',['../class_vendas.html#a13064baa0f6c550cd433946c96a6d0aa',1,'Vendas']]],
   ['getsaldo',['getSaldo',['../class_cliente.html#ac91943541afd55e1b8e7d3139197b3b0',1,'Cliente::getSaldo()'],['../class_developer.html#a81f51af18ee657401e680deb1fe9f38b',1,'Developer::getSaldo()']]],
   ['getsexo',['getSexo',['../class_cliente.html#a5e51d7c8aef74564f7e9770cd12b7fcf',1,'Cliente']]],
-  ['getvouchers',['getVouchers',['../class_cliente.html#a1984ef662ce9ae14dbf654c0a6b8fb09',1,'Cliente']]]
+  ['getvouchers',['getVouchers',['../class_cliente.html#a1984ef662ce9ae14dbf654c0a6b8fb09',1,'Cliente']]],
+  ['gotoxy',['gotoxy',['../menu_8h.html#a163cc3dfe07ad8da53c2a165f796992f',1,'menu.cpp']]]
 ];

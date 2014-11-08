@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,8 +107,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_developer.html">Developer</a>* dev_act;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_cliente.html">Cliente</a>* cli_act;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_developer.html">Developer</a>* <a class="code" href="menu_8h.html#a2f1da29a33c4776c66ea396c75b634c7">dev_act</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_cliente.html">Cliente</a>* <a class="code" href="menu_8h.html#a10cde3b7e2aaa878766a5afb37113065">cli_act</a>;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
@@ -121,7 +122,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_app_store.html#ab618a846f9c32b6897bf3e694af19c43">   57</a></span>&#160;    vector&lt;App&gt; <a class="code" href="class_app_store.html#ab618a846f9c32b6897bf3e694af19c43">apps</a>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea">   58</a></span>&#160;    vector&lt;Cliente&gt; <a class="code" href="class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea">clientes</a>; </div>
 <div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_app_store.html#af62367eceae89987728c11c70318a93a">   59</a></span>&#160;    vector&lt;Developer *&gt; <a class="code" href="class_app_store.html#af62367eceae89987728c11c70318a93a">dev</a>; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_app_store.html#a0b519316efd39486e4577dc95f1dfea3">   60</a></span>&#160;    vector&lt;Vendas&gt; <a class="code" href="class_app_store.html#a0b519316efd39486e4577dc95f1dfea3">vendas</a>; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_app_store.html#a4e97a65b4daee5f339c307669075b90d">   60</a></span>&#160;    vector&lt;Vendas *&gt; <a class="code" href="class_app_store.html#a4e97a65b4daee5f339c307669075b90d">vendas</a>; </div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_app_store.html#a5d50396ada945dfa3e439d28650a3aee">   61</a></span>&#160;    <a class="code" href="class_date.html">Date</a> <a class="code" href="class_app_store.html#a5d50396ada945dfa3e439d28650a3aee">data_atual</a>; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="class_date.html">Date</a> DataAtual();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
@@ -164,14 +165,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* APPSTORE_H_ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="ttc" id="class_app_store_html_a4e97a65b4daee5f339c307669075b90d"><div class="ttname"><a href="class_app_store.html#a4e97a65b4daee5f339c307669075b90d">AppStore::vendas</a></div><div class="ttdeci">vector&lt; Vendas * &gt; vendas</div><div class="ttdef"><b>Definition:</b> AppStore.h:60</div></div>
 <div class="ttc" id="class_app_store_html_ab618a846f9c32b6897bf3e694af19c43"><div class="ttname"><a href="class_app_store.html#ab618a846f9c32b6897bf3e694af19c43">AppStore::apps</a></div><div class="ttdeci">vector&lt; App &gt; apps</div><div class="ttdef"><b>Definition:</b> AppStore.h:57</div></div>
 <div class="ttc" id="class_app_store_html_a6f1aa46e983d0e8fecd103c47c8f7eea"><div class="ttname"><a href="class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea">AppStore::clientes</a></div><div class="ttdeci">vector&lt; Cliente &gt; clientes</div><div class="ttdef"><b>Definition:</b> AppStore.h:58</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_app_store_html_a0b519316efd39486e4577dc95f1dfea3"><div class="ttname"><a href="class_app_store.html#a0b519316efd39486e4577dc95f1dfea3">AppStore::vendas</a></div><div class="ttdeci">vector&lt; Vendas &gt; vendas</div><div class="ttdef"><b>Definition:</b> AppStore.h:60</div></div>
+<div class="ttc" id="menu_8h_html_a10cde3b7e2aaa878766a5afb37113065"><div class="ttname"><a href="menu_8h.html#a10cde3b7e2aaa878766a5afb37113065">cli_act</a></div><div class="ttdeci">Cliente * cli_act</div><div class="ttdef"><b>Definition:</b> main.cpp:11</div></div>
 <div class="ttc" id="class_vendas_html"><div class="ttname"><a href="class_vendas.html">Vendas</a></div><div class="ttdoc">Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app...</div><div class="ttdef"><b>Definition:</b> Vendas.h:32</div></div>
 <div class="ttc" id="class_app_store_html_af62367eceae89987728c11c70318a93a"><div class="ttname"><a href="class_app_store.html#af62367eceae89987728c11c70318a93a">AppStore::dev</a></div><div class="ttdeci">vector&lt; Developer * &gt; dev</div><div class="ttdef"><b>Definition:</b> AppStore.h:59</div></div>
 <div class="ttc" id="class_app_html"><div class="ttname"><a href="class_app.html">App</a></div><div class="ttdoc">Classe que contem informacao sofre apps. </div><div class="ttdef"><b>Definition:</b> App.h:31</div></div>
 <div class="ttc" id="class_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> Date.h:27</div></div>
+<div class="ttc" id="menu_8h_html_a2f1da29a33c4776c66ea396c75b634c7"><div class="ttname"><a href="menu_8h.html#a2f1da29a33c4776c66ea396c75b634c7">dev_act</a></div><div class="ttdeci">Developer * dev_act</div><div class="ttdef"><b>Definition:</b> main.cpp:10</div></div>
 <div class="ttc" id="class_developer_html"><div class="ttname"><a href="class_developer.html">Developer</a></div><div class="ttdef"><b>Definition:</b> Developer.h:23</div></div>
 <div class="ttc" id="class_file___exp_html"><div class="ttname"><a href="class_file___exp.html">File_Exp</a></div><div class="ttdoc">Classe para ajudar no tratamento de excepcoes relacionada com os ficheiros. </div><div class="ttdef"><b>Definition:</b> AppStore.h:204</div></div>
 <div class="ttc" id="class_app_store_html_a5d50396ada945dfa3e439d28650a3aee"><div class="ttname"><a href="class_app_store.html#a5d50396ada945dfa3e439d28650a3aee">AppStore::data_atual</a></div><div class="ttdeci">Date data_atual</div><div class="ttdef"><b>Definition:</b> AppStore.h:61</div></div>
@@ -180,7 +183,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 8 2014 01:12:34 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 8 2014 16:26:37 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

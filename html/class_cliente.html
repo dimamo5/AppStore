@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -138,12 +138,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a90e6e08c252e4eee99858af9f9b4eb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e51d7c8aef74564f7e9770cd12b7fcf"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a5e51d7c8aef74564f7e9770cd12b7fcf">getSexo</a> () const </td></tr>
 <tr class="separator:a5e51d7c8aef74564f7e9770cd12b7fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56fd118de07cc418426f5f54c3f4935f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a56fd118de07cc418426f5f54c3f4935f">adicionarVenda</a> (<a class="el" href="class_vendas.html">Vendas</a> *v)</td></tr>
-<tr class="separator:a56fd118de07cc418426f5f54c3f4935f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d662c19cdc22851ce327e117fd78c58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a4d662c19cdc22851ce327e117fd78c58">adicionarVenda</a> (<a class="el" href="class_vendas.html">Vendas</a> *v)</td></tr>
+<tr class="separator:a4d662c19cdc22851ce327e117fd78c58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2d27cf5a6a187c6a5faa4fee88cfd9f"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_vendas.html">Vendas</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#ad2d27cf5a6a187c6a5faa4fee88cfd9f">getHistorico</a> () const </td></tr>
 <tr class="separator:ad2d27cf5a6a187c6a5faa4fee88cfd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a340b3c4b25009f1020984743eb371208"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a340b3c4b25009f1020984743eb371208">setHistorico</a> (vector&lt; <a class="el" href="class_vendas.html">Vendas</a> * &gt; v)</td></tr>
 <tr class="separator:a340b3c4b25009f1020984743eb371208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70cc5c2fa16a9c77a2d955201fcc7176"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a70cc5c2fa16a9c77a2d955201fcc7176">emptyCesto</a> ()</td></tr>
+<tr class="separator:a70cc5c2fa16a9c77a2d955201fcc7176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452fdbf8832d1f7dd89a76b876aed67d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a452fdbf8832d1f7dd89a76b876aed67d">jaComprou</a> (<a class="el" href="class_app.html">App</a> app_option)</td></tr>
 <tr class="separator:a452fdbf8832d1f7dd89a76b876aed67d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3e8ad3e04c826799a307d1a50f38fb8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#ab3e8ad3e04c826799a307d1a50f38fb8">historicoVazio</a> ()</td></tr>
@@ -326,12 +328,12 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a56fd118de07cc418426f5f54c3f4935f"></a>
+<a class="anchor" id="a4d662c19cdc22851ce327e117fd78c58"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Cliente::adicionarVenda </td>
+          <td class="memname">void Cliente::adicionarVenda </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_vendas.html">Vendas</a> *&#160;</td>
           <td class="paramname"><em>v</em></td><td>)</td>
@@ -345,7 +347,6 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True em sucesso caso contrario False </dd></dl>
 
 </div>
 </div>
@@ -369,6 +370,22 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True em sucesso caso contrario False </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a70cc5c2fa16a9c77a2d955201fcc7176"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cliente::emptyCesto </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Esvazia o Cesto de compras. E normalmente usado apos checkout do cesto. </p>
 
 </div>
 </div>
@@ -750,7 +767,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 8 2014 01:12:35 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 8 2014 16:26:37 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

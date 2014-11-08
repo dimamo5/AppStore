@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reclamar',['reclamar',['../class_vendas.html#ac5bf776bb0b33835e5a3d8728db851fc',1,'Vendas']]],
-  ['removevoucher',['removeVoucher',['../class_cliente.html#a73277ee6744a63e34233823634ec47df',1,'Cliente']]]
+  ['operator_3c',['operator&lt;',['../class_date.html#a691bafd5bba9540f3c540f7327a758c2',1,'Date']]],
+  ['operator_3e',['operator&gt;',['../class_date.html#a0bd06d545842c948cdca8ccc60d7d68d',1,'Date']]]
 ];
