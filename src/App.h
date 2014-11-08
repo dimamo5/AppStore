@@ -137,7 +137,7 @@ public:
 	 * Getter Next Id
 	 * @return Unsigned Int Id da proxima app a ser criada
 	 */
-	unsigned int getNextId() const;
+	static unsigned int getNextId();
 	/**
 	 * Setter Next Id
 	 * @param nextId Id da proxima App a ser criada

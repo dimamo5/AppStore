@@ -55,7 +55,7 @@ unsigned int App::getId() const {
 	return id;
 }
 
-unsigned int App::getNextId() const {
+unsigned int App::getNextId() {
 	return next_id;
 }
 

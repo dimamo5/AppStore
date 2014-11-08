@@ -131,7 +131,7 @@ public:
 	 * Getter Next Id
 	 * @return Int Next Id
 	 */
-	unsigned int getNextId() const;
+	static unsigned int getNextId();
 
 };
 /**

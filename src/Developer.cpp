@@ -91,7 +91,7 @@ void Developer::setIdPass(string id_pass){
 	this->id_pass = id_pass;
 }
 
-unsigned int Developer::getNextId() const {
+unsigned int Developer::getNextId() {
 	return next_id;
 }
 
