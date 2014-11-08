@@ -71,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,94 +90,678 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">AppStore Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe Principal do projecto que contem toda a informacao sofre a <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a>.  
+ <a href="class_app_store.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_app_store_8h_source.html">AppStore.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac89c1f1d006b53ba99661a4c5fccfce1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac89c1f1d006b53ba99661a4c5fccfce1"></a>
-<a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DataAtual</b> ()</td></tr>
+<tr class="memitem:ac94669ac551c6862db7f3636fc86ae8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ac94669ac551c6862db7f3636fc86ae8e">AppStore</a> ()</td></tr>
+<tr class="separator:ac94669ac551c6862db7f3636fc86ae8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac89c1f1d006b53ba99661a4c5fccfce1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ac89c1f1d006b53ba99661a4c5fccfce1">DataAtual</a> ()</td></tr>
 <tr class="separator:ac89c1f1d006b53ba99661a4c5fccfce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a846404e97e4d559aafdb52be79cea7c7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a846404e97e4d559aafdb52be79cea7c7"></a>
-<a class="el" href="class_developer.html">Developer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_dev_id</b> (unsigned int id) const </td></tr>
+<tr class="memitem:a846404e97e4d559aafdb52be79cea7c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_developer.html">Developer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a846404e97e4d559aafdb52be79cea7c7">find_dev_id</a> (unsigned int id) const </td></tr>
 <tr class="separator:a846404e97e4d559aafdb52be79cea7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a722d56a8ed98ad6cb26521be7129d38f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a722d56a8ed98ad6cb26521be7129d38f"></a>
-<a class="el" href="class_cliente.html">Cliente</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_cliente_id</b> (unsigned int id)</td></tr>
+<tr class="memitem:a722d56a8ed98ad6cb26521be7129d38f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_cliente.html">Cliente</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a722d56a8ed98ad6cb26521be7129d38f">find_cliente_id</a> (unsigned int id)</td></tr>
 <tr class="separator:a722d56a8ed98ad6cb26521be7129d38f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae123ae1f957d51b7c4872fe71e23629d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae123ae1f957d51b7c4872fe71e23629d"></a>
-<a class="el" href="class_app.html">App</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_app_id</b> (unsigned int id)</td></tr>
+<tr class="memitem:ae123ae1f957d51b7c4872fe71e23629d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_app.html">App</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ae123ae1f957d51b7c4872fe71e23629d">find_app_id</a> (unsigned int id)</td></tr>
 <tr class="separator:ae123ae1f957d51b7c4872fe71e23629d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad27a968e34cfe98fceca2b78fe1b2b70"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad27a968e34cfe98fceca2b78fe1b2b70"></a>
-<a class="el" href="class_vendas.html">Vendas</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find_vendas_id</b> (unsigned int id)</td></tr>
+<tr class="memitem:ad27a968e34cfe98fceca2b78fe1b2b70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vendas.html">Vendas</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ad27a968e34cfe98fceca2b78fe1b2b70">find_vendas_id</a> (unsigned int id)</td></tr>
 <tr class="separator:ad27a968e34cfe98fceca2b78fe1b2b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72f40c3c07e2207d9157533426d64ceb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a72f40c3c07e2207d9157533426d64ceb"></a>
-vector&lt; <a class="el" href="class_app.html">App</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getApps</b> (<a class="el" href="class_developer.html">Developer</a> *dev_act)</td></tr>
+<tr class="memitem:a72f40c3c07e2207d9157533426d64ceb"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_app.html">App</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a72f40c3c07e2207d9157533426d64ceb">getApps</a> (<a class="el" href="class_developer.html">Developer</a> *dev_act)</td></tr>
 <tr class="separator:a72f40c3c07e2207d9157533426d64ceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae62d409b52edfc19e35f0388a26d9911"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae62d409b52edfc19e35f0388a26d9911"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getNrApps</b> (<a class="el" href="class_developer.html">Developer</a> *dev_act)</td></tr>
+<tr class="memitem:ae62d409b52edfc19e35f0388a26d9911"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ae62d409b52edfc19e35f0388a26d9911">getNrApps</a> (<a class="el" href="class_developer.html">Developer</a> *dev_act)</td></tr>
 <tr class="separator:ae62d409b52edfc19e35f0388a26d9911"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3332b74ff7a7afea68b2834ffe1cdd58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3332b74ff7a7afea68b2834ffe1cdd58"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>existeNomeDev</b> (string nome) const </td></tr>
+<tr class="memitem:a3332b74ff7a7afea68b2834ffe1cdd58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a3332b74ff7a7afea68b2834ffe1cdd58">existeNomeDev</a> (string nome) const </td></tr>
 <tr class="separator:a3332b74ff7a7afea68b2834ffe1cdd58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d4c84aab2fdbbfb28f53f17a40fb2ff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d4c84aab2fdbbfb28f53f17a40fb2ff"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>existeNomeApp</b> (string nome) const </td></tr>
+<tr class="memitem:a2d4c84aab2fdbbfb28f53f17a40fb2ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a2d4c84aab2fdbbfb28f53f17a40fb2ff">existeNomeApp</a> (string nome) const </td></tr>
 <tr class="separator:a2d4c84aab2fdbbfb28f53f17a40fb2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a955c333e245cc31226c60d17d04254c6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a955c333e245cc31226c60d17d04254c6"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>existeNomeDevEmp</b> (string nome_dev, string nome_oficial) const </td></tr>
+<tr class="memitem:a955c333e245cc31226c60d17d04254c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a955c333e245cc31226c60d17d04254c6">existeNomeDevEmp</a> (string nome_dev, string nome_oficial) const </td></tr>
 <tr class="separator:a955c333e245cc31226c60d17d04254c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e8ce8e16ba9ff688af3604da47aceed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e8ce8e16ba9ff688af3604da47aceed"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>verificaLoginCliente</b> (unsigned int id, string pass) const </td></tr>
+<tr class="memitem:a3e8ce8e16ba9ff688af3604da47aceed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a3e8ce8e16ba9ff688af3604da47aceed">verificaLoginCliente</a> (unsigned int id, string pass) const </td></tr>
 <tr class="separator:a3e8ce8e16ba9ff688af3604da47aceed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafe13636e2785b91c770cb39c590dddf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafe13636e2785b91c770cb39c590dddf"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>verificaLoginDev</b> (unsigned int id, string pass) const </td></tr>
+<tr class="memitem:aafe13636e2785b91c770cb39c590dddf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#aafe13636e2785b91c770cb39c590dddf">verificaLoginDev</a> (unsigned int id, string pass) const </td></tr>
 <tr class="separator:aafe13636e2785b91c770cb39c590dddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f08f038a3407eac967198bb2c66d503"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f08f038a3407eac967198bb2c66d503"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_all</b> ()</td></tr>
+<tr class="memitem:a6f08f038a3407eac967198bb2c66d503"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a6f08f038a3407eac967198bb2c66d503">save_all</a> ()</td></tr>
 <tr class="separator:a6f08f038a3407eac967198bb2c66d503"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57a6ca1ab540c2670b92987252bee1b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a57a6ca1ab540c2670b92987252bee1b9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_all</b> ()</td></tr>
+<tr class="memitem:a57a6ca1ab540c2670b92987252bee1b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a57a6ca1ab540c2670b92987252bee1b9">load_all</a> ()</td></tr>
 <tr class="separator:a57a6ca1ab540c2670b92987252bee1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12ab54d48ce4d709971823127eb92408"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12ab54d48ce4d709971823127eb92408"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_app</b> (ofstream &amp;file)</td></tr>
+<tr class="memitem:a12ab54d48ce4d709971823127eb92408"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a12ab54d48ce4d709971823127eb92408">save_app</a> (ofstream &amp;file)</td></tr>
 <tr class="separator:a12ab54d48ce4d709971823127eb92408"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b4a37404b10df2303a8f95d6c2697b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b4a37404b10df2303a8f95d6c2697b4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_app</b> (fstream &amp;file)</td></tr>
+<tr class="memitem:a4b4a37404b10df2303a8f95d6c2697b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a4b4a37404b10df2303a8f95d6c2697b4">load_app</a> (fstream &amp;file)</td></tr>
 <tr class="separator:a4b4a37404b10df2303a8f95d6c2697b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bf71a93e0c065796e07a387b593801e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9bf71a93e0c065796e07a387b593801e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_vendas</b> (ofstream &amp;file)</td></tr>
+<tr class="memitem:a9bf71a93e0c065796e07a387b593801e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a9bf71a93e0c065796e07a387b593801e">save_vendas</a> (ofstream &amp;file)</td></tr>
 <tr class="separator:a9bf71a93e0c065796e07a387b593801e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3f434aea433599fa9905068d052060d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab3f434aea433599fa9905068d052060d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_vendas</b> (fstream &amp;file)</td></tr>
+<tr class="memitem:ab3f434aea433599fa9905068d052060d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ab3f434aea433599fa9905068d052060d">load_vendas</a> (fstream &amp;file)</td></tr>
 <tr class="separator:ab3f434aea433599fa9905068d052060d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a347e9f40006f1b33ff4875b7338aa8c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a347e9f40006f1b33ff4875b7338aa8c5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_clientes</b> (ofstream &amp;file)</td></tr>
+<tr class="memitem:a347e9f40006f1b33ff4875b7338aa8c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a347e9f40006f1b33ff4875b7338aa8c5">save_clientes</a> (ofstream &amp;file)</td></tr>
 <tr class="separator:a347e9f40006f1b33ff4875b7338aa8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10cadeff1412d5cdb49c806746878b7d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10cadeff1412d5cdb49c806746878b7d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_clientes</b> (fstream &amp;file)</td></tr>
+<tr class="memitem:a10cadeff1412d5cdb49c806746878b7d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a10cadeff1412d5cdb49c806746878b7d">load_clientes</a> (fstream &amp;file)</td></tr>
 <tr class="separator:a10cadeff1412d5cdb49c806746878b7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86f8c8d69a134c570ee1ac5208204b35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86f8c8d69a134c570ee1ac5208204b35"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>save_dev</b> (ofstream &amp;file)</td></tr>
+<tr class="memitem:a86f8c8d69a134c570ee1ac5208204b35"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a86f8c8d69a134c570ee1ac5208204b35">save_dev</a> (ofstream &amp;file)</td></tr>
 <tr class="separator:a86f8c8d69a134c570ee1ac5208204b35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad45df395b61443556fd84f40cdcbd208"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad45df395b61443556fd84f40cdcbd208"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>load_dev</b> (fstream &amp;file)</td></tr>
+<tr class="memitem:ad45df395b61443556fd84f40cdcbd208"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ad45df395b61443556fd84f40cdcbd208">load_dev</a> (fstream &amp;file)</td></tr>
 <tr class="separator:ad45df395b61443556fd84f40cdcbd208"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ab618a846f9c32b6897bf3e694af19c43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab618a846f9c32b6897bf3e694af19c43"></a>
-vector&lt; <a class="el" href="class_app.html">App</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>apps</b></td></tr>
+<tr class="memitem:ab618a846f9c32b6897bf3e694af19c43"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_app.html">App</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#ab618a846f9c32b6897bf3e694af19c43">apps</a></td></tr>
 <tr class="separator:ab618a846f9c32b6897bf3e694af19c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f1aa46e983d0e8fecd103c47c8f7eea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f1aa46e983d0e8fecd103c47c8f7eea"></a>
-vector&lt; <a class="el" href="class_cliente.html">Cliente</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>clientes</b></td></tr>
+<tr class="memitem:a6f1aa46e983d0e8fecd103c47c8f7eea"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_cliente.html">Cliente</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea">clientes</a></td></tr>
 <tr class="separator:a6f1aa46e983d0e8fecd103c47c8f7eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af62367eceae89987728c11c70318a93a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af62367eceae89987728c11c70318a93a"></a>
-vector&lt; <a class="el" href="class_developer.html">Developer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>dev</b></td></tr>
+<tr class="memitem:af62367eceae89987728c11c70318a93a"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_developer.html">Developer</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#af62367eceae89987728c11c70318a93a">dev</a></td></tr>
 <tr class="separator:af62367eceae89987728c11c70318a93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b519316efd39486e4577dc95f1dfea3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b519316efd39486e4577dc95f1dfea3"></a>
-vector&lt; <a class="el" href="class_vendas.html">Vendas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>vendas</b></td></tr>
+<tr class="memitem:a0b519316efd39486e4577dc95f1dfea3"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_vendas.html">Vendas</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a0b519316efd39486e4577dc95f1dfea3">vendas</a></td></tr>
 <tr class="separator:a0b519316efd39486e4577dc95f1dfea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d50396ada945dfa3e439d28650a3aee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5d50396ada945dfa3e439d28650a3aee"></a>
-<a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><b>data_atual</b></td></tr>
+<tr class="memitem:a5d50396ada945dfa3e439d28650a3aee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_date.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_store.html#a5d50396ada945dfa3e439d28650a3aee">data_atual</a></td></tr>
 <tr class="separator:a5d50396ada945dfa3e439d28650a3aee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe Principal do projecto que contem toda a informacao sofre a <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac94669ac551c6862db7f3636fc86ae8e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AppStore::AppStore </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construtor Default <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac89c1f1d006b53ba99661a4c5fccfce1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_date.html">Date</a> AppStore::DataAtual </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Obter Data da Maquina em que o processo esta a ser executado </p><dl class="section return"><dt>Returns</dt><dd>Data Actual </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2d4c84aab2fdbbfb28f53f17a40fb2ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::existeNomeApp </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nome</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Testa se existe determinada <a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>Nome da <a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True se existe / False se nao existe </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3332b74ff7a7afea68b2834ffe1cdd58"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::existeNomeDev </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nome</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Testa se existe determinado <a class="el" href="class_developer.html">Developer</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome</td><td>Nome do <a class="el" href="class_developer.html">Developer</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True se existe / False se nao existe </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a955c333e245cc31226c60d17d04254c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::existeNomeDevEmp </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nome_dev</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nome_oficial</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Testa se existe determinada <a class="el" href="class_empresa.html" title="Sub class de Developer. ">Empresa</a> <a class="el" href="class_developer.html">Developer</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nome_dev</td><td>Nome <a class="el" href="class_developer.html">Developer</a> </td></tr>
+    <tr><td class="paramname">nome_oficial</td><td>Nome Oficial <a class="el" href="class_empresa.html" title="Sub class de Developer. ">Empresa</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True se existe / False se nao existe </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae123ae1f957d51b7c4872fe71e23629d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_app.html">App</a> * AppStore::find_app_id </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encontra um <a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> por Id </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id do <a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> desejado </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer <a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a722d56a8ed98ad6cb26521be7129d38f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_cliente.html">Cliente</a> * AppStore::find_cliente_id </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encontra um <a class="el" href="class_cliente.html" title="Classe responsavel pela Gestao de Cliente. ">Cliente</a> por Id </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id do <a class="el" href="class_cliente.html" title="Classe responsavel pela Gestao de Cliente. ">Cliente</a> desejado </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer <a class="el" href="class_cliente.html" title="Classe responsavel pela Gestao de Cliente. ">Cliente</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a846404e97e4d559aafdb52be79cea7c7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_developer.html">Developer</a> * AppStore::find_dev_id </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encontra um <a class="el" href="class_developer.html">Developer</a> por Id </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id do <a class="el" href="class_developer.html">Developer</a> desejado </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer <a class="el" href="class_developer.html">Developer</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad27a968e34cfe98fceca2b78fe1b2b70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vendas.html">Vendas</a> * AppStore::find_vendas_id </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Encontra uma Venda por Id </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id do <a class="el" href="class_vendas.html" title="Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app...">Vendas</a> desejado </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer <a class="el" href="class_vendas.html" title="Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app...">Vendas</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a72f40c3c07e2207d9157533426d64ceb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; <a class="el" href="class_app.html">App</a> &gt; AppStore::getApps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_developer.html">Developer</a> *&#160;</td>
+          <td class="paramname"><em>dev_act</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Todas as Apps pertencentes a um <a class="el" href="class_developer.html">Developer</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dev_act</td><td>Pointer <a class="el" href="class_developer.html">Developer</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector Apps </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae62d409b52edfc19e35f0388a26d9911"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int AppStore::getNrApps </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_developer.html">Developer</a> *&#160;</td>
+          <td class="paramname"><em>dev_act</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Numero de Apps de um <a class="el" href="class_developer.html">Developer</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dev_act</td><td>Pointer <a class="el" href="class_developer.html">Developer</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Int Nr. Apps </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a57a6ca1ab540c2670b92987252bee1b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::load_all </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz load de todas a informacao da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4b4a37404b10df2303a8f95d6c2697b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::load_app </td>
+          <td>(</td>
+          <td class="paramtype">fstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz load de todas as Apps da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro de onde é carregada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a10cadeff1412d5cdb49c806746878b7d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::load_clientes </td>
+          <td>(</td>
+          <td class="paramtype">fstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz load de todos os Clientes da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro de onde é carregada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad45df395b61443556fd84f40cdcbd208"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::load_dev </td>
+          <td>(</td>
+          <td class="paramtype">fstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz load de todos os Developers da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro de onde é carregada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab3f434aea433599fa9905068d052060d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::load_vendas </td>
+          <td>(</td>
+          <td class="paramtype">fstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz load de todas as <a class="el" href="class_vendas.html" title="Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app...">Vendas</a> da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro de onde é carregada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6f08f038a3407eac967198bb2c66d503"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::save_all </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz save de todas a informacao da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a12ab54d48ce4d709971823127eb92408"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::save_app </td>
+          <td>(</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz save de todas as Apps da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro para onde é gravada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a347e9f40006f1b33ff4875b7338aa8c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::save_clientes </td>
+          <td>(</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz save de todos os Clientes da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro para onde é gravada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a86f8c8d69a134c570ee1ac5208204b35"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::save_dev </td>
+          <td>(</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz save de todos os Developers da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro para onde é gravada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9bf71a93e0c065796e07a387b593801e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::save_vendas </td>
+          <td>(</td>
+          <td class="paramtype">ofstream &amp;&#160;</td>
+          <td class="paramname"><em>file</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Faz save de todas as <a class="el" href="class_vendas.html" title="Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app...">Vendas</a> da <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file</td><td>ficheiro para onde é gravada a informacao </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3e8ce8e16ba9ff688af3604da47aceed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::verificaLoginCliente </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>pass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Valida o Login do <a class="el" href="class_cliente.html" title="Classe responsavel pela Gestao de Cliente. ">Cliente</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id <a class="el" href="class_cliente.html" title="Classe responsavel pela Gestao de Cliente. ">Cliente</a> </td></tr>
+    <tr><td class="paramname">pass</td><td>Pass <a class="el" href="class_cliente.html" title="Classe responsavel pela Gestao de Cliente. ">Cliente</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aafe13636e2785b91c770cb39c590dddf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppStore::verificaLoginDev </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>pass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Valida o Login do <a class="el" href="class_developer.html">Developer</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>Id <a class="el" href="class_developer.html">Developer</a> </td></tr>
+    <tr><td class="paramname">pass</td><td>Pass <a class="el" href="class_developer.html">Developer</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True-Sucesso / False-Insucesso </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a class="anchor" id="ab618a846f9c32b6897bf3e694af19c43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="class_app.html">App</a>&gt; AppStore::apps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Vector com todas as Apps activas na Store </p>
+
+</div>
+</div>
+<a class="anchor" id="a6f1aa46e983d0e8fecd103c47c8f7eea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="class_cliente.html">Cliente</a>&gt; AppStore::clientes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Vector com todos os Clientes activos na Store </p>
+
+</div>
+</div>
+<a class="anchor" id="a5d50396ada945dfa3e439d28650a3aee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_date.html">Date</a> AppStore::data_atual</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Data Actual </p>
+
+</div>
+</div>
+<a class="anchor" id="af62367eceae89987728c11c70318a93a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="class_developer.html">Developer</a> *&gt; AppStore::dev</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Vector com todos os Developers activos na Store </p>
+
+</div>
+</div>
+<a class="anchor" id="a0b519316efd39486e4577dc95f1dfea3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="class_vendas.html">Vendas</a>&gt; AppStore::vendas</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Vector com todos os <a class="el" href="class_vendas.html" title="Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app...">Vendas</a> activos na Store </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/<a class="el" href="_app_store_8h_source.html">AppStore.h</a></li>
 <li>src/AppStore.cpp</li>
@@ -185,7 +769,7 @@ vector&lt; <a class="el" href="class_vendas.html">Vendas</a> &gt;&#160;</td><td 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 7 2014 23:44:36 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 8 2014 01:12:35 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

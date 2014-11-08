@@ -460,3 +460,23 @@ bool appsComparaNome(App app1, App app2) {
 bool devsComparaNome(Developer* dev1, Developer* dev2) {
 	return (dev1->getNome() < dev2->getNome());
 }
+
+string File_Exp::getDescricaoErro() const {
+	return descricao_erro;
+}
+
+void File_Exp::setDescricaoErro(string descricaoErro) {
+	descricao_erro = descricaoErro;
+}
+
+unsigned int File_Exp::getIdErro() const {
+	return id_erro;
+}
+
+File_Exp::File_Exp(unsigned int id, string descricao) :
+		id_erro(id), descricao_erro(descricao) {
+}
+
+void File_Exp::setIdErro(unsigned int idErro) {
+	id_erro = idErro;
+}

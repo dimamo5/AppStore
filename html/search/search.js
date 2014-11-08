@@ -7,16 +7,18 @@
 
 var indexSectionsWithContent =
 {
-  0: "acdeghijorsuv",
-  1: "acdeiv",
-  2: "acdeghijorsuv"
+  0: "acdefghijlorsuv",
+  1: "acdefiv",
+  2: "acdefghijlorsuv",
+  3: "acdv"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "functions"
+  2: "functions",
+  3: "variables"
 };
 
 function convertToId(search)

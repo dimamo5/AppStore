@@ -1,4 +1,30 @@
 var searchData=
 [
-  ['vendas',['Vendas',['../class_vendas.html',1,'Vendas'],['../class_vendas.html#ac2ccb77508f649d75e3635c9d51d27fc',1,'Vendas::Vendas(float preco, Date data_venda, string app_removida_nome)'],['../class_vendas.html#a770db3bf09757d984d4335eae6b25802',1,'Vendas::Vendas(int id, float preco, Date data_venda, bool retorno, bool app_apagada, int id_app_vendida, string reclamacao, string app_removida_nome)']]]
+  ['save_5fall',['save_all',['../class_app_store.html#a6f08f038a3407eac967198bb2c66d503',1,'AppStore']]],
+  ['save_5fapp',['save_app',['../class_app_store.html#a12ab54d48ce4d709971823127eb92408',1,'AppStore']]],
+  ['save_5fclientes',['save_clientes',['../class_app_store.html#a347e9f40006f1b33ff4875b7338aa8c5',1,'AppStore']]],
+  ['save_5fdev',['save_dev',['../class_app_store.html#a86f8c8d69a134c570ee1ac5208204b35',1,'AppStore']]],
+  ['save_5fvendas',['save_vendas',['../class_app_store.html#a9bf71a93e0c065796e07a387b593801e',1,'AppStore']]],
+  ['setappapagada',['setAppApagada',['../class_vendas.html#a683753180c7f1e4914a4dd65a143bbb9',1,'Vendas']]],
+  ['setappvendidaid',['setAppVendidaId',['../class_vendas.html#a63d71d63281a1984b95091b77fe76bd2',1,'Vendas']]],
+  ['setappvendidanome',['setAppVendidaNome',['../class_vendas.html#a1d3312e8ad12ccde515ae6c5b1788beb',1,'Vendas']]],
+  ['setcartao',['setCartao',['../class_cliente.html#a90e6e08c252e4eee99858af9f9b4eb99',1,'Cliente']]],
+  ['setcategoria',['setCategoria',['../class_app.html#add85e6926cb052edac84f210889df476',1,'App']]],
+  ['setclassificacao',['setClassificacao',['../class_comentario.html#af9f6f741bc2b95e4b9457eae446e8f39',1,'Comentario']]],
+  ['setcomentarios',['setComentarios',['../class_app.html#a40d8afcc9663054f4f5445a37dfd542d',1,'App']]],
+  ['setdescricao',['setDescricao',['../class_app.html#af0140ea32801ddf481e61fda65024ba8',1,'App::setDescricao()'],['../class_comentario.html#a40aefe877479a08900a1e25803fa8616',1,'Comentario::setDescricao()']]],
+  ['setdescricaoerro',['setDescricaoErro',['../class_file___exp.html#a0b9435b9ae23d16e1e9041d493f4cd12',1,'File_Exp']]],
+  ['setextra',['setExtra',['../class_developer.html#affa6ed0c90caf781a20d6fb32940f092',1,'Developer::setExtra()'],['../class_individual.html#a85830ece8fc5dcce9ae340d0d2f931f5',1,'Individual::setExtra()'],['../class_empresa.html#ad6923e466ff3289e0bfb2e777ef41ee9',1,'Empresa::setExtra()']]],
+  ['sethistorico',['setHistorico',['../class_cliente.html#a340b3c4b25009f1020984743eb371208',1,'Cliente']]],
+  ['setid',['setId',['../class_developer.html#aa84da30abf0b1db518d62825f407c520',1,'Developer']]],
+  ['setidclient',['setIdClient',['../class_comentario.html#ab74417e4b1ab747486355e425e1e515a',1,'Comentario']]],
+  ['setiderro',['setIdErro',['../class_file___exp.html#a05c75e2239f556dfed4818575cd010c7',1,'File_Exp']]],
+  ['setidpass',['setIdPass',['../class_cliente.html#a646583af1403099173848eda00f99ce7',1,'Cliente::setIdPass()'],['../class_developer.html#ad1a95c48872bc06136dd787cdc39e6fe',1,'Developer::setIdPass()']]],
+  ['setmorada',['setMorada',['../class_developer.html#ac494290b89f4cce3f73e86d7f465e0b8',1,'Developer']]],
+  ['setnextid',['setNextID',['../class_cliente.html#a072628868d4165e0b7915d975621bc8a',1,'Cliente::setNextID()'],['../class_developer.html#abc49de08222dae89d042daeff3ad8098',1,'Developer::setNextID()'],['../class_app.html#ac02dab3cd7642d98173bfd6365eb6d9e',1,'App::setNextId()'],['../class_vendas.html#a6b007d0524e51c0a48796a6d9fb9948e',1,'Vendas::setNextId()']]],
+  ['setnif',['setNIF',['../class_developer.html#a59f76d61fc8548eb227df5c9bbd9984a',1,'Developer::setNIF()'],['../class_individual.html#a3bcf8404908f826e5408a0ced5fceaac',1,'Individual::setNIF()'],['../class_empresa.html#ac4dc3fdd2a56f820063e7b67282e6e5f',1,'Empresa::setNIF()']]],
+  ['setnome',['setNome',['../class_app.html#a779936463595bd7babe3fabdd3b81530',1,'App']]],
+  ['setpreco',['setPreco',['../class_app.html#ab9723a9ef1383d41b9960e07de4c5691',1,'App']]],
+  ['setsaldo',['setSaldo',['../class_cliente.html#a78fe91598a0632e05d09c9341c4b0716',1,'Cliente::setSaldo()'],['../class_developer.html#a6d56d8bd26ad1df91a2b29ce87e504e4',1,'Developer::setSaldo()']]],
+  ['setvouchers',['setVouchers',['../class_cliente.html#aeb1b9cce72b0d01ce9bf1771a6b95c2d',1,'Cliente']]]
 ];

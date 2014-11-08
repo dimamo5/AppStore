@@ -1,94 +1,436 @@
 \hypertarget{class_app_store}{\section{App\+Store Class Reference}
 \label{class_app_store}\index{App\+Store@{App\+Store}}
 }
+
+
+Classe Principal do projecto que contem toda a informacao sofre a \hyperlink{class_app_store}{App\+Store}.  
+
+
+
+
+{\ttfamily \#include $<$App\+Store.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_app_store_ac89c1f1d006b53ba99661a4c5fccfce1}{\hyperlink{class_date}{Date} {\bfseries Data\+Atual} ()}\label{class_app_store_ac89c1f1d006b53ba99661a4c5fccfce1}
-
+\hyperlink{class_app_store_ac94669ac551c6862db7f3636fc86ae8e}{App\+Store} ()
 \item 
-\hypertarget{class_app_store_a846404e97e4d559aafdb52be79cea7c7}{\hyperlink{class_developer}{Developer} $\ast$ {\bfseries find\+\_\+dev\+\_\+id} (unsigned int id) const }\label{class_app_store_a846404e97e4d559aafdb52be79cea7c7}
-
+\hyperlink{class_date}{Date} \hyperlink{class_app_store_ac89c1f1d006b53ba99661a4c5fccfce1}{Data\+Atual} ()
 \item 
-\hypertarget{class_app_store_a722d56a8ed98ad6cb26521be7129d38f}{\hyperlink{class_cliente}{Cliente} $\ast$ {\bfseries find\+\_\+cliente\+\_\+id} (unsigned int id)}\label{class_app_store_a722d56a8ed98ad6cb26521be7129d38f}
-
+\hyperlink{class_developer}{Developer} $\ast$ \hyperlink{class_app_store_a846404e97e4d559aafdb52be79cea7c7}{find\+\_\+dev\+\_\+id} (unsigned int id) const 
 \item 
-\hypertarget{class_app_store_ae123ae1f957d51b7c4872fe71e23629d}{\hyperlink{class_app}{App} $\ast$ {\bfseries find\+\_\+app\+\_\+id} (unsigned int id)}\label{class_app_store_ae123ae1f957d51b7c4872fe71e23629d}
-
+\hyperlink{class_cliente}{Cliente} $\ast$ \hyperlink{class_app_store_a722d56a8ed98ad6cb26521be7129d38f}{find\+\_\+cliente\+\_\+id} (unsigned int id)
 \item 
-\hypertarget{class_app_store_ad27a968e34cfe98fceca2b78fe1b2b70}{\hyperlink{class_vendas}{Vendas} $\ast$ {\bfseries find\+\_\+vendas\+\_\+id} (unsigned int id)}\label{class_app_store_ad27a968e34cfe98fceca2b78fe1b2b70}
-
+\hyperlink{class_app}{App} $\ast$ \hyperlink{class_app_store_ae123ae1f957d51b7c4872fe71e23629d}{find\+\_\+app\+\_\+id} (unsigned int id)
 \item 
-\hypertarget{class_app_store_a72f40c3c07e2207d9157533426d64ceb}{vector$<$ \hyperlink{class_app}{App} $>$ {\bfseries get\+Apps} (\hyperlink{class_developer}{Developer} $\ast$dev\+\_\+act)}\label{class_app_store_a72f40c3c07e2207d9157533426d64ceb}
-
+\hyperlink{class_vendas}{Vendas} $\ast$ \hyperlink{class_app_store_ad27a968e34cfe98fceca2b78fe1b2b70}{find\+\_\+vendas\+\_\+id} (unsigned int id)
 \item 
-\hypertarget{class_app_store_ae62d409b52edfc19e35f0388a26d9911}{unsigned int {\bfseries get\+Nr\+Apps} (\hyperlink{class_developer}{Developer} $\ast$dev\+\_\+act)}\label{class_app_store_ae62d409b52edfc19e35f0388a26d9911}
-
+vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_a72f40c3c07e2207d9157533426d64ceb}{get\+Apps} (\hyperlink{class_developer}{Developer} $\ast$dev\+\_\+act)
 \item 
-\hypertarget{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}{bool {\bfseries existe\+Nome\+Dev} (string nome) const }\label{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}
-
+unsigned int \hyperlink{class_app_store_ae62d409b52edfc19e35f0388a26d9911}{get\+Nr\+Apps} (\hyperlink{class_developer}{Developer} $\ast$dev\+\_\+act)
 \item 
-\hypertarget{class_app_store_a2d4c84aab2fdbbfb28f53f17a40fb2ff}{bool {\bfseries existe\+Nome\+App} (string nome) const }\label{class_app_store_a2d4c84aab2fdbbfb28f53f17a40fb2ff}
-
+bool \hyperlink{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}{existe\+Nome\+Dev} (string nome) const 
 \item 
-\hypertarget{class_app_store_a955c333e245cc31226c60d17d04254c6}{bool {\bfseries existe\+Nome\+Dev\+Emp} (string nome\+\_\+dev, string nome\+\_\+oficial) const }\label{class_app_store_a955c333e245cc31226c60d17d04254c6}
-
+bool \hyperlink{class_app_store_a2d4c84aab2fdbbfb28f53f17a40fb2ff}{existe\+Nome\+App} (string nome) const 
 \item 
-\hypertarget{class_app_store_a3e8ce8e16ba9ff688af3604da47aceed}{bool {\bfseries verifica\+Login\+Cliente} (unsigned int id, string pass) const }\label{class_app_store_a3e8ce8e16ba9ff688af3604da47aceed}
-
+bool \hyperlink{class_app_store_a955c333e245cc31226c60d17d04254c6}{existe\+Nome\+Dev\+Emp} (string nome\+\_\+dev, string nome\+\_\+oficial) const 
 \item 
-\hypertarget{class_app_store_aafe13636e2785b91c770cb39c590dddf}{bool {\bfseries verifica\+Login\+Dev} (unsigned int id, string pass) const }\label{class_app_store_aafe13636e2785b91c770cb39c590dddf}
-
+bool \hyperlink{class_app_store_a3e8ce8e16ba9ff688af3604da47aceed}{verifica\+Login\+Cliente} (unsigned int id, string pass) const 
 \item 
-\hypertarget{class_app_store_a6f08f038a3407eac967198bb2c66d503}{bool {\bfseries save\+\_\+all} ()}\label{class_app_store_a6f08f038a3407eac967198bb2c66d503}
-
+bool \hyperlink{class_app_store_aafe13636e2785b91c770cb39c590dddf}{verifica\+Login\+Dev} (unsigned int id, string pass) const 
 \item 
-\hypertarget{class_app_store_a57a6ca1ab540c2670b92987252bee1b9}{bool {\bfseries load\+\_\+all} ()}\label{class_app_store_a57a6ca1ab540c2670b92987252bee1b9}
-
+bool \hyperlink{class_app_store_a6f08f038a3407eac967198bb2c66d503}{save\+\_\+all} ()
 \item 
-\hypertarget{class_app_store_a12ab54d48ce4d709971823127eb92408}{bool {\bfseries save\+\_\+app} (ofstream \&file)}\label{class_app_store_a12ab54d48ce4d709971823127eb92408}
-
+bool \hyperlink{class_app_store_a57a6ca1ab540c2670b92987252bee1b9}{load\+\_\+all} ()
 \item 
-\hypertarget{class_app_store_a4b4a37404b10df2303a8f95d6c2697b4}{bool {\bfseries load\+\_\+app} (fstream \&file)}\label{class_app_store_a4b4a37404b10df2303a8f95d6c2697b4}
-
+bool \hyperlink{class_app_store_a12ab54d48ce4d709971823127eb92408}{save\+\_\+app} (ofstream \&file)
 \item 
-\hypertarget{class_app_store_a9bf71a93e0c065796e07a387b593801e}{bool {\bfseries save\+\_\+vendas} (ofstream \&file)}\label{class_app_store_a9bf71a93e0c065796e07a387b593801e}
-
+bool \hyperlink{class_app_store_a4b4a37404b10df2303a8f95d6c2697b4}{load\+\_\+app} (fstream \&file)
 \item 
-\hypertarget{class_app_store_ab3f434aea433599fa9905068d052060d}{bool {\bfseries load\+\_\+vendas} (fstream \&file)}\label{class_app_store_ab3f434aea433599fa9905068d052060d}
-
+bool \hyperlink{class_app_store_a9bf71a93e0c065796e07a387b593801e}{save\+\_\+vendas} (ofstream \&file)
 \item 
-\hypertarget{class_app_store_a347e9f40006f1b33ff4875b7338aa8c5}{bool {\bfseries save\+\_\+clientes} (ofstream \&file)}\label{class_app_store_a347e9f40006f1b33ff4875b7338aa8c5}
-
+bool \hyperlink{class_app_store_ab3f434aea433599fa9905068d052060d}{load\+\_\+vendas} (fstream \&file)
 \item 
-\hypertarget{class_app_store_a10cadeff1412d5cdb49c806746878b7d}{bool {\bfseries load\+\_\+clientes} (fstream \&file)}\label{class_app_store_a10cadeff1412d5cdb49c806746878b7d}
-
+bool \hyperlink{class_app_store_a347e9f40006f1b33ff4875b7338aa8c5}{save\+\_\+clientes} (ofstream \&file)
 \item 
-\hypertarget{class_app_store_a86f8c8d69a134c570ee1ac5208204b35}{bool {\bfseries save\+\_\+dev} (ofstream \&file)}\label{class_app_store_a86f8c8d69a134c570ee1ac5208204b35}
-
+bool \hyperlink{class_app_store_a10cadeff1412d5cdb49c806746878b7d}{load\+\_\+clientes} (fstream \&file)
 \item 
-\hypertarget{class_app_store_ad45df395b61443556fd84f40cdcbd208}{bool {\bfseries load\+\_\+dev} (fstream \&file)}\label{class_app_store_ad45df395b61443556fd84f40cdcbd208}
-
+bool \hyperlink{class_app_store_a86f8c8d69a134c570ee1ac5208204b35}{save\+\_\+dev} (ofstream \&file)
+\item 
+bool \hyperlink{class_app_store_ad45df395b61443556fd84f40cdcbd208}{load\+\_\+dev} (fstream \&file)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_app_store_ab618a846f9c32b6897bf3e694af19c43}{vector$<$ \hyperlink{class_app}{App} $>$ {\bfseries apps}}\label{class_app_store_ab618a846f9c32b6897bf3e694af19c43}
-
+vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_ab618a846f9c32b6897bf3e694af19c43}{apps}
 \item 
-\hypertarget{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}{vector$<$ \hyperlink{class_cliente}{Cliente} $>$ {\bfseries clientes}}\label{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}
-
+vector$<$ \hyperlink{class_cliente}{Cliente} $>$ \hyperlink{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}{clientes}
 \item 
-\hypertarget{class_app_store_af62367eceae89987728c11c70318a93a}{vector$<$ \hyperlink{class_developer}{Developer} $\ast$ $>$ {\bfseries dev}}\label{class_app_store_af62367eceae89987728c11c70318a93a}
-
+vector$<$ \hyperlink{class_developer}{Developer} $\ast$ $>$ \hyperlink{class_app_store_af62367eceae89987728c11c70318a93a}{dev}
 \item 
-\hypertarget{class_app_store_a0b519316efd39486e4577dc95f1dfea3}{vector$<$ \hyperlink{class_vendas}{Vendas} $>$ {\bfseries vendas}}\label{class_app_store_a0b519316efd39486e4577dc95f1dfea3}
-
+vector$<$ \hyperlink{class_vendas}{Vendas} $>$ \hyperlink{class_app_store_a0b519316efd39486e4577dc95f1dfea3}{vendas}
 \item 
-\hypertarget{class_app_store_a5d50396ada945dfa3e439d28650a3aee}{\hyperlink{class_date}{Date} {\bfseries data\+\_\+atual}}\label{class_app_store_a5d50396ada945dfa3e439d28650a3aee}
-
+\hyperlink{class_date}{Date} \hyperlink{class_app_store_a5d50396ada945dfa3e439d28650a3aee}{data\+\_\+atual}
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Classe Principal do projecto que contem toda a informacao sofre a \hyperlink{class_app_store}{App\+Store}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_app_store_ac94669ac551c6862db7f3636fc86ae8e}{\index{App\+Store@{App\+Store}!App\+Store@{App\+Store}}
+\index{App\+Store@{App\+Store}!App\+Store@{App\+Store}}
+\subsubsection[{App\+Store}]{\setlength{\rightskip}{0pt plus 5cm}App\+Store\+::\+App\+Store (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ac94669ac551c6862db7f3636fc86ae8e}
+Construtor Default \hyperlink{class_app_store}{App\+Store} 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_app_store_ac89c1f1d006b53ba99661a4c5fccfce1}{\index{App\+Store@{App\+Store}!Data\+Atual@{Data\+Atual}}
+\index{Data\+Atual@{Data\+Atual}!App\+Store@{App\+Store}}
+\subsubsection[{Data\+Atual}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Date} App\+Store\+::\+Data\+Atual (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ac89c1f1d006b53ba99661a4c5fccfce1}
+Obter Data da Maquina em que o processo esta a ser executado \begin{DoxyReturn}{Returns}
+Data Actual 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a2d4c84aab2fdbbfb28f53f17a40fb2ff}{\index{App\+Store@{App\+Store}!existe\+Nome\+App@{existe\+Nome\+App}}
+\index{existe\+Nome\+App@{existe\+Nome\+App}!App\+Store@{App\+Store}}
+\subsubsection[{existe\+Nome\+App}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::existe\+Nome\+App (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_a2d4c84aab2fdbbfb28f53f17a40fb2ff}
+Testa se existe determinada \hyperlink{class_app}{App} 
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome da \hyperlink{class_app}{App} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se existe / False se nao existe 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}{\index{App\+Store@{App\+Store}!existe\+Nome\+Dev@{existe\+Nome\+Dev}}
+\index{existe\+Nome\+Dev@{existe\+Nome\+Dev}!App\+Store@{App\+Store}}
+\subsubsection[{existe\+Nome\+Dev}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::existe\+Nome\+Dev (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}
+Testa se existe determinado \hyperlink{class_developer}{Developer} 
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome do \hyperlink{class_developer}{Developer} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se existe / False se nao existe 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a955c333e245cc31226c60d17d04254c6}{\index{App\+Store@{App\+Store}!existe\+Nome\+Dev\+Emp@{existe\+Nome\+Dev\+Emp}}
+\index{existe\+Nome\+Dev\+Emp@{existe\+Nome\+Dev\+Emp}!App\+Store@{App\+Store}}
+\subsubsection[{existe\+Nome\+Dev\+Emp}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::existe\+Nome\+Dev\+Emp (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\+\_\+dev, }
+\item[{string}]{nome\+\_\+oficial}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_a955c333e245cc31226c60d17d04254c6}
+Testa se existe determinada \hyperlink{class_empresa}{Empresa} \hyperlink{class_developer}{Developer} 
+\begin{DoxyParams}{Parameters}
+{\em nome\+\_\+dev} & Nome \hyperlink{class_developer}{Developer} \\
+\hline
+{\em nome\+\_\+oficial} & Nome Oficial \hyperlink{class_empresa}{Empresa} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se existe / False se nao existe 
+\end{DoxyReturn}
+\hypertarget{class_app_store_ae123ae1f957d51b7c4872fe71e23629d}{\index{App\+Store@{App\+Store}!find\+\_\+app\+\_\+id@{find\+\_\+app\+\_\+id}}
+\index{find\+\_\+app\+\_\+id@{find\+\_\+app\+\_\+id}!App\+Store@{App\+Store}}
+\subsubsection[{find\+\_\+app\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf App} $\ast$ App\+Store\+::find\+\_\+app\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ae123ae1f957d51b7c4872fe71e23629d}
+Encontra um \hyperlink{class_app}{App} por Id 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id do \hyperlink{class_app}{App} desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer \hyperlink{class_app}{App} 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a722d56a8ed98ad6cb26521be7129d38f}{\index{App\+Store@{App\+Store}!find\+\_\+cliente\+\_\+id@{find\+\_\+cliente\+\_\+id}}
+\index{find\+\_\+cliente\+\_\+id@{find\+\_\+cliente\+\_\+id}!App\+Store@{App\+Store}}
+\subsubsection[{find\+\_\+cliente\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cliente} $\ast$ App\+Store\+::find\+\_\+cliente\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a722d56a8ed98ad6cb26521be7129d38f}
+Encontra um \hyperlink{class_cliente}{Cliente} por Id 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id do \hyperlink{class_cliente}{Cliente} desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer \hyperlink{class_cliente}{Cliente} 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a846404e97e4d559aafdb52be79cea7c7}{\index{App\+Store@{App\+Store}!find\+\_\+dev\+\_\+id@{find\+\_\+dev\+\_\+id}}
+\index{find\+\_\+dev\+\_\+id@{find\+\_\+dev\+\_\+id}!App\+Store@{App\+Store}}
+\subsubsection[{find\+\_\+dev\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Developer} $\ast$ App\+Store\+::find\+\_\+dev\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_a846404e97e4d559aafdb52be79cea7c7}
+Encontra um \hyperlink{class_developer}{Developer} por Id 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id do \hyperlink{class_developer}{Developer} desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer \hyperlink{class_developer}{Developer} 
+\end{DoxyReturn}
+\hypertarget{class_app_store_ad27a968e34cfe98fceca2b78fe1b2b70}{\index{App\+Store@{App\+Store}!find\+\_\+vendas\+\_\+id@{find\+\_\+vendas\+\_\+id}}
+\index{find\+\_\+vendas\+\_\+id@{find\+\_\+vendas\+\_\+id}!App\+Store@{App\+Store}}
+\subsubsection[{find\+\_\+vendas\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vendas} $\ast$ App\+Store\+::find\+\_\+vendas\+\_\+id (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ad27a968e34cfe98fceca2b78fe1b2b70}
+Encontra uma Venda por Id 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id do \hyperlink{class_vendas}{Vendas} desejado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer \hyperlink{class_vendas}{Vendas} 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a72f40c3c07e2207d9157533426d64ceb}{\index{App\+Store@{App\+Store}!get\+Apps@{get\+Apps}}
+\index{get\+Apps@{get\+Apps}!App\+Store@{App\+Store}}
+\subsubsection[{get\+Apps}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf App} $>$ App\+Store\+::get\+Apps (
+\begin{DoxyParamCaption}
+\item[{{\bf Developer} $\ast$}]{dev\+\_\+act}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a72f40c3c07e2207d9157533426d64ceb}
+Todas as Apps pertencentes a um \hyperlink{class_developer}{Developer} 
+\begin{DoxyParams}{Parameters}
+{\em dev\+\_\+act} & Pointer \hyperlink{class_developer}{Developer} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector Apps 
+\end{DoxyReturn}
+\hypertarget{class_app_store_ae62d409b52edfc19e35f0388a26d9911}{\index{App\+Store@{App\+Store}!get\+Nr\+Apps@{get\+Nr\+Apps}}
+\index{get\+Nr\+Apps@{get\+Nr\+Apps}!App\+Store@{App\+Store}}
+\subsubsection[{get\+Nr\+Apps}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int App\+Store\+::get\+Nr\+Apps (
+\begin{DoxyParamCaption}
+\item[{{\bf Developer} $\ast$}]{dev\+\_\+act}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ae62d409b52edfc19e35f0388a26d9911}
+Numero de Apps de um \hyperlink{class_developer}{Developer} 
+\begin{DoxyParams}{Parameters}
+{\em dev\+\_\+act} & Pointer \hyperlink{class_developer}{Developer} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Int Nr. Apps 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a57a6ca1ab540c2670b92987252bee1b9}{\index{App\+Store@{App\+Store}!load\+\_\+all@{load\+\_\+all}}
+\index{load\+\_\+all@{load\+\_\+all}!App\+Store@{App\+Store}}
+\subsubsection[{load\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::load\+\_\+all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a57a6ca1ab540c2670b92987252bee1b9}
+Faz load de todas a informacao da \hyperlink{class_app_store}{App\+Store} \begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a4b4a37404b10df2303a8f95d6c2697b4}{\index{App\+Store@{App\+Store}!load\+\_\+app@{load\+\_\+app}}
+\index{load\+\_\+app@{load\+\_\+app}!App\+Store@{App\+Store}}
+\subsubsection[{load\+\_\+app}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::load\+\_\+app (
+\begin{DoxyParamCaption}
+\item[{fstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a4b4a37404b10df2303a8f95d6c2697b4}
+Faz load de todas as Apps da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro de onde é carregada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a10cadeff1412d5cdb49c806746878b7d}{\index{App\+Store@{App\+Store}!load\+\_\+clientes@{load\+\_\+clientes}}
+\index{load\+\_\+clientes@{load\+\_\+clientes}!App\+Store@{App\+Store}}
+\subsubsection[{load\+\_\+clientes}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::load\+\_\+clientes (
+\begin{DoxyParamCaption}
+\item[{fstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a10cadeff1412d5cdb49c806746878b7d}
+Faz load de todos os Clientes da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro de onde é carregada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_ad45df395b61443556fd84f40cdcbd208}{\index{App\+Store@{App\+Store}!load\+\_\+dev@{load\+\_\+dev}}
+\index{load\+\_\+dev@{load\+\_\+dev}!App\+Store@{App\+Store}}
+\subsubsection[{load\+\_\+dev}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::load\+\_\+dev (
+\begin{DoxyParamCaption}
+\item[{fstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ad45df395b61443556fd84f40cdcbd208}
+Faz load de todos os Developers da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro de onde é carregada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_ab3f434aea433599fa9905068d052060d}{\index{App\+Store@{App\+Store}!load\+\_\+vendas@{load\+\_\+vendas}}
+\index{load\+\_\+vendas@{load\+\_\+vendas}!App\+Store@{App\+Store}}
+\subsubsection[{load\+\_\+vendas}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::load\+\_\+vendas (
+\begin{DoxyParamCaption}
+\item[{fstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ab3f434aea433599fa9905068d052060d}
+Faz load de todas as \hyperlink{class_vendas}{Vendas} da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro de onde é carregada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a6f08f038a3407eac967198bb2c66d503}{\index{App\+Store@{App\+Store}!save\+\_\+all@{save\+\_\+all}}
+\index{save\+\_\+all@{save\+\_\+all}!App\+Store@{App\+Store}}
+\subsubsection[{save\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::save\+\_\+all (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a6f08f038a3407eac967198bb2c66d503}
+Faz save de todas a informacao da \hyperlink{class_app_store}{App\+Store} \begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a12ab54d48ce4d709971823127eb92408}{\index{App\+Store@{App\+Store}!save\+\_\+app@{save\+\_\+app}}
+\index{save\+\_\+app@{save\+\_\+app}!App\+Store@{App\+Store}}
+\subsubsection[{save\+\_\+app}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::save\+\_\+app (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a12ab54d48ce4d709971823127eb92408}
+Faz save de todas as Apps da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro para onde é gravada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a347e9f40006f1b33ff4875b7338aa8c5}{\index{App\+Store@{App\+Store}!save\+\_\+clientes@{save\+\_\+clientes}}
+\index{save\+\_\+clientes@{save\+\_\+clientes}!App\+Store@{App\+Store}}
+\subsubsection[{save\+\_\+clientes}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::save\+\_\+clientes (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a347e9f40006f1b33ff4875b7338aa8c5}
+Faz save de todos os Clientes da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro para onde é gravada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a86f8c8d69a134c570ee1ac5208204b35}{\index{App\+Store@{App\+Store}!save\+\_\+dev@{save\+\_\+dev}}
+\index{save\+\_\+dev@{save\+\_\+dev}!App\+Store@{App\+Store}}
+\subsubsection[{save\+\_\+dev}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::save\+\_\+dev (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a86f8c8d69a134c570ee1ac5208204b35}
+Faz save de todos os Developers da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro para onde é gravada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a9bf71a93e0c065796e07a387b593801e}{\index{App\+Store@{App\+Store}!save\+\_\+vendas@{save\+\_\+vendas}}
+\index{save\+\_\+vendas@{save\+\_\+vendas}!App\+Store@{App\+Store}}
+\subsubsection[{save\+\_\+vendas}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::save\+\_\+vendas (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{file}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a9bf71a93e0c065796e07a387b593801e}
+Faz save de todas as \hyperlink{class_vendas}{Vendas} da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro para onde é gravada a informacao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a3e8ce8e16ba9ff688af3604da47aceed}{\index{App\+Store@{App\+Store}!verifica\+Login\+Cliente@{verifica\+Login\+Cliente}}
+\index{verifica\+Login\+Cliente@{verifica\+Login\+Cliente}!App\+Store@{App\+Store}}
+\subsubsection[{verifica\+Login\+Cliente}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::verifica\+Login\+Cliente (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id, }
+\item[{string}]{pass}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_a3e8ce8e16ba9ff688af3604da47aceed}
+Valida o Login do \hyperlink{class_cliente}{Cliente} 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id \hyperlink{class_cliente}{Cliente} \\
+\hline
+{\em pass} & Pass \hyperlink{class_cliente}{Cliente} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_aafe13636e2785b91c770cb39c590dddf}{\index{App\+Store@{App\+Store}!verifica\+Login\+Dev@{verifica\+Login\+Dev}}
+\index{verifica\+Login\+Dev@{verifica\+Login\+Dev}!App\+Store@{App\+Store}}
+\subsubsection[{verifica\+Login\+Dev}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::verifica\+Login\+Dev (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id, }
+\item[{string}]{pass}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_aafe13636e2785b91c770cb39c590dddf}
+Valida o Login do \hyperlink{class_developer}{Developer} 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id \hyperlink{class_developer}{Developer} \\
+\hline
+{\em pass} & Pass \hyperlink{class_developer}{Developer} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_app_store_ab618a846f9c32b6897bf3e694af19c43}{\index{App\+Store@{App\+Store}!apps@{apps}}
+\index{apps@{apps}!App\+Store@{App\+Store}}
+\subsubsection[{apps}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf App}$>$ App\+Store\+::apps}}\label{class_app_store_ab618a846f9c32b6897bf3e694af19c43}
+Vector com todas as Apps activas na Store \hypertarget{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}{\index{App\+Store@{App\+Store}!clientes@{clientes}}
+\index{clientes@{clientes}!App\+Store@{App\+Store}}
+\subsubsection[{clientes}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Cliente}$>$ App\+Store\+::clientes}}\label{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}
+Vector com todos os Clientes activos na Store \hypertarget{class_app_store_a5d50396ada945dfa3e439d28650a3aee}{\index{App\+Store@{App\+Store}!data\+\_\+atual@{data\+\_\+atual}}
+\index{data\+\_\+atual@{data\+\_\+atual}!App\+Store@{App\+Store}}
+\subsubsection[{data\+\_\+atual}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Date} App\+Store\+::data\+\_\+atual}}\label{class_app_store_a5d50396ada945dfa3e439d28650a3aee}
+Data Actual \hypertarget{class_app_store_af62367eceae89987728c11c70318a93a}{\index{App\+Store@{App\+Store}!dev@{dev}}
+\index{dev@{dev}!App\+Store@{App\+Store}}
+\subsubsection[{dev}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Developer} $\ast$$>$ App\+Store\+::dev}}\label{class_app_store_af62367eceae89987728c11c70318a93a}
+Vector com todos os Developers activos na Store \hypertarget{class_app_store_a0b519316efd39486e4577dc95f1dfea3}{\index{App\+Store@{App\+Store}!vendas@{vendas}}
+\index{vendas@{vendas}!App\+Store@{App\+Store}}
+\subsubsection[{vendas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Vendas}$>$ App\+Store\+::vendas}}\label{class_app_store_a0b519316efd39486e4577dc95f1dfea3}
+Vector com todos os \hyperlink{class_vendas}{Vendas} activos na Store 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

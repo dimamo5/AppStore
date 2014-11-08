@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,63 +111,76 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">bool</span> appsComparaPreco(<a class="code" href="class_app.html">App</a> app1, <a class="code" href="class_app.html">App</a> app2);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">bool</span> appsComparaNome(<a class="code" href="class_app.html">App</a> app1, <a class="code" href="class_app.html">App</a> app2);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">bool</span> devsComparaNome(<a class="code" href="class_developer.html">Developer</a>* dev1, <a class="code" href="class_developer.html">Developer</a>* dev2);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_app_store.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_app_store.html">AppStore</a> {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_app_store.html">AppStore</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    vector&lt;App&gt; apps;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    vector&lt;Cliente&gt; clientes;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    vector&lt;Developer *&gt; dev;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    vector&lt;Vendas&gt; vendas;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_date.html">Date</a> data_atual;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_date.html">Date</a> DataAtual();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_developer.html">Developer</a>* find_dev_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_cliente.html">Cliente</a>* find_cliente_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) ;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_app.html">App</a>* find_app_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_vendas.html">Vendas</a>* find_vendas_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    vector&lt;App&gt; getApps(<a class="code" href="class_developer.html">Developer</a>* dev_act);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getNrApps(<a class="code" href="class_developer.html">Developer</a>* dev_act);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> existeNomeDev(<span class="keywordtype">string</span> nome) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> existeNomeApp(<span class="keywordtype">string</span> nome) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> existeNomeDevEmp(<span class="keywordtype">string</span> nome_dev, <span class="keywordtype">string</span> nome_oficial) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> verificaLoginCliente(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> pass) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// true - &quot;faz login&quot;  false - &quot;combinacao errada&quot; Alternativamente poderia ter feito -1 -&gt; &quot;cliente nao existe&quot; 0 -&gt; &quot;login OK&quot; 1 -&gt; &quot;password errada&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">bool</span> verificaLoginDev(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> pass) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">bool</span> save_all();</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">bool</span> load_all();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">bool</span> save_app(ofstream &amp;file);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">bool</span> load_app(fstream &amp;file);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> save_vendas(ofstream &amp;file);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> load_vendas(fstream &amp;file);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> save_clientes(ofstream &amp;file);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> load_clientes(fstream &amp;file);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> save_dev(ofstream &amp;file);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> load_dev(fstream &amp;file);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">bool</span> appsComparaPreco(<a class="code" href="class_app.html">App</a> app1, <a class="code" href="class_app.html">App</a> app2);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">bool</span> appsComparaNome(<a class="code" href="class_app.html">App</a> app1, <a class="code" href="class_app.html">App</a> app2);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">bool</span> devsComparaNome(<a class="code" href="class_developer.html">Developer</a>* dev1, <a class="code" href="class_developer.html">Developer</a>* dev2);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_app_store.html">   51</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_app_store.html">AppStore</a> {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_app_store.html">AppStore</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_app_store.html#ab618a846f9c32b6897bf3e694af19c43">   57</a></span>&#160;    vector&lt;App&gt; <a class="code" href="class_app_store.html#ab618a846f9c32b6897bf3e694af19c43">apps</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea">   58</a></span>&#160;    vector&lt;Cliente&gt; <a class="code" href="class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea">clientes</a>; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_app_store.html#af62367eceae89987728c11c70318a93a">   59</a></span>&#160;    vector&lt;Developer *&gt; <a class="code" href="class_app_store.html#af62367eceae89987728c11c70318a93a">dev</a>; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_app_store.html#a0b519316efd39486e4577dc95f1dfea3">   60</a></span>&#160;    vector&lt;Vendas&gt; <a class="code" href="class_app_store.html#a0b519316efd39486e4577dc95f1dfea3">vendas</a>; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_app_store.html#a5d50396ada945dfa3e439d28650a3aee">   61</a></span>&#160;    <a class="code" href="class_date.html">Date</a> <a class="code" href="class_app_store.html#a5d50396ada945dfa3e439d28650a3aee">data_atual</a>; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="class_date.html">Date</a> DataAtual();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* APPSTORE_H_ */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="class_developer.html">Developer</a>* find_dev_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="class_cliente.html">Cliente</a>* find_cliente_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="class_app.html">App</a>* find_app_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="class_vendas.html">Vendas</a>* find_vendas_id(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    vector&lt;App&gt; getApps(<a class="code" href="class_developer.html">Developer</a>* dev_act);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getNrApps(<a class="code" href="class_developer.html">Developer</a>* dev_act);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">bool</span> existeNomeDev(<span class="keywordtype">string</span> nome) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">bool</span> existeNomeApp(<span class="keywordtype">string</span> nome) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">bool</span> existeNomeDevEmp(<span class="keywordtype">string</span> nome_dev, <span class="keywordtype">string</span> nome_oficial) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">bool</span> verificaLoginCliente(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> pass) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="comment">// true - &quot;faz login&quot;  false - &quot;combinacao errada&quot; Alternativamente poderia ter feito -1 -&gt; &quot;cliente nao existe&quot; 0 -&gt; &quot;login OK&quot; 1 -&gt; &quot;password errada&quot;</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"></span>    <span class="keywordtype">bool</span> verificaLoginDev(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> pass) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">bool</span> save_all();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">bool</span> load_all();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">bool</span> save_app(ofstream &amp;file);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordtype">bool</span> load_app(fstream &amp;file);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">bool</span> save_vendas(ofstream &amp;file);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keywordtype">bool</span> load_vendas(fstream &amp;file);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">bool</span> save_clientes(ofstream &amp;file);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">bool</span> load_clientes(fstream &amp;file);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">bool</span> save_dev(ofstream &amp;file);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">bool</span> load_dev(fstream &amp;file);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;};</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="class_file___exp.html">  204</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_file___exp.html">File_Exp</a> {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id_erro;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">string</span> descricao_erro;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <a class="code" href="class_file___exp.html">File_Exp</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">string</span> descricao);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordtype">string</span> getDescricaoErro() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordtype">void</span> setDescricaoErro(<span class="keywordtype">string</span> descricaoErro);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getIdErro() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="keywordtype">void</span> setIdErro(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> idErro);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;};</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* APPSTORE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;</div>
+<div class="ttc" id="class_app_store_html_ab618a846f9c32b6897bf3e694af19c43"><div class="ttname"><a href="class_app_store.html#ab618a846f9c32b6897bf3e694af19c43">AppStore::apps</a></div><div class="ttdeci">vector&lt; App &gt; apps</div><div class="ttdef"><b>Definition:</b> AppStore.h:57</div></div>
+<div class="ttc" id="class_app_store_html_a6f1aa46e983d0e8fecd103c47c8f7eea"><div class="ttname"><a href="class_app_store.html#a6f1aa46e983d0e8fecd103c47c8f7eea">AppStore::clientes</a></div><div class="ttdeci">vector&lt; Cliente &gt; clientes</div><div class="ttdef"><b>Definition:</b> AppStore.h:58</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
+<div class="ttc" id="class_app_store_html_a0b519316efd39486e4577dc95f1dfea3"><div class="ttname"><a href="class_app_store.html#a0b519316efd39486e4577dc95f1dfea3">AppStore::vendas</a></div><div class="ttdeci">vector&lt; Vendas &gt; vendas</div><div class="ttdef"><b>Definition:</b> AppStore.h:60</div></div>
 <div class="ttc" id="class_vendas_html"><div class="ttname"><a href="class_vendas.html">Vendas</a></div><div class="ttdoc">Classe responsavel pela transacao entre um cliente e um developer,tendo esta associada uma app...</div><div class="ttdef"><b>Definition:</b> Vendas.h:32</div></div>
+<div class="ttc" id="class_app_store_html_af62367eceae89987728c11c70318a93a"><div class="ttname"><a href="class_app_store.html#af62367eceae89987728c11c70318a93a">AppStore::dev</a></div><div class="ttdeci">vector&lt; Developer * &gt; dev</div><div class="ttdef"><b>Definition:</b> AppStore.h:59</div></div>
 <div class="ttc" id="class_app_html"><div class="ttname"><a href="class_app.html">App</a></div><div class="ttdoc">Classe que contem informacao sofre apps. </div><div class="ttdef"><b>Definition:</b> App.h:31</div></div>
 <div class="ttc" id="class_date_html"><div class="ttname"><a href="class_date.html">Date</a></div><div class="ttdef"><b>Definition:</b> Date.h:27</div></div>
 <div class="ttc" id="class_developer_html"><div class="ttname"><a href="class_developer.html">Developer</a></div><div class="ttdef"><b>Definition:</b> Developer.h:23</div></div>
-<div class="ttc" id="class_app_store_html"><div class="ttname"><a href="class_app_store.html">AppStore</a></div><div class="ttdef"><b>Definition:</b> AppStore.h:30</div></div>
+<div class="ttc" id="class_file___exp_html"><div class="ttname"><a href="class_file___exp.html">File_Exp</a></div><div class="ttdoc">Classe para ajudar no tratamento de excepcoes relacionada com os ficheiros. </div><div class="ttdef"><b>Definition:</b> AppStore.h:204</div></div>
+<div class="ttc" id="class_app_store_html_a5d50396ada945dfa3e439d28650a3aee"><div class="ttname"><a href="class_app_store.html#a5d50396ada945dfa3e439d28650a3aee">AppStore::data_atual</a></div><div class="ttdeci">Date data_atual</div><div class="ttdef"><b>Definition:</b> AppStore.h:61</div></div>
+<div class="ttc" id="class_app_store_html"><div class="ttname"><a href="class_app_store.html">AppStore</a></div><div class="ttdoc">Classe Principal do projecto que contem toda a informacao sofre a AppStore. </div><div class="ttdef"><b>Definition:</b> AppStore.h:51</div></div>
 <div class="ttc" id="class_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdoc">Classe responsavel pela Gestao de Cliente. </div><div class="ttdef"><b>Definition:</b> Cliente.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Nov 7 2014 23:44:35 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 8 2014 01:12:34 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
