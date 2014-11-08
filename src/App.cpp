@@ -71,6 +71,10 @@ int App::getNumClassificacoes() const {
 	return num_classificacoes;
 }
 
+void App::incNumClassificacoes(){
+	num_classificacoes++;
+}
+
 void App::setPreco(double p){
 	this->preco=p;
 }
@@ -91,13 +95,18 @@ string App::imprime() const{
 
 stringstream ss;
 string str_preco;
+string str_class;
 string ret = "";
 
 ss << this->preco;  // Transformar preco de double para string
 ss >> str_preco;
+ss.clear();
+ss << this->classificacao_final;
+ss >> str_class;
 
 ret += "  Nome: " + this->nome + "\n\n" + "  Categoria: " + this->categoria + "\n\n"
-  + "  Descricao: " + this->descricao + "\n\n" + "  Developer: "+ dev->getNome()+ "\n\n"+ "  Preco: " + str_preco;
+  + "  Descricao: " + this->descricao + "\n\n" + "  Developer: "+ dev->getNome()+ "\n\n"+ "  Preco: "
+  + str_preco + "\n\n" + "  Classificacao: " + str_class;
 
 return ret;
 }

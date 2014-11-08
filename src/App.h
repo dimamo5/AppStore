@@ -149,6 +149,10 @@ public:
 	 */
 	int getNumClassificacoes() const;
 	/**
+	 * Incrementa por 1 o Num. total de classificacoes.
+	 */
+	void incNumClassificacoes();
+	/**
 	 * Setter Descricao
 	 * @param descricao Nova Descricao
 	 */

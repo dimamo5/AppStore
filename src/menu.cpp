@@ -595,19 +595,20 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade: " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-		cout << "  Indique o seu no. cartao credito: ";
+		cout << "  Indique o seu no. cartao credito (com 9 digitos): ";
 		cin >> cartao_credito;
 
 		inputFail = cin.fail();
 
-//		int counter = 0;
-//		int cartao_copy = cartao_credito;
-//		while(cartao_copy != 0){
-//			counter++;
-//			cartao_copy/10;
-//		}
-//		if(counter != 9)
-//			inputFail = true;
+		int counter = 0;
+		int cartao_copy = cartao_credito;
+		while(cartao_copy != 0){
+			counter++;
+			cartao_copy = cartao_copy/10;
+		}
+		if(counter != 9)
+			inputFail = true;
+
 		cin.clear();  // da clear a flag do fail
 		cin.ignore(1000, '\n');
 	} while (inputFail == true);
@@ -618,7 +619,7 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade: " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-		cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl
+		cout << "  Indique o seu no. cartao credito (com 9 digitos): " << cartao_credito << endl
 				<< endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
@@ -635,7 +636,7 @@ void menuRegistarCliente(AppStore& mieic) {
 	cout << "  Indique o seu nome: " << nome << endl;
 	cout << "  Indique a sua idade: " << idade << endl;
 	cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-	cout << "  Indique o seu no. cartao credito: " << cartao_credito << endl
+	cout << "  Indique o seu no. cartao credito (com 9 digitos): " << cartao_credito << endl
 			<< endl;
 	cout << "  Introduza agora a password que pretende:  " << password << endl
 			<< endl << endl;
@@ -2426,13 +2427,16 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	//	vector<string> menu_options = getAppNames(apps_ordenadas);
 	vector<string> menu_options;
 	string preco;
+	string classificacao;
 
 	for (unsigned int i = 0; i < apps_ordenadas.size(); i++) {
 		stringstream ss;
 		ss << apps_ordenadas[i].getPreco();
 		ss >> preco;
 		ss.clear();
-		string temp_str = " Preco: " + preco + "   Nome: "
+		ss << apps_ordenadas[i].getClassificacaoFinal();
+		ss >> classificacao;
+		string temp_str = " Preco: " + preco + "  Classificacao: " +  classificacao +  "   Nome: "
 				+ apps_ordenadas[i].getNome();
 		menu_options.push_back(temp_str);
 	}
@@ -2876,12 +2880,14 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 							for (unsigned int j = 0; j < mieic.apps.size();
 									j++) {
 								if (id_da_app == mieic.apps[j].getId()) {
+									mieic.apps[j].update_classificacao(classificacao);
 									mieic.apps[j].addComentario(comment);
 									break;
 								}
 							}
 							// esta linha serve para o comentario atualizar imediatamente sem
 							// necessitar de sair da store
+							apps_ordenadas[opcao_app].update_classificacao(classificacao);
 							apps_ordenadas[opcao_app].addComentario(comment);
 
 							system("cls");
