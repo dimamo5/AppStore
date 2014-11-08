@@ -107,7 +107,7 @@ bool AppStore::save_dev(ofstream &file) {
 			file << dev[i]->getMorada() << endl;
 			if (dev[i]->isEmpresa()) {
 				if (i + 1 == dev.size()) {
-					file << "emp";
+					file << "emp"<<endl;
 					file << dev[i]->getNIF();
 				} else {
 					file << "emp" << endl;
@@ -199,7 +199,9 @@ bool AppStore::load_app(fstream& file) {
 		App* app_temp = new App(id, nome, categoria, descricao, preco,
 				clas_final, num_clas);
 		app_temp->setDev(find_dev_id(dev_id));
-		app_temp->setComentarios(com_temp);
+		if (com_size) {
+			app_temp->setComentarios(com_temp);
+		}
 		apps.push_back(*app_temp);
 	}
 	return true;
