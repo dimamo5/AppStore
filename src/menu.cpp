@@ -1469,49 +1469,48 @@ void menuClienteAddCredito(AppStore& mieic) {
 void menuCestoCompras(AppStore& mieic) {
 	system("cls");
 
-		unsigned int state = 1; // state = 1 is developer
-		int opcao = 0;
+	unsigned int state = 1; // state = 1 is developer
+	int opcao = 0;
 
-		for (;;) {
-			system("cls");
-			porDataNoCanto(mieic.DataAtual(), 1, 23);
-			cout << "  Cesto de Compras  " << endl << endl;
+	for (;;) {
+		system("cls");
+		porDataNoCanto(mieic.DataAtual(), 1, 23);
+		cout << "  Cesto de Compras  " << endl << endl;
 
-			if (opcao == 0)
-				cor(WHITE, BLACK);
-			cout << "  Remover app do cesto  " << endl;
-			cor(BLACK, WHITE);
-			if (opcao == -1)
-				cor(WHITE, BLACK);
-			cout << "  Checkout das apps  " << endl;
-			cor(BLACK, WHITE);
-			if (opcao == -2)
-				cor(WHITE, LIGHT_RED);
-			cout << "  SAIR  " << endl;
-			cor(BLACK, WHITE);
+		if (opcao == 0)
+			cor(WHITE, BLACK);
+		cout << "  Remover app do cesto  " << endl;
+		cor(BLACK, WHITE);
+		if (opcao == -1)
+			cor(WHITE, BLACK);
+		cout << "  Checkout das apps  " << endl;
+		cor(BLACK, WHITE);
+		if (opcao == -2)
+			cor(WHITE, LIGHT_RED);
+		cout << "  SAIR  " << endl;
+		cor(BLACK, WHITE);
 
-			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 4, opcao);
+		opcao += teclas();
+		opcao = RestringeOpcaoTeclas(0, 4, opcao);
 
-			switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
-			{
-			case 0:          // 1a opcao
-				menuVisitaStore(mieic, state);
-				system("pause");
-				break;
+		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+		{
+		case 0:          // 1a opcao
+			menuTiraAppCesto(mieic);
+			system("pause");
+			break;
 
-			case -1:          // 2a opcao
-				menuDeveloperGerirApps(mieic);
-				system("pause");
-				break;
-			case -2:          // 5a opcao
-				menuCliente(mieic);
-				system("pause");
-				break;
+		case -1:          // 2a opcao
+			menuCheckoutApps(mieic);
+			system("pause");
+			break;
+		case -2:          // 5a opcao
+			menuCliente(mieic);
+			system("pause");
+			break;
 
-
-			}
 		}
+	}
 }
 
 void menuHistoricoVendas(AppStore& mieic) {
@@ -3000,13 +2999,13 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 									<< endl;
 
 							tecla = getch();
-														if (tecla != 0) {
-															while (tecla != 13) {
-																tecla = getch();
-															}
-														}
-														menuVisitaStoreOrdenada(mieic, state,
-																apps_ordenadas, tipo_ordenacao);
+							if (tecla != 0) {
+								while (tecla != 13) {
+									tecla = getch();
+								}
+							}
+							menuVisitaStoreOrdenada(mieic, state,
+									apps_ordenadas, tipo_ordenacao);
 						}
 						break;
 					case -2:
@@ -3442,7 +3441,15 @@ void menuRemoverApp(AppStore& mieic) {
 					}
 				}
 
-				mieic.apps.erase(mieic.apps.begin() + opcao);
+				unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
+
+				// Pesquisa no vetor das apps da appstore qual vai remover.
+				for (unsigned int j = 0; j < mieic.apps.size(); j++) {
+					if (id_app_a_remover == mieic.apps[j].getId()) {
+						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
+						break;
+					}
+				}
 
 				tecla = getch();
 				if (tecla != 0) {
@@ -3801,3 +3808,131 @@ void menuModificarApp(AppStore& mieic) {
 	}
 }
 
+void menuTiraAppCesto(AppStore& mieic) {
+
+	int opcao_cesto = 0;
+
+	apagaAppsNaoExistentes(mieic,cli_act);
+//
+//	// vao ser apagadas do cesto as apps que ja que nao existirem
+//	for (unsigned int i = 0; i < cli_act->getCesto().size(); i++) {
+//		existe_app = false;   // reset ao existe app - verifica proxima
+//		for (unsigned int j = 0; j < mieic.apps.size(); j++) {
+//			if (cli_act->getCesto()[i] == mieic.apps[j].getId()) {
+//				existe_app = true;
+//				break; // Se for igual e porque existe -> passa a verificar o proximo item do cesto
+//			}
+//
+//		}
+//		if (!existe_app) {
+//			cli_act->eliminaAppCesto(i);
+//			i--;
+//		}
+//	}
+	// Neste ponto ja apagou do cesto as apps que ja nao existiam
+	vector<int> ids_apps_cesto = cli_act->getCesto();
+	vector<string> menu_options;
+
+	// Cria vector com nomes de apps.
+	for (unsigned int k = 0; k < ids_apps_cesto.size(); k++) {
+		for (unsigned int p = 0; p < mieic.apps.size(); p++) {
+			if (ids_apps_cesto[k] == mieic.apps[p].getId()) {
+				menu_options.push_back(mieic.apps[p].getNome());
+				break;
+			}
+		}
+	}
+
+	if (cli_act->getCesto().size() == 0) {
+		system("cls");
+		cout << "  Apps do Cesto " << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+		cout << "  Nao ha apps no cesto.";
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) {
+				tecla = getch();
+			}
+		}
+		menuCestoCompras(mieic);
+	}
+
+	system("cls");
+	cout << "  Apps do Cesto " << endl << endl;
+	cout
+			<< "  Prima (Enter) para selecionar uma app para apagar ou (Esc) para regressar  "
+			<< endl << endl;
+	printMenuScroll(menu_options, opcao_cesto, MAX_PER_SCREEN);
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+		{
+			tecla = getch();
+			if (tecla == 72) //ACIMA
+					{
+				opcao_cesto--;
+				if (opcao_cesto < 0)
+					opcao_cesto = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+				system("cls");
+				cout << "  Apps do Cesto " << endl << endl;
+				cout
+						<< "  Prima (Enter) para selecionar uma app para apagar ou (Esc) para regressar  "
+						<< endl << endl;
+				printMenuScroll(menu_options, opcao_cesto, MAX_PER_SCREEN);
+			}
+			if (tecla == 80) //ABAIXO
+					{
+				opcao_cesto++;
+				if (opcao_cesto > (menu_options.size() - 1))
+					opcao_cesto = 0; // se passar o fim, volta ao inicio
+				system("cls");
+				cout << "  Apps do Cesto " << endl << endl;
+				cout
+						<< "  Prima (Enter) para selecionar uma app para apagar ou (Esc) para regressar  "
+						<< endl << endl;
+				printMenuScroll(menu_options, opcao_cesto, MAX_PER_SCREEN);
+			}
+		}
+	}
+	if (tecla == 13) {
+		//contando que menu_options tem o mesmo nr. de items que o cesto
+		//uma vez que se apagaram do cesto apps que desapareceram e menu_options foi criado a partir do cesto
+		cli_act->eliminaAppCesto(opcao_cesto);
+		menuTiraAppCesto(mieic);
+	}
+	if (tecla == 27) {
+		menuCestoCompras(mieic);
+	}
+
+}
+
+void menuCheckoutApps(AppStore& mieic) {
+
+	 apagaAppsNaoExistentes(mieic,cli_act);
+
+}
+
+void apagaAppsNaoExistentes(AppStore& mieic,Cliente* cli){
+
+	bool existe_app = false;
+
+		// vao ser apagadas do cesto as apps que ja que nao existirem
+		for (unsigned int i = 0; i < cli->getCesto().size(); i++) {
+			existe_app = false;   // reset ao existe app - verifica proxima
+			for (unsigned int j = 0; j < mieic.apps.size(); j++) {
+				if (cli->getCesto()[i] == mieic.apps[j].getId()) {
+					existe_app = true;
+					break; // Se for igual e porque existe -> passa a verificar o proximo item do cesto
+				}
+
+			}
+			if (!existe_app) {
+				cli->eliminaAppCesto(i);
+				i--;
+			}
+		}
+}

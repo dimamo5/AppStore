@@ -79,6 +79,9 @@ void menuVerCli(AppStore& mieic);
 void menuCriarApp(AppStore& mieic);
 void menuRemoverApp(AppStore& mieic);
 void menuModificarApp(AppStore& mieic);
+void menuTiraAppCesto(AppStore& mieic);
+void menuCheckoutApps(AppStore& mieic);
+void apagaAppsNaoExistentes(AppStore& mieic,Cliente* cli);
 
 
 // State will be needed to know who is visiting the store, what that person will see and where the "SAIR" button will lead the person
