@@ -1533,14 +1533,15 @@ void menuHistoricoVendas(AppStore& mieic) {
 		menuClienteTransacoes(mieic);
 	}
 
-	vector <Vendas*> historico = cli_act->getHistorico();
+	vector<Vendas*> historico = cli_act->getHistorico();
+
 	for (unsigned int i = 0; i < historico.size(); i++) {
 		string temp = "";
 		string preco;
 		stringstream ss;
 		ss << historico[i]->getPreco();
 		ss >> preco;
-		temp = "Data: " + historico[i]->getData().imprimeData()+"\n"
+		temp = "Data: " + historico[i]->getData().imprimeData() + "\n"
 				+ "  Preco: " + preco + "  Nome: "
 				+ historico[i]->getAppVendidaNome();
 		menu_options.push_back(temp);
@@ -1548,7 +1549,7 @@ void menuHistoricoVendas(AppStore& mieic) {
 	}
 
 	system("cls");
-	cout << "  Historico de Vendas - " << cli_act->getHistorico().size() << " vendas" << endl << endl;
+	cout << "  Historico de Vendas " << endl << endl;
 	cout << "  Prima (Esc) para regressar  " << endl << endl << endl;
 	printMenuScroll(menu_options, opcao_venda, 5);
 
@@ -2159,9 +2160,9 @@ void menuApagarContaDev(AppStore& mieic) {
 				// para cada venda, analisa se o ID da app na venda pertence as que foram apagadas
 				for (unsigned int k = 0; k < mieic.vendas.size(); k++) {
 					for (unsigned int l = 0; l < ids_apps_apagadas.size(); l++)
-						if (mieic.vendas[k].getAppVendidaId()
+						if (mieic.vendas[k]->getAppVendidaId()
 								== ids_apps_apagadas[l]) { // encontrou uma venda cuja app tinha sido apagada
-							mieic.vendas[k].setAppApagada(true);
+							mieic.vendas[k]->setAppApagada(true);
 							break; //cada venda so tem 1 app - ao fim de descobrir que foi apagada ja nao precisa analisar mais para essa venda
 						}
 				}
@@ -3517,9 +3518,9 @@ void menuRemoverApp(AppStore& mieic) {
 				//pesquisa nas vendas se alguma estava associada a esta App
 				//se alguma estivesse, poe app_apagada como true
 				for (unsigned int k = 0; k < mieic.vendas.size(); k++) {
-					if (mieic.vendas[k].getAppVendidaId()
+					if (mieic.vendas[k]->getAppVendidaId()
 							== mieic.apps[opcao].getId()) { // encontrou uma venda a qual esta app pertencia
-						mieic.vendas[k].setAppApagada(true);
+						mieic.vendas[k]->setAppApagada(true);
 						break;
 					}
 				}
@@ -4064,16 +4065,16 @@ void menuCheckoutApps(AppStore& mieic) {
 										== mieic.apps[p].getId()) {
 									mieic.apps[p].getDev()->addSaldo(
 											mieic.apps[p].getPreco() * 0.8);
-									Vendas venda_temp(
+									Vendas* venda_temp = new Vendas(
 											mieic.apps[p].getPreco() * 0.95,
 											data_atual,
 											mieic.apps[p].getNome());
-									venda_temp.setAppVendidaId(
+									venda_temp->setAppVendidaId(
 											mieic.apps[p].getId());
 									mieic.vendas.push_back(venda_temp);
-									cli_act->adicionarVenda(
-											&mieic.vendas[mieic.vendas.size()
-													- 1]);
+//									cli_act->adicionarVenda(
+//											mieic.vendas[mieic.vendas.size() - 1]);
+									cli_act->adicionarVenda(venda_temp);
 									break;
 								}
 							}
@@ -4131,15 +4132,16 @@ void menuCheckoutApps(AppStore& mieic) {
 										== mieic.apps[p].getId()) {
 									mieic.apps[p].getDev()->addSaldo(
 											mieic.apps[p].getPreco() * 0.8);
-									Vendas venda_temp(mieic.apps[p].getPreco(),
+									Vendas* venda_temp = new Vendas(
+											mieic.apps[p].getPreco(),
 											data_atual,
 											mieic.apps[p].getNome());
-									venda_temp.setAppVendidaId(
+									venda_temp->setAppVendidaId(
 											mieic.apps[p].getId());
 									mieic.vendas.push_back(venda_temp);
-									cli_act->adicionarVenda(
-											&mieic.vendas[mieic.vendas.size()
-													- 1]);
+//									cli_act->adicionarVenda(
+//											mieic.vendas[mieic.vendas.size() - 1]);
+									cli_act->adicionarVenda(venda_temp);
 									break;
 								}
 							}
@@ -4201,12 +4203,14 @@ void menuCheckoutApps(AppStore& mieic) {
 						if (ids_apps_cesto[k] == mieic.apps[p].getId()) {
 							mieic.apps[p].getDev()->addSaldo(
 									mieic.apps[p].getPreco() * 0.8);
-							Vendas venda_temp(mieic.apps[p].getPreco(),
-									data_atual, mieic.apps[p].getNome());
-							venda_temp.setAppVendidaId(mieic.apps[p].getId());
+							Vendas* venda_temp = new Vendas(
+									mieic.apps[p].getPreco(), data_atual,
+									mieic.apps[p].getNome());
+							venda_temp->setAppVendidaId(mieic.apps[p].getId());
 							mieic.vendas.push_back(venda_temp);
-							cli_act->adicionarVenda(
-									&mieic.vendas[mieic.vendas.size() - 1]);
+//									cli_act->adicionarVenda(
+//											mieic.vendas[mieic.vendas.size() - 1]);
+							cli_act->adicionarVenda(venda_temp);
 							break;
 						}
 					}

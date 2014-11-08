@@ -249,20 +249,20 @@ bool AppStore::save_vendas(ofstream &file) {
 	if (vendas.empty()) {
 		return false;
 	} else {
-		file << vendas[0].getNextId() << endl;
+		file << vendas[0]->getNextId() << endl;
 		for (unsigned int i = 0; i < vendas.size(); i++) {
-			file << vendas[i].getId() << endl;
-			file << vendas[i].getPreco() << endl;
-			file << vendas[i].getData().getYear() << endl; //TODO melhor escrita data
-			file << vendas[i].getData().getMonth() << endl;
-			file << vendas[i].getData().getDay() << endl;
-			file << vendas[i].getData().getHour() << endl;
-			file << vendas[i].getData().getMinute() << endl;
-			file << vendas[i].isRetorno() << endl;
-			file << vendas[i].getAppApagada() << endl;
-			file << vendas[i].getReclamacao() << endl;
-			file << vendas[i].getAppVendidaId() << endl;
-			file << vendas[i].getAppVendidaNome() << endl;
+			file << vendas[i]->getId() << endl;
+			file << vendas[i]->getPreco() << endl;
+			file << vendas[i]->getData().getYear() << endl; //TODO melhor escrita data
+			file << vendas[i]->getData().getMonth() << endl;
+			file << vendas[i]->getData().getDay() << endl;
+			file << vendas[i]->getData().getHour() << endl;
+			file << vendas[i]->getData().getMinute() << endl;
+			file << vendas[i]->isRetorno() << endl;
+			file << vendas[i]->getAppApagada() << endl;
+			file << vendas[i]->getReclamacao() << endl;
+			file << vendas[i]->getAppVendidaId() << endl;
+			file << vendas[i]->getAppVendidaNome() << endl;
 		}
 	}
 	return true;
@@ -304,7 +304,7 @@ bool AppStore::load_vendas(fstream &file) {
 		nome_app_vendida = temp;
 		Vendas *venda_temp = new Vendas(id, preco, *date_temp, retorno,
 				app_apagada, id_app, reclamacao, nome_app_vendida);
-		vendas.push_back(*venda_temp);
+		vendas.push_back(venda_temp);
 	}
 	return true;
 }
@@ -320,8 +320,8 @@ App* AppStore::find_app_id(unsigned int id) {
 
 Vendas* AppStore::find_vendas_id(unsigned int id) {
 	for (unsigned int i = 0; i < vendas.size(); i++) {
-		if (vendas[i].getId() == id) {
-			return &vendas[i];
+		if (vendas[i]->getId() == id) {
+			return vendas[i];
 		}
 	}
 	return NULL;

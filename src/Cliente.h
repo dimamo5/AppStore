@@ -152,9 +152,8 @@ public:
 	/**
 	 * Adiciona uma Venda ao Cliente
 	 * @param v Venda a ser adiciona ao vector
-	 * @return True em sucesso caso contrario False
 	 */
-	bool adicionarVenda(Vendas* v);
+	void adicionarVenda(Vendas* v);
 	/**
 	 * Getter Historico
 	 * @return Historico de Transacoes do Cliente

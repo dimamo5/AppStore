@@ -57,7 +57,7 @@ public:
 	vector<App> apps;/**< Vector com todas as Apps activas na Store */
 	vector<Cliente> clientes; /**< Vector com todos os Clientes activos na Store */
 	vector<Developer *> dev; /**< Vector com todos os Developers activos na Store */
-	vector<Vendas> vendas; /**< Vector com todos os Vendas activos na Store */
+	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
 	Date data_atual; /**< Data Actual */
 
 	/**
