@@ -78,10 +78,9 @@ int main() {
 	MIEIC_Play.apps[0].addComentario(comment1);
 	MIEIC_Play.apps[0].addComentario(comment2);
 
-	int opc = 0;
-	do {
-		opc = menuInicial(MIEIC_Play);
-	} while (opc); // so acaba o programa quando opc == 0
 
-	return 1;
+
+	menuInicial(MIEIC_Play);
+
+	return 0;
 }

@@ -170,7 +170,7 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 		return opcao; //se não se verificam as restrições, entao devolve-se novamente a variavel intacta
 }
 
-int menuInicial(AppStore& mieic) {
+void menuInicial(AppStore& mieic) {
 	system("cls");
 
 	dev_act = NULL; // da reset aos indicadores de login atual, ou seja, faz logout
@@ -207,27 +207,23 @@ int menuInicial(AppStore& mieic) {
 		case 0:
 			menuVisitaStore(mieic, state);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -1: // 2a opcao
 			menuLogin(mieic);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -2: // 3a opcao
 			menuRegistar(mieic);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -3: // ultima opcao
 			// E NECESSARIO CHAMAR OS SAVES DE FICHEIROS AQUI!!!!!!!!
 			exit(0);
-			return 0;			// indica ao menu que o programa vai fechar
 			break;
 		}
 	}
 }
-int menuLogin(AppStore& mieic) {
+void menuLogin(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -258,24 +254,21 @@ int menuLogin(AppStore& mieic) {
 		case 0:
 			menuLoginCliente(mieic);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		case -1: // 2a opcao
 			menuLoginDeveloper(mieic);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -2: // 3a opcao
 			menuInicial(mieic);
 			system("pause");
-			return 0; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		}
 	}
 }
-int menuRegistar(AppStore& mieic) {
+void menuRegistar(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -314,23 +307,19 @@ int menuRegistar(AppStore& mieic) {
 		case 0:
 			menuRegistarCliente(mieic);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		case -1: // 2a opcao
 			menuRegistarDeveloperIndividual(mieic);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -2: // 2a opcao
 			menuRegistarDeveloperEmpresa(mieic);
 			system("pause");
-			return 1; // indica ao menu que ainda vai continuar o programa
 			break;
 		case -3: // 3a opcao
 			menuInicial(mieic);
 			system("pause");
-			return 0; // indica ao menu que ainda vai continuar o programa
 			break;
 
 		}

@@ -48,9 +48,9 @@ void printMenuScroll(vector<string> options, int selected_option, const unsigned
 void cor(int background, int foreground);
 int teclas();
 int RestringeOpcaoTeclas(int min, int max, int opcao);
-int menuInicial(AppStore& mieic);
-int menuLogin(AppStore& mieic);
-int menuRegistar(AppStore& mieic);
+void menuInicial(AppStore& mieic);
+void menuLogin(AppStore& mieic);
+void menuRegistar(AppStore& mieic);
 void menuLoginCliente(AppStore& mieic);
 void menuLoginDeveloper(AppStore& mieic);
 void menuRegistarCliente(AppStore& mieic);
