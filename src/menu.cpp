@@ -564,6 +564,8 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Indique a sua idade: ";
 		cin >> idade;
 		inputFail = cin.fail(); // guarda a flag do fail
+		if(idade< 10 || idade > 150)
+			inputFail = true;
 		cin.clear(); // da clear a flag do fail
 		cin.ignore(1000, '\n');
 	} while (inputFail == true);
@@ -597,6 +599,15 @@ void menuRegistarCliente(AppStore& mieic) {
 		cin >> cartao_credito;
 
 		inputFail = cin.fail();
+
+//		int counter = 0;
+//		int cartao_copy = cartao_credito;
+//		while(cartao_copy != 0){
+//			counter++;
+//			cartao_copy/10;
+//		}
+//		if(counter != 9)
+//			inputFail = true;
 		cin.clear();  // da clear a flag do fail
 		cin.ignore(1000, '\n');
 	} while (inputFail == true);
@@ -2526,8 +2537,12 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 					// no caso de nao haver comentarios
 					if (menu_comentarios.empty()) {
-						cout << endl << endl << "Nao ha comentarios a mostrar."
-								<< endl;
+						system("cls");
+						cout << "  Comentarios da App  " << endl << endl;
+						cout << "  Prima (Esc) para regressar a lista de Apps "
+								<< endl << endl;
+						cout << endl << endl
+								<< "  Nao ha comentarios a mostrar." << endl;
 						int tecla;
 						tecla = getch();
 						if (tecla != 0) {
@@ -2702,8 +2717,14 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 
 						// no caso de nao haver comentarios
 						if (menu_comentarios.empty()) {
+							system("cls");
+							cout << "  Comentarios da App  " << endl << endl;
+							cout
+									<< "  Prima (Esc) para regressar a lista de Apps "
+									<< endl << endl;
 							cout << endl << endl
-									<< "Nao ha comentarios a mostrar." << endl;
+									<< "  Nao ha comentarios a mostrar."
+									<< endl;
 							int tecla;
 							tecla = getch();
 							if (tecla != 0) {
@@ -2909,7 +2930,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 							cout.flush();
 
 							progress += 0.01; // for demonstration only
-							Sleep(50);
+							Sleep(10);
 						}
 						cout << endl;
 
@@ -2973,8 +2994,14 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 					case 0:
 						// no caso de nao haver comentarios
 						if (menu_comentarios.empty()) {
+							system("cls");
+							cout << "  Comentarios da App  " << endl << endl;
+							cout
+									<< "  Prima (Esc) para regressar a lista de Apps "
+									<< endl << endl;
 							cout << endl << endl
-									<< "Nao ha comentarios a mostrar." << endl;
+									<< "  Nao ha comentarios a mostrar."
+									<< endl;
 							int tecla;
 							tecla = getch();
 							if (tecla != 0) {
@@ -4044,7 +4071,7 @@ void menuCheckoutApps(AppStore& mieic) {
 								tecla = getch();
 							}
 						}
-						menuCheckoutApps(mieic);
+						menuCestoCompras(mieic);
 					} else if (preco_total * 0.95 <= saldo_disponivel) {
 						// Retira o preço a pagar ao saldo do cliente, adiciona 1 voucher e esvazia o cesto de compras
 						cli_act->setSaldo(
@@ -4094,7 +4121,7 @@ void menuCheckoutApps(AppStore& mieic) {
 								tecla = getch();
 							}
 						}
-						menuCheckoutApps(mieic);
+						menuCestoCompras(mieic);
 					}
 					system("pause");
 
@@ -4115,7 +4142,7 @@ void menuCheckoutApps(AppStore& mieic) {
 								tecla = getch();
 							}
 						}
-						menuCheckoutApps(mieic);
+						menuCestoCompras(mieic);
 					} else if (preco_total <= saldo_disponivel) {
 						cli_act->setSaldo(cli_act->getSaldo() - preco_total);
 						cli_act->addVoucher();
@@ -4161,8 +4188,7 @@ void menuCheckoutApps(AppStore& mieic) {
 								tecla = getch();
 							}
 						}
-						menuCheckoutApps(mieic);
-
+						menuCestoCompras(mieic);
 					}
 
 					system("pause");
@@ -4189,7 +4215,7 @@ void menuCheckoutApps(AppStore& mieic) {
 						tecla = getch();
 					}
 				}
-				menuCheckoutApps(mieic);
+				menuCestoCompras(mieic);
 			} else if (preco_total <= saldo_disponivel) {
 				cli_act->setSaldo(cli_act->getSaldo() - preco_total);
 				cli_act->addVoucher();
@@ -4229,7 +4255,7 @@ void menuCheckoutApps(AppStore& mieic) {
 						tecla = getch();
 					}
 				}
-				menuCheckoutApps(mieic);
+				menuCestoCompras(mieic);
 
 			}
 
