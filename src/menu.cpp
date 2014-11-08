@@ -1469,7 +1469,6 @@ void menuClienteAddCredito(AppStore& mieic) {
 void menuCestoCompras(AppStore& mieic) {
 	system("cls");
 
-	unsigned int state = 1; // state = 1 is developer
 	int opcao = 0;
 
 	for (;;) {
@@ -1479,11 +1478,11 @@ void menuCestoCompras(AppStore& mieic) {
 
 		if (opcao == 0)
 			cor(WHITE, BLACK);
-		cout << "  Remover app do cesto  " << endl;
+		cout << "  Ver cesto/Checkout cesto  " << endl;
 		cor(BLACK, WHITE);
 		if (opcao == -1)
 			cor(WHITE, BLACK);
-		cout << "  Checkout das apps  " << endl;
+		cout << "  Remover apps do cesto  " << endl;
 		cor(BLACK, WHITE);
 		if (opcao == -2)
 			cor(WHITE, LIGHT_RED);
@@ -1491,17 +1490,16 @@ void menuCestoCompras(AppStore& mieic) {
 		cor(BLACK, WHITE);
 
 		opcao += teclas();
-		opcao = RestringeOpcaoTeclas(0, 4, opcao);
+		opcao = RestringeOpcaoTeclas(0, 2, opcao);
 
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
-		case 0:          // 1a opcao
-			menuTiraAppCesto(mieic);
+		case 0:
+			menuCheckoutApps(mieic);
 			system("pause");
 			break;
-
-		case -1:          // 2a opcao
-			menuCheckoutApps(mieic);
+		case -1:          // 1a opcao
+			menuTiraAppsCesto(mieic);
 			system("pause");
 			break;
 		case -2:          // 5a opcao
@@ -2343,7 +2341,20 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	Date data_atual(now);
 	int opcao_app = 0;
 
-	vector<string> menu_options = getAppNames(apps_ordenadas);
+	//	vector<string> menu_options = getAppNames(apps_ordenadas);
+	vector<string> menu_options;
+	string preco;
+
+	for (unsigned int i = 0; i < apps_ordenadas.size(); i++) {
+		stringstream ss;
+		ss << apps_ordenadas[i].getPreco();
+		ss >> preco;
+		ss.clear();
+		string temp_str = " Preco: " + preco + "   Nome: "
+				+ apps_ordenadas[i].getNome();
+		menu_options.push_back(temp_str);
+	}
+
 
 	if (apps_ordenadas.empty()) {
 		system("cls");
@@ -2768,7 +2779,8 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 							// a partir do id da app vai-se descobrir o indice da app no vetor
 							// do mieic.apps para poder adicionar o comentario diretamente
 							// nesse vetor
-							int id_da_app = apps_ordenadas[opcao_app].getId();
+							unsigned int id_da_app =
+									apps_ordenadas[opcao_app].getId();
 
 							for (unsigned int j = 0; j < mieic.apps.size();
 									j++) {
@@ -3644,6 +3656,7 @@ void menuModificarApp(AppStore& mieic) {
 						} else if (tecla2 == 27) { // se o user premir (Esc)
 							menuModificarApp(mieic);
 						}
+						break;
 					case -1:          // 1a opcao
 						do {
 							system("cls");
@@ -3779,6 +3792,7 @@ void menuModificarApp(AppStore& mieic) {
 						} else if (tecla2 == 27) { // se o user premir (Esc)
 							menuModificarApp(mieic);
 						}
+						break;
 					case -4:          // 5a opcao
 						menuModificarApp(mieic);          //
 						system("pause");
@@ -3808,36 +3822,30 @@ void menuModificarApp(AppStore& mieic) {
 	}
 }
 
-void menuTiraAppCesto(AppStore& mieic) {
+void menuCheckoutApps(AppStore& mieic) {
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(now);
 
 	int opcao_cesto = 0;
 
-	apagaAppsNaoExistentes(mieic,cli_act);
-//
-//	// vao ser apagadas do cesto as apps que ja que nao existirem
-//	for (unsigned int i = 0; i < cli_act->getCesto().size(); i++) {
-//		existe_app = false;   // reset ao existe app - verifica proxima
-//		for (unsigned int j = 0; j < mieic.apps.size(); j++) {
-//			if (cli_act->getCesto()[i] == mieic.apps[j].getId()) {
-//				existe_app = true;
-//				break; // Se for igual e porque existe -> passa a verificar o proximo item do cesto
-//			}
-//
-//		}
-//		if (!existe_app) {
-//			cli_act->eliminaAppCesto(i);
-//			i--;
-//		}
-//	}
-	// Neste ponto ja apagou do cesto as apps que ja nao existiam
+	apagaAppsNaoExistentes(mieic, cli_act);
 	vector<int> ids_apps_cesto = cli_act->getCesto();
 	vector<string> menu_options;
-
+	double preco_total = 0;
+	double saldo_disponivel = cli_act->getSaldo();
 	// Cria vector com nomes de apps.
 	for (unsigned int k = 0; k < ids_apps_cesto.size(); k++) {
 		for (unsigned int p = 0; p < mieic.apps.size(); p++) {
 			if (ids_apps_cesto[k] == mieic.apps[p].getId()) {
-				menu_options.push_back(mieic.apps[p].getNome());
+				stringstream ss;
+				string preco;
+				ss << mieic.apps[p].getPreco();
+				ss >> preco;
+				preco_total += mieic.apps[p].getPreco(); //  vai somando ao preço total das apps
+				string temp_str = " Preco: " + preco + "   Nome: "
+						+ mieic.apps[p].getNome();
+				menu_options.push_back(temp_str);
 				break;
 			}
 		}
@@ -3860,7 +3868,361 @@ void menuTiraAppCesto(AppStore& mieic) {
 	}
 
 	system("cls");
-	cout << "  Apps do Cesto " << endl << endl;
+	cout << "  Apps do Cesto - Ver e Checkout " << endl << endl;
+	cout
+			<< "  Prima (Enter) para  fazer checkout das apps ou (Esc) para regressar  "
+			<< endl << endl;
+	printMenuScroll(menu_options, opcao_cesto, MAX_PER_SCREEN);
+	cout << endl << endl;
+	cor(WHITE, BLACK);
+	cout << "  Custo Total: " << preco_total << "  Custo Total c/ Voucher: "
+			<< preco_total * 0.95 << "   Saldo Disponivel: " << saldo_disponivel
+			<< " " << endl;
+	cor(BLACK, WHITE);
+	porDataNoCanto(mieic.DataAtual(), 1, 23);
+
+	int tecla;
+	tecla = getch();
+	if (tecla != 0) {
+		while (tecla != 27 && tecla != 13) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+		{
+			tecla = getch();
+			if (tecla == 72) //ACIMA
+					{
+				opcao_cesto--;
+				if (opcao_cesto < 0)
+					opcao_cesto = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+				system("cls");
+				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl;
+				cout
+						<< "  Prima (Enter) para  fazer checkout das apps ou (Esc) para regressar  "
+						<< endl << endl;
+				printMenuScroll(menu_options, opcao_cesto, MAX_PER_SCREEN);
+				cout << endl << endl;
+				cor(WHITE, BLACK);
+				cout << "  Custo Total: " << preco_total
+						<< "  Custo Total c/ Voucher: " << preco_total * 0.95
+						<< "   Saldo Disponivel: " << saldo_disponivel << " "
+						<< endl;
+				cor(BLACK, WHITE);
+				porDataNoCanto(mieic.DataAtual(), 1, 23);
+			}
+			if (tecla == 80) //ABAIXO
+					{
+				opcao_cesto++;
+				if (opcao_cesto > (menu_options.size() - 1))
+					opcao_cesto = 0; // se passar o fim, volta ao inicio
+				system("cls");
+				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl;
+				cout
+						<< "  Prima (Enter) para  fazer checkout das apps ou (Esc) para regressar  "
+						<< endl << endl;
+				printMenuScroll(menu_options, opcao_cesto, MAX_PER_SCREEN);
+				cout << endl << endl;
+				cor(WHITE, BLACK);
+				cout << "  Custo Total: " << preco_total
+						<< "  Custo Total c/ Voucher: " << preco_total * 0.95
+						<< "   Saldo Disponivel: " << saldo_disponivel << " "
+						<< endl;
+				cor(BLACK, WHITE);
+				porDataNoCanto(mieic.DataAtual(), 1, 23);
+			}
+		}
+	}
+	if (tecla == 13) {
+		if (cli_act->getVouchers() > 0) { // Se tiver vouchers, a store pergunta se quer usar
+			int opcao = 0;
+			for (;;) {
+				system("cls");
+				porDataNoCanto(mieic.DataAtual(), 1, 23);
+				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl;
+				cout
+						<< "  Tem Vouchers de desconto disponiveis. Pretende usar um Voucher?"
+						<< endl << endl << endl;
+
+				if (opcao == 0)
+					cor(WHITE, BLACK);
+				cout << "  Sim  " << endl;
+				cor(BLACK, WHITE); // apos imprimir com a cor anterior, da reset à cor para o normal
+				if (opcao == -1)
+					cor(WHITE, BLACK);
+				cout << "  Nao " << endl;
+				cor(BLACK, WHITE);
+				if (opcao == -2)
+					cor(WHITE, LIGHT_RED);
+				cout << "  SAIR  " << endl;
+				cor(BLACK, WHITE);
+
+				opcao += teclas();
+				opcao = RestringeOpcaoTeclas(0, 2, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
+
+				switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+				{
+				case 0:
+					if (preco_total * 0.95 > saldo_disponivel) { // Compra nao efetuada
+						system("cls");
+						cout << "  Apps do Cesto - Ver e Checkout " << endl
+								<< endl << endl;
+						cout
+								<< "  Compra nao efetuada. Saldo disponivel insuficiente."
+								<< endl << endl;
+						cout << "  Prima (Esc) para regressar  " << endl;
+						int tecla;
+						tecla = getch();
+						if (tecla != 0) {
+							while (tecla != 27) {
+								tecla = getch();
+							}
+						}
+						menuCheckoutApps(mieic);
+					} else if (preco_total * 0.95 <= saldo_disponivel) {
+						// Retira o preço a pagar ao saldo do cliente
+						cli_act->setSaldo(
+								cli_act->getSaldo() - preco_total * 0.95);
+						cli_act->addVoucher();
+						cli_act->emptyCesto();
+
+						// Para cada app, vai ao developer e da-lhe a sua parte do dinheiro
+						for (unsigned int k = 0; k < ids_apps_cesto.size();
+								k++) {
+							for (unsigned int p = 0; p < mieic.apps.size();
+									p++) {
+								if (ids_apps_cesto[k]
+										== mieic.apps[p].getId()) {
+									mieic.apps[p].getDev()->addSaldo(
+											mieic.apps[p].getPreco() * 0.8);
+									Vendas venda_temp(
+											mieic.apps[p].getPreco() * 0.95,
+											data_atual,
+											mieic.apps[p].getNome());
+									venda_temp.setAppVendidaId(
+											mieic.apps[p].getId());
+									mieic.vendas.push_back(venda_temp);
+									cli_act->adicionarVenda(
+											&mieic.vendas[mieic.vendas.size()
+													- 1]);
+									break;
+								}
+							}
+						}
+						system("cls");
+						cout << "  Apps do Cesto - Ver e Checkout " << endl
+								<< endl << endl;
+						cout
+								<< "  Compra efetuada! Recebeu um Voucher de desconto para a proxima compra."
+								<< endl;
+						cout << "  Tem saldo restante de "
+								<< cli_act->getSaldo() << " euros." << endl
+								<< endl;
+						cout << "  Prima (Enter) para continuar  " << endl;
+						int tecla;
+						tecla = getch();
+						if (tecla != 0) {
+							while (tecla != 13) {
+								tecla = getch();
+							}
+						}
+						menuCheckoutApps(mieic);
+					}
+					system("pause");
+
+					break;
+				case -1:
+					if (preco_total > saldo_disponivel) { // Compra nao efetuada
+						system("cls");
+						cout << "  Apps do Cesto - Ver e Checkout " << endl
+								<< endl << endl;
+						cout
+								<< "  Compra nao efetuada. Saldo disponivel insuficiente."
+								<< endl << endl;
+						cout << "  Prima (Esc) para regressar  " << endl;
+						int tecla;
+						tecla = getch();
+						if (tecla != 0) {
+							while (tecla != 27) {
+								tecla = getch();
+							}
+						}
+						menuCheckoutApps(mieic);
+					} else if (preco_total <= saldo_disponivel) {
+						cli_act->setSaldo(cli_act->getSaldo() - preco_total);
+						cli_act->addVoucher();
+						cli_act->emptyCesto();
+
+						// Para cada app, vai ao developer e da-lhe a sua parte do dinheiro
+						for (unsigned int k = 0; k < ids_apps_cesto.size();
+								k++) {
+							for (unsigned int p = 0; p < mieic.apps.size();
+									p++) {
+								if (ids_apps_cesto[k]
+										== mieic.apps[p].getId()) {
+									mieic.apps[p].getDev()->addSaldo(
+											mieic.apps[p].getPreco() * 0.8);
+									Vendas venda_temp(mieic.apps[p].getPreco(),
+											data_atual,
+											mieic.apps[p].getNome());
+									venda_temp.setAppVendidaId(
+											mieic.apps[p].getId());
+									mieic.vendas.push_back(venda_temp);
+									cli_act->adicionarVenda(
+											&mieic.vendas[mieic.vendas.size()
+													- 1]);
+									break;
+								}
+							}
+						}
+						system("cls");
+						cout << "  Apps do Cesto - Ver e Checkout " << endl
+								<< endl << endl;
+						cout
+								<< "  Compra efetuada! Recebeu um Voucher de desconto para a proxima compra."
+								<< endl;
+						cout << "  Tem saldo restante de "
+								<< cli_act->getSaldo() << " euros." << endl
+								<< endl;
+						cout << "  Prima (Enter) para continuar  " << endl;
+						int tecla;
+						tecla = getch();
+						if (tecla != 0) {
+							while (tecla != 13) {
+								tecla = getch();
+							}
+						}
+						menuCheckoutApps(mieic);
+
+					}
+
+					system("pause");
+					break;
+				case -2:
+					return;
+					//menuCheckoutApps(mieic);
+					break;
+				}
+			}
+
+		} else if (cli_act->getVouchers() == 0) { // NO CASO DE NAO TER VOUCHERS == CASO NAO USAR
+			if (preco_total > saldo_disponivel) {
+				system("cls");
+				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl
+						<< endl;
+				cout << "  Compra nao efetuada. Saldo disponivel insuficiente."
+						<< endl << endl;
+				cout << "  Prima (Esc) para regressar  " << endl;
+				int tecla;
+				tecla = getch();
+				if (tecla != 0) {
+					while (tecla != 27) {
+						tecla = getch();
+					}
+				}
+				menuCheckoutApps(mieic);
+			} else if (preco_total <= saldo_disponivel) {
+				cli_act->setSaldo(cli_act->getSaldo() - preco_total);
+				cli_act->addVoucher();
+				cli_act->emptyCesto();
+
+				// Para cada app, vai ao developer e da-lhe a sua parte do dinheiro
+				for (unsigned int k = 0; k < ids_apps_cesto.size(); k++) {
+					for (unsigned int p = 0; p < mieic.apps.size(); p++) {
+						if (ids_apps_cesto[k] == mieic.apps[p].getId()) {
+							mieic.apps[p].getDev()->addSaldo(
+									mieic.apps[p].getPreco() * 0.8);
+							Vendas venda_temp(mieic.apps[p].getPreco(),
+									data_atual, mieic.apps[p].getNome());
+							venda_temp.setAppVendidaId(mieic.apps[p].getId());
+							mieic.vendas.push_back(venda_temp);
+							cli_act->adicionarVenda(
+									&mieic.vendas[mieic.vendas.size() - 1]);
+							break;
+						}
+					}
+				}
+				system("cls");
+				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl
+						<< endl;
+				cout
+						<< "  Compra efetuada! Recebeu um Voucher de desconto para a proxima compra."
+						<< endl;
+				cout << "  Tem saldo restante de " << cli_act->getSaldo()
+						<< " euros." << endl << endl;
+				cout << "  Prima (Enter) para continuar  " << endl;
+				int tecla;
+				tecla = getch();
+				if (tecla != 0) {
+					while (tecla != 13) {
+						tecla = getch();
+					}
+				}
+				menuCheckoutApps(mieic);
+
+			}
+
+		}
+	}
+	if (tecla == 27) {
+		menuCestoCompras(mieic);
+	}
+}
+
+void menuTiraAppsCesto(AppStore& mieic) {
+
+	int opcao_cesto = 0;
+
+	apagaAppsNaoExistentes(mieic, cli_act);
+//
+//	// vao ser apagadas do cesto as apps que ja que nao existirem
+//	for (unsigned int i = 0; i < cli_act->getCesto().size(); i++) {
+//		existe_app = false;   // reset ao existe app - verifica proxima
+//		for (unsigned int j = 0; j < mieic.apps.size(); j++) {
+//			if (cli_act->getCesto()[i] == mieic.apps[j].getId()) {
+//				existe_app = true;
+//				break; // Se for igual e porque existe -> passa a verificar o proximo item do cesto
+//			}
+//
+//		}
+//		if (!existe_app) {
+//			cli_act->eliminaAppCesto(i);
+//			i--;
+//		}
+//	}
+// Neste ponto ja apagou do cesto as apps que ja nao existiam
+	vector<int> ids_apps_cesto = cli_act->getCesto();
+	vector<string> menu_options;
+
+// Cria vector com nomes de apps.
+	for (unsigned int k = 0; k < ids_apps_cesto.size(); k++) {
+		for (unsigned int p = 0; p < mieic.apps.size(); p++) {
+			if (ids_apps_cesto[k] == mieic.apps[p].getId()) {
+				stringstream ss;
+				string preco;
+				ss << mieic.apps[p].getPreco();
+				ss >> preco;
+				string temp_str = " Preco: " + preco + "   Nome: "
+						+ mieic.apps[p].getNome();
+				menu_options.push_back(temp_str);
+			}
+		}
+	}
+
+	if (cli_act->getCesto().size() == 0) {
+		system("cls");
+		cout << "  Remover Apps do Cesto " << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+		cout << "  Nao ha apps no cesto.";
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) {
+				tecla = getch();
+			}
+		}
+		menuCestoCompras(mieic);
+	}
+
+	system("cls");
+	cout << " Remover Apps do Cesto " << endl << endl;
 	cout
 			<< "  Prima (Enter) para selecionar uma app para apagar ou (Esc) para regressar  "
 			<< endl << endl;
@@ -3878,7 +4240,7 @@ void menuTiraAppCesto(AppStore& mieic) {
 				if (opcao_cesto < 0)
 					opcao_cesto = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
 				system("cls");
-				cout << "  Apps do Cesto " << endl << endl;
+				cout << " Remover Apps do Cesto " << endl << endl;
 				cout
 						<< "  Prima (Enter) para selecionar uma app para apagar ou (Esc) para regressar  "
 						<< endl << endl;
@@ -3890,7 +4252,7 @@ void menuTiraAppCesto(AppStore& mieic) {
 				if (opcao_cesto > (menu_options.size() - 1))
 					opcao_cesto = 0; // se passar o fim, volta ao inicio
 				system("cls");
-				cout << "  Apps do Cesto " << endl << endl;
+				cout << " Remover Apps do Cesto " << endl << endl;
 				cout
 						<< "  Prima (Enter) para selecionar uma app para apagar ou (Esc) para regressar  "
 						<< endl << endl;
@@ -3902,7 +4264,7 @@ void menuTiraAppCesto(AppStore& mieic) {
 		//contando que menu_options tem o mesmo nr. de items que o cesto
 		//uma vez que se apagaram do cesto apps que desapareceram e menu_options foi criado a partir do cesto
 		cli_act->eliminaAppCesto(opcao_cesto);
-		menuTiraAppCesto(mieic);
+		menuTiraAppsCesto(mieic);
 	}
 	if (tecla == 27) {
 		menuCestoCompras(mieic);
@@ -3910,29 +4272,23 @@ void menuTiraAppCesto(AppStore& mieic) {
 
 }
 
-void menuCheckoutApps(AppStore& mieic) {
-
-	 apagaAppsNaoExistentes(mieic,cli_act);
-
-}
-
-void apagaAppsNaoExistentes(AppStore& mieic,Cliente* cli){
+void apagaAppsNaoExistentes(AppStore& mieic, Cliente* cli) {
 
 	bool existe_app = false;
 
-		// vao ser apagadas do cesto as apps que ja que nao existirem
-		for (unsigned int i = 0; i < cli->getCesto().size(); i++) {
-			existe_app = false;   // reset ao existe app - verifica proxima
-			for (unsigned int j = 0; j < mieic.apps.size(); j++) {
-				if (cli->getCesto()[i] == mieic.apps[j].getId()) {
-					existe_app = true;
-					break; // Se for igual e porque existe -> passa a verificar o proximo item do cesto
-				}
+// vao ser apagadas do cesto as apps que ja que nao existirem
+	for (unsigned int i = 0; i < cli->getCesto().size(); i++) {
+		existe_app = false;   // reset ao existe app - verifica proxima
+		for (unsigned int j = 0; j < mieic.apps.size(); j++) {
+			if (cli->getCesto()[i] == mieic.apps[j].getId()) {
+				existe_app = true;
+				break; // Se for igual e porque existe -> passa a verificar o proximo item do cesto
+			}
 
-			}
-			if (!existe_app) {
-				cli->eliminaAppCesto(i);
-				i--;
-			}
 		}
+		if (!existe_app) {
+			cli->eliminaAppCesto(i);
+			i--;
+		}
+	}
 }

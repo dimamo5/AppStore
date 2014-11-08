@@ -166,6 +166,10 @@ public:
 	 */
 	void setHistorico(vector<Vendas *> v);
 	/**
+	 * Esvazia o Cesto de compras. E normalmente usado apos checkout do cesto.
+	 */
+	void emptyCesto();
+	/**
 	 * Setter Next Id
 	 * @param i Proximo Id de um novo Cliente Criado
 	 */

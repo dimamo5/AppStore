@@ -33,7 +33,6 @@ class Date;
 extern Developer* dev_act;
 extern Cliente* cli_act;
 
-static inline void loadbar(unsigned int x, unsigned int n, unsigned int w = 50);
 void gotoxy(int xpos, int ypos);
 void porDataNoCanto(int xpos, int ypos);
 
@@ -79,7 +78,7 @@ void menuVerCli(AppStore& mieic);
 void menuCriarApp(AppStore& mieic);
 void menuRemoverApp(AppStore& mieic);
 void menuModificarApp(AppStore& mieic);
-void menuTiraAppCesto(AppStore& mieic);
+void menuTiraAppsCesto(AppStore& mieic);
 void menuCheckoutApps(AppStore& mieic);
 void apagaAppsNaoExistentes(AppStore& mieic,Cliente* cli);
 

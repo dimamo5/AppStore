@@ -35,6 +35,9 @@ double Developer::getSaldo() const {
 void Developer::setSaldo(unsigned int s) {
 	saldo = s;
 }
+void Developer::addSaldo(double saldo_add){
+	saldo = saldo + saldo_add;
+}
 
 //bool Developer::adiciona_app(App &a) {
 //	for (unsigned int i; i < apps.size(); i++) {

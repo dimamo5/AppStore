@@ -85,6 +85,10 @@ void Cliente::setHistorico(vector<Vendas*> v) {
 	historico = v;
 }
 
+void Cliente::emptyCesto() {
+	cesto_compras.clear();
+}
+
 void Cliente::setNextID(unsigned int i) {
 	next_id = i;
 }
@@ -115,8 +119,7 @@ bool Cliente::eliminaAppCesto(unsigned int i) {
 	cesto_compras.erase(cesto_compras.begin() + i);
 }
 
-
-vector<int> Cliente::getCesto() const{
+vector<int> Cliente::getCesto() const {
 	return cesto_compras;
 }
 
@@ -128,8 +131,8 @@ bool Cliente::jaComprou(App app_option) {
 	return false;
 }
 
-bool Cliente::historicoVazio(){
-	if(historico.size() == 0)
+bool Cliente::historicoVazio() {
+	if (historico.size() == 0)
 		return true;
 	else
 		return false;

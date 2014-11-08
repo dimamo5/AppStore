@@ -61,6 +61,11 @@ public:
 	 */
 	void setSaldo(unsigned int s);
 	/**
+	 * Metodo para adicionar saldo a um developer
+	 * @param saldo_add Saldo a adicionar ao saldo ja existente do developer
+	 */
+	void addSaldo(double saldo_add);
+	/**
 	 * Setter Next Id
 	 * @param i Id do proximo objecto criado por esta classe
 	 */
