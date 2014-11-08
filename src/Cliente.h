@@ -184,6 +184,10 @@ public:
 	 * @return True em sucesso caso contrario False
 	 */
 	bool historicoVazio();
+	/**
+	 * Imprime de uma maneira legivel as infomacaos do cliente
+	 * @return String como toda a informacao
+	 */
 
 };
 

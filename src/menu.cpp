@@ -63,6 +63,22 @@ vector<string> getDevNames(vector<Developer*> devs) {
 	return dev_names;
 }
 
+vector<string> getCliInfo(vector<Cliente> clientes) {
+	vector<string> clientes_info;
+	for (unsigned int i = 0; i < clientes.size(); i++) {
+		string temp;
+		string idade;
+		stringstream ss;
+		ss << clientes[i].getIdade();
+		ss >> idade;
+		temp = "  Sexo: " + clientes[i].getSexo() + "    Idade: " + idade
+				+ "    Nome: " + clientes[i].getNome();
+
+		clientes_info.push_back(temp);
+	}
+	return clientes_info;
+}
+
 template<typename T>
 bool verificaPass(T* dev_or_cli) {
 	system("cls");
@@ -561,10 +577,10 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Insira os seus dados para registo de cliente  " << endl
 				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
-		cout << "  Indique a sua idade: ";
+		cout << "  Indique a sua idade ( > 9 e < 151 ): ";
 		cin >> idade;
 		inputFail = cin.fail(); // guarda a flag do fail
-		if(idade< 10 || idade > 150)
+		if (idade < 10 || idade > 150)
 			inputFail = true;
 		cin.clear(); // da clear a flag do fail
 		cin.ignore(1000, '\n');
@@ -575,7 +591,7 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Insira os seus dados para registo de cliente  " << endl
 				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
-		cout << "  Indique a sua idade: " << idade << endl;
+		cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): ";
 		cin >> sexo;
 
@@ -593,7 +609,7 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Insira os seus dados para registo de cliente  " << endl
 				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
-		cout << "  Indique a sua idade: " << idade << endl;
+		cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
 		cout << "  Indique o seu no. cartao credito (com 9 digitos): ";
 		cin >> cartao_credito;
@@ -602,11 +618,11 @@ void menuRegistarCliente(AppStore& mieic) {
 
 		int counter = 0;
 		int cartao_copy = cartao_credito;
-		while(cartao_copy != 0){
+		while (cartao_copy != 0) {
 			counter++;
-			cartao_copy = cartao_copy/10;
+			cartao_copy = cartao_copy / 10;
 		}
-		if(counter != 9)
+		if (counter != 9)
 			inputFail = true;
 
 		cin.clear();  // da clear a flag do fail
@@ -617,10 +633,10 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Insira os seus dados para registo de cliente  " << endl
 				<< endl << endl;
 		cout << "  Indique o seu nome: " << nome << endl;
-		cout << "  Indique a sua idade: " << idade << endl;
+		cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-		cout << "  Indique o seu no. cartao credito (com 9 digitos): " << cartao_credito << endl
-				<< endl;
+		cout << "  Indique o seu no. cartao credito (com 9 digitos): "
+				<< cartao_credito << endl << endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
 		cin >> password;
@@ -634,10 +650,10 @@ void menuRegistarCliente(AppStore& mieic) {
 	cout << "  Insira os seus dados para registo de cliente  " << endl << endl
 			<< endl;
 	cout << "  Indique o seu nome: " << nome << endl;
-	cout << "  Indique a sua idade: " << idade << endl;
+	cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 	cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-	cout << "  Indique o seu no. cartao credito (com 9 digitos): " << cartao_credito << endl
-			<< endl;
+	cout << "  Indique o seu no. cartao credito (com 9 digitos): "
+			<< cartao_credito << endl << endl;
 	cout << "  Introduza agora a password que pretende:  " << password << endl
 			<< endl << endl;
 
@@ -857,16 +873,20 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	} while (nome_dev == "");
 
 	do {
+		inputFail = false;
 		system("cls");
 		cout << "  Insira os dados para registo da empresa  " << endl << endl
 				<< endl;
 		cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
 		cout << "  Indique o nome de developer da empresa: " << nome_dev
 				<< endl;
-		cout << "  Indique o NIF da empresa: ";
+		cout << "  Indique o NIF da empresa (9 digitos): ";
 		cin >> NIF;
 
 		inputFail = cin.fail();
+
+		if (NIF.length()!= 9) //tem que ter 9 digitos
+			inputFail = true;
 
 		for (unsigned int i = 0; i < NIF.size(); i++) { //verifica se NIF so tem numeros
 			if (!isdigit(NIF[i])) {
@@ -885,8 +905,8 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 		cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
 		cout << "  Indique o nome de developer da empresa: " << nome_dev
 				<< endl;
-		cout << "  Indique o NIF da empresa: " << NIF << endl;
-		cout << "  Indique a morada da empresa  ";
+		cout << "  Indique o NIF da empresa (9 digitos): " << NIF << endl;
+		cout << "  Indique a morada da empresa:  ";
 
 		fflush(stdin);
 		getline(cin, morada);
@@ -900,8 +920,8 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 		cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
 		cout << "  Indique o nome de developer da empresa: " << nome_dev
 				<< endl;
-		cout << "  Indique o NIF da empresa: " << NIF << endl;
-		cout << "  Indique a morada da empresa  " << morada << endl;
+		cout << "  Indique o NIF da empresa (9 digitos): " << NIF << endl;
+		cout << "  Indique a morada da empresa:  " << morada << endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
 		cin >> password;
@@ -916,8 +936,8 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 			<< endl;
 	cout << "  Indique o nome oficial da empresa: " << nome_oficial << endl;
 	cout << "  Indique o nome de developer da empresa: " << nome_dev << endl;
-	cout << "  Indique o NIF da empresa: " << NIF << endl;
-	cout << "  Indique a morada da empresa  " << morada << endl;
+	cout << "  Indique o NIF da empresa (9 digitos): " << NIF << endl;
+	cout << "  Indique a morada da empresa:  " << morada << endl;
 	cout << "  Introduza agora a password que pretende:  " << password; //TODO: por astericos na pass
 	cout << endl << endl << endl;
 	cout
@@ -1062,19 +1082,23 @@ void menuDeveloper(AppStore& mieic) {
 		cor(BLACK, WHITE);
 		if (opcao == -2)
 			cor(WHITE, BLACK);
-		cout << "  Definicoes da Conta  " << endl;
+		cout << "  Lista de Clientes  " << endl;
 		cor(BLACK, WHITE);
 		if (opcao == -3)
 			cor(WHITE, BLACK);
-		cout << "  Visualisar Atributos de Developer  " << endl;
+		cout << "  Definicoes da Conta  " << endl;
 		cor(BLACK, WHITE);
 		if (opcao == -4)
+			cor(WHITE, BLACK);
+		cout << "  Visualisar Atributos de Developer  " << endl;
+		cor(BLACK, WHITE);
+		if (opcao == -5)
 			cor(WHITE, LIGHT_RED);
 		cout << "  LOGOUT  " << endl;
 		cor(BLACK, WHITE);
 
 		opcao += teclas();
-		opcao = RestringeOpcaoTeclas(0, 4, opcao);
+		opcao = RestringeOpcaoTeclas(0, 5, opcao);
 
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
@@ -1088,14 +1112,18 @@ void menuDeveloper(AppStore& mieic) {
 			system("pause");
 			break;
 		case -2:          // 3a opcao
-			menuDeveloperDefinicoes(mieic);
+			menuListaCliente(mieic);
 			system("pause");
 			break;
 		case -3:          // 4a opcao
-			menuVerDev(mieic); // TODO: implementar a listagem atributos do developer
+			menuDeveloperDefinicoes(mieic);
 			system("pause");
 			break;
 		case -4:          // 5a opcao
+			menuVerDev(mieic); // TODO: implementar a listagem atributos do developer
+			system("pause");
+			break;
+		case -5:
 			menuInicial(mieic);
 			system("pause");
 			break;
@@ -2242,8 +2270,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 		int opcao = 0;
 		for (;;) {
 			system("cls");
-			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state
-					<< endl << endl;
+			cout << "  AppStore MIEICPlay" << endl << endl;
 
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
@@ -2436,8 +2463,8 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		ss.clear();
 		ss << apps_ordenadas[i].getClassificacaoFinal();
 		ss >> classificacao;
-		string temp_str = " Preco: " + preco + "  Classificacao: " +  classificacao +  "   Nome: "
-				+ apps_ordenadas[i].getNome();
+		string temp_str = " Preco: " + preco + "  Classificacao: "
+				+ classificacao + "   Nome: " + apps_ordenadas[i].getNome();
 		menu_options.push_back(temp_str);
 	}
 
@@ -2880,14 +2907,14 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 							for (unsigned int j = 0; j < mieic.apps.size();
 									j++) {
 								if (id_da_app == mieic.apps[j].getId()) {
-									mieic.apps[j].update_classificacao(classificacao);
+//									mieic.apps[j].update_classificacao(classificacao);
 									mieic.apps[j].addComentario(comment);
 									break;
 								}
 							}
 							// esta linha serve para o comentario atualizar imediatamente sem
 							// necessitar de sair da store
-							apps_ordenadas[opcao_app].update_classificacao(classificacao);
+//							apps_ordenadas[opcao_app].update_classificacao(classificacao);
 							apps_ordenadas[opcao_app].addComentario(comment);
 
 							system("cls");
@@ -3259,6 +3286,77 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 		if (tecla == 27)
 			menuVisitaStore(mieic, state); // se na listagem de devs carrega esc, volta para o menu inic.
 
+	}
+
+}
+
+void menuListaCliente(AppStore& mieic) {
+
+	if (mieic.clientes.empty()) {
+		system("cls");
+		cout << "  Lista de Clientes da AppStore (por ordem de registo)" << endl
+				<< endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+		cout << endl << endl << endl << "  Nao ha Clientes para mostrar  "
+				<< endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
+		}
+		menuDeveloper(mieic); // ao carregar escape, regressa a escolha de criterios da store
+	} else if (!mieic.clientes.empty()) {
+
+		vector<string> lista_clientes_str = getCliInfo(mieic.clientes);
+		int opcao = 0;
+
+		system("cls");
+		cout << "  Lista de Clientes da AppStore (por ordem de registo)" << endl
+				<< endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+		printMenuScroll(lista_clientes_str, opcao, MAX_PER_SCREEN);
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+						{
+					opcao--;
+					if (opcao < 0)
+						opcao = lista_clientes_str.size() - 1;
+					system("cls");
+					cout
+							<< "  Lista de Clientes da AppStore (por ordem de registo)"
+							<< endl << endl;
+					cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+					printMenuScroll(lista_clientes_str, opcao, MAX_PER_SCREEN);
+				}
+				if (tecla == 80) //ABAIXO
+						{
+					opcao++;
+					if (opcao > (lista_clientes_str.size() - 1))
+						opcao = 0;
+
+					system("cls");
+					cout
+							<< "  Lista de Clientes da AppStore (por ordem de registo)"
+							<< endl << endl;
+					cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+					printMenuScroll(lista_clientes_str, opcao, MAX_PER_SCREEN);
+				}
+			}
+		}
+		menuDeveloper(mieic);
 	}
 
 }

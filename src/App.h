@@ -36,7 +36,7 @@ private:
 	string categoria;/**< Categoria em que se insere a App */
 	string descricao;/**< Pequena descricao sobre a App */
 	double preco;/**< Preco da App */
-	double classificacao_final;/**< Classificacao atribuida pelo clientes que compram a App */
+	double classificacao_final=0;/**< Classificacao atribuida pelo clientes que compram a App */
 	int num_classificacoes=0; /**< Numero de Classificacaos ja lhe atribuidas */
 	vector<Comentario> comentarios; /**< Vector com todos os Comentarios */
 	Developer* dev; /**< Pointer para o developer que criou esta app */
@@ -71,10 +71,15 @@ public:
 	 */
 	string getCategoria() const;
 	/**
-	 * Getter Classificao
-	 * @return Double Classificao
+	 * Getter Classificacao
+	 * @return Double Classificacao
 	 */
 	double getClassificacaoFinal() const;
+	/**
+	 * Setter Classificacao
+	 * @param classificacao Classificacao a definir
+	 */
+	void setClassificacaoFinal(double classificacao);
 	/**
 	 * Getter de todos os Comentarios/Classificacoes feitas
 	 * @return Vector Comentarios
@@ -159,7 +164,7 @@ public:
 	void setDescricao(const string& descricao);
 	/**
 	 * Imprime de uma maneira legivel as infomacaos da App
-	 * @return String como toda a informcao
+	 * @return String como toda a informacao
 	 */
 	string imprime() const;
 };

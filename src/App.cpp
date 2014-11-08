@@ -20,6 +20,10 @@ double App::getClassificacaoFinal() const {
 	return classificacao_final;
 }
 
+void App::setClassificacaoFinal(double classificacao){
+	classificacao_final = classificacao;
+}
+
 vector<Comentario> App::getComentarios() const {
 	return comentarios;
 }
@@ -45,6 +49,7 @@ void App::setComentarios(const vector<Comentario>& comentarios) {
 
 void App::addComentario(Comentario coment){
 	comentarios.push_back(coment);
+	App::update_classificacao(coment.getClassificacao());
 }
 
 void App::setDev(Developer* dev) {

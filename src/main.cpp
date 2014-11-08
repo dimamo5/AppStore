@@ -23,7 +23,7 @@ int main() {
 	}
 //VARIAVEIS PARA TESTES
 
-	/*	Cliente cli_temp("APedro Cliente", 18, "M", 123123123, "1");
+		Cliente cli_temp("APedro Cliente", 18, "M", 123123123, "1");
 
 	 Date data_venda1(2014, 11, 7, 10, 10);
 	 Vendas* venda1 = new Vendas(10, data_venda1, "App-Fixe-Vendida-1"); //preco - data - nome
@@ -83,7 +83,8 @@ int main() {
 
 	 MIEIC_Play.apps[0].addComentario(comment1);
 	 MIEIC_Play.apps[0].addComentario(comment2);
-	 */
+
+
 	menuInicial(MIEIC_Play);
 
 	return 0;

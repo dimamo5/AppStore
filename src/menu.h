@@ -333,5 +333,10 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state, vector<App> a
  * @param state Identifica quem visita a store e o que pode ver: 0 se for um guest a visitar, 1 se for um developer e 2 se for um cliente
  */
 void menuListaDeveloper(AppStore& mieic, unsigned int& state);
+/**
+ * Menu que faz listagem dos clientes existentes, podendo-se ver o nome, idade e sexo
+ * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
+ */
+void menuListaCliente(AppStore& mieic);
 
 #endif /* MENU_H_ */

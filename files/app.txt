@@ -1,11 +1,11 @@
-8
+7
 1
 aaa
 jogos
 jogo-accao
 4
-4
-0
+4.5
+2
 2
 1
 app muito boa
@@ -19,7 +19,7 @@ bbb
 filmes
 filme-aventura
 3
-4
+0
 0
 0
 1
@@ -28,7 +28,7 @@ ccc
 livros
 livro-policial
 2
-1
+0
 0
 0
 1
@@ -37,7 +37,7 @@ ddd
 musica
 musica-rock
 1
-7
+0
 0
 0
 1
@@ -46,7 +46,7 @@ abc
 musica
 musica-rock
 1
-1
+0
 0
 0
 2
@@ -59,15 +59,3 @@ musica-rock
 0
 0
 3
-7
-Teste Flappy
-ja nao sabes
-qualquer coisa
-2
-4
-0
-1
-1
-optima app
-5
-1
