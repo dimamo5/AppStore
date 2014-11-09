@@ -1,21 +1,20 @@
 3
 1
-APedro Cliente
+Diogo Cliente
+19
+M
+123456789
+28
+1
+1
+1
+0
+2
+Pedro Cliente
 18
 M
 123123123
 0
 0
-1
 2
-1
-2
-2
-BPedro Cliente
-19
-M
-123123123
-0
-0
-1
 0

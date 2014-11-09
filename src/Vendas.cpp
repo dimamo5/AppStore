@@ -7,11 +7,11 @@
 
 #include "Vendas.h"
 
-unsigned int Vendas::next_id = 1;
+unsigned int Vendas::next_id = 2;
 
 Vendas::Vendas(float preco, Date data_venda, string app_removida_nome) :
 		preco(preco), data_venda(data_venda),nome_app_momento_venda(app_removida_nome) {
-	id = next_id;
+	this->id = next_id;
 	next_id++;
 	retorno = false;
 	reclamacao = "";
@@ -37,7 +37,7 @@ int Vendas::getId() const {
 	return id;
 }
 
-unsigned int Vendas::getNextId() const {
+unsigned int Vendas::getNextId() {
 	return next_id;
 }
 

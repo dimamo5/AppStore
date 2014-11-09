@@ -158,9 +158,9 @@ bool AppStore::save_app(ofstream& file) {
 }
 
 bool AppStore::load_app(fstream& file) {
-	unsigned int next_id, id, clas_final, num_clas, com_size, com_id_cliente,
+	unsigned int next_id, id, num_clas, com_size, com_id_cliente,
 			com_clas, dev_id;
-	float preco;
+	double preco,clas_final;
 	string categoria, descricao, com_descricao, temp, nome;
 	vector<Comentario> com_temp;
 	getline(file, temp);
@@ -203,6 +203,7 @@ bool AppStore::load_app(fstream& file) {
 			app_temp->setComentarios(com_temp);
 		}
 		apps.push_back(*app_temp);
+		com_temp.clear();
 	}
 	return true;
 
@@ -236,7 +237,6 @@ bool AppStore::save_all() {
 			throw File_Exp(2, "Ficheiro Developer nao foi correctamente gravado!");
 		}
 	save_dev(file_developer);
-	cout << "developer passou";
 
 	file_apps.open("../files/app.txt");
 	if (file_apps.fail()) {
@@ -244,7 +244,6 @@ bool AppStore::save_all() {
 	}
 	save_app(file_apps);
 	file_apps.close();
-	cout << "apps passou";
 
 	file_vendas.open("../files/vendas.txt");
 	if (file_vendas.fail()) {
@@ -252,7 +251,6 @@ bool AppStore::save_all() {
 	}
 	save_vendas(file_vendas);
 	file_vendas.close();
-	cout << "vendas passou";
 
 	file_clientes.open("../files/clientes.txt");
 	if (file_clientes.fail()) {
@@ -260,7 +258,6 @@ bool AppStore::save_all() {
 	}
 	save_clientes(file_clientes);
 	file_clientes.close();
-	cout << "clientes passou";
 
 }
 
@@ -303,7 +300,7 @@ bool AppStore::save_vendas(ofstream &file) {
 	if (vendas.empty()) {
 		return false;
 	} else {
-		file << vendas[0]->getNextId() << endl;
+		file << Vendas::getNextId() << endl;
 		for (unsigned int i = 0; i < vendas.size(); i++) {
 			file << vendas[i]->getId() << endl;
 			file << vendas[i]->getPreco() << endl;

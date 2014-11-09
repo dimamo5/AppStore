@@ -237,9 +237,7 @@ void menuInicial(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
-			system("pause");
 			exit(0);
 			break;
 		}
@@ -678,7 +676,6 @@ void menuRegistarCliente(AppStore& mieic) {
 			cerr << "Error" + exp.getIdErro() << endl;
 			cerr << exp.getDescricaoErro() << endl;
 			cor(BLACK, WHITE); //reset à cor
-			system("pause");
 		}
 
 		cout << "  Sucesso! O seu ID de login e " << cli_temp.getId() << endl
@@ -816,7 +813,6 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
 
 			cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
@@ -988,7 +984,6 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
 
 			cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
@@ -1498,7 +1493,6 @@ void menuClienteAddCredito(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
 
 			system("cls");
@@ -1715,7 +1709,6 @@ void menuAlterarPassCli(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
 
 			tecla = getch();
@@ -1824,7 +1817,6 @@ void menuAlterarCartao(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
 
 			menuClienteDefinicoes(mieic);
@@ -1917,7 +1909,6 @@ void menuApagarContaCli(AppStore& mieic) {
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
 					cor(BLACK, WHITE); //reset à cor
-					system("pause");
 				}
 
 				cli_act = NULL;
@@ -2007,7 +1998,6 @@ void menuAlterarPassDev(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
 
 			tecla = getch();
@@ -2116,10 +2106,7 @@ void menuAlterarMorada(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
-
-
 
 			tecla = getch();
 			if (tecla != 0) {
@@ -2217,9 +2204,7 @@ void menuAlterarNIF(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
-
 
 			tecla = getch();
 			if (tecla != 0) {
@@ -2341,7 +2326,6 @@ void menuApagarContaDev(AppStore& mieic) {
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
 					cor(BLACK, WHITE); //reset à cor
-					system("pause");
 				}
 
 //				delete dev_act;
@@ -2454,8 +2438,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 		int opcao = 0;
 		for (;;) {
 			system("cls");
-			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state
-					<< endl << endl;
+			cout << "  AppStore MIEICPlay" << endl << endl;
 
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
@@ -2513,8 +2496,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 		int opcao = 0;
 		for (;;) {
 			system("cls");
-			cout << "  AppStore MIEICPlay  - Esta a entrar com state " << state
-					<< endl << endl;
+			cout << "  AppStore MIEICPlay" << endl << endl;
 
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
@@ -3050,7 +3032,6 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
 								cor(BLACK, WHITE); //reset à cor
-								system("pause");
 							}
 
 							system("cls");
@@ -3678,7 +3659,6 @@ void menuCriarApp(AppStore& mieic) {
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
 				cor(BLACK, WHITE); //reset à cor
-				system("pause");
 			}
 
 			cout << "  Sucesso! App criada. " << endl << endl;
@@ -3828,7 +3808,6 @@ void menuRemoverApp(AppStore& mieic) {
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
 					cor(BLACK, WHITE); //reset à cor
-					system("pause");
 				}
 
 				menuRemoverApp(mieic);
@@ -4011,7 +3990,6 @@ void menuModificarApp(AppStore& mieic) {
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
 								cor(BLACK, WHITE); //reset à cor
-								system("pause");
 							}
 
 							cout << "  Sucesso! O nome da App foi modificado "
@@ -4064,7 +4042,6 @@ void menuModificarApp(AppStore& mieic) {
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
 								cor(BLACK, WHITE); //reset à cor
-								system("pause");
 							}
 
 							cout
@@ -4119,7 +4096,6 @@ void menuModificarApp(AppStore& mieic) {
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
 								cor(BLACK, WHITE); //reset à cor
-								system("pause");
 							}
 
 							cout
@@ -4177,7 +4153,6 @@ void menuModificarApp(AppStore& mieic) {
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
 								cor(BLACK, WHITE); //reset à cor
-								system("pause");
 							}
 
 							cout << "  Sucesso! O preco da App foi modificado "
@@ -4417,7 +4392,6 @@ void menuCheckoutApps(AppStore& mieic) {
 							cerr << "Error" + exp.getIdErro() << endl;
 							cerr << exp.getDescricaoErro() << endl;
 							cor(BLACK, WHITE); //reset à cor
-							system("pause");
 						}
 						system("cls");
 						cout << "  Apps do Cesto - Ver e Checkout " << endl
@@ -4494,7 +4468,6 @@ void menuCheckoutApps(AppStore& mieic) {
 							cerr << "Error" + exp.getIdErro() << endl;
 							cerr << exp.getDescricaoErro() << endl;
 							cor(BLACK, WHITE); //reset à cor
-							system("pause");
 						}
 
 						system("cls");
@@ -4572,7 +4545,6 @@ void menuCheckoutApps(AppStore& mieic) {
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
 					cor(BLACK, WHITE); //reset à cor
-					system("pause");
 				}
 				system("cls");
 				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl

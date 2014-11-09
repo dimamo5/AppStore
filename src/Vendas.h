@@ -86,7 +86,7 @@ public:
 	 * Getter Next Id
 	 * @return Int Proximo Id
 	 */
-	unsigned int getNextId() const;
+	static unsigned int getNextId();
 	/**
 	 * Setter Next Id
 	 * @param nextId Id da proxima Venda criada

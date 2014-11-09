@@ -23,68 +23,51 @@ int main() {
 	}
 //VARIAVEIS PARA TESTES
 
-/*	Cliente cli_temp("APedro Cliente", 18, "M", 123123123, "1");
+//	 Date data_venda1(2014, 11, 7, 10, 10);
+//	 Vendas* venda1 = new Vendas(10, data_venda1, "App-Fixe-Vendida-1"); //preco - data - nome
+//	 venda1->setAppVendidaId(1);
+//	 MIEIC_Play.vendas.push_back(venda1);
+//	 cli_temp.adicionarVenda(venda1); // puxa o pointer do ultimo elemento do vetor a ser adicionado
+//
+//	 Vendas* venda2 = new Vendas(20, data_venda1, "App-Fixe-Vendida-2"); //preco - data - nome
+//	 venda2->setAppVendidaId(2);
+//	 MIEIC_Play.vendas.push_back(venda2);
+//
+//	 cli_temp.adicionarVenda(venda2);
 
-	 Date data_venda1(2014, 11, 7, 10, 10);
-	 Vendas* venda1 = new Vendas(10, data_venda1, "App-Fixe-Vendida-1"); //preco - data - nome
-	 venda1->setAppVendidaId(1);
-	 MIEIC_Play.vendas.push_back(venda1);
-	 cli_temp.adicionarVenda(venda1); // puxa o pointer do ultimo elemento do vetor a ser adicionado
+/*  Cliente cli_temp("Diogo Cliente", 19, "M", 123456789, "1");
 
-	 Vendas* venda2 = new Vendas(20, data_venda1, "App-Fixe-Vendida-2"); //preco - data - nome
-	 venda2->setAppVendidaId(2);
-	 MIEIC_Play.vendas.push_back(venda2);
+	MIEIC_Play.clientes.push_back(cli_temp);
 
-	 cli_temp.adicionarVenda(venda2);
+	Cliente cli_temp2("Pedro Cliente", 18, "M", 123123123, "2");
+	MIEIC_Play.clientes.push_back(cli_temp2);
 
-	 MIEIC_Play.clientes.push_back(cli_temp);
+	Developer* individ1 = new Individual("Diogo Dev Ind", "1", "Rio de Loba",
+			"Diogo Moura Lda");
+	MIEIC_Play.dev.push_back(individ1);
 
-	 Cliente cli_temp2("BPedro Cliente", 19, "M", 123123123, "1");
-	 MIEIC_Play.clientes.push_back(cli_temp2);
+	Developer* empresa1 = new Empresa("Pedro Dev Emp", "1",
+			"Rua do Francial, lote 5, Rio de Loba", "123123123",
+			"CPedro  AT Inc.");
+	MIEIC_Play.dev.push_back(empresa1);
 
-	 Developer* individ1 = new Individual("APedro", "1",
-	 "Rua do Francial, lote 5, Rio de Loba", "Pedro Costa");
-	 MIEIC_Play.dev.push_back(individ1);
+	App app1("FPS", "Jogos", "jogo-accao", 2);
+	MIEIC_Play.apps.push_back(app1);
+	App app2("MOBA", "Jogos", "jogo-aventura", 3);
+	MIEIC_Play.apps.push_back(app2);
+	App app3("Hunter Games", "Livros", "Livro-Aventura", 8);
+	MIEIC_Play.apps.push_back(app3);
+	App app4("Warriors", "Musica", "Musica-rock", 1);
+	MIEIC_Play.apps.push_back(app4);
+	App app5("Wallpapers", "Utilidade", "Wallpaper de Gatos", 1);
+	MIEIC_Play.apps.push_back(app5);
 
-	 Developer* individ2 = new Individual("BPedro", "1",
-	 "Rua do Francial, lote 5, Rio de Loba", "Pedro Costa");
-	 MIEIC_Play.dev.push_back(individ2);
-
-	 Developer* individ3 = new Individual("CPedro", "1",
-	 "Rua do Francial, lote 5, Rio de Loba", "Pedro Costa");
-	 MIEIC_Play.dev.push_back(individ3);
-
-	 Developer* empresa1 = new Empresa("CPedro", "1",
-	 "Rua do Francial, lote 5, Rio de Loba", "123123123",
-	 "CPedro  AT Inc.");
-	 MIEIC_Play.dev.push_back(empresa1);
-
-	 App app1("aaa", "jogos", "jogo-accao", 4);
-	 MIEIC_Play.apps.push_back(app1);
-	 App app2("bbb", "filmes", "filme-aventura", 3);
-	 MIEIC_Play.apps.push_back(app2);
-	 App app3("ccc", "livros", "livro-policial", 2);
-	 MIEIC_Play.apps.push_back(app3);
-	 App app4("ddd", "musica", "musica-rock", 1);
-	 MIEIC_Play.apps.push_back(app4);
-	 App app5("abc", "musica", "musica-rock", 1);
-	 MIEIC_Play.apps.push_back(app5);
-	 App app6("cdd", "musica", "musica-rock", 1);
-	 MIEIC_Play.apps.push_back(app6);
-
-	 for (unsigned int i = 0; i < MIEIC_Play.apps.size(); i++) {
-	 MIEIC_Play.apps[i].setDev(individ1);
-	 }
-	 MIEIC_Play.apps[4].setDev(individ2);
-	 MIEIC_Play.apps[5].setDev(individ3);
-
-	 Comentario comment1("app muito boa", 1, 5); // app muito boa, cliente 1, 5 estrelas
-	 Comentario comment2("app awesome", 1, 4);
-
-	 MIEIC_Play.apps[0].addComentario(comment1);
-	 MIEIC_Play.apps[0].addComentario(comment2);
+	MIEIC_Play.apps[0].setDev(individ1);
+	MIEIC_Play.apps[1].setDev(empresa1);
+	MIEIC_Play.apps[2].setDev(individ1);
+	MIEIC_Play.apps[3].setDev(individ1);
+	MIEIC_Play.apps[4].setDev(empresa1);
 */
-
 	menuInicial(MIEIC_Play);
 
 	return 0;

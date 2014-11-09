@@ -1,27 +1,13 @@
-5
+3
 1
-APedro
-0
+Diogo Dev Ind
+1.6
 1
-Pedro Costa
-Rua do Francial, lote 5, Rio de Loba
+Diogo Moura Lda
+Rio de Loba
 ind
 2
-BPedro
-0
-1
-Pedro Costa
-Rua do Francial, lote 5, Rio de Loba
-ind
-3
-CPedro
-0
-1
-Pedro Costa
-Rua do Francial, lote 5, Rio de Loba
-ind
-4
-CPedro
+Pedro Dev Emp
 0
 1
 CPedro  AT Inc.
