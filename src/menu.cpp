@@ -109,10 +109,6 @@ bool verificaPass(T* dev_or_cli) {
 	}
 }
 
-bool verificaCartao(Cliente* cli) {
-
-}
-
 void printMenuScroll(vector<string> options, int selected_option,
 		const unsigned int max_per_screen) {
 	int min = selected_option - (max_per_screen / 2);

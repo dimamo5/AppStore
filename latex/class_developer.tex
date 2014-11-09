@@ -1,6 +1,15 @@
 \hypertarget{class_developer}{\section{Developer Class Reference}
 \label{class_developer}\index{Developer@{Developer}}
 }
+
+
+Classe responsavel pela Gestao de \hyperlink{class_developer}{Developer}. Contem 2 subclasses\+: \hyperlink{class_individual}{Individual} e \hyperlink{class_empresa}{Empresa}.  
+
+
+
+
+{\ttfamily \#include $<$Developer.\+h$>$}
+
 Inheritance diagram for Developer\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -43,13 +52,13 @@ void \hyperlink{class_developer_aa84da30abf0b1db518d62825f407c520}{set\+Id} (int
 string \hyperlink{class_developer_a8e5fdafcd4f78c1ea913e2dc09086caa}{get\+Id\+Pass} () const 
 \item 
 void \hyperlink{class_developer_ad1a95c48872bc06136dd787cdc39e6fe}{set\+Id\+Pass} (string id\+\_\+pass)
-\item 
-unsigned int \hyperlink{class_developer_a89801e2863c0548f539beb3077e4f6fc}{get\+Next\+Id} () const 
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{class_developer_abc49de08222dae89d042daeff3ad8098}{set\+Next\+I\+D} (unsigned int i)
+\item 
+static unsigned int \hyperlink{class_developer_a8c223388c57181b9f5a1f7bc5234d75a}{get\+Next\+Id} ()
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -76,6 +85,9 @@ static void \hyperlink{class_developer_abc49de08222dae89d042daeff3ad8098}{set\+N
 
 \end{DoxyCompactItemize}
 
+
+\subsection{Detailed Description}
+Classe responsavel pela Gestao de \hyperlink{class_developer}{Developer}. Contem 2 subclasses\+: \hyperlink{class_individual}{Individual} e \hyperlink{class_empresa}{Empresa}. 
 
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_developer_ae4f4db0c4c035986c4f79d95e1e10625}{\index{Developer@{Developer}!Developer@{Developer}}
@@ -179,13 +191,13 @@ String Pass
 Getter de Morada \begin{DoxyReturn}{Returns}
 String Morada 
 \end{DoxyReturn}
-\hypertarget{class_developer_a89801e2863c0548f539beb3077e4f6fc}{\index{Developer@{Developer}!get\+Next\+Id@{get\+Next\+Id}}
+\hypertarget{class_developer_a8c223388c57181b9f5a1f7bc5234d75a}{\index{Developer@{Developer}!get\+Next\+Id@{get\+Next\+Id}}
 \index{get\+Next\+Id@{get\+Next\+Id}!Developer@{Developer}}
 \subsubsection[{get\+Next\+Id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Developer\+::get\+Next\+Id (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_developer_a89801e2863c0548f539beb3077e4f6fc}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_developer_a8c223388c57181b9f5a1f7bc5234d75a}
 Getter Next Id \begin{DoxyReturn}{Returns}
 Int Next Id 
 \end{DoxyReturn}

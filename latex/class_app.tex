@@ -23,6 +23,8 @@ string \hyperlink{class_app_a58076d5e40336d8f1489f49ebcc648ac}{get\+Categoria} (
 \item 
 double \hyperlink{class_app_a99b0df2b556e0d0967af13f37b47178e}{get\+Classificacao\+Final} () const 
 \item 
+void \hyperlink{class_app_a5b0357aee7ee3722ab97efca5c88a07b}{set\+Classificacao\+Final} (double classificacao)
+\item 
 vector$<$ \hyperlink{class_comentario}{Comentario} $>$ \hyperlink{class_app_a55940da54fefa49300678f6ce87eeb04}{get\+Comentarios} () const 
 \item 
 string \hyperlink{class_app_a2dcf86011e3b1e8dc8d027f4b4b4b253}{get\+Descricao} () const 
@@ -43,14 +45,13 @@ void \hyperlink{class_app_a40d8afcc9663054f4f5445a37dfd542d}{set\+Comentarios} (
 \item 
 void \hyperlink{class_app_a4291a68b048c4976186ac2dc58062873}{add\+Comentario} (\hyperlink{class_comentario}{Comentario} coment)
 \item 
-\hypertarget{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}{void {\bfseries set\+Dev} (\hyperlink{class_developer}{Developer} $\ast$dev)}\label{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}
-
+void \hyperlink{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}{set\+Dev} (\hyperlink{class_developer}{Developer} $\ast$dev)
 \item 
 unsigned int \hyperlink{class_app_a17d1e4e52f2357b25437d21d21728bcb}{get\+Id} () const 
 \item 
-unsigned int \hyperlink{class_app_ae8bc0359346587f5e98885e4bdba3db0}{get\+Next\+Id} () const 
-\item 
 int \hyperlink{class_app_afca72f5119a5fbb1c7972d8085abc2c7}{get\+Num\+Classificacoes} () const 
+\item 
+void \hyperlink{class_app_ada474e2840fd5ca144dc6d5d61c55460}{inc\+Num\+Classificacoes} ()
 \item 
 void \hyperlink{class_app_af0140ea32801ddf481e61fda65024ba8}{set\+Descricao} (const string \&descricao)
 \item 
@@ -58,6 +59,8 @@ string \hyperlink{class_app_af3a98845da9ba10769df22e1e21f3db0}{imprime} () const
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
+\item 
+static unsigned int \hyperlink{class_app_aa1d00d182fcaf9fb8c85a0c0306a542d}{get\+Next\+Id} ()
 \item 
 static void \hyperlink{class_app_ac02dab3cd7642d98173bfd6365eb6d9e}{set\+Next\+Id} (unsigned int next\+Id)
 \end{DoxyCompactItemize}
@@ -128,9 +131,9 @@ Construtor usado na para carregar informacao dos ficheiros
 \item[{{\bf Comentario}}]{coment}
 \end{DoxyParamCaption}
 )}}\label{class_app_a4291a68b048c4976186ac2dc58062873}
-Setter \hyperlink{class_developer}{Developer(usado principalmente para carregar os ficheiros)} 
+Adiciona um comentario ao vetor de comentarios do developer e atualiza a classificacao total 
 \begin{DoxyParams}{Parameters}
-{\em Novo} & developer responsavel pela \hyperlink{class_app}{App} \\
+{\em coment} & \hyperlink{class_comentario}{Comentario} a adicionar ao vetor \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_a58076d5e40336d8f1489f49ebcc648ac}{\index{App@{App}!get\+Categoria@{get\+Categoria}}
@@ -150,8 +153,8 @@ String Categoria
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_app_a99b0df2b556e0d0967af13f37b47178e}
-Getter Classificao \begin{DoxyReturn}{Returns}
-Double Classificao 
+Getter Classificacao \begin{DoxyReturn}{Returns}
+Double Classificacao 
 \end{DoxyReturn}
 \hypertarget{class_app_a55940da54fefa49300678f6ce87eeb04}{\index{App@{App}!get\+Comentarios@{get\+Comentarios}}
 \index{get\+Comentarios@{get\+Comentarios}!App@{App}}
@@ -193,13 +196,13 @@ Pointer \hyperlink{class_developer}{Developer}
 Getter Id \begin{DoxyReturn}{Returns}
 Unsigned Int Id \hyperlink{class_app}{App} 
 \end{DoxyReturn}
-\hypertarget{class_app_ae8bc0359346587f5e98885e4bdba3db0}{\index{App@{App}!get\+Next\+Id@{get\+Next\+Id}}
+\hypertarget{class_app_aa1d00d182fcaf9fb8c85a0c0306a542d}{\index{App@{App}!get\+Next\+Id@{get\+Next\+Id}}
 \index{get\+Next\+Id@{get\+Next\+Id}!App@{App}}
 \subsubsection[{get\+Next\+Id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int App\+::get\+Next\+Id (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_app_ae8bc0359346587f5e98885e4bdba3db0}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_app_aa1d00d182fcaf9fb8c85a0c0306a542d}
 Getter Next Id \begin{DoxyReturn}{Returns}
 Unsigned Int Id da proxima app a ser criada 
 \end{DoxyReturn}
@@ -241,9 +244,16 @@ Double Preco
 \end{DoxyParamCaption}
 ) const}}\label{class_app_af3a98845da9ba10769df22e1e21f3db0}
 Imprime de uma maneira legivel as infomacaos da \hyperlink{class_app}{App} \begin{DoxyReturn}{Returns}
-String como toda a informcao 
+String como toda a informacao 
 \end{DoxyReturn}
-\hypertarget{class_app_add85e6926cb052edac84f210889df476}{\index{App@{App}!set\+Categoria@{set\+Categoria}}
+\hypertarget{class_app_ada474e2840fd5ca144dc6d5d61c55460}{\index{App@{App}!inc\+Num\+Classificacoes@{inc\+Num\+Classificacoes}}
+\index{inc\+Num\+Classificacoes@{inc\+Num\+Classificacoes}!App@{App}}
+\subsubsection[{inc\+Num\+Classificacoes}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::inc\+Num\+Classificacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_ada474e2840fd5ca144dc6d5d61c55460}
+Incrementa por 1 o Num. total de classificacoes. \hypertarget{class_app_add85e6926cb052edac84f210889df476}{\index{App@{App}!set\+Categoria@{set\+Categoria}}
 \index{set\+Categoria@{set\+Categoria}!App@{App}}
 \subsubsection[{set\+Categoria}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Categoria (
 \begin{DoxyParamCaption}
@@ -252,7 +262,19 @@ String como toda a informcao
 )}}\label{class_app_add85e6926cb052edac84f210889df476}
 Setter Categoria 
 \begin{DoxyParams}{Parameters}
-{\em Nova} & Categoria \\
+{\em categoria} & Nova Categoria \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_app_a5b0357aee7ee3722ab97efca5c88a07b}{\index{App@{App}!set\+Classificacao\+Final@{set\+Classificacao\+Final}}
+\index{set\+Classificacao\+Final@{set\+Classificacao\+Final}!App@{App}}
+\subsubsection[{set\+Classificacao\+Final}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Classificacao\+Final (
+\begin{DoxyParamCaption}
+\item[{double}]{classificacao}
+\end{DoxyParamCaption}
+)}}\label{class_app_a5b0357aee7ee3722ab97efca5c88a07b}
+Setter Classificacao 
+\begin{DoxyParams}{Parameters}
+{\em classificacao} & Classificacao a definir \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_a40d8afcc9663054f4f5445a37dfd542d}{\index{App@{App}!set\+Comentarios@{set\+Comentarios}}
@@ -264,7 +286,7 @@ Setter Categoria
 )}}\label{class_app_a40d8afcc9663054f4f5445a37dfd542d}
 Setter Comentarios (usado para carregar dos ficheiros) 
 \begin{DoxyParams}{Parameters}
-{\em Vector} & com novos Comentarios \\
+{\em comentarios} & Vector com novos Comentarios \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_af0140ea32801ddf481e61fda65024ba8}{\index{App@{App}!set\+Descricao@{set\+Descricao}}
@@ -277,6 +299,18 @@ Setter Comentarios (usado para carregar dos ficheiros)
 Setter Descricao 
 \begin{DoxyParams}{Parameters}
 {\em descricao} & Nova Descricao \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}{\index{App@{App}!set\+Dev@{set\+Dev}}
+\index{set\+Dev@{set\+Dev}!App@{App}}
+\subsubsection[{set\+Dev}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Dev (
+\begin{DoxyParamCaption}
+\item[{{\bf Developer} $\ast$}]{dev}
+\end{DoxyParamCaption}
+)}}\label{class_app_aa2d4de1233b4a07def3cdae0d165d4cf}
+Setter \hyperlink{class_developer}{Developer(usado principalmente para carregar os ficheiros)} 
+\begin{DoxyParams}{Parameters}
+{\em Novo} & developer responsavel pela \hyperlink{class_app}{App} \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_ac02dab3cd7642d98173bfd6365eb6d9e}{\index{App@{App}!set\+Next\+Id@{set\+Next\+Id}}
@@ -300,7 +334,7 @@ Setter Next Id
 )}}\label{class_app_a779936463595bd7babe3fabdd3b81530}
 Setter Nome 
 \begin{DoxyParams}{Parameters}
-{\em Novo} & Nome \\
+{\em nome} & Novo Nome \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_ab9723a9ef1383d41b9960e07de4c5691}{\index{App@{App}!set\+Preco@{set\+Preco}}
@@ -312,7 +346,7 @@ Setter Nome
 )}}\label{class_app_ab9723a9ef1383d41b9960e07de4c5691}
 Setter Preco 
 \begin{DoxyParams}{Parameters}
-{\em Double} & Novo Preco \\
+{\em p} & Double Novo Preco \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_ac720715c2e11bfc218842141b9c6e0d2}{\index{App@{App}!update\+\_\+classificacao@{update\+\_\+classificacao}}

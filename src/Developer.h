@@ -14,12 +14,11 @@ extern Developer* dev_act;
 extern Cliente* cli_act;
 
 using namespace std;
-/*
- * @class Developer
- * @brief Classe referente a developers.
- * Contem 2 subclasses - Individual e Empresa
- */
 
+/**
+ * @class Developer
+ * @brief Classe responsavel pela Gestao de Developer. Contem 2 subclasses: Individual e Empresa
+ */
 class Developer {
 protected:
 	int id;

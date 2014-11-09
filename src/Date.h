@@ -24,6 +24,10 @@ double daysBetweenDates(int year1, int month1, int day1, int year2, int month2,
 
 string nomeDoMes(unsigned int month);
 
+/**
+ * @class Date
+ * @brief Classe que representa datas
+ */
 class Date {
 
 	unsigned int minute;

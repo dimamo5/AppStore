@@ -107,31 +107,33 @@ public:
 	double getPreco() const;
 	/**
 	 * Setter Preco
-	 * @param Double Novo Preco
+	 * @param p Double Novo Preco
 	 */
 	void setPreco(double p);
 	/**
 	 * Setter Nome
-	 * @param Novo Nome
+	 * @param nome Novo Nome
 	 */
 	void setNome(string nome);
 	/**
 	 * Setter Categoria
-	 * @param Nova Categoria
+	 * @param categoria Nova Categoria
 	 */
 	void setCategoria(string categoria);
 	/**
 	 * Setter Comentarios (usado para carregar dos ficheiros)
-	 * @param Vector com novos Comentarios
+	 * @param comentarios Vector com novos Comentarios
 	 */
 	void setComentarios(const vector<Comentario>& comentarios);
+	/**
+	 *  Adiciona um comentario ao vetor de comentarios do developer e atualiza a classificacao total
+	 * @param coment Comentario a adicionar ao vetor
+	 */
+	void addComentario(Comentario coment);
 	/**
 	 * Setter Developer(usado principalmente para carregar os ficheiros)
 	 * @param Novo developer responsavel pela App
 	 */
-
-	void addComentario(Comentario coment);
-
 	void setDev(Developer* dev);
 	/**
 	 * Getter Id

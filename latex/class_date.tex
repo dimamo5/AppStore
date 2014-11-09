@@ -1,93 +1,317 @@
 \hypertarget{class_date}{\section{Date Class Reference}
 \label{class_date}\index{Date@{Date}}
 }
+
+
+Classe que representa datas.  
+
+
+
+
+{\ttfamily \#include $<$Date.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_date_ac4860b7b498e1f4142c1d3cde0195fdc}{{\bfseries Date} (struct tm $\ast$time\+\_\+struct)}\label{class_date_ac4860b7b498e1f4142c1d3cde0195fdc}
-
+\hyperlink{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}{Date} ()
 \item 
-\hypertarget{class_date_a8aff6457db8347405876084c651e4361}{{\bfseries Date} (unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute)}\label{class_date_a8aff6457db8347405876084c651e4361}
-
+\hyperlink{class_date_ac4860b7b498e1f4142c1d3cde0195fdc}{Date} (struct tm $\ast$time\+\_\+struct)
 \item 
-\hypertarget{class_date_ac770a597c5db01c15f5909d30ecc614d}{unsigned int {\bfseries get\+Minute} () const }\label{class_date_ac770a597c5db01c15f5909d30ecc614d}
-
+\hyperlink{class_date_a8aff6457db8347405876084c651e4361}{Date} (unsigned int year, unsigned int month, unsigned int day, unsigned int hour, unsigned int minute)
 \item 
-\hypertarget{class_date_a7ec01c802e7fa66d0a3d301f14541de4}{unsigned int {\bfseries get\+Hour} () const }\label{class_date_a7ec01c802e7fa66d0a3d301f14541de4}
-
+unsigned int \hyperlink{class_date_ac770a597c5db01c15f5909d30ecc614d}{get\+Minute} () const 
 \item 
-\hypertarget{class_date_a254204c492d3ebc26a2c62d532e34844}{unsigned int {\bfseries get\+Day} () const }\label{class_date_a254204c492d3ebc26a2c62d532e34844}
-
+unsigned int \hyperlink{class_date_a7ec01c802e7fa66d0a3d301f14541de4}{get\+Hour} () const 
 \item 
-\hypertarget{class_date_ac471b901531b7a1e73809918bac8c1ec}{unsigned int {\bfseries get\+Month} () const }\label{class_date_ac471b901531b7a1e73809918bac8c1ec}
-
+unsigned int \hyperlink{class_date_a254204c492d3ebc26a2c62d532e34844}{get\+Day} () const 
 \item 
-\hypertarget{class_date_a6561cf495bd6b7e6c747420d7ae9cc12}{unsigned int {\bfseries get\+Year} () const }\label{class_date_a6561cf495bd6b7e6c747420d7ae9cc12}
-
+unsigned int \hyperlink{class_date_ac471b901531b7a1e73809918bac8c1ec}{get\+Month} () const 
 \item 
-\hypertarget{class_date_a714d7a4b5af1ab06b4f99b90f2ffe589}{bool {\bfseries set\+Minute} (unsigned int minute)}\label{class_date_a714d7a4b5af1ab06b4f99b90f2ffe589}
-
+unsigned int \hyperlink{class_date_a6561cf495bd6b7e6c747420d7ae9cc12}{get\+Year} () const 
 \item 
-\hypertarget{class_date_a45df391c8b5da977bd4662b81c0cd839}{bool {\bfseries set\+Hour} (unsigned int hour)}\label{class_date_a45df391c8b5da977bd4662b81c0cd839}
-
+bool \hyperlink{class_date_a714d7a4b5af1ab06b4f99b90f2ffe589}{set\+Minute} (unsigned int minute)
 \item 
-\hypertarget{class_date_aff23cb89959285d5743471cfb8de79be}{bool {\bfseries set\+Day} (unsigned int day)}\label{class_date_aff23cb89959285d5743471cfb8de79be}
-
+bool \hyperlink{class_date_a45df391c8b5da977bd4662b81c0cd839}{set\+Hour} (unsigned int hour)
 \item 
-\hypertarget{class_date_a317a64663663c32417496549da4b52ef}{bool {\bfseries set\+Month} (unsigned int month)}\label{class_date_a317a64663663c32417496549da4b52ef}
-
+bool \hyperlink{class_date_aff23cb89959285d5743471cfb8de79be}{set\+Day} (unsigned int day)
 \item 
-\hypertarget{class_date_aae265e5db481eaae2859cbfb2b2d4b1f}{bool {\bfseries set\+Year} (unsigned int year)}\label{class_date_aae265e5db481eaae2859cbfb2b2d4b1f}
-
+bool \hyperlink{class_date_a317a64663663c32417496549da4b52ef}{set\+Month} (unsigned int month)
 \item 
-\hypertarget{class_date_a5b5824086305fb1da07e18b78646f755}{string {\bfseries imprime\+Data} () const }\label{class_date_a5b5824086305fb1da07e18b78646f755}
-
+bool \hyperlink{class_date_aae265e5db481eaae2859cbfb2b2d4b1f}{set\+Year} (unsigned int year)
 \item 
-bool \hyperlink{class_date_a691bafd5bba9540f3c540f7327a758c2}{operator$<$} (const \hyperlink{class_date}{Date} \&) const 
+string \hyperlink{class_date_a5b5824086305fb1da07e18b78646f755}{imprime\+Data} () const 
 \item 
-bool \hyperlink{class_date_a0bd06d545842c948cdca8ccc60d7d68d}{operator$>$} (const \hyperlink{class_date}{Date} \&) const 
+bool \hyperlink{class_date_a9fbdb9351d89eaf1539640890fa98429}{operator$<$} (const \hyperlink{class_date}{Date} \&data) const 
 \item 
-\hypertarget{class_date_ad54d8e4b8f2ad6df8eda3b8615c3c0b2}{bool {\bfseries operator==} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_ad54d8e4b8f2ad6df8eda3b8615c3c0b2}
-
+bool \hyperlink{class_date_a0a3bc798f75bcd8c301cdc12a14a550b}{operator$>$} (const \hyperlink{class_date}{Date} \&data) const 
 \item 
-\hypertarget{class_date_a6632fd56fe1c549ef0a257c85fd8eb3e}{bool {\bfseries operator$<$=} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_a6632fd56fe1c549ef0a257c85fd8eb3e}
-
+bool \hyperlink{class_date_aa3b4e159a825972b76a8262b2b2899cc}{operator==} (const \hyperlink{class_date}{Date} \&data) const 
 \item 
-\hypertarget{class_date_ae4802fa52cf81f1a259b4a3b88bffc0d}{bool {\bfseries operator$>$=} (const \hyperlink{class_date}{Date} \&) const }\label{class_date_ae4802fa52cf81f1a259b4a3b88bffc0d}
-
+bool \hyperlink{class_date_a0f9b3158f8caf8f081693b0f35a799d8}{operator$<$=} (const \hyperlink{class_date}{Date} \&data) const 
+\item 
+bool \hyperlink{class_date_a4fce8cac282db85f66f959d90194a41d}{operator$>$=} (const \hyperlink{class_date}{Date} \&data) const 
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Classe que representa datas. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}{\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\subsubsection[{Date}]{\setlength{\rightskip}{0pt plus 5cm}Date\+::\+Date (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_date_a4e59ed4ba66eec61c27460c5d09fa1bd}
+Default constructor para a data \hypertarget{class_date_ac4860b7b498e1f4142c1d3cde0195fdc}{\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\subsubsection[{Date}]{\setlength{\rightskip}{0pt plus 5cm}Date\+::\+Date (
+\begin{DoxyParamCaption}
+\item[{struct tm $\ast$}]{time\+\_\+struct}
+\end{DoxyParamCaption}
+)}}\label{class_date_ac4860b7b498e1f4142c1d3cde0195fdc}
+Construtor da data que recebe como argumento uma time struct da library ctime e inicializa a data a partir dessa struct 
+\begin{DoxyParams}{Parameters}
+{\em time\+\_\+struct} & struct da data, como se recebe ao criar objetos time, da library ctime \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_date_a8aff6457db8347405876084c651e4361}{\index{Date@{Date}!Date@{Date}}
+\index{Date@{Date}!Date@{Date}}
+\subsubsection[{Date}]{\setlength{\rightskip}{0pt plus 5cm}Date\+::\+Date (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{year, }
+\item[{unsigned int}]{month, }
+\item[{unsigned int}]{day, }
+\item[{unsigned int}]{hour, }
+\item[{unsigned int}]{minute}
+\end{DoxyParamCaption}
+)}}\label{class_date_a8aff6457db8347405876084c651e4361}
+Construtor da data que inicializa usando todos os parametros 
+\begin{DoxyParams}{Parameters}
+{\em year} & Ano para inicializar o membro dado year \\
+\hline
+{\em month} & Mes para inicializar o membro dado month \\
+\hline
+{\em day} & Dia para inicializar o membro dado day \\
+\hline
+{\em hour} & Hora para inicializar o membro dado hour \\
+\hline
+{\em minute} & Minuto para inicializar o membro dado minute \\
+\hline
+\end{DoxyParams}
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_date_a691bafd5bba9540f3c540f7327a758c2}{\index{Date@{Date}!operator$<$@{operator$<$}}
+\hypertarget{class_date_a254204c492d3ebc26a2c62d532e34844}{\index{Date@{Date}!get\+Day@{get\+Day}}
+\index{get\+Day@{get\+Day}!Date@{Date}}
+\subsubsection[{get\+Day}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Date\+::get\+Day (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a254204c492d3ebc26a2c62d532e34844}
+Getter de dia da data \begin{DoxyReturn}{Returns}
+Retorna o dia da data 
+\end{DoxyReturn}
+\hypertarget{class_date_a7ec01c802e7fa66d0a3d301f14541de4}{\index{Date@{Date}!get\+Hour@{get\+Hour}}
+\index{get\+Hour@{get\+Hour}!Date@{Date}}
+\subsubsection[{get\+Hour}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Date\+::get\+Hour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a7ec01c802e7fa66d0a3d301f14541de4}
+Getter de horas da data \begin{DoxyReturn}{Returns}
+Retorna as horas da data 
+\end{DoxyReturn}
+\hypertarget{class_date_ac770a597c5db01c15f5909d30ecc614d}{\index{Date@{Date}!get\+Minute@{get\+Minute}}
+\index{get\+Minute@{get\+Minute}!Date@{Date}}
+\subsubsection[{get\+Minute}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Date\+::get\+Minute (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_date_ac770a597c5db01c15f5909d30ecc614d}
+Getter de minutos da data \begin{DoxyReturn}{Returns}
+Retorna o minuto da data 
+\end{DoxyReturn}
+\hypertarget{class_date_ac471b901531b7a1e73809918bac8c1ec}{\index{Date@{Date}!get\+Month@{get\+Month}}
+\index{get\+Month@{get\+Month}!Date@{Date}}
+\subsubsection[{get\+Month}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Date\+::get\+Month (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_date_ac471b901531b7a1e73809918bac8c1ec}
+Getter do mes da data \begin{DoxyReturn}{Returns}
+Retorna o mes da data 
+\end{DoxyReturn}
+\hypertarget{class_date_a6561cf495bd6b7e6c747420d7ae9cc12}{\index{Date@{Date}!get\+Year@{get\+Year}}
+\index{get\+Year@{get\+Year}!Date@{Date}}
+\subsubsection[{get\+Year}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Date\+::get\+Year (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a6561cf495bd6b7e6c747420d7ae9cc12}
+Getter do ano da data \begin{DoxyReturn}{Returns}
+Retorna o ano da data 
+\end{DoxyReturn}
+\hypertarget{class_date_a5b5824086305fb1da07e18b78646f755}{\index{Date@{Date}!imprime\+Data@{imprime\+Data}}
+\index{imprime\+Data@{imprime\+Data}!Date@{Date}}
+\subsubsection[{imprime\+Data}]{\setlength{\rightskip}{0pt plus 5cm}string Date\+::imprime\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a5b5824086305fb1da07e18b78646f755}
+Cria uma string a partir da data \begin{DoxyReturn}{Returns}
+Retorna a string com a data no formato \char`\"{}\+Dia de Mes de Ano   hh\+:mm\char`\"{} 
+\end{DoxyReturn}
+\hypertarget{class_date_a9fbdb9351d89eaf1539640890fa98429}{\index{Date@{Date}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Date@{Date}}
 \subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::operator$<$ (
 \begin{DoxyParamCaption}
-\item[{const {\bf Date} \&}]{dat}
+\item[{const {\bf Date} \&}]{data}
 \end{DoxyParamCaption}
-) const}}\label{class_date_a691bafd5bba9540f3c540f7327a758c2}
+) const}}\label{class_date_a9fbdb9351d89eaf1539640890fa98429}
 Overload operador $<$ para classe \hyperlink{class_date}{Date} 
 \begin{DoxyParams}{Parameters}
-{\em data} & \\
+{\em data} & Data com a qual se compara a 1a \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true se menor-\/false se maior 
+True se menor que o argumento -\/ False se maior que o argumento 
 \end{DoxyReturn}
-\hypertarget{class_date_a0bd06d545842c948cdca8ccc60d7d68d}{\index{Date@{Date}!operator$>$@{operator$>$}}
+\hypertarget{class_date_a0f9b3158f8caf8f081693b0f35a799d8}{\index{Date@{Date}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Date@{Date}}
+\subsubsection[{operator$<$=}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Date} \&}]{data}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a0f9b3158f8caf8f081693b0f35a799d8}
+Overload operador $<$= para classe \hyperlink{class_date}{Date} 
+\begin{DoxyParams}{Parameters}
+{\em data} & Data com a qual se compara a 1a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se menor ou igual ao argumento -\/ False se maior que o argumento 
+\end{DoxyReturn}
+\hypertarget{class_date_aa3b4e159a825972b76a8262b2b2899cc}{\index{Date@{Date}!operator==@{operator==}}
+\index{operator==@{operator==}!Date@{Date}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Date} \&}]{data}
+\end{DoxyParamCaption}
+) const}}\label{class_date_aa3b4e159a825972b76a8262b2b2899cc}
+Overload operador == para classe \hyperlink{class_date}{Date} 
+\begin{DoxyParams}{Parameters}
+{\em data} & Data com a qual se compara a 1a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se igual ao argumento -\/ False se diferente do argumento 
+\end{DoxyReturn}
+\hypertarget{class_date_a0a3bc798f75bcd8c301cdc12a14a550b}{\index{Date@{Date}!operator$>$@{operator$>$}}
 \index{operator$>$@{operator$>$}!Date@{Date}}
 \subsubsection[{operator$>$}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::operator$>$ (
 \begin{DoxyParamCaption}
-\item[{const {\bf Date} \&}]{dat}
+\item[{const {\bf Date} \&}]{data}
 \end{DoxyParamCaption}
-) const}}\label{class_date_a0bd06d545842c948cdca8ccc60d7d68d}
+) const}}\label{class_date_a0a3bc798f75bcd8c301cdc12a14a550b}
 Overload operador $>$ para classe \hyperlink{class_date}{Date} 
 \begin{DoxyParams}{Parameters}
-{\em data} & \\
+{\em data} & Data com a qual se compara a 1a \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true se maior-\/false se menor 
+True se maior que o argumento -\/ False se menor que o argumento 
+\end{DoxyReturn}
+\hypertarget{class_date_a4fce8cac282db85f66f959d90194a41d}{\index{Date@{Date}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Date@{Date}}
+\subsubsection[{operator$>$=}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Date} \&}]{data}
+\end{DoxyParamCaption}
+) const}}\label{class_date_a4fce8cac282db85f66f959d90194a41d}
+Overload operador $>$= para classe \hyperlink{class_date}{Date} 
+\begin{DoxyParams}{Parameters}
+{\em data} & Data com a qual se compara a 1a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se maior ou igual ao argumento -\/ False se menor que o argumento 
+\end{DoxyReturn}
+\hypertarget{class_date_aff23cb89959285d5743471cfb8de79be}{\index{Date@{Date}!set\+Day@{set\+Day}}
+\index{set\+Day@{set\+Day}!Date@{Date}}
+\subsubsection[{set\+Day}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::set\+Day (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{day}
+\end{DoxyParamCaption}
+)}}\label{class_date_aff23cb89959285d5743471cfb8de79be}
+Setter do dia da data 
+\begin{DoxyParams}{Parameters}
+{\em day} & Dia a por na data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true se mudou e false se nao 
+\end{DoxyReturn}
+\hypertarget{class_date_a45df391c8b5da977bd4662b81c0cd839}{\index{Date@{Date}!set\+Hour@{set\+Hour}}
+\index{set\+Hour@{set\+Hour}!Date@{Date}}
+\subsubsection[{set\+Hour}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::set\+Hour (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{hour}
+\end{DoxyParamCaption}
+)}}\label{class_date_a45df391c8b5da977bd4662b81c0cd839}
+Setter da hora da data 
+\begin{DoxyParams}{Parameters}
+{\em hour} & Hora a por na data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true se mudou e false se nao 
+\end{DoxyReturn}
+\hypertarget{class_date_a714d7a4b5af1ab06b4f99b90f2ffe589}{\index{Date@{Date}!set\+Minute@{set\+Minute}}
+\index{set\+Minute@{set\+Minute}!Date@{Date}}
+\subsubsection[{set\+Minute}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::set\+Minute (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{minute}
+\end{DoxyParamCaption}
+)}}\label{class_date_a714d7a4b5af1ab06b4f99b90f2ffe589}
+Setter do minuto da data 
+\begin{DoxyParams}{Parameters}
+{\em minute} & Minuto a por na data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true se mudou e false se nao 
+\end{DoxyReturn}
+\hypertarget{class_date_a317a64663663c32417496549da4b52ef}{\index{Date@{Date}!set\+Month@{set\+Month}}
+\index{set\+Month@{set\+Month}!Date@{Date}}
+\subsubsection[{set\+Month}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::set\+Month (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{month}
+\end{DoxyParamCaption}
+)}}\label{class_date_a317a64663663c32417496549da4b52ef}
+Setter do mes da data 
+\begin{DoxyParams}{Parameters}
+{\em month} & Mes a por na data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true se mudou e false se nao 
+\end{DoxyReturn}
+\hypertarget{class_date_aae265e5db481eaae2859cbfb2b2d4b1f}{\index{Date@{Date}!set\+Year@{set\+Year}}
+\index{set\+Year@{set\+Year}!Date@{Date}}
+\subsubsection[{set\+Year}]{\setlength{\rightskip}{0pt plus 5cm}bool Date\+::set\+Year (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{year}
+\end{DoxyParamCaption}
+)}}\label{class_date_aae265e5db481eaae2859cbfb2b2d4b1f}
+Setter do ano da data 
+\begin{DoxyParams}{Parameters}
+{\em year} & Ano a por na data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true se mudou e false se nao 
 \end{DoxyReturn}
 
 

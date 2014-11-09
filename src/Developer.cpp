@@ -122,6 +122,7 @@ string Developer::getMorada() const {
 
 bool Developer::setMorada(string morada) {
 	this->morada=morada;
+	return true;
 }
 
 bool Empresa::isEmpresa(){

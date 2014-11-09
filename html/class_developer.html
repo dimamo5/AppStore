@@ -92,6 +92,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Developer Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe responsavel pela Gestao de <a class="el" href="class_developer.html" title="Classe responsavel pela Gestao de Developer. Contem 2 subclasses: Individual e Empresa. ">Developer</a>. Contem 2 subclasses: <a class="el" href="class_individual.html" title="Sub classe de Developer. ">Individual</a> e <a class="el" href="class_empresa.html" title="Sub class de Developer. ">Empresa</a>.  
+ <a href="class_developer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_developer_8h_source.html">Developer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Developer:</div>
 <div class="dyncontent">
@@ -139,13 +144,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8e5fdafcd4f78c1ea913e2dc09086caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1a95c48872bc06136dd787cdc39e6fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#ad1a95c48872bc06136dd787cdc39e6fe">setIdPass</a> (string id_pass)</td></tr>
 <tr class="separator:ad1a95c48872bc06136dd787cdc39e6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89801e2863c0548f539beb3077e4f6fc"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#a89801e2863c0548f539beb3077e4f6fc">getNextId</a> () const </td></tr>
-<tr class="separator:a89801e2863c0548f539beb3077e4f6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abc49de08222dae89d042daeff3ad8098"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#abc49de08222dae89d042daeff3ad8098">setNextID</a> (unsigned int i)</td></tr>
 <tr class="separator:abc49de08222dae89d042daeff3ad8098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c223388c57181b9f5a1f7bc5234d75a"><td class="memItemLeft" align="right" valign="top">static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_developer.html#a8c223388c57181b9f5a1f7bc5234d75a">getNextId</a> ()</td></tr>
+<tr class="separator:a8c223388c57181b9f5a1f7bc5234d75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -171,7 +176,9 @@ Static Protected Attributes</h2></td></tr>
 static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_id</b> = 1</td></tr>
 <tr class="separator:a54dcfbe646de46842a473b19ff56a3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe responsavel pela Gestao de <a class="el" href="class_developer.html" title="Classe responsavel pela Gestao de Developer. Contem 2 subclasses: Individual e Empresa. ">Developer</a>. Contem 2 subclasses: <a class="el" href="class_individual.html" title="Sub classe de Developer. ">Individual</a> e <a class="el" href="class_empresa.html" title="Sub class de Developer. ">Empresa</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae4f4db0c4c035986c4f79d95e1e10625"></a>
 <div class="memitem">
 <div class="memproto">
@@ -201,7 +208,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_i
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construtor <a class="el" href="class_developer.html">Developer</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Construtor <a class="el" href="class_developer.html" title="Classe responsavel pela Gestao de Developer. Contem 2 subclasses: Individual e Empresa. ">Developer</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nome</td><td>Nome </td></tr>
     <tr><td class="paramname">id_pass</td><td>Password de acesso à <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </td></tr>
@@ -253,9 +260,9 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_i
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construtor <a class="el" href="class_developer.html">Developer(usado para carregar objectos dos ficheiros)</a> </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Construtor <a class="el" href="class_developer.html" title="Classe responsavel pela Gestao de Developer. Contem 2 subclasses: Individual e Empresa. ">Developer(usado para carregar objectos dos ficheiros)</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>Id unico de cada <a class="el" href="class_developer.html">Developer</a> </td></tr>
+    <tr><td class="paramname">id</td><td>Id unico de cada <a class="el" href="class_developer.html" title="Classe responsavel pela Gestao de Developer. Contem 2 subclasses: Individual e Empresa. ">Developer</a> </td></tr>
     <tr><td class="paramname">nome</td><td>Nome </td></tr>
     <tr><td class="paramname">saldo</td><td>Saldo da conta </td></tr>
     <tr><td class="paramname">id_pass</td><td>Password de acesso à <a class="el" href="class_app_store.html" title="Classe Principal do projecto que contem toda a informacao sofre a AppStore. ">AppStore</a> </td></tr>
@@ -371,17 +378,25 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_i
 
 </div>
 </div>
-<a class="anchor" id="a89801e2863c0548f539beb3077e4f6fc"></a>
+<a class="anchor" id="a8c223388c57181b9f5a1f7bc5234d75a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">unsigned int Developer::getNextId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Getter Next Id </p><dl class="section return"><dt>Returns</dt><dd>Int Next Id </dd></dl>
 
@@ -670,7 +685,7 @@ static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>next_i
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 8 2014 16:26:37 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 9 2014 11:08:27 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
