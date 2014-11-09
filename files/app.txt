@@ -4,7 +4,7 @@ aaa
 jogos
 jogo-accao
 4
-4.5
+4
 2
 2
 1

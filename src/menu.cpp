@@ -230,14 +230,15 @@ void menuInicial(AppStore& mieic) {
 			system("pause");
 			break;
 		case -3: // ultima opcao
-			//try {
-			mieic.save_all();
-			/*} catch (File_Exp& exp) {
-			 cor(BLACK, RED);
-			 cerr << "Error" + exp.getIdErro() << endl;
-			 cerr << exp.getDescricaoErro()<<endl;
-			 system ("pause");
-			 }*/
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
 			system("pause");
 			exit(0);
 			break;
@@ -648,8 +649,8 @@ void menuRegistarCliente(AppStore& mieic) {
 	cout << "  Indique o seu nome: " << nome << endl;
 	cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 	cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-	cout << "  Indique o seu no. cartao credito (9 digitos): "
-			<< cartao_credito << endl << endl;
+	cout << "  Indique o seu no. cartao credito (9 digitos): " << cartao_credito
+			<< endl << endl;
 	cout << "  Introduza agora a password que pretende:  " << password << endl
 			<< endl << endl;
 
@@ -669,6 +670,16 @@ void menuRegistarCliente(AppStore& mieic) {
 	if (tecla == 13) { // se o user premir (Enter)
 		Cliente cli_temp(nome, idade, sexo, cartao_credito, password);
 		mieic.clientes.push_back(cli_temp);
+
+		try {
+			mieic.save_all();
+		} catch (File_Exp& exp) {
+			cor(BLACK, RED);
+			cerr << "Error" + exp.getIdErro() << endl;
+			cerr << exp.getDescricaoErro() << endl;
+			cor(BLACK, WHITE); //reset à cor
+			system("pause");
+		}
 
 		cout << "  Sucesso! O seu ID de login e " << cli_temp.getId() << endl
 				<< endl;
@@ -797,6 +808,16 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 			Developer* individ_temp = new Individual(nome_dev, password, morada,
 					nome_pessoal);
 			mieic.dev.push_back(individ_temp);
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
 
 			cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
 					<< endl << endl;
@@ -959,6 +980,16 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 			Developer* empresa_temp = new Empresa(nome_dev, password, NIF,
 					morada, nome_oficial);
 			mieic.dev.push_back(empresa_temp);
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
 
 			cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
 					<< endl << endl;
@@ -1460,6 +1491,16 @@ void menuClienteAddCredito(AppStore& mieic) {
 			// modifica o saldo para ser o que ja tinha + o saldo a adicionar
 			cli_act->setSaldo(cli_act->getSaldo() + saldo_a_adicionar);
 
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
+
 			system("cls");
 			cout << "  Adicionar Credito  " << endl << endl << endl;
 			cout << "  Sucesso! Credito adicionado.  " << endl;
@@ -1667,6 +1708,16 @@ void menuAlterarPassCli(AppStore& mieic) {
 			cout << "  Sucesso! Password alterada.  " << endl << endl;
 			cout << "  Prima (Enter) para continuar " << endl << endl;
 
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
+
 			tecla = getch();
 			if (tecla != 0) {
 				while (tecla != 13) {
@@ -1765,6 +1816,17 @@ void menuAlterarCartao(AppStore& mieic) {
 					tecla = getch();
 				}
 			}
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
+
 			menuClienteDefinicoes(mieic);
 		}
 		if (tecla == 27)
@@ -1848,6 +1910,16 @@ void menuApagarContaCli(AppStore& mieic) {
 					}
 				}
 
+				try {
+					mieic.save_all();
+				} catch (File_Exp& exp) {
+					cor(BLACK, RED);
+					cerr << "Error" + exp.getIdErro() << endl;
+					cerr << exp.getDescricaoErro() << endl;
+					cor(BLACK, WHITE); //reset à cor
+					system("pause");
+				}
+
 				cli_act = NULL;
 				menuInicial(mieic);
 				break;
@@ -1927,6 +1999,16 @@ void menuAlterarPassDev(AppStore& mieic) {
 			cout << "  Alterar Password  " << endl << endl << endl << endl;
 			cout << "  Sucesso! Password alterada.  " << endl << endl;
 			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
 
 			tecla = getch();
 			if (tecla != 0) {
@@ -2027,6 +2109,18 @@ void menuAlterarMorada(AppStore& mieic) {
 			cout << "  Sucesso! Morada alterado.  " << endl << endl;
 			cout << "  Prima (Enter) para continuar " << endl << endl;
 
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
+
+
+
 			tecla = getch();
 			if (tecla != 0) {
 				while (tecla != 13) {
@@ -2081,7 +2175,7 @@ void menuAlterarNIF(AppStore& mieic) {
 			inputFail = cin.fail();
 
 			if (NIF_novo.length() != 9) //tem que ter 9 digitos
-						inputFail = true;
+				inputFail = true;
 
 			for (unsigned int i = 0; i < NIF_novo.size(); i++) { //verifica se NIF so tem numeros
 				if (!isdigit(NIF_novo[i])) {
@@ -2094,8 +2188,8 @@ void menuAlterarNIF(AppStore& mieic) {
 
 		system("cls");
 		cout << "  Alterar NIF  " << endl << endl << endl << endl;
-		cout << "  Insira o novo NIF para a sua conta (9 digitos): " << NIF_novo << endl
-				<< endl;
+		cout << "  Insira o novo NIF para a sua conta (9 digitos): " << NIF_novo
+				<< endl << endl;
 		cout
 				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem alterar "
 				<< endl << endl;
@@ -2115,6 +2209,17 @@ void menuAlterarNIF(AppStore& mieic) {
 			cout << "  Alterar NIF  " << endl << endl << endl << endl;
 			cout << "  Sucesso! NIF alterado.  " << endl << endl;
 			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
+
 
 			tecla = getch();
 			if (tecla != 0) {
@@ -2228,6 +2333,17 @@ void menuApagarContaDev(AppStore& mieic) {
 						tecla = getch();
 					}
 				}
+
+				try {
+					mieic.save_all();
+				} catch (File_Exp& exp) {
+					cor(BLACK, RED);
+					cerr << "Error" + exp.getIdErro() << endl;
+					cerr << exp.getDescricaoErro() << endl;
+					cor(BLACK, WHITE); //reset à cor
+					system("pause");
+				}
+
 //				delete dev_act;
 				dev_act = NULL;
 				menuInicial(mieic);
@@ -2927,6 +3043,16 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 //							apps_ordenadas[opcao_app].update_classificacao(classificacao);
 							apps_ordenadas[opcao_app].addComentario(comment);
 
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+								system("pause");
+							}
+
 							system("cls");
 							cout
 									<< "  Escreva o seu comentario e classificacao para a App   "
@@ -3506,7 +3632,7 @@ void menuCriarApp(AppStore& mieic) {
 
 		inputFail = cin.fail();
 
-		if(preco > 200)
+		if (preco > 200)
 			inputFail = true;
 
 		cin.clear();  // da clear a flag do fail
@@ -3544,6 +3670,16 @@ void menuCriarApp(AppStore& mieic) {
 			App app_temp(nome_app, categoria, descricao, preco);
 			app_temp.setDev(dev_act);
 			mieic.apps.push_back(app_temp);
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+				system("pause");
+			}
 
 			cout << "  Sucesso! App criada. " << endl << endl;
 			cout << "  Prima (Enter) para continuar  " << endl;
@@ -3684,6 +3820,17 @@ void menuRemoverApp(AppStore& mieic) {
 						tecla = getch();
 					}
 				}
+
+				try {
+					mieic.save_all();
+				} catch (File_Exp& exp) {
+					cor(BLACK, RED);
+					cerr << "Error" + exp.getIdErro() << endl;
+					cerr << exp.getDescricaoErro() << endl;
+					cor(BLACK, WHITE); //reset à cor
+					system("pause");
+				}
+
 				menuRemoverApp(mieic);
 
 			} else if (!passCerta) {
@@ -3857,6 +4004,16 @@ void menuModificarApp(AppStore& mieic) {
 
 							mieic.apps[opcao].setNome(nome_novo);
 
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+								system("pause");
+							}
+
 							cout << "  Sucesso! O nome da App foi modificado "
 									<< endl << endl;
 							cout << "  Prima enter para continuar  " << endl;
@@ -3899,6 +4056,16 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setCategoria(categoria_nova);
+
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+								system("pause");
+							}
 
 							cout
 									<< "  Sucesso! A categoria da App foi modificada "
@@ -3944,6 +4111,16 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setDescricao(descricao_nova);
+
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+								system("pause");
+							}
 
 							cout
 									<< "  Sucesso! A descricao da App foi modificada "
@@ -3992,6 +4169,16 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setPreco(preco_novo);
+
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+								system("pause");
+							}
 
 							cout << "  Sucesso! O preco da App foi modificado "
 									<< endl << endl;
@@ -4223,6 +4410,15 @@ void menuCheckoutApps(AppStore& mieic) {
 								}
 							}
 						}
+						try {
+							mieic.save_all();
+						} catch (File_Exp& exp) {
+							cor(BLACK, RED);
+							cerr << "Error" + exp.getIdErro() << endl;
+							cerr << exp.getDescricaoErro() << endl;
+							cor(BLACK, WHITE); //reset à cor
+							system("pause");
+						}
 						system("cls");
 						cout << "  Apps do Cesto - Ver e Checkout " << endl
 								<< endl << endl;
@@ -4290,6 +4486,17 @@ void menuCheckoutApps(AppStore& mieic) {
 								}
 							}
 						}
+
+						try {
+							mieic.save_all();
+						} catch (File_Exp& exp) {
+							cor(BLACK, RED);
+							cerr << "Error" + exp.getIdErro() << endl;
+							cerr << exp.getDescricaoErro() << endl;
+							cor(BLACK, WHITE); //reset à cor
+							system("pause");
+						}
+
 						system("cls");
 						cout << "  Apps do Cesto - Ver e Checkout " << endl
 								<< endl << endl;
@@ -4357,6 +4564,15 @@ void menuCheckoutApps(AppStore& mieic) {
 							break;
 						}
 					}
+				}
+				try {
+					mieic.save_all();
+				} catch (File_Exp& exp) {
+					cor(BLACK, RED);
+					cerr << "Error" + exp.getIdErro() << endl;
+					cerr << exp.getDescricaoErro() << endl;
+					cor(BLACK, WHITE); //reset à cor
+					system("pause");
 				}
 				system("cls");
 				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl

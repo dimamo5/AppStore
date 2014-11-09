@@ -232,28 +232,31 @@ bool AppStore::save_all() {
 	ofstream file_developer, file_vendas, file_apps, file_clientes;
 
 	file_developer.open("../files/developer.txt");
+	if (file_apps.fail()) {
+			throw File_Exp(2, "Ficheiro Developer nao foi correctamente gravado!");
+		}
 	save_dev(file_developer);
 	cout << "developer passou";
 
 	file_apps.open("../files/app.txt");
-	if (!file_apps.is_open()) {
-		//throw File_Exp(1, "Ficheiro App nao foi correctamente gravado!");
+	if (file_apps.fail()) {
+		throw File_Exp(2, "Ficheiro App nao foi correctamente gravado!");
 	}
 	save_app(file_apps);
 	file_apps.close();
 	cout << "apps passou";
 
 	file_vendas.open("../files/vendas.txt");
-	if (!file_vendas.is_open()) {
-		//throw File_Exp(1, "Ficheiro Vendas nao foi correctamente gravado!");
+	if (file_vendas.fail()) {
+		throw File_Exp(2, "Ficheiro Vendas nao foi correctamente gravado!");
 	}
 	save_vendas(file_vendas);
 	file_vendas.close();
 	cout << "vendas passou";
 
 	file_clientes.open("../files/clientes.txt");
-	if (!file_clientes.is_open()) {
-		//throw File_Exp(1, "Ficheiro Clientes nao foi correctamente gravado!");
+	if (file_clientes.fail()) {
+		throw File_Exp(2, "Ficheiro Clientes nao foi correctamente gravado!");
 	}
 	save_clientes(file_clientes);
 	file_clientes.close();
@@ -265,28 +268,28 @@ bool AppStore::load_all() {
 	fstream file_developer, file_vendas, file_apps, file_clientes;
 
 	file_developer.open("../files/developer.txt");
-	if (!file_developer.is_open()) {
+	if (file_developer.fail()) {
 		throw File_Exp(1, "Ficheiro Developer nao foi correctamente aberto!");
 	}
 	load_dev(file_developer);
 	file_developer.close();
 
 	file_apps.open("../files/app.txt");
-	if (!file_apps.is_open()) {
+	if (file_apps.fail()) {
 		throw File_Exp(1, "Ficheiro Apps nao foi correctamente aberto!");
 	}
 	load_app(file_apps);
 	file_apps.close();
 
 	file_vendas.open("../files/vendas.txt");
-	if (!file_vendas.is_open()) {
+	if (file_vendas.fail()) {
 		throw File_Exp(1, "Ficheiro Vendas nao foi correctamente aberto!");
 	}
 	load_vendas(file_vendas);
 	file_vendas.close();
 
 	file_clientes.open("../files/clientes.txt");
-	if (!file_clientes.is_open()) {
+	if (file_clientes.fail()) {
 		throw File_Exp(1, "Ficheiro Clientes nao foi correctamente aberto!");
 	}
 	load_clientes(file_clientes);
