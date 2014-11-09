@@ -4195,6 +4195,7 @@ void menuCheckoutApps(AppStore& mieic) {
 						cli_act->setSaldo(
 								cli_act->getSaldo() - preco_total * 0.95);
 						cli_act->addVoucher();
+						cli_act->removeVoucher();
 						cli_act->emptyCesto();
 
 						// Para cada app, vai ao developer e da-lhe a sua parte do dinheiro
