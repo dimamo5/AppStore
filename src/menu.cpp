@@ -607,7 +607,7 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-		cout << "  Indique o seu no. cartao credito (com 9 digitos): ";
+		cout << "  Indique o seu no. cartao credito (9 digitos): ";
 		cin >> cartao_credito;
 
 		inputFail = cin.fail();
@@ -631,7 +631,7 @@ void menuRegistarCliente(AppStore& mieic) {
 		cout << "  Indique o seu nome: " << nome << endl;
 		cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 		cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-		cout << "  Indique o seu no. cartao credito (com 9 digitos): "
+		cout << "  Indique o seu no. cartao credito (9 digitos): "
 				<< cartao_credito << endl << endl;
 		cout << "  Introduza agora a password que pretende:  ";
 
@@ -648,7 +648,7 @@ void menuRegistarCliente(AppStore& mieic) {
 	cout << "  Indique o seu nome: " << nome << endl;
 	cout << "  Indique a sua idade ( > 9 e < 151 ): " << idade << endl;
 	cout << "  Indique o seu sexo (M ou F): " << sexo << endl;
-	cout << "  Indique o seu no. cartao credito (com 9 digitos): "
+	cout << "  Indique o seu no. cartao credito (9 digitos): "
 			<< cartao_credito << endl << endl;
 	cout << "  Introduza agora a password que pretende:  " << password << endl
 			<< endl << endl;
@@ -881,7 +881,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 
 		inputFail = cin.fail();
 
-		if (NIF.length()!= 9) //tem que ter 9 digitos
+		if (NIF.length() != 9) //tem que ter 9 digitos
 			inputFail = true;
 
 		for (unsigned int i = 0; i < NIF.size(); i++) { //verifica se NIF so tem numeros
@@ -1721,6 +1721,16 @@ void menuAlterarCartao(AppStore& mieic) {
 			cin >> cartao_credito;
 
 			inputFail = cin.fail();
+
+			int counter = 0;
+			int cartao_copy = cartao_credito;
+			while (cartao_copy != 0) {
+				counter++;
+				cartao_copy = cartao_copy / 10;
+			}
+			if (counter != 9)
+				inputFail = true;
+
 			cin.clear();  // da clear a flag do fail
 			cin.ignore(1000, '\n');
 		} while (inputFail == true);
@@ -2065,10 +2075,14 @@ void menuAlterarNIF(AppStore& mieic) {
 		do {
 			system("cls");
 			cout << "  Alterar NIF  " << endl << endl << endl << endl;
-			cout << "  Insira o novo NIF para a sua conta: ";
+			cout << "  Insira o novo NIF para a sua conta (9 digitos): ";
 			cin >> NIF_novo;
 
 			inputFail = cin.fail();
+
+			if (NIF_novo.length() != 9) //tem que ter 9 digitos
+						inputFail = true;
+
 			for (unsigned int i = 0; i < NIF_novo.size(); i++) { //verifica se NIF so tem numeros
 				if (!isdigit(NIF_novo[i])) {
 					inputFail = true;
@@ -2080,7 +2094,7 @@ void menuAlterarNIF(AppStore& mieic) {
 
 		system("cls");
 		cout << "  Alterar NIF  " << endl << endl << endl << endl;
-		cout << "  Insira o novo NIF para a sua conta: " << NIF_novo << endl
+		cout << "  Insira o novo NIF para a sua conta (9 digitos): " << NIF_novo << endl
 				<< endl;
 		cout
 				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem alterar "
@@ -3486,11 +3500,15 @@ void menuCriarApp(AppStore& mieic) {
 		cout << "  Indique o seu nome da App: " << nome_app << endl;
 		cout << "  Indique a categoria em que se insere: " << categoria << endl;
 		cout << "  Faca uma pequena descricao da App: " << descricao << endl;
-		cout << "  Indique o preco da App:  ";
+		cout << "  Indique o preco da App (<= 200):  ";
 
 		cin >> preco;
 
 		inputFail = cin.fail();
+
+		if(preco > 200)
+			inputFail = true;
+
 		cin.clear();  // da clear a flag do fail
 		cin.ignore(1000, '\n');
 	} while (inputFail == true);
