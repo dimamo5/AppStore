@@ -219,9 +219,10 @@ public:
 	bool removeAppValidar(unsigned int id);
 	/**
 	 * Obtem vector de apps ja validadas
-	 * @return apps porontas para serem vendidas
+	 * @return apps prontas para serem vendidas
 	 */
 	vector<App> appsDisponiveis() const;
+
 
 };
 
