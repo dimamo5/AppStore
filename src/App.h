@@ -13,6 +13,7 @@
 #include "Developer.h"
 #include "Cliente.h"
 #include "Comentario.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ extern Cliente* cli_act;
  *
  */
 
-class App{
+class App {
 private:
 	unsigned int id;/**< @brief ID unico de cada App*/
 	static unsigned int next_id;/**< Proximo Id quando c se cria uma App */
@@ -36,10 +37,12 @@ private:
 	string categoria;/**< Categoria em que se insere a App */
 	string descricao;/**< Pequena descricao sobre a App */
 	double preco;/**< Preco da App */
-	double classificacao_final=0;/**< Classificacao atribuida pelo clientes que compram a App */
-	int num_classificacoes=0; /**< Numero de Classificacaos ja lhe atribuidas */
+	bool validada;/**< App Validada */
+	double classificacao_final = 0;/**< Classificacao atribuida pelo clientes que compram a App */
+	int num_classificacoes = 0; /**< Numero de Classificacaos ja lhe atribuidas */
 	vector<Comentario> comentarios; /**< Vector com todos os Comentarios */
 	Developer* dev; /**< Pointer para o developer que criou esta app */
+	Date data_submissao;
 public:
 	/**
 	 * Construtor de App
@@ -48,7 +51,8 @@ public:
 	 * @param descricao Descricao
 	 * @param preco Preco
 	 */
-	App(string nome,string categoria,string descricao,double preco);
+	App(string nome, string categoria, string descricao, double preco,
+			Date data);
 	/**
 	 * Construtor usado na para carregar informacao dos ficheiros
 	 * @param id Id
@@ -59,7 +63,9 @@ public:
 	 * @param classificacao_final Classificao Final
 	 * @param num_classificacoes Nr. Classificacoes
 	 */
-	App(unsigned int id,string nome,string categoria,string descricao,double preco,double classificacao_final,int num_classificacoes);
+	App(unsigned int id, string nome, string categoria, string descricao,
+			double preco, double classificacao_final, int num_classificacoes,
+			bool validada,Date data);
 	/**
 	 * Recalcula a classificao da App quando lhe e adicionada uma classificacao
 	 * @param clas Classificacao atribuida por um cliente
@@ -169,7 +175,25 @@ public:
 	 * @return String como toda a informacao
 	 */
 	string imprime() const;
+	/**
+	 * Getter Validacao da App
+	 * @return True se app aprovada ou False caso contrario
+	 */
+	bool isValidada() const;
+	/**
+	 * Valida a App na Appstore
+	 */
+	void setValidada();
+	/**
+	 * Getter Data de Submissao
+	 * @return Data de Submissao da App
+	 */
+	const Date& getDataSubmissao() const;
+	/**
+	 * Setter Data de Submissao
+	 * @param dataSubmissao Data da Submissao
+	 */
+	void setDataSubmissao(const Date& dataSubmissao);
 };
-
 
 #endif /* APP_H_ */

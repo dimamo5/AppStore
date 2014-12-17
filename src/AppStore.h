@@ -16,6 +16,7 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include <queue>
 
 extern Developer* dev_act;
 extern Cliente* cli_act;
@@ -48,6 +49,24 @@ bool devsComparaNome(Developer* dev1, Developer* dev2);
  * @class AppStore
  * @brief Classe Principal do projecto que contem toda a informacao sofre a AppStore
  */
+
+struct ComparaAppValidar {
+	bool operator()(App * app1, App * app2) {
+		if (app1->getDataSubmissao() < app2->getDataSubmissao()) {
+			return true;
+		} else if (app1->getDataSubmissao() == app2->getDataSubmissao()) {
+			if (app1->getPreco() > app2->getPreco()) {
+				return true;
+			} else if (app1->getPreco() == app2->getPreco()) {
+				if (app1->getNome() < app2->getNome()) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+};
+
 class AppStore {
 public:
 	/**
@@ -58,6 +77,7 @@ public:
 	vector<Cliente> clientes; /**< Vector com todos os Clientes activos na Store */
 	vector<Developer *> dev; /**< Vector com todos os Developers activos na Store */
 	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
+	priority_queue<App*, vector<App *>, ComparaAppValidar> apps_a_validar;
 	Date data_atual; /**< Data Actual */
 
 	/**
@@ -195,6 +215,14 @@ public:
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_dev(fstream &file);
+
+	bool removeAppValidar(unsigned int id);
+	/**
+	 * Obtem vector de apps ja validadas
+	 * @return apps porontas para serem vendidas
+	 */
+	vector<App> appsDisponiveis() const;
+
 };
 
 /**
@@ -232,6 +260,8 @@ public:
 	 * @param idErro Novo Id para o Erro
 	 */
 	void setIdErro(unsigned int idErro);
+
+
 };
 
 #endif /* APPSTORE_H_ */
