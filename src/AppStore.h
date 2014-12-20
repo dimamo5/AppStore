@@ -16,6 +16,7 @@
 #include <string>
 #include <fstream>
 #include <ctime>
+#include <tr1/unordered_set>
 
 extern Developer* dev_act;
 extern Cliente* cli_act;
@@ -59,6 +60,34 @@ public:
 	vector<Developer *> dev; /**< Vector com todos os Developers activos na Store */
 	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
 	Date data_atual; /**< Data Actual */
+
+	//--------------------------------------------------------------------------------//
+	// --------------------------------PROJETO 2--------------------------------------//
+	//--------------------------------------------------------------------------------//
+
+	// Assume-se que as Apps tem de ter nomes diferentes das que ja existem,
+	// pois essa verificacao ja foi feita ao criar as apps
+	struct EqualApp {
+		bool operator()(const App &app1, const App &app2) const {
+			return (app1.getNome() == app2.getNome());
+		}
+	};
+
+	struct HashApp {
+		int operator()(const App &app1) const {
+			string s1 = app1.getNome();
+			int v = 0;
+			for (unsigned int i = 0; i < s1.size(); i++)
+				v = 37 * v + s1[i];
+			return v;
+		}
+	};
+
+	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas;
+
+	//--------------------------------------------------------------------------------//
+	// --------------------------------PROJETO 2--------------------------------------//
+	//--------------------------------------------------------------------------------//
 
 	/**
 	 * Obter Data da Maquina em que o processo esta a ser executado

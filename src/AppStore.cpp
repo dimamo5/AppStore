@@ -209,25 +209,6 @@ bool AppStore::load_app(fstream& file) {
 
 }
 
-Developer* AppStore::find_dev_id(unsigned int id) const {
-	for (unsigned int i = 0; i < dev.size(); i++) {
-		if (dev[i]->getId() == id) {
-			return dev[i];
-		}
-	}
-	return NULL;
-}
-
-Cliente* AppStore::find_cliente_id(unsigned int id) {
-
-	for (unsigned int i = 0; i < clientes.size(); i++) {
-		if (clientes[i].getId() == id) {
-			return &clientes[i];
-		}
-	}
-	return NULL;
-
-}
 
 bool AppStore::save_all() {
 	ofstream file_developer, file_vendas, file_apps, file_clientes;
@@ -361,6 +342,26 @@ bool AppStore::load_vendas(fstream &file) {
 		vendas.push_back(venda_temp);
 	}
 	return true;
+}
+
+Developer* AppStore::find_dev_id(unsigned int id) const {
+	for (unsigned int i = 0; i < dev.size(); i++) {
+		if (dev[i]->getId() == id) {
+			return dev[i];
+		}
+	}
+	return NULL;
+}
+
+Cliente* AppStore::find_cliente_id(unsigned int id) {
+
+	for (unsigned int i = 0; i < clientes.size(); i++) {
+		if (clientes[i].getId() == id) {
+			return &clientes[i];
+		}
+	}
+	return NULL;
+
 }
 
 App* AppStore::find_app_id(unsigned int id) {

@@ -3643,7 +3643,7 @@ void menuCriarApp(AppStore& mieic) {
 	}
 	if (tecla == 13) { // se o user premir (Enter)
 
-		// verifica se na appstore mieic ja ha algum developer com este nome de dev
+		// verifica se na appstore mieic ja ha alguma app com este nome
 		nomeRepetido = mieic.existeNomeApp(nome_app);
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
