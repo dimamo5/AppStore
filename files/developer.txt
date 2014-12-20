@@ -4,7 +4,7 @@ Diogo Dev Ind
 1.6
 1
 Diogo Moura Lda
-asdsa
+Rio de Loba
 ind
 2
 Pedro Dev Emp
@@ -13,3 +13,4 @@ Pedro Dev Emp
 CPedro  AT Inc.
 Rua do Francial, lote 5, Rio de Loba
 emp
+123123123
