@@ -2415,7 +2415,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				break;
 
 			case -1:          // 2a opcao
-				apps_por_preco = mieic.apps;
+				apps_por_preco = mieic.appsDisponiveis();
 				sort(apps_por_preco.begin(), apps_por_preco.end(),
 						appsComparaPreco);
 				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
@@ -3648,9 +3648,10 @@ void menuCriarApp(AppStore& mieic) {
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			App app_temp(nome_app, categoria, descricao, preco);
+			App app_temp(nome_app, categoria, descricao, preco,mieic.data_atual);
 			app_temp.setDev(dev_act);
 			mieic.apps.push_back(app_temp);
+			mieic.apps_a_validar.push(&mieic.apps[mieic.apps.size()-1]); //mete na priority queue a app que foi adicionada
 
 			try {
 				mieic.save_all();
