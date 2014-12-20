@@ -109,6 +109,33 @@ bool verificaPass(T* dev_or_cli) {
 	}
 }
 
+bool verificaPassAdmin() {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(now);
+	int opcao = 0;
+	string password;
+	bool inputFail = false;
+
+	cout << "  Verificacao por Password de Administrador  " << endl << endl
+			<< endl << endl;
+
+	do {
+		system("cls");
+		cout << "  Verificacao por Password de Administrador   " << endl << endl
+				<< endl << endl;
+		cout << "  Insira a password de administrador: ";
+		cin >> password;
+
+		inputFail = cin.fail();
+		cin.clear();  // da clear a flag do fail
+		cin.ignore(1000, '\n');
+	} while (inputFail == true);
+
+	return (password == ADMIN_PASS);
+}
+
 void printMenuScroll(vector<string> options, int selected_option,
 		const unsigned int max_per_screen) {
 	int min = selected_option - (max_per_screen / 2);
@@ -209,11 +236,15 @@ void menuInicial(AppStore& mieic) {
 		cor(BLACK, WHITE);
 		if (opcao == -3)
 			cor(WHITE, LIGHT_RED);
+		cout << "  Validar Apps  " << endl;
+		cor(BLACK, WHITE);
+		if (opcao == -4)
+			cor(WHITE, LIGHT_RED);
 		cout << "  SAIR  " << endl;
 		cor(BLACK, WHITE);
 
 		opcao += teclas();
-		opcao = RestringeOpcaoTeclas(0, 3, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
+		opcao = RestringeOpcaoTeclas(0, 4, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
 
 		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 		{
@@ -229,7 +260,11 @@ void menuInicial(AppStore& mieic) {
 			menuRegistar(mieic);
 			system("pause");
 			break;
-		case -3: // ultima opcao
+		case -3:
+			menuValidarApps(mieic);
+			system("pause");
+			break;
+		case -4: // ultima opcao
 			try {
 				mieic.save_all();
 			} catch (File_Exp& exp) {
@@ -243,6 +278,85 @@ void menuInicial(AppStore& mieic) {
 		}
 	}
 }
+
+void menuValidarApps(AppStore& mieic) {
+
+	bool passCerta = false;
+	passCerta = verificaPassAdmin();
+
+	if (passCerta) {
+
+		system("cls");
+		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
+		cout << "  Tem a certeza que quer validar as Apps em espera? " << endl
+				<< "  Se o fizer, estas passarão a estar disponíveis na Appstore."
+				<< endl;
+
+		cout
+				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem validar "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
+		}
+
+		if (tecla == 13) {        // Confirmou validacao
+
+			system("cls");
+			cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
+			cout << "  Sucesso! Apps Validadas  " << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+			}
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // Prima (Enter) para continuar
+					tecla = getch();
+				}
+			}
+			menuInicial(mieic);
+		}
+
+		if (tecla == 27)        // regressou sem tentar validar
+			menuInicial(mieic);
+	}
+
+	else if (!passCerta) {
+		system("cls");
+		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
+			menuValidarApps(mieic);
+		if (tecla == 27)
+			menuInicial(mieic);
+
+	}
+
+}
+
 void menuLogin(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -552,7 +666,7 @@ void menuRegistarCliente(AppStore& mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
 
-	// imprimeData(data_atual); fazer funcao para imprimir data
+// imprimeData(data_atual); fazer funcao para imprimir data
 
 	bool inputFail;
 	string nome, sexo, password;
@@ -700,7 +814,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
 
-	// imprimeData(data_atual); fazer funcao para imprimir data
+// imprimeData(data_atual); fazer funcao para imprimir data
 
 	bool nomeRepetido = false;
 	bool inputFail;
@@ -857,7 +971,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
 
-	// imprimeData(data_atual); fazer funcao para imprimir data
+// imprimeData(data_atual); fazer funcao para imprimir data
 
 	bool nomeRepetido = false;
 	bool inputFail;
@@ -2559,7 +2673,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	Date data_atual(now);
 	int opcao_app = 0;
 
-	//	vector<string> menu_options = getAppNames(apps_ordenadas);
+//	vector<string> menu_options = getAppNames(apps_ordenadas);
 	vector<string> menu_options;
 	string preco;
 	string classificacao;
@@ -3648,10 +3762,11 @@ void menuCriarApp(AppStore& mieic) {
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			App app_temp(nome_app, categoria, descricao, preco,mieic.data_atual);
+			App app_temp(nome_app, categoria, descricao, preco,
+					mieic.data_atual);
 			app_temp.setDev(dev_act);
 			mieic.apps.push_back(app_temp);
-			mieic.apps_a_validar.push(&mieic.apps[mieic.apps.size()-1]); //mete na priority queue a app que foi adicionada
+			mieic.apps_a_validar.push(&mieic.apps[mieic.apps.size() - 1]); //mete na priority queue a app que foi adicionada
 
 			try {
 				mieic.save_all();
@@ -4212,7 +4327,7 @@ void menuCheckoutApps(AppStore& mieic) {
 	vector<string> menu_options;
 	double preco_total = 0;
 	double saldo_disponivel = cli_act->getSaldo();
-	// Cria vector com nomes de apps.
+// Cria vector com nomes de apps.
 	for (unsigned int k = 0; k < ids_apps_cesto.size(); k++) {
 		for (unsigned int p = 0; p < mieic.apps.size(); p++) {
 			if (ids_apps_cesto[k] == mieic.apps[p].getId()) {
