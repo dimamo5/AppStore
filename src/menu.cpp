@@ -1176,31 +1176,31 @@ void menuDeveloper(AppStore& mieic) {
 		{
 		case 0:          // 1a opcao
 			menuVisitaStore(mieic, state);
-			system("pause");
+			opcao = 0;
 			break;
-
 		case -1:          // 2a opcao
 			menuDeveloperGerirApps(mieic);
-			system("pause");
+			opcao = 0;
 			break;
 		case -2:          // 3a opcao
 			menuListaCliente(mieic);
-			system("pause");
+			opcao = 0;
 			break;
 		case -3:          // 4a opcao
 			menuDeveloperDefinicoes(mieic);
-			system("pause");
+			opcao = 0;
 			break;
 		case -4:          // 5a opcao
 			menuVerDev(mieic); // TODO: implementar a listagem atributos do developer
-			system("pause");
+			opcao = 0;
 			break;
 		case -5:
 			menuInicial(mieic);
-			system("pause");
+			opcao = 0;
 			break;
 
 		}
+
 	}
 }
 
@@ -1362,7 +1362,7 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 			cor(BLACK, WHITE);
 		else if (opcao == -4)
 			cor(WHITE, BLACK);
-		cout << " Alterar Apps removidas da Store " << endl;
+		cout << " Repor App na Store " << endl;
 		cor(BLACK, WHITE);
 
 		if (opcao == -2)
@@ -1378,11 +1378,11 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 			cor(BLACK, WHITE);
 		else if (opcao == -5)
 			cor(WHITE, BLACK);
-		cout << " Repor App na Store " << endl;
+		cout << " Alterar Apps removidas da Store " << endl;
 		cor(BLACK, WHITE);
 
 		cor(BLACK, WHITE);
-		cout << "                                   ";
+		cout << "                                     ";
 		if (opcao == -6)
 			cor(WHITE, BLACK);
 		cout << " Listar Apps removidas da Store " << endl;
@@ -1474,28 +1474,26 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 			system("pause");
 			break;
 		case -3:
-			menuDeveloper(mieic);
+			menuRemoverAppStore(mieic);
 			system("pause");
 			break;
 		case -4:
-			menuDeveloper(mieic);
+			menuReporAppStore(mieic);
 			system("pause");
 			break;
 		case -5:
-			menuDeveloper(mieic);
+			menuAlterarAppsRemovidas(mieic);
 			system("pause");
 			break;
 		case -6:
-			menuDeveloper(mieic);
+			menuListarAppsRemovidas(mieic);
 			system("pause");
 			break;
 		case -7:
 			menuDeveloper(mieic);
-			system("pause");
 			break;
 		case -8:
-			menuDeveloper(mieic);
-			system("pause");
+			return;   // para testar se o return funciona bem em comparacao com menuDeveloper(mieic)
 			break;
 		}
 	}
@@ -4964,5 +4962,21 @@ void menuValidarApps(AppStore& mieic) {
 			menuInicial(mieic);
 
 	}
+
+}
+
+void menuRemoverAppStore(AppStore& mieic){
+
+}
+
+void menuReporAppStore(AppStore& mieic){
+
+}
+
+void menuAlterarAppsRemovidas(AppStore& mieic){
+
+}
+
+void menuListarAppsRemovidas(AppStore& mieic){
 
 }

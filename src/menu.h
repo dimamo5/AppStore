@@ -283,6 +283,12 @@ void menuRemoverApp(AppStore& mieic);
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  */
 void menuModificarApp(AppStore& mieic);
+
+void menuRemoverAppStore(AppStore& mieic);
+void menuReporAppStore(AppStore& mieic);
+void menuAlterarAppsRemovidas(AppStore& mieic);
+void menuListarAppsRemovidas(AppStore& mieic);
+
 /**
  * Menu onde sao listadas as apps e o user pode carregar enter para remover a selecionada do cesto.
  * Ao acontecer isto o menu e refreshed. Para sair do menu, o user pode carregar Esc
