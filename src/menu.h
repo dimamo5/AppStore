@@ -185,11 +185,12 @@ void menuClienteDefinicoes(AppStore& mieic);
  */
 void menuDeveloperDefinicoes(AppStore& mieic);
 /**
- * Menu do Developer onde este tem opcoes de gestao de Apps. Pode criar uma App, remover uma app
+ * Menu do Developer onde este tem opcoes de gestao de Apps que estao na store. Pode criar uma App, remover uma app
  * ou entrar no menu para alterar uma app
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  */
 void menuDeveloperGerirApps(AppStore& mieic);
+
 /**
  * Menu onde, apos verificacao do Nr. de cartao de credito, o Cliente escolhe o credito a
  * adicionar a sua conta, podendo regressar sem adicionar credito.
