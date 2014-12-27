@@ -51,6 +51,9 @@ bool devsComparaNome(Developer* dev1, Developer* dev2);
  * @brief Classe Principal do projecto que contem toda a informacao sofre a AppStore
  */
 
+/**
+ * Struct Comparacao para Apps
+ */
 struct ComparaAppValidar {
 	bool operator()(App * app1, App * app2) {
 		if (app1->getDataSubmissao() < app2->getDataSubmissao()) {
@@ -68,6 +71,27 @@ struct ComparaAppValidar {
 	}
 };
 
+/*
+ * Struct para funcao Equal da Hashtable
+ */
+struct EqualApp {
+	bool operator()(const App &app1, const App &app2) const {
+		return (app1.getNome() == app2.getNome());
+	}
+};
+/*`
+ * Struct para funcao Hash da Hashtable
+ */
+struct HashApp {
+	int operator()(const App &app1) const {
+		string s1 = app1.getNome();
+		int v = 0;
+		for (unsigned int i = 0; i < s1.size(); i++)
+			v = 37 * v + s1[i];
+		return v;
+	}
+};
+
 class AppStore {
 public:
 	/**
@@ -78,36 +102,14 @@ public:
 	vector<Cliente> clientes; /**< Vector com todos os Clientes activos na Store */
 	vector<Developer *> dev; /**< Vector com todos os Developers activos na Store */
 	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
-	priority_queue<App*, vector<App *>, ComparaAppValidar> apps_a_validar;
 	Date data_atual; /**< Data Actual */
 
-	//--------------------------------------------------------------------------------//
-	// --------------------------------PROJETO 2--------------------------------------//
-	//--------------------------------------------------------------------------------//
+	priority_queue<App*, vector<App *>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
+	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas; /**< Hashtable das apps apagadas */
 
-	// Assume-se que as Apps tem de ter nomes diferentes das que ja existem,
-	// pois essa verificacao ja foi feita ao criar as apps
-	struct EqualApp {
-		bool operator()(const App &app1, const App &app2) const {
-			return (app1.getNome() == app2.getNome());
-		}
-	};
 
-	struct HashApp {
-		int operator()(const App &app1) const {
-			string s1 = app1.getNome();
-			int v = 0;
-			for (unsigned int i = 0; i < s1.size(); i++)
-				v = 37 * v + s1[i];
-			return v;
-		}
-	};
 
-	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas;
 
-	//--------------------------------------------------------------------------------//
-	// --------------------------------PROJETO 2--------------------------------------//
-	//--------------------------------------------------------------------------------//
 
 	/**
 	 * Obter Data da Maquina em que o processo esta a ser executado
@@ -246,13 +248,11 @@ public:
 	bool load_dev(fstream &file);
 
 	bool removeAppValidar(unsigned int id);
-	/**
-	 * Obtem vector de apps ja validadas
-	 * @return apps prontas para serem vendidas
-	 */
-	vector<App> appsDisponiveis() const;
-
-
+		/**
+		 * Obtem vector de apps ja validadas
+		 * @return apps prontas para serem vendidas
+		 */
+		vector<App> appsDisponiveis() const;
 };
 
 /**
@@ -290,8 +290,6 @@ public:
 	 * @param idErro Novo Id para o Erro
 	 */
 	void setIdErro(unsigned int idErro);
-
-
 };
 
 #endif /* APPSTORE_H_ */

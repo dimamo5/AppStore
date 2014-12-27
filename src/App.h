@@ -37,12 +37,14 @@ private:
 	string categoria;/**< Categoria em que se insere a App */
 	string descricao;/**< Pequena descricao sobre a App */
 	double preco;/**< Preco da App */
-	bool validada;/**< App Validada */
 	double classificacao_final = 0;/**< Classificacao atribuida pelo clientes que compram a App */
 	int num_classificacoes = 0; /**< Numero de Classificacaos ja lhe atribuidas */
 	vector<Comentario> comentarios; /**< Vector com todos os Comentarios */
 	Developer* dev; /**< Pointer para o developer que criou esta app */
+
+	bool validada;/**< App Validada */
 	Date data_submissao;
+
 public:
 	/**
 	 * Construtor de App
@@ -51,8 +53,7 @@ public:
 	 * @param descricao Descricao
 	 * @param preco Preco
 	 */
-	App(string nome, string categoria, string descricao, double preco,
-			Date data);
+	App(string nome, string categoria, string descricao, double preco);
 	/**
 	 * Construtor usado na para carregar informacao dos ficheiros
 	 * @param id Id
@@ -64,8 +65,7 @@ public:
 	 * @param num_classificacoes Nr. Classificacoes
 	 */
 	App(unsigned int id, string nome, string categoria, string descricao,
-			double preco, double classificacao_final, int num_classificacoes,
-			bool validada,Date data);
+			double preco, double classificacao_final, int num_classificacoes);
 	/**
 	 * Recalcula a classificao da App quando lhe e adicionada uma classificacao
 	 * @param clas Classificacao atribuida por um cliente
@@ -175,6 +175,8 @@ public:
 	 * @return String como toda a informacao
 	 */
 	string imprime() const;
+
+
 	/**
 	 * Getter Validacao da App
 	 * @return True se app aprovada ou False caso contrario

@@ -12,7 +12,6 @@
 #ifndef MENU_H_
 #define MENU_H_
 
-
 /**< Macros de cores para usar no menu */
 #define BLACK 0  // 0000
 #define BLUE 1   // 0001
@@ -28,6 +27,7 @@
 
 /** Maximo de items a mostar no ecra, quando se usa o scroll */
 const unsigned int MAX_PER_SCREEN = 6;
+/** Pass de Administrador para validacao */
 const std::string ADMIN_PASS = "123";
 
 #include "AppStore.h"
@@ -86,11 +86,6 @@ vector<string> getDevNames(vector<Developer*> devs);
  */
 template<typename T>
 bool verificaPass(T* dev_or_cli);
-/**
- * Janela/Menu para verificacao da password do admin
- * @return True, se a pass foi corretamente escrita. False, se a password estava errada
- */
-bool verificaPassAdmin();
 /**
  * Funcao que imprime opcoes de um vetor, sendo possivel ao user fazer scroll atraves das opcoes.
  * Se houver mais opcoes do que as maximas que consegue mostrar, funciona como menu de scroll (como as mensagens num telemovel)
@@ -344,6 +339,7 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state);
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  */
 void menuListaCliente(AppStore& mieic);
+
 /**
  * Menu que faz validacao das apps em espera na priority_queue
  * A validacao so e efetuada apos o admin inserir os seus dados

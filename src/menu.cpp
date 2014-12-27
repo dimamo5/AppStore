@@ -102,7 +102,8 @@ bool verificaPass(T* dev_or_cli) {
 		cin.ignore(1000, '\n');
 	} while (inputFail == true);
 
-	if (password == dev_or_cli->getIdPass()) {
+	string dev_cli_pass = dev_or_cli->getIdPass();
+	if (password == dev_cli_pass) {
 		return true;
 	} else {
 		return false;
@@ -277,84 +278,6 @@ void menuInicial(AppStore& mieic) {
 			break;
 		}
 	}
-}
-
-void menuValidarApps(AppStore& mieic) {
-
-	bool passCerta = false;
-	passCerta = verificaPassAdmin();
-
-	if (passCerta) {
-
-		system("cls");
-		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
-		cout << "  Tem a certeza que quer validar as Apps em espera? " << endl
-				<< "  Se o fizer, estas passarão a estar disponíveis na Appstore."
-				<< endl;
-
-		cout
-				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem validar "
-				<< endl << endl;
-
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 13 && tecla != 27) {
-				tecla = getch();
-			}
-		}
-
-		if (tecla == 13) {        // Confirmou validacao
-
-			system("cls");
-			cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
-			cout << "  Sucesso! Apps Validadas  " << endl << endl;
-			cout << "  Prima (Enter) para continuar " << endl << endl;
-
-			try {
-				mieic.save_all();
-			} catch (File_Exp& exp) {
-				cor(BLACK, RED);
-				cerr << "Error" + exp.getIdErro() << endl;
-				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
-			}
-
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 13) { // Prima (Enter) para continuar
-					tecla = getch();
-				}
-			}
-			menuInicial(mieic);
-		}
-
-		if (tecla == 27)        // regressou sem tentar validar
-			menuInicial(mieic);
-	}
-
-	else if (!passCerta) {
-		system("cls");
-		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
-		cout << "  Password errada.  " << endl << endl;
-		cout
-				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
-				<< endl << endl;
-
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
-				tecla = getch();
-			}
-		}
-		if (tecla == 13)
-			menuValidarApps(mieic);
-		if (tecla == 27)
-			menuInicial(mieic);
-
-	}
-
 }
 
 void menuLogin(AppStore& mieic) {
@@ -666,7 +589,7 @@ void menuRegistarCliente(AppStore& mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
 
-// imprimeData(data_atual); fazer funcao para imprimir data
+	// imprimeData(data_atual); fazer funcao para imprimir data
 
 	bool inputFail;
 	string nome, sexo, password;
@@ -814,7 +737,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
 
-// imprimeData(data_atual); fazer funcao para imprimir data
+	// imprimeData(data_atual); fazer funcao para imprimir data
 
 	bool nomeRepetido = false;
 	bool inputFail;
@@ -971,7 +894,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
 
-// imprimeData(data_atual); fazer funcao para imprimir data
+	// imprimeData(data_atual); fazer funcao para imprimir data
 
 	bool nomeRepetido = false;
 	bool inputFail;
@@ -1473,7 +1396,7 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 				menuAlterarPassDev(mieic);
 				system("pause");
 				break;
-			case 1:          // 1a opcao
+			case -1:          // 1a opcao
 				menuAlterarMorada(mieic);
 				system("pause");
 				break;
@@ -2529,7 +2452,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				break;
 
 			case -1:          // 2a opcao
-				apps_por_preco = mieic.appsDisponiveis();
+				apps_por_preco = mieic.apps;
 				sort(apps_por_preco.begin(), apps_por_preco.end(),
 						appsComparaPreco);
 				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
@@ -2673,7 +2596,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 	Date data_atual(now);
 	int opcao_app = 0;
 
-//	vector<string> menu_options = getAppNames(apps_ordenadas);
+	//	vector<string> menu_options = getAppNames(apps_ordenadas);
 	vector<string> menu_options;
 	string preco;
 	string classificacao;
@@ -3757,16 +3680,14 @@ void menuCriarApp(AppStore& mieic) {
 	}
 	if (tecla == 13) { // se o user premir (Enter)
 
-		// verifica se na appstore mieic ja ha alguma app com este nome
+		// verifica se na appstore mieic ja ha algum developer com este nome de dev
 		nomeRepetido = mieic.existeNomeApp(nome_app);
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			App app_temp(nome_app, categoria, descricao, preco,
-					mieic.data_atual);
+			App app_temp(nome_app, categoria, descricao, preco);
 			app_temp.setDev(dev_act);
 			mieic.apps.push_back(app_temp);
-			mieic.apps_a_validar.push(&mieic.apps[mieic.apps.size() - 1]); //mete na priority queue a app que foi adicionada
 
 			try {
 				mieic.save_all();
@@ -4327,7 +4248,7 @@ void menuCheckoutApps(AppStore& mieic) {
 	vector<string> menu_options;
 	double preco_total = 0;
 	double saldo_disponivel = cli_act->getSaldo();
-// Cria vector com nomes de apps.
+	// Cria vector com nomes de apps.
 	for (unsigned int k = 0; k < ids_apps_cesto.size(); k++) {
 		for (unsigned int p = 0; p < mieic.apps.size(); p++) {
 			if (ids_apps_cesto[k] == mieic.apps[p].getId()) {
@@ -4815,4 +4736,82 @@ void apagaAppsNaoExistentes(AppStore& mieic, Cliente* cli) {
 			i--;
 		}
 	}
+}
+
+void menuValidarApps(AppStore& mieic) {
+
+	bool passCerta = false;
+	passCerta = verificaPassAdmin();
+
+	if (passCerta) {
+
+		system("cls");
+		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
+		cout << "  Tem a certeza que quer validar as Apps em espera? " << endl << endl
+				<< "  Se o fizer, estas passarão a estar disponíveis na Appstore."
+				<< endl << endl << endl;
+
+		cout
+				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem validar "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) {
+				tecla = getch();
+			}
+		}
+
+		if (tecla == 13) {        // Confirmou validacao
+
+			system("cls");
+			cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
+			cout << "  Sucesso! Apps Validadas  " << endl << endl;
+			cout << "  Prima (Enter) para continuar " << endl << endl;
+
+			try {
+				mieic.save_all();
+			} catch (File_Exp& exp) {
+				cor(BLACK, RED);
+				cerr << "Error" + exp.getIdErro() << endl;
+				cerr << exp.getDescricaoErro() << endl;
+				cor(BLACK, WHITE); //reset à cor
+			}
+
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13) { // Prima (Enter) para continuar
+					tecla = getch();
+				}
+			}
+			menuInicial(mieic);
+		}
+
+		if (tecla == 27)        // regressou sem tentar validar
+			menuInicial(mieic);
+	}
+
+	else if (!passCerta) {
+		system("cls");
+		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
+		cout << "  Password errada.  " << endl << endl;
+		cout
+				<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  "
+				<< endl << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) { // enquanto nao prime enter para continuar
+				tecla = getch();
+			}
+		}
+		if (tecla == 13)
+			menuValidarApps(mieic);
+		if (tecla == 27)
+			menuInicial(mieic);
+
+	}
+
 }
