@@ -168,13 +168,13 @@ bool AppStore::load_app(fstream& file) {
 			dev_id, ano, mes, dia, hora, minuto;
 	double preco, clas_final;
 	bool valida;
-	int valida_int_para_bool;
 	string categoria, descricao, com_descricao, temp, nome;
 	vector<Comentario> com_temp;
 	getline(file, temp);
 	stringstream(temp) >> next_id;
 	App::setNextId(next_id);
 	while (!file.eof()) {
+
 		getline(file, temp);
 		stringstream(temp) >> id;
 		getline(file, temp);
@@ -190,7 +190,7 @@ bool AppStore::load_app(fstream& file) {
 		getline(file, temp);
 		stringstream(temp) >> num_clas;
 		getline(file, temp);
-		stringstream(temp) >> valida_int_para_bool;
+		stringstream(temp) >> valida;
 		getline(file, temp);
 		stringstream(temp) >> ano;
 		getline(file, temp);
@@ -202,6 +202,7 @@ bool AppStore::load_app(fstream& file) {
 		getline(file, temp);
 		stringstream(temp) >> minuto;
 		Date *date_temp = new Date(ano, mes, dia, hora, minuto);
+
 		getline(file, temp);
 		stringstream(temp) >> com_size;
 		for (unsigned int i = 0; i < com_size; i++) {
@@ -218,7 +219,6 @@ bool AppStore::load_app(fstream& file) {
 		getline(file, temp);
 		stringstream(temp) >> dev_id;
 
-		valida = valida_int_para_bool;
 
 		App* app_temp = new App(id, nome, categoria, descricao, preco,
 				clas_final, num_clas, valida, *date_temp);

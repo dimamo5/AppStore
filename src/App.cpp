@@ -13,7 +13,7 @@ App::App(unsigned int id, string nome, string categoria, string descricao,
 		bool validada, Date data) :
 		id(id), nome(nome), categoria(categoria), descricao(descricao), preco(
 				preco), classificacao_final(classificacao_final), num_classificacoes(
-				num_classificacoes), validada(false), data_submissao(data) {
+				num_classificacoes), validada(validada), data_submissao(data) {
 
 }
 
@@ -119,6 +119,11 @@ string App::imprime() const {
 			+ "\n\n" + "  Descricao: " + this->descricao + "\n\n"
 			+ "  Developer: " + dev->getNome() + "\n\n" + "  Preco: "
 			+ str_preco + "\n\n" + "  Classificacao: " + str_class;
+
+	if (validada)
+	{
+		ret += "\n\n Esta app foi validada.";
+	}
 
 	return ret;
 }
