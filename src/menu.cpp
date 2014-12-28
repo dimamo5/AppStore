@@ -193,9 +193,9 @@ int teclas() {
 			if (tecla == 80) //ABAIXO
 				return -1;
 			if (tecla == 75) //ESQUERDA
-				return 3;
+				return 4;
 			if (tecla == 77) //DIREITA
-				return -3;
+				return -4;
 		}
 		return 13;
 	}
@@ -1152,25 +1152,31 @@ void menuDeveloper(AppStore& mieic) {
 			cor(WHITE, BLACK);
 		cout << "  Gerir Apps " << endl;
 		cor(BLACK, WHITE);
+
 		if (opcao == -2)
+			cor(WHITE, BLACK);
+		cout << "  Lista de Apps  " << endl;
+		cor(BLACK, WHITE);
+
+		if (opcao == -3)
 			cor(WHITE, BLACK);
 		cout << "  Lista de Clientes  " << endl;
 		cor(BLACK, WHITE);
-		if (opcao == -3)
+		if (opcao == -4)
 			cor(WHITE, BLACK);
 		cout << "  Definicoes da Conta  " << endl;
 		cor(BLACK, WHITE);
-		if (opcao == -4)
+		if (opcao == -5)
 			cor(WHITE, BLACK);
 		cout << "  Visualisar Atributos de Developer  " << endl;
 		cor(BLACK, WHITE);
-		if (opcao == -5)
+		if (opcao == -6)
 			cor(WHITE, LIGHT_RED);
 		cout << "  LOGOUT  " << endl;
 		cor(BLACK, WHITE);
 
 		opcao += teclas();
-		opcao = RestringeOpcaoTeclas(0, 5, opcao);
+		opcao = RestringeOpcaoTeclas(0, 6, opcao);
 
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
@@ -1182,19 +1188,23 @@ void menuDeveloper(AppStore& mieic) {
 			menuDeveloperGerirApps(mieic);
 			opcao = 0;
 			break;
-		case -2:          // 3a opcao
+		case -2:
+			menuListaApps(mieic);
+			opcao = 0;
+			break;
+		case -3:          // 3a opcao
 			menuListaCliente(mieic);
 			opcao = 0;
 			break;
-		case -3:          // 4a opcao
+		case -4:          // 4a opcao
 			menuDeveloperDefinicoes(mieic);
 			opcao = 0;
 			break;
-		case -4:          // 5a opcao
+		case -5:          // 5a opcao
 			menuVerDev(mieic); // TODO: implementar a listagem atributos do developer
 			opcao = 0;
 			break;
-		case -5:
+		case -6:
 			menuInicial(mieic);
 			opcao = 0;
 			break;
@@ -1335,165 +1345,163 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 
 		if (opcao == 0)
 			cor(WHITE, BLACK);
-		else if (opcao == -3)
-			cor(BLACK, WHITE);
-		cout << "  Adicionar App  ";
-
-		cor(BLACK, WHITE);
-		cout << "                    ";
-
-		if (opcao == 0)
-			cor(BLACK, WHITE);
-		else if (opcao == -3)
-			cor(WHITE, BLACK);
-		cout << " Remover App da Store " << endl;
-		cor(BLACK, WHITE);
-
-		if (opcao == -1)
-			cor(WHITE, BLACK);
 		else if (opcao == -4)
 			cor(BLACK, WHITE);
-		cout << "  Modificar App  ";
+		cout << " Criar App  ";
 
 		cor(BLACK, WHITE);
-		cout << "                    ";
+		cout << "                    |    ";
 
-		if (opcao == -1)
+		if (opcao == 0)
 			cor(BLACK, WHITE);
 		else if (opcao == -4)
 			cor(WHITE, BLACK);
 		cout << " Repor App na Store " << endl;
 		cor(BLACK, WHITE);
 
-		if (opcao == -2)
+		if (opcao == -1)
 			cor(WHITE, BLACK);
 		else if (opcao == -5)
 			cor(BLACK, WHITE);
-		cout << "  Remover App Permanentemente  ";
+		cout << " Modificar App  ";
 
 		cor(BLACK, WHITE);
-		cout << "      ";
+		cout << "                |    ";
 
-		if (opcao == -2)
+		if (opcao == -1)
 			cor(BLACK, WHITE);
 		else if (opcao == -5)
 			cor(WHITE, BLACK);
-		cout << " Alterar Apps removidas da Store " << endl;
+		cout << " Modificar Apps removidas " << endl;
 		cor(BLACK, WHITE);
 
-		cor(BLACK, WHITE);
-		cout << "                                     ";
-		if (opcao == -6)
+		if (opcao == -2)
 			cor(WHITE, BLACK);
-		cout << " Listar Apps removidas da Store " << endl;
+		else if (opcao == -6)
+			cor(BLACK, WHITE);
+		cout << " Remover App da Store  ";
+
+		cor(BLACK, WHITE);
+		cout << "         |    ";
+
+		if (opcao == -2)
+			cor(BLACK, WHITE);
+		else if (opcao == -6)
+			cor(WHITE, BLACK);
+		cout << " Listar Apps removidas " << endl;
 		cor(BLACK, WHITE);
 
-		cout << endl << "                        ";
-		if (opcao == -7 || opcao == -8)
+		if (opcao == -3)
+			cor(WHITE, BLACK);
+		else if (opcao == -7)
+			cor(BLACK, WHITE);
+		cout << " Remover App Permanentemente  ";
+
+		cor(BLACK, WHITE);
+		cout << "  |    ";
+
+		if (opcao == -3)
+			cor(BLACK, WHITE);
+		else if (opcao == -7)
+			cor(WHITE, BLACK);
+		cout << " Remover App permanentemente " << endl;
+		cor(BLACK, WHITE);
+
+		cout << endl << "                            ";
+		if (opcao == -8 || opcao == -9)
 			cor(WHITE, LIGHT_RED);
 		cout << "  SAIR  " << endl;
 		cor(BLACK, WHITE);
 
 		int num_tecla = teclas();
 
-		if (opcao == -7) {  // opcao -7 e o SAIR quando se esta no menu esquerdo
+		if (opcao == -8) {  // opcao -7 e o SAIR quando se esta no menu esquerdo
 			if (num_tecla == 1) // Comportamento quando se esta nesta opcao e se carrega nas setas
-				opcao = -2;
-			if (num_tecla == 3)
-				opcao = -2;
-			if (num_tecla == -3)
-				opcao = -6;
-			if (num_tecla == -1)
-				opcao = -0;
-			if(num_tecla == 13)
-				opcao += 13;
-		}
-
-		else if (opcao == -8) { // opcao -8 e o SAIR quando se esta no menu direito
-			if (num_tecla == 1) // Comportamento quando se esta nesta opcao e se carrega nas setas
-				opcao = -6;
-			if (num_tecla == 3)
-				opcao = -2;
-			if (num_tecla == -3)
-				opcao = -6;
-			if (num_tecla == -1)
 				opcao = -3;
-			if(num_tecla == 13)
-				opcao += 13;
-		}
-
-		else if (opcao == -2 && num_tecla == -1) { // Caso especial: Se estiver na 3a opcao da esq.
-			opcao = -7;        //  e carregar para baixo, vai para opcao sair -7
-		}
-
-		else if ((opcao == 0 || opcao == -3) && num_tecla == 1) {
-			if (opcao == 0)
+			if (num_tecla == 4)
+				opcao = -3;
+			if (num_tecla == -4)
 				opcao = -7;
-			if (opcao == -3)
-				opcao = -8;
-		}
-
-		else if (opcao == -6) { // Caso especial: Se estiver na 4a opcao da direita
 			if (num_tecla == -1)
-				opcao = -8;
-			if (num_tecla == 3)
-				opcao = -2;
-			if (num_tecla == 1)
-				opcao = -5;
-			if(num_tecla == 13)
+				opcao = 0;
+			if (num_tecla == 13)
 				opcao += 13;
 		}
 
-		else if (num_tecla == 3
-				&& (opcao == 0 || (opcao == -1) || opcao == -2)) {
+		else if (opcao == -9) { // opcao -8 e o SAIR quando se esta no menu direito
+			if (num_tecla == 1) // Comportamento quando se esta nesta opcao e se carrega nas setas
+				opcao = -7;
+			if (num_tecla == 4)
+				opcao = -3;
+			if (num_tecla == -4)
+				opcao = -7;
+			if (num_tecla == -1)
+				opcao = -4;
+			if (num_tecla == 13)
+				opcao += 13;
+		}
+
+		else if (opcao == -3 && num_tecla == -1) { // Caso especial: Se estiver na 4a opcao da esq.
+			opcao = -8;                            //  e carregar para baixo, vai para opcao sair -8
+		}
+
+		else if (opcao == -7 && num_tecla == -1) { // Caso especial: Se estiver na 4a opcao da dir.
+			opcao = -9;                            //  e carregar para baixo, vai para opcao sair -9
+		}
+
+		else if ((opcao == 0 || opcao == -4) && num_tecla == 1) {
+			if (opcao == 0)                // nas 1as opcoes de cada lado, se carrega para cima
+				opcao = -8;                // vai para a opcao de Sair correspondente
+			if (opcao == -4)
+				opcao = -9;
+		}
+
+
+		else if ((num_tecla == 4)
+				&& (opcao == 0 || (opcao == -1) || opcao == -2 || opcao == -3)) {
 			//quando esta no menu da esquerda e carrega para a esquerda, nao acontece nada
 		}
 
-		else if (num_tecla == -3
-				&& (opcao == -3 || (opcao == -4) || opcao == -5 || opcao == -6)) {
+		else if (num_tecla == -4
+				&& (opcao == -4 || (opcao == -5) || opcao == -6 || opcao == -7)) {
 			//quando esta no menu da direita e carrega para a direita, nao acontece nada
 		} else {
 			opcao += num_tecla; // RESTANTES CASOS NAO ESPECIFICADOS NOS IFS ACIMA
 		}
 
-		opcao = RestringeOpcaoTeclas(0, 8, opcao);
-
+		opcao = RestringeOpcaoTeclas(0, 9, opcao);
 
 		switch (opcao - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 		{
 		case 0:
 			menuCriarApp(mieic);
-			system("pause");
 			break;
 		case -1:
 			menuModificarApp(mieic);
-			system("pause");
 			break;
 		case -2:
-			menuRemoverApp(mieic);
-			system("pause");
+			menuRemoverAppStore(mieic);
 			break;
 		case -3:
-			menuRemoverAppStore(mieic);
-			system("pause");
+			menuRemoverApp(mieic);
 			break;
 		case -4:
 			menuReporAppStore(mieic);
-			system("pause");
 			break;
 		case -5:
 			menuAlterarAppsRemovidas(mieic);
-			system("pause");
 			break;
 		case -6:
 			menuListarAppsRemovidas(mieic);
-			system("pause");
 			break;
 		case -7:
-			menuDeveloper(mieic);
+			menuRemoverAppStorePerma(mieic);
 			break;
 		case -8:
-			return;   // para testar se o return funciona bem em comparacao com menuDeveloper(mieic)
+			menuDeveloper(mieic);
+			break;
+		case -9:
+			return; // para testar se o return funciona bem em comparacao com menuDeveloper(mieic)
 			break;
 		}
 	}
@@ -3831,7 +3839,7 @@ void menuCriarApp(AppStore& mieic) {
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
 			App app_temp(nome_app, categoria, descricao, preco,
-								mieic.data_atual);
+					mieic.data_atual);
 			app_temp.setDev(dev_act);
 			mieic.apps.push_back(app_temp);
 			mieic.apps_a_validar.push(&mieic.apps[mieic.apps.size() - 1]); //mete na priority queue a app que foi adicionada
@@ -4966,156 +4974,164 @@ void menuValidarApps(AppStore& mieic) {
 
 }
 
-void menuRemoverAppStore(AppStore& mieic){
+void menuRemoverAppStore(AppStore& mieic) {
 	system("cls");
-		time_t t = time(0);
-		struct tm *now = localtime(&t);
-		Date data_atual(now);
-		int opcao = 0;
-		bool passCerta = false; // default para false
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(now);
+	int opcao = 0;
+	bool passCerta = false; // default para false
 
 	// vai buscar apps do dev e ordena-as por nome
-		vector<App> apps_ordenadas = mieic.getApps(dev_act);
-		sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
+	vector<App> apps_ordenadas = mieic.getApps(dev_act);
+	sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
 
 	//Vai criar a lista de opcoes com o nome das Apps do developer atual
-		vector<string> menu_options = getAppNames(apps_ordenadas);
+	vector<string> menu_options = getAppNames(apps_ordenadas);
 
-		if (apps_ordenadas.empty()) {
-			system("cls");
-			cout << "  Remover Apps Permanentemente" << endl << endl;
-			cout << "  Prima (Esc) para regressar  " << endl << endl;
+	if (apps_ordenadas.empty()) {
+		system("cls");
+		cout << "  Remover Apps Permanentemente" << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
 
-			cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
+		cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
 
-			int tecla;
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
-					tecla = getch();
-				}
-
-			}
-			menuDeveloperGerirApps(mieic);
-		} else {
-
-			cout << "  Remover Apps Permanentemente" << endl << endl;
-			cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
-					<< endl << endl;
-			printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
-
-			int tecla;
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
-				{
-					tecla = getch();
-					if (tecla == 72) //ACIMA
-							{
-						opcao--;
-						if (opcao < 0)
-							opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
-						system("cls");
-						cout << "  Remover Apps Permanentemente" << endl << endl;
-						cout
-								<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
-								<< endl << endl;
-						printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
-					}
-					if (tecla == 80) //ABAIXO
-							{
-						opcao++;
-						if (opcao > (menu_options.size() - 1))
-							opcao = 0; // se passar o fim, volta ao inicio
-						system("cls");
-						cout << "  Remover Apps " << endl << endl;
-						cout
-								<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
-								<< endl << endl;
-						printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
-					}
-				}
-			}
-			if (tecla == 13) {
-
-				passCerta = verificaPass(dev_act);
-
-				if (passCerta) {
-					system("cls");
-					cout << "  Remover Apps Permanentemente" << endl << endl << endl
-							<< endl;
-					cout << "  Sucesso! App removida.  " << endl << endl;
-					cout << "  Prima (Enter) para continuar " << endl << endl;
-
-					//pesquisa nas vendas se alguma estava associada a esta App
-					//se alguma estivesse, poe app_apagada como true
-					for (unsigned int k = 0; k < mieic.vendas.size(); k++) {
-						if (mieic.vendas[k]->getAppVendidaId()
-								== mieic.apps[opcao].getId()) { // encontrou uma venda a qual esta app pertencia
-							mieic.vendas[k]->setAppApagada(true);
-							break;
-						}
-					}
-
-					unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
-
-					// Pesquisa no vetor das apps da appstore qual vai remover.
-					for (unsigned int j = 0; j < mieic.apps.size(); j++) {
-						if (id_app_a_remover == mieic.apps[j].getId()) {
-							mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
-							break;
-						}
-					}
-
-					tecla = getch();
-					if (tecla != 0) {
-						while (tecla != 13) { // enquanto nao prime enter para continuar
-							tecla = getch();
-						}
-					}
-
-					try {
-						mieic.save_all();
-					} catch (File_Exp& exp) {
-						cor(BLACK, RED);
-						cerr << "Error" + exp.getIdErro() << endl;
-						cerr << exp.getDescricaoErro() << endl;
-						cor(BLACK, WHITE); //reset à cor
-					}
-
-					menuRemoverApp(mieic);
-
-				} else if (!passCerta) {
-					system("cls");
-					cout << "  Remover Apps Permanentemente" << endl << endl;
-					cout << "  Password errada.  " << endl;
-
-					tecla = getch();
-					if (tecla != 0) {
-						while (tecla != 13) { // enquanto nao prime enter para continuar
-							tecla = getch();
-						}
-					}
-					menuRemoverApp(mieic);
-
-				}
-			}
-			if (tecla == 27) {
-				menuDeveloperGerirApps(mieic);
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
 			}
 
 		}
+		menuDeveloperGerirApps(mieic);
+	} else {
+
+		cout << "  Remover Apps Permanentemente" << endl << endl;
+		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+				<< endl << endl;
+		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+						{
+					opcao--;
+					if (opcao < 0)
+						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					system("cls");
+					cout << "  Remover Apps Permanentemente" << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+				if (tecla == 80) //ABAIXO
+						{
+					opcao++;
+					if (opcao > (menu_options.size() - 1))
+						opcao = 0; // se passar o fim, volta ao inicio
+					system("cls");
+					cout << "  Remover Apps " << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+			}
+		}
+		if (tecla == 13) {
+
+			passCerta = verificaPass(dev_act);
+
+			if (passCerta) {
+				system("cls");
+				cout << "  Remover Apps Permanentemente" << endl << endl << endl
+						<< endl;
+				cout << "  Sucesso! App removida.  " << endl << endl;
+				cout << "  Prima (Enter) para continuar " << endl << endl;
+
+				//pesquisa nas vendas se alguma estava associada a esta App
+				//se alguma estivesse, poe app_apagada como true
+				for (unsigned int k = 0; k < mieic.vendas.size(); k++) {
+					if (mieic.vendas[k]->getAppVendidaId()
+							== mieic.apps[opcao].getId()) { // encontrou uma venda a qual esta app pertencia
+						mieic.vendas[k]->setAppApagada(true);
+						break;
+					}
+				}
+
+				unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
+
+				// Pesquisa no vetor das apps da appstore qual vai remover.
+				for (unsigned int j = 0; j < mieic.apps.size(); j++) {
+					if (id_app_a_remover == mieic.apps[j].getId()) {
+						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
+						break;
+					}
+				}
+
+				tecla = getch();
+				if (tecla != 0) {
+					while (tecla != 13) { // enquanto nao prime enter para continuar
+						tecla = getch();
+					}
+				}
+
+				try {
+					mieic.save_all();
+				} catch (File_Exp& exp) {
+					cor(BLACK, RED);
+					cerr << "Error" + exp.getIdErro() << endl;
+					cerr << exp.getDescricaoErro() << endl;
+					cor(BLACK, WHITE); //reset à cor
+				}
+
+				menuRemoverApp(mieic);
+
+			} else if (!passCerta) {
+				system("cls");
+				cout << "  Remover Apps Permanentemente" << endl << endl;
+				cout << "  Password errada.  " << endl;
+
+				tecla = getch();
+				if (tecla != 0) {
+					while (tecla != 13) { // enquanto nao prime enter para continuar
+						tecla = getch();
+					}
+				}
+				menuRemoverApp(mieic);
+
+			}
+		}
+		if (tecla == 27) {
+			menuDeveloperGerirApps(mieic);
+		}
+
+	}
 
 }
 
-void menuReporAppStore(AppStore& mieic){
+void menuReporAppStore(AppStore& mieic) {
 
 }
 
-void menuAlterarAppsRemovidas(AppStore& mieic){
+void menuAlterarAppsRemovidas(AppStore& mieic) {
 
 }
 
-void menuListarAppsRemovidas(AppStore& mieic){
+void menuListarAppsRemovidas(AppStore& mieic) {
+
+}
+
+void menuListaApps(AppStore& mieic) {
+
+}
+
+void menuRemoverAppStorePerma(AppStore& mieic){
 
 }

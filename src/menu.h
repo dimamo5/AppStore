@@ -355,4 +355,8 @@ void menuListaCliente(AppStore& mieic);
  */
 void menuValidarApps(AppStore& mieic);
 
+void menuListaApps(AppStore& mieic);
+
+void menuRemoverAppStorePerma(AppStore& mieic);
+
 #endif /* MENU_H_ */
