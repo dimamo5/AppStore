@@ -419,17 +419,39 @@ vector<App> AppStore::getApps(Developer * dev_act) {
 }
 
 vector<App> AppStore::getAppsForaStore(Developer * dev_act){
+
+//	//TESTE
+//	Date date_temp(2014, 11, 7, 10, 10);
+//		Developer* empresa1 = new Empresa("Pedro Teste", "1",
+//					"Rua do Francial, lote 5, Rio de Loba", "123123123",
+//					"CPedro  AT Inc.");
+//
+//		App* app_temp = new App(10, "App rem. da store no.1", "jogo", "jogo futebol", 10,
+//						4, 10, 1, date_temp);
+//		app_temp->setDev(empresa1);
+//
+//
+//
+//	// TESTE
+
+
 	vector<App> apps_fora_store;
 
 	tr1::unordered_set<App, HashApp, EqualApp>::iterator  it = apps_apagadas.begin();
 
 	for (; it!=apps_apagadas.end(); it++){
-		if(it->getDev()->getId() == dev_act->getId()){  // se o Id do dev da app e o mesmo que o que queremos
+		int current_dev_id = it->getDev()->getId();
+		int wanted_dev_id = dev_act->getId();
+		if(current_dev_id == wanted_dev_id){  // se o Id do dev da app e o mesmo que o que queremos
 			apps_fora_store.push_back(*it);
 		}
 	}
 
 	return apps_fora_store;
+}
+
+tr1::unordered_set<App, HashApp, EqualApp> AppStore::getHashTable(){
+	return apps_apagadas;
 }
 
 unsigned int AppStore::getNrApps(Developer* dev_act) {

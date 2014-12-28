@@ -149,6 +149,7 @@ public:
 	 * @return Vector Apps
 	 */
 	vector<App> getAppsForaStore(Developer * dev_act);
+	tr1::unordered_set<App, HashApp, EqualApp> getHashTable();
 	/**
 	 * Numero de Apps de um Developer
 	 * @param dev_act Pointer Developer

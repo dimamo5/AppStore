@@ -212,6 +212,27 @@ int RestringeOpcaoTeclas(int min, int max, int opcao) {
 }
 
 void menuInicial(AppStore& mieic) {
+	//----------------------------------------------------------------------//
+	/*-------------------INICIALIZACAO VARIAVEIS TESTES---------------------*/
+	//----------------------------------------------------------------------//
+
+	// CRIAR APP QUE VAI SER INSERIDA NAS APPS APAGADAS DO 1o DEVELOPER
+
+	Date date_temp(2014, 11, 7, 10, 10);
+	Developer * dev_temp1 = new Empresa(1, "teste", 100, "1", "morada teste",
+						"123123123", "extra");
+
+	App* app_temp = new App(10, "App rem. da store no.1", "jogo", "jogo futebol", 10,
+					4, 10, 1, date_temp);
+	app_temp->setDev(mieic.dev[0]);
+
+	mieic.apps_apagadas.insert(*app_temp);
+
+	//----------------------------------------------------------------------//
+	//----------------------------------------------------------------------//
+	//----------------------------------------------------------------------//
+
+
 	system("cls");
 
 	dev_act = NULL; // da reset aos indicadores de login atual, ou seja, faz logout
@@ -4991,6 +5012,7 @@ void menuRemoverAppStore(AppStore& mieic) {
 	//Vai criar a lista de opcoes com o nome das Apps fora da store do developer atual
 	vector<string> menu_options = getAppNames(apps_ordenadas);
 
+
 	if (apps_ordenadas.empty()) {
 		system("cls");
 		cout << "  Retirar Apps da Store " << endl << endl;
@@ -5012,6 +5034,7 @@ void menuRemoverAppStore(AppStore& mieic) {
 		cout << "  Retirar Apps da Store " << endl << endl;
 		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 				<< endl << endl;
+
 		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 
 		int tecla;

@@ -68,6 +68,7 @@ int main() {
 	MIEIC_Play.apps[3].setDev(individ1);
 	MIEIC_Play.apps[4].setDev(empresa1);
 */
+
 	menuInicial(MIEIC_Play);
 
 	return 0;
