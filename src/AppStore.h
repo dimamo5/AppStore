@@ -107,10 +107,6 @@ public:
 	priority_queue<App*, vector<App *>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
 	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas; /**< Hashtable das apps apagadas */
 
-
-
-
-
 	/**
 	 * Obter Data da Maquina em que o processo esta a ser executado
 	 * @return Data Actual
@@ -142,11 +138,17 @@ public:
 	 */
 	Vendas* find_vendas_id(unsigned int id);
 	/**
-	 * Todas as Apps pertencentes a um Developer
+	 * Todas as Apps pertencentes a um Developer, que estejam dentro da store
 	 * @param dev_act Pointer Developer
 	 * @return Vector Apps
 	 */
 	vector<App> getApps(Developer* dev_act);
+	/**
+	 * Todas as Apps pertencentes a um Developer, que
+	 * @param dev_act Pointer Developer
+	 * @return Vector Apps
+	 */
+	vector<App> getAppsForaStore(Developer * dev_act);
 	/**
 	 * Numero de Apps de um Developer
 	 * @param dev_act Pointer Developer
@@ -248,11 +250,11 @@ public:
 	bool load_dev(fstream &file);
 
 	bool removeAppValidar(unsigned int id);
-		/**
-		 * Obtem vector de apps ja validadas
-		 * @return apps prontas para serem vendidas
-		 */
-		vector<App> appsDisponiveis() const;
+	/**
+	 * Obtem vector de apps ja validadas
+	 * @return apps prontas para serem vendidas
+	 */
+	vector<App> appsDisponiveis() const;
 };
 
 /**

@@ -418,6 +418,20 @@ vector<App> AppStore::getApps(Developer * dev_act) {
 	return apps_do_developer;
 }
 
+vector<App> AppStore::getAppsForaStore(Developer * dev_act){
+	vector<App> apps_fora_store;
+
+	tr1::unordered_set<App, HashApp, EqualApp>::iterator  it = apps_apagadas.begin();
+
+	for (; it!=apps_apagadas.end(); it++){
+		if(it->getDev()->getId() == dev_act->getId()){  // se o Id do dev da app e o mesmo que o que queremos
+			apps_fora_store.push_back(*it);
+		}
+	}
+
+	return apps_fora_store;
+}
+
 unsigned int AppStore::getNrApps(Developer* dev_act) {
 	unsigned int counter = 0;
 

@@ -1379,7 +1379,7 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 			cor(WHITE, BLACK);
 		else if (opcao == -6)
 			cor(BLACK, WHITE);
-		cout << " Remover App da Store  ";
+		cout << " Retirar App da Store  ";
 
 		cor(BLACK, WHITE);
 		cout << "         |    ";
@@ -4974,6 +4974,7 @@ void menuValidarApps(AppStore& mieic) {
 
 }
 
+
 void menuRemoverAppStore(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -4982,16 +4983,17 @@ void menuRemoverAppStore(AppStore& mieic) {
 	int opcao = 0;
 	bool passCerta = false; // default para false
 
-	// vai buscar apps do dev e ordena-as por nome
-	vector<App> apps_ordenadas = mieic.getApps(dev_act);
+	// vai buscar apps fora da store dev e ordena-as por nome
+	vector<App> apps_ordenadas = mieic.getAppsForaStore(dev_act);
+	// Ordena apps fora da store por nome
 	sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
 
-	//Vai criar a lista de opcoes com o nome das Apps do developer atual
+	//Vai criar a lista de opcoes com o nome das Apps fora da store do developer atual
 	vector<string> menu_options = getAppNames(apps_ordenadas);
 
 	if (apps_ordenadas.empty()) {
 		system("cls");
-		cout << "  Remover Apps Permanentemente" << endl << endl;
+		cout << "  Retirar Apps da Store " << endl << endl;
 		cout << "  Prima (Esc) para regressar  " << endl << endl;
 
 		cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
@@ -5007,7 +5009,7 @@ void menuRemoverAppStore(AppStore& mieic) {
 		menuDeveloperGerirApps(mieic);
 	} else {
 
-		cout << "  Remover Apps Permanentemente" << endl << endl;
+		cout << "  Retirar Apps da Store " << endl << endl;
 		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 				<< endl << endl;
 		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
@@ -5128,10 +5130,12 @@ void menuListarAppsRemovidas(AppStore& mieic) {
 
 }
 
+void menuRemoverAppStorePerma(AppStore& mieic){
+
+}
+
 void menuListaApps(AppStore& mieic) {
 
 }
 
-void menuRemoverAppStorePerma(AppStore& mieic){
 
-}
