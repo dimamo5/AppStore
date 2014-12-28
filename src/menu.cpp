@@ -3830,7 +3830,8 @@ void menuCriarApp(AppStore& mieic) {
 
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
-			App app_temp(nome_app, categoria, descricao, preco);
+			App app_temp(nome_app, categoria, descricao, preco,
+								mieic.data_atual);
 			app_temp.setDev(dev_act);
 			mieic.apps.push_back(app_temp);
 			mieic.apps_a_validar.push(&mieic.apps[mieic.apps.size() - 1]); //mete na priority queue a app que foi adicionada
@@ -4966,6 +4967,144 @@ void menuValidarApps(AppStore& mieic) {
 }
 
 void menuRemoverAppStore(AppStore& mieic){
+	system("cls");
+		time_t t = time(0);
+		struct tm *now = localtime(&t);
+		Date data_atual(now);
+		int opcao = 0;
+		bool passCerta = false; // default para false
+
+	// vai buscar apps do dev e ordena-as por nome
+		vector<App> apps_ordenadas = mieic.getApps(dev_act);
+		sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
+
+	//Vai criar a lista de opcoes com o nome das Apps do developer atual
+		vector<string> menu_options = getAppNames(apps_ordenadas);
+
+		if (apps_ordenadas.empty()) {
+			system("cls");
+			cout << "  Remover Apps Permanentemente" << endl << endl;
+			cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+			cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
+
+			int tecla;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+					tecla = getch();
+				}
+
+			}
+			menuDeveloperGerirApps(mieic);
+		} else {
+
+			cout << "  Remover Apps Permanentemente" << endl << endl;
+			cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+					<< endl << endl;
+			printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+
+			int tecla;
+			tecla = getch();
+			if (tecla != 0) {
+				while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+				{
+					tecla = getch();
+					if (tecla == 72) //ACIMA
+							{
+						opcao--;
+						if (opcao < 0)
+							opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+						system("cls");
+						cout << "  Remover Apps Permanentemente" << endl << endl;
+						cout
+								<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+								<< endl << endl;
+						printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					}
+					if (tecla == 80) //ABAIXO
+							{
+						opcao++;
+						if (opcao > (menu_options.size() - 1))
+							opcao = 0; // se passar o fim, volta ao inicio
+						system("cls");
+						cout << "  Remover Apps " << endl << endl;
+						cout
+								<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+								<< endl << endl;
+						printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+					}
+				}
+			}
+			if (tecla == 13) {
+
+				passCerta = verificaPass(dev_act);
+
+				if (passCerta) {
+					system("cls");
+					cout << "  Remover Apps Permanentemente" << endl << endl << endl
+							<< endl;
+					cout << "  Sucesso! App removida.  " << endl << endl;
+					cout << "  Prima (Enter) para continuar " << endl << endl;
+
+					//pesquisa nas vendas se alguma estava associada a esta App
+					//se alguma estivesse, poe app_apagada como true
+					for (unsigned int k = 0; k < mieic.vendas.size(); k++) {
+						if (mieic.vendas[k]->getAppVendidaId()
+								== mieic.apps[opcao].getId()) { // encontrou uma venda a qual esta app pertencia
+							mieic.vendas[k]->setAppApagada(true);
+							break;
+						}
+					}
+
+					unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
+
+					// Pesquisa no vetor das apps da appstore qual vai remover.
+					for (unsigned int j = 0; j < mieic.apps.size(); j++) {
+						if (id_app_a_remover == mieic.apps[j].getId()) {
+							mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
+							break;
+						}
+					}
+
+					tecla = getch();
+					if (tecla != 0) {
+						while (tecla != 13) { // enquanto nao prime enter para continuar
+							tecla = getch();
+						}
+					}
+
+					try {
+						mieic.save_all();
+					} catch (File_Exp& exp) {
+						cor(BLACK, RED);
+						cerr << "Error" + exp.getIdErro() << endl;
+						cerr << exp.getDescricaoErro() << endl;
+						cor(BLACK, WHITE); //reset à cor
+					}
+
+					menuRemoverApp(mieic);
+
+				} else if (!passCerta) {
+					system("cls");
+					cout << "  Remover Apps Permanentemente" << endl << endl;
+					cout << "  Password errada.  " << endl;
+
+					tecla = getch();
+					if (tecla != 0) {
+						while (tecla != 13) { // enquanto nao prime enter para continuar
+							tecla = getch();
+						}
+					}
+					menuRemoverApp(mieic);
+
+				}
+			}
+			if (tecla == 27) {
+				menuDeveloperGerirApps(mieic);
+			}
+
+		}
 
 }
 

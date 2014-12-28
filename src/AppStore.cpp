@@ -107,7 +107,7 @@ bool AppStore::save_dev(ofstream &file) {
 			file << dev[i]->getMorada() << endl;
 			if (dev[i]->isEmpresa()) {
 				if (i + 1 == dev.size()) {
-					file << "emp"<<endl;
+					file << "emp" << endl;
 					file << dev[i]->getNIF();
 				} else {
 					file << "emp" << endl;
@@ -138,6 +138,12 @@ bool AppStore::save_app(ofstream& file) {
 			file << apps[i].getPreco() << endl;
 			file << apps[i].getClassificacaoFinal() << endl;
 			file << apps[i].getNumClassificacoes() << endl;
+			file << apps[i].isValidada() << endl;
+			file << apps[i].getDataSubmissao().getYear() << endl; //TODO melhor escrita data
+			file << apps[i].getDataSubmissao().getMonth() << endl;
+			file << apps[i].getDataSubmissao().getDay() << endl;
+			file << apps[i].getDataSubmissao().getHour() << endl;
+			file << apps[i].getDataSubmissao().getMinute() << endl;
 			file << apps[i].getComentarios().size() << endl;
 			if (apps[i].getComentarios().size() != 0) {
 				for (unsigned int m = 0; m < apps[i].getComentarios().size();
@@ -158,9 +164,11 @@ bool AppStore::save_app(ofstream& file) {
 }
 
 bool AppStore::load_app(fstream& file) {
-	unsigned int next_id, id, num_clas, com_size, com_id_cliente,
-			com_clas, dev_id;
-	double preco,clas_final;
+	unsigned int next_id, id, num_clas, com_size, com_id_cliente, com_clas,
+			dev_id, ano, mes, dia, hora, minuto;
+	double preco, clas_final;
+	bool valida;
+	int valida_int_para_bool;
 	string categoria, descricao, com_descricao, temp, nome;
 	vector<Comentario> com_temp;
 	getline(file, temp);
@@ -182,6 +190,19 @@ bool AppStore::load_app(fstream& file) {
 		getline(file, temp);
 		stringstream(temp) >> num_clas;
 		getline(file, temp);
+		stringstream(temp) >> valida_int_para_bool;
+		getline(file, temp);
+		stringstream(temp) >> ano;
+		getline(file, temp);
+		stringstream(temp) >> mes;
+		getline(file, temp);
+		stringstream(temp) >> dia;
+		getline(file, temp);
+		stringstream(temp) >> hora;
+		getline(file, temp);
+		stringstream(temp) >> minuto;
+		Date *date_temp = new Date(ano, mes, dia, hora, minuto);
+		getline(file, temp);
 		stringstream(temp) >> com_size;
 		for (unsigned int i = 0; i < com_size; i++) {
 			getline(file, temp);
@@ -196,8 +217,11 @@ bool AppStore::load_app(fstream& file) {
 		}
 		getline(file, temp);
 		stringstream(temp) >> dev_id;
+
+		valida = valida_int_para_bool;
+
 		App* app_temp = new App(id, nome, categoria, descricao, preco,
-				clas_final, num_clas);
+				clas_final, num_clas, valida, *date_temp);
 		app_temp->setDev(find_dev_id(dev_id));
 		if (com_size) {
 			app_temp->setComentarios(com_temp);
@@ -234,8 +258,8 @@ bool AppStore::save_all() {
 
 	file_developer.open("../files/developer.txt");
 	if (file_apps.fail()) {
-			throw File_Exp(2, "Ficheiro Developer nao foi correctamente gravado!");
-		}
+		throw File_Exp(2, "Ficheiro Developer nao foi correctamente gravado!");
+	}
 	save_dev(file_developer);
 
 	file_apps.open("../files/app.txt");
@@ -535,7 +559,6 @@ void File_Exp::setIdErro(unsigned int idErro) {
 	id_erro = idErro;
 }
 
-
 bool AppStore::removeAppValidar(unsigned int id) {
 	priority_queue<App *, vector<App *>, ComparaAppValidar> temp;
 	if (apps_a_validar.empty()) {
@@ -554,9 +577,9 @@ bool AppStore::removeAppValidar(unsigned int id) {
 }
 
 vector<App> AppStore::appsDisponiveis() const {
-	vector <App> temp;
-	for(unsigned int i =0;i<apps.size();i++){
-		if(apps[i].isValidada()){
+	vector<App> temp;
+	for (unsigned int i = 0; i < apps.size(); i++) {
+		if (apps[i].isValidada()) {
 			temp.push_back(apps[i]);
 		}
 	}

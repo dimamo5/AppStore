@@ -42,6 +42,7 @@ private:
 	vector<Comentario> comentarios; /**< Vector com todos os Comentarios */
 	Developer* dev; /**< Pointer para o developer que criou esta app */
 
+	bool apagada;
 	bool validada;/**< App Validada */
 	Date data_submissao;
 
@@ -53,7 +54,8 @@ public:
 	 * @param descricao Descricao
 	 * @param preco Preco
 	 */
-	App(string nome, string categoria, string descricao, double preco);
+	App(string nome, string categoria, string descricao, double preco,
+				Date data);
 	/**
 	 * Construtor usado na para carregar informacao dos ficheiros
 	 * @param id Id
@@ -65,7 +67,8 @@ public:
 	 * @param num_classificacoes Nr. Classificacoes
 	 */
 	App(unsigned int id, string nome, string categoria, string descricao,
-			double preco, double classificacao_final, int num_classificacoes);
+				double preco, double classificacao_final, int num_classificacoes,
+				bool validada,Date data);
 	/**
 	 * Recalcula a classificao da App quando lhe e adicionada uma classificacao
 	 * @param clas Classificacao atribuida por um cliente
