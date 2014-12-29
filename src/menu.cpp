@@ -216,6 +216,7 @@ void menuInicial(AppStore& mieic) {
 	/*-------------------INICIALIZACAO VARIAVEIS TESTES---------------------*/
 	//----------------------------------------------------------------------//
 	// CRIAR APP QUE VAI SER INSERIDA NAS APPS APAGADAS DO 1o DEVELOPER
+
 	Date date_temp(2014, 11, 7, 10, 10);
 	Developer * dev_temp1 = new Empresa(1, "teste", 100, "1", "morada teste",
 			"123123123", "extra");
@@ -5240,13 +5241,13 @@ void menuReporAppStore(AppStore& mieic) {
 				tr1::unordered_set<App, HashApp, EqualApp>::iterator it = mieic.apps_apagadas.begin();
 				tr1::unordered_set<App, HashApp, EqualApp>::iterator ite = mieic.apps_apagadas.end();
 
-				unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
+				unsigned int id_app_a_repor = apps_ordenadas[opcao].getId();
 
 				//pesquisa nas vendas se alguma estava associada a esta App
 				//se alguma estivesse, poe app_apagada como false
 				for (unsigned int k = 0; k < mieic.vendas.size(); k++) {
 					if (mieic.vendas[k]->getAppVendidaId()
-							== id_app_a_remover) { // encontrou uma venda a qual esta app pertencia
+							== id_app_a_repor) { // encontrou uma venda a qual esta app pertencia
 						mieic.vendas[k]->setAppApagada(false);
 						break;
 					}
@@ -5256,7 +5257,7 @@ void menuReporAppStore(AppStore& mieic) {
 				// Pesquisa na hastable das apps apagadas qual vai remover.
 				// Em seguida puxa-a para o vetor da store e remove-a da hashtable
 				for (; it != ite; it++) {
-					if (id_app_a_remover == it->getId()) {
+					if (id_app_a_repor == it->getId()) { // se o id do elemento atual da hashtable for o procurado
 						mieic.apps.push_back(*it);
 						mieic.apps_apagadas.erase(it); // Usa o indice encontrado para a remover
 						break;
@@ -5283,7 +5284,7 @@ void menuReporAppStore(AppStore& mieic) {
 
 			}  else if (!passCerta) {
 				system("cls");
-				cout << "  Remover Apps Permanentemente" << endl << endl;
+				cout << "  Repor Apps na Store " << endl << endl;
 				cout << "  Password errada.  " << endl << endl << endl;
 
 				cout << "  Prima (Enter) para tentar novamente ou (Esc) para regressar  ";
