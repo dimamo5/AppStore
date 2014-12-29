@@ -1498,7 +1498,7 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 			menuModificarApp(mieic);
 			break;
 		case -2:
-			menuRemoverAppStore(mieic);
+			menuRemoverAppDaStore(mieic);
 			break;
 		case -3:
 			menuRemoverApp(mieic);
@@ -1513,7 +1513,7 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 			menuListarAppsRemovidas(mieic);
 			break;
 		case -7:
-			menuRemoverAppStorePerma(mieic);
+			menuRemoverAppForaStorePerma(mieic);
 			break;
 		case -8:
 			menuDeveloper(mieic);
@@ -3985,17 +3985,18 @@ void menuRemoverApp(AppStore& mieic) {
 				cout << "  Sucesso! App removida.  " << endl << endl;
 				cout << "  Prima (Enter) para continuar " << endl << endl;
 
+				unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
+
 				//pesquisa nas vendas se alguma estava associada a esta App
 				//se alguma estivesse, poe app_apagada como true
 				for (unsigned int k = 0; k < mieic.vendas.size(); k++) {
 					if (mieic.vendas[k]->getAppVendidaId()
-							== mieic.apps[opcao].getId()) { // encontrou uma venda a qual esta app pertencia
+							== id_app_a_remover) { // encontrou uma venda a qual esta app pertencia
 						mieic.vendas[k]->setAppApagada(true);
 						break;
 					}
 				}
 
-				unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
 
 				// Pesquisa no vetor das apps da appstore qual vai remover.
 				for (unsigned int j = 0; j < mieic.apps.size(); j++) {
@@ -5003,7 +5004,7 @@ void menuValidarApps(AppStore& mieic) {
 
 }
 
-void menuRemoverAppStore(AppStore& mieic) {
+void menuRemoverAppDaStore(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -5011,12 +5012,11 @@ void menuRemoverAppStore(AppStore& mieic) {
 	int opcao = 0;
 	bool passCerta = false; // default para false
 
-	// vai buscar apps fora da store dev e ordena-as por nome
-	vector<App> apps_ordenadas = mieic.getAppsForaStore(dev_act);
-	// Ordena apps fora da store por nome
+// vai buscar apps do dev e ordena-as por nome
+	vector<App> apps_ordenadas = mieic.getApps(dev_act);
 	sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
 
-	//Vai criar a lista de opcoes com o nome das Apps fora da store do developer atual
+//Vai criar a lista de opcoes com o nome das Apps do developer atual
 	vector<string> menu_options = getAppNames(apps_ordenadas);
 
 	if (apps_ordenadas.empty()) {
@@ -5040,7 +5040,6 @@ void menuRemoverAppStore(AppStore& mieic) {
 		cout << "  Retirar Apps da Store " << endl << endl;
 		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 				<< endl << endl;
-
 		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
 
 		int tecla;
@@ -5055,7 +5054,7 @@ void menuRemoverAppStore(AppStore& mieic) {
 					if (opcao < 0)
 						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
 					system("cls");
-					cout << "  Remover Apps Permanentemente" << endl << endl;
+					cout << "  Retirar Apps da Store " << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
@@ -5067,7 +5066,7 @@ void menuRemoverAppStore(AppStore& mieic) {
 					if (opcao > (menu_options.size() - 1))
 						opcao = 0; // se passar o fim, volta ao inicio
 					system("cls");
-					cout << "  Remover Apps " << endl << endl;
+					cout << "  Retirar Apps da Store " << endl << endl;
 					cout
 							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 							<< endl << endl;
@@ -5081,11 +5080,9 @@ void menuRemoverAppStore(AppStore& mieic) {
 
 			if (passCerta) {
 				system("cls");
-				cout << "  Remover Apps Permanentemente" << endl << endl << endl
-						<< endl;
+				cout << "  Retirar Apps da Store " << endl << endl;
 				cout << "  Sucesso! App removida.  " << endl << endl;
 				cout << "  Prima (Enter) para continuar " << endl << endl;
-
 
 				unsigned int id_app_a_remover = apps_ordenadas[opcao].getId();
 
@@ -5099,9 +5096,11 @@ void menuRemoverAppStore(AppStore& mieic) {
 					}
 				}
 
+
 				// Pesquisa no vetor das apps da appstore qual vai remover.
 				for (unsigned int j = 0; j < mieic.apps.size(); j++) {
 					if (id_app_a_remover == mieic.apps[j].getId()) {
+						mieic.apps_apagadas.insert(mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
 						break;
 					}
@@ -5123,11 +5122,11 @@ void menuRemoverAppStore(AppStore& mieic) {
 					cor(BLACK, WHITE); //reset à cor
 				}
 
-				menuRemoverApp(mieic);
+				menuRemoverAppDaStore(mieic);
 
-			}  else if (!passCerta) {
+			} else if (!passCerta) {
 				system("cls");
-				cout << "  Remover Apps Permanentemente" << endl << endl;
+				cout << "  Retirar Apps da Store " << endl << endl;
 				cout << "  Password errada.  " << endl << endl << endl;
 
 				cout << "  Prima (Enter) para tentar novamente ou (Esc) para regressar  ";
@@ -5140,7 +5139,7 @@ void menuRemoverAppStore(AppStore& mieic) {
 						}
 					}
 					if (tecla == 13)
-						menuRemoverApp(mieic);
+						menuRemoverAppDaStore(mieic);
 					if (tecla == 27)
 						menuDeveloperGerirApps(mieic);
 
@@ -5149,9 +5148,7 @@ void menuRemoverAppStore(AppStore& mieic) {
 		if (tecla == 27) {
 			menuDeveloperGerirApps(mieic);
 		}
-
 	}
-
 }
 
 void menuReporAppStore(AppStore& mieic) {
@@ -5318,7 +5315,7 @@ void menuListarAppsRemovidas(AppStore& mieic) {
 
 }
 
-void menuRemoverAppStorePerma(AppStore& mieic) {
+void menuRemoverAppForaStorePerma(AppStore& mieic) {
 
 }
 

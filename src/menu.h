@@ -284,7 +284,7 @@ void menuRemoverApp(AppStore& mieic);
  */
 void menuModificarApp(AppStore& mieic);
 
-void menuRemoverAppStore(AppStore& mieic);
+void menuRemoverAppDaStore(AppStore& mieic);
 void menuReporAppStore(AppStore& mieic);
 void menuAlterarAppsRemovidas(AppStore& mieic);
 void menuListarAppsRemovidas(AppStore& mieic);
@@ -357,6 +357,6 @@ void menuValidarApps(AppStore& mieic);
 
 void menuListaApps(AppStore& mieic);
 
-void menuRemoverAppStorePerma(AppStore& mieic);
+void menuRemoverAppForaStorePerma(AppStore& mieic);
 
 #endif /* MENU_H_ */
