@@ -284,10 +284,6 @@ void menuRemoverApp(AppStore& mieic);
  */
 void menuModificarApp(AppStore& mieic);
 
-void menuRemoverAppDaStore(AppStore& mieic);
-void menuReporAppStore(AppStore& mieic);
-void menuAlterarAppsRemovidas(AppStore& mieic);
-void menuListarAppsRemovidas(AppStore& mieic);
 
 /**
  * Menu onde sao listadas as apps e o user pode carregar enter para remover a selecionada do cesto.
@@ -355,8 +351,12 @@ void menuListaCliente(AppStore& mieic);
  */
 void menuValidarApps(AppStore& mieic);
 
-void menuListaApps(AppStore& mieic);
-
+void menuRemoverAppDaStore(AppStore& mieic);
 void menuRemoverAppForaStorePerma(AppStore& mieic);
+void menuReporAppStore(AppStore& mieic);
+void menuAlterarAppsRemovidas(AppStore& mieic);
+void menuListarAppsRemovidas(AppStore& mieic);
+
+void menuListaTodasApps(AppStore& mieic);
 
 #endif /* MENU_H_ */
