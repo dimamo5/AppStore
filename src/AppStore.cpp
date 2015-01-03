@@ -19,6 +19,7 @@ void AppStore::create_tree() {
 		arv_apps.insert(apps[i]);
 	}
 }
+
 void AppStore::top10() {
 	int tc = 0;
 	while (tc != 27) {
@@ -31,9 +32,13 @@ void AppStore::top10() {
 			BSTItrIn<App> it(arv_apps);
 			for (unsigned int i = 1; (i <= 10) && !(it.isAtEnd()); i++) {
 				App temp = *(it.retrieve());
+<<<<<<< HEAD
 				cout << i << ". " << " Nome: " << temp.getNome()
 						<< "  Classificacao: " << temp.getClassificacaoFinal()
 						<< "  Preco:" << temp.getPreco() << endl;
+=======
+				cout << i << ". " << " Nome: " << temp.getNome() << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco:" << temp.getPreco() << endl;
+>>>>>>> 64accfd0ed19b2189d97bddb952f5c663d60ae05
 				it.advance();
 			}
 		}

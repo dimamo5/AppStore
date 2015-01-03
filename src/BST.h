@@ -1,3 +1,4 @@
+
 // -*- Mode: c++; --*-
 
 #ifndef _BST_H_
@@ -278,6 +279,5 @@ void BSTItrIn<Comparable>::advance()
   if (seguinte)
     slideLeft(seguinte);
 }
-
 
 #endif

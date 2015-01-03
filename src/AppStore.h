@@ -13,6 +13,7 @@
 #include "Cliente.h"
 #include "App.h"
 #include "Date.h"
+#include "BST.h"
 #include <string>
 #include <fstream>
 #include <ctime>
@@ -21,6 +22,7 @@
 #include <conio.h>
 #include <windows.h>
 #include "BST.h"
+
 
 extern Developer* dev_act;
 extern Cliente* cli_act;
