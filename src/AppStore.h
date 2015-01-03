@@ -18,6 +18,9 @@
 #include <ctime>
 #include <tr1/unordered_set>
 #include <queue>
+#include <conio.h>
+#include <windows.h>
+#include "BST.h"
 
 extern Developer* dev_act;
 extern Cliente* cli_act;
@@ -103,6 +106,8 @@ public:
 	vector<Developer *> dev; /**< Vector com todos os Developers activos na Store */
 	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
 	Date data_atual; /**< Data Actual */
+
+	BST<App> arv_apps; /**< Arvore com todas as Apps activas na Store */
 
 	priority_queue<App, vector<App>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
 	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas; /**< Hashtable das apps apagadas */
@@ -216,49 +221,49 @@ public:
 	bool load_all();
 	/**
 	 * Faz save de todas as Apps da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_app(ofstream &file);
 	/**
 	 * Faz load de todas as Apps da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_app(fstream &file);
 	/**
 	 * Faz save de todas as Vendas da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_vendas(ofstream &file);
 	/**
 	 * Faz load de todas as Vendas da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_vendas(fstream &file);
 	/**
 	 * Faz save de todos os Clientes da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_clientes(ofstream &file);
 	/**
 	 * Faz load de todos os Clientes da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_clientes(fstream &file);
 	/**
 	 * Faz save de todos os Developers da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_dev(ofstream &file);
 	/**
 	 * Faz load de todos os Developers da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_dev(fstream &file);
@@ -273,7 +278,14 @@ public:
 	 * @return apps prontas para serem vendidas
 	 */
 	vector<App> appsDisponiveis() const;
-
+	/**
+	 * Passa todas as apps do vetor apps para arvore arv_apps
+	 */
+	void create_tree();
+	/**
+	 * Imprime as top 10 apps presentes na arvore
+	 */
+	void top10();
 
 };
 
