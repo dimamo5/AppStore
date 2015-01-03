@@ -104,6 +104,8 @@ public:
 	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
 	Date data_atual; /**< Data Actual */
 
+	BST<App> arv_apps; /**< Arvore com todas as Apps activas na Store */
+
 	priority_queue<App, vector<App>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
 	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas; /**< Hashtable das apps apagadas */
 
