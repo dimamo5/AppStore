@@ -1173,7 +1173,7 @@ void menuDeveloper(AppStore& mieic) {
 
 		if (opcao == -2)
 			cor(WHITE, BLACK);
-		cout << "  Lista de Apps  " << endl;
+		cout << "  Apps Nao Validadas  " << endl;
 		cor(BLACK, WHITE);
 
 		if (opcao == -3)
@@ -1207,7 +1207,7 @@ void menuDeveloper(AppStore& mieic) {
 			opcao = 0;
 			break;
 		case -2:
-			menuListaTodasApps(mieic);
+			menuAppsNaoValidadas(mieic);
 			opcao = 0;
 			break;
 		case -3:          // 3a opcao
@@ -1231,7 +1231,6 @@ void menuDeveloper(AppStore& mieic) {
 
 	}
 }
-
 void menuClienteTransacoes(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -1286,7 +1285,6 @@ void menuClienteTransacoes(AppStore& mieic) {
 		}
 	}
 }
-
 void menuClienteDefinicoes(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -1340,7 +1338,6 @@ void menuClienteDefinicoes(AppStore& mieic) {
 		}
 	}
 }
-
 void menuDeveloperGerirApps(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -1506,7 +1503,7 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 			menuReporAppStore(mieic);
 			break;
 		case -5:
-			menuAlterarAppsRemovidas(mieic);
+			menuModificarAppsRemovidas(mieic);
 			break;
 		case -6:
 			menuListarAppsRemovidas(mieic);
@@ -1523,7 +1520,6 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 		}
 	}
 }
-
 void menuDeveloperDefinicoes(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -1632,7 +1628,6 @@ void menuDeveloperDefinicoes(AppStore& mieic) {
 		}
 	}
 }
-
 void menuClienteAddCredito(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -1741,7 +1736,6 @@ void menuClienteAddCredito(AppStore& mieic) {
 		menuClienteTransacoes(mieic);
 	}
 }
-
 void menuCestoCompras(AppStore& mieic) {
 	system("cls");
 
@@ -1786,7 +1780,6 @@ void menuCestoCompras(AppStore& mieic) {
 		}
 	}
 }
-
 void menuHistoricoVendas(AppStore& mieic) {
 	int opcao_venda = 0;
 	vector<string> menu_options;
@@ -1863,7 +1856,6 @@ void menuHistoricoVendas(AppStore& mieic) {
 	menuClienteTransacoes(mieic);
 
 }
-
 void menuAlterarPassCli(AppStore& mieic) {
 	system("cls");
 
@@ -1952,7 +1944,6 @@ void menuAlterarPassCli(AppStore& mieic) {
 	}
 
 }
-
 void menuAlterarCartao(AppStore& mieic) {
 	system("cls");
 
@@ -2053,7 +2044,6 @@ void menuAlterarCartao(AppStore& mieic) {
 
 	}
 }
-
 void menuApagarContaCli(AppStore& mieic) {
 	system("cls");
 
@@ -2152,7 +2142,6 @@ void menuApagarContaCli(AppStore& mieic) {
 
 	}
 }
-
 void menuAlterarPassDev(AppStore& mieic) {
 	system("cls");
 
@@ -2241,7 +2230,6 @@ void menuAlterarPassDev(AppStore& mieic) {
 	}
 
 }
-
 void menuAlterarMorada(AppStore& mieic) {
 	system("cls");
 
@@ -2349,7 +2337,6 @@ void menuAlterarMorada(AppStore& mieic) {
 	}
 
 }
-
 void menuAlterarNIF(AppStore& mieic) {
 	system("cls");
 
@@ -2447,7 +2434,6 @@ void menuAlterarNIF(AppStore& mieic) {
 	}
 
 }
-
 void menuApagarContaDev(AppStore& mieic) {
 	system("cls");
 
@@ -2571,7 +2557,6 @@ void menuApagarContaDev(AppStore& mieic) {
 	}
 
 }
-
 void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	system("cls");
 	time_t t = time(0);
@@ -2756,7 +2741,6 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 		}
 	}
 }
-
 void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		vector<App> apps_ordenadas, string tipo_ordenacao) {
 
@@ -3494,7 +3478,6 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 		}
 	}
 }
-
 void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 
 	system("cls");
@@ -3613,7 +3596,6 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state) {
 	}
 
 }
-
 void menuListaCliente(AppStore& mieic) {
 
 	if (mieic.clientes.empty()) {
@@ -3684,7 +3666,6 @@ void menuListaCliente(AppStore& mieic) {
 	}
 
 }
-
 void menuVerDev(AppStore& mieic) {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -3736,7 +3717,6 @@ void menuVerDev(AppStore& mieic) {
 		menuDeveloper(mieic);
 	}
 }
-
 void menuVerCli(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -3764,7 +3744,6 @@ void menuVerCli(AppStore& mieic) {
 	}
 	menuCliente(mieic);
 }
-
 void menuCriarApp(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -3902,7 +3881,6 @@ void menuCriarApp(AppStore& mieic) {
 		menuDeveloperGerirApps(mieic);
 	}
 }
-
 void menuRemoverApp(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -4051,7 +4029,6 @@ void menuRemoverApp(AppStore& mieic) {
 	}
 
 }
-
 void menuModificarApp(AppStore& mieic) {
 
 	system("cls");
@@ -4421,7 +4398,6 @@ void menuModificarApp(AppStore& mieic) {
 
 	}
 }
-
 void menuCheckoutApps(AppStore& mieic) {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
@@ -4795,7 +4771,6 @@ void menuCheckoutApps(AppStore& mieic) {
 		menuCestoCompras(mieic);
 	}
 }
-
 void menuTiraAppsCesto(AppStore& mieic) {
 
 	int opcao_cesto = 0;
@@ -4902,7 +4877,6 @@ void menuTiraAppsCesto(AppStore& mieic) {
 	}
 
 }
-
 void apagaAppsNaoExistentes(AppStore& mieic, Cliente* cli) {
 
 	bool existe_app = false;
@@ -4923,7 +4897,6 @@ void apagaAppsNaoExistentes(AppStore& mieic, Cliente* cli) {
 		}
 	}
 }
-
 void menuValidarApps(AppStore& mieic) {
 
 	bool passCerta = false;
@@ -5003,7 +4976,6 @@ void menuValidarApps(AppStore& mieic) {
 	}
 
 }
-
 void menuRemoverAppDaStore(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -5150,7 +5122,6 @@ void menuRemoverAppDaStore(AppStore& mieic) {
 		}
 	}
 }
-
 void menuReporAppStore(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -5307,11 +5278,398 @@ void menuReporAppStore(AppStore& mieic) {
 
 	}
 }
+void menuModificarAppsRemovidas(AppStore& mieic) {
 
-void menuAlterarAppsRemovidas(AppStore& mieic) {
+	system("cls");
+	time_t t = time(0);
+	struct tm *now = localtime(&t);
+	Date data_atual(now);
+	int opcao = 0;
+	string nome_novo, categoria_nova, descricao_nova;
+	double preco_novo;
+	bool passCerta = false; // default para false
 
+// vai buscar apps do dev e ordena-as por nome
+	vector<App> apps_ordenadas = mieic.getAppsForaStore(dev_act);
+	sort(apps_ordenadas.begin(), apps_ordenadas.end(), appsComparaNome);
+
+//Vai criar a lista de opcoes com o nome das Apps do developer atual
+	vector<string> menu_options = getAppNames(apps_ordenadas);
+
+	if (apps_ordenadas.empty()) {
+		system("cls");
+		cout << "  Modificar Apps Removidas " << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+
+		cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+				tecla = getch();
+			}
+
+		}
+		menuDeveloperGerirApps(mieic);
+	} else {
+
+		cout << "  Modificar Apps Removidas " << endl << endl;
+		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+				<< endl << endl;
+		printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+
+		int tecla;
+		tecla = getch();
+		if (tecla != 0) {
+			while (tecla != 13 && tecla != 27) //ENQUANTO DIFERENTE DE ENTER E ESCAPE
+			{
+				tecla = getch();
+				if (tecla == 72) //ACIMA
+						{
+					opcao--;
+					if (opcao < 0)
+						opcao = menu_options.size() - 1; // se subir mais que o inicio, passa para o fim
+					system("cls");
+					cout << "  Modificar Apps Removidas " << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+				if (tecla == 80) //ABAIXO
+						{
+					opcao++;
+					if (opcao > (menu_options.size() - 1))
+						opcao = 0; // se passar o fim, volta ao inicio
+					system("cls");
+					cout << "  Modificar Apps Removidas " << endl << endl;
+					cout
+							<< "  Prima (Enter) para selecionar ou (Esc) para regressar  "
+							<< endl << endl;
+					printMenuScroll(menu_options, opcao, MAX_PER_SCREEN);
+				}
+			}
+		}
+		//neste ponto ja tem a app selecionada
+		if (tecla == 13) {
+
+			unsigned int id_app_a_modificar = apps_ordenadas[opcao].getId();
+
+			tr1::unordered_set<App, HashApp, EqualApp>::iterator it =
+					mieic.apps_apagadas.begin();
+			tr1::unordered_set<App, HashApp, EqualApp>::iterator ite =
+					mieic.apps_apagadas.end();
+
+			passCerta = verificaPass(dev_act);
+			if (passCerta) {
+				system("cls");
+
+				time_t t = time(0);
+				struct tm *now = localtime(&t);
+				Date data_atual(now);
+				int opcao2 = 0;
+				bool inputFail = false;
+
+				for (;;) {
+					system("cls");
+					cout
+							<< "  Escolha o atributo que pretende modificar na App  "
+							<< endl << endl;
+
+					if (opcao2 == 0)
+						cor(WHITE, BLACK);
+					cout << "  Modificar Nome  " << endl;
+					cor(BLACK, WHITE);
+					if (opcao2 == -1)
+						cor(WHITE, BLACK);
+					cout << "  Modificar Categoria " << endl;
+					cor(BLACK, WHITE);
+					if (opcao2 == -2)
+						cor(WHITE, BLACK);
+					cout << "  Modificar Descricao  " << endl;
+					cor(BLACK, WHITE);
+					if (opcao2 == -3)
+						cor(WHITE, BLACK);
+					cout << "  Modificar Preco  " << endl;
+					cor(BLACK, WHITE);
+					if (opcao2 == -4)
+						cor(WHITE, LIGHT_RED);
+					cout << "  SAIR  " << endl;
+					cor(BLACK, WHITE);
+
+					opcao2 += teclas();
+					opcao2 = RestringeOpcaoTeclas(0, 4, opcao2);
+					int tecla2;
+					bool nomeRepetido = false;
+
+					switch (opcao2 - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
+					{
+					case 0:          // 1a opcao
+						do {
+							system("cls");
+							cout << "  Modificar nome da App  " << endl << endl
+									<< endl;
+							cout << "  Escolha um novo nome para a App: ";
+							fflush(stdin);
+							getline(cin, nome_novo);
+							bool nomeRepetido = mieic.existeNomeAppAnywhere(nome_app);
+						} while (nome_novo == "" || nomeRepetido);
+
+						system("cls");
+						cout << "  Modificar nome da App  " << endl << endl
+								<< endl;
+						cout << "  Escolha um novo nome para a App: "
+								<< nome_novo << endl << endl << endl;
+						cout
+								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
+								<< endl << endl;
+
+						tecla2 = getch();
+						if (tecla2 != 0) {
+							while (tecla2 != 13 && tecla2 != 27) {
+								tecla2 = getch();
+							}
+						}
+						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
+
+							for (; it != ite; it++) {
+								if (id_app_a_modificar == it->getId()) { // se o id do elemento atual da hashtable for o procurado
+									mieic.apps_apagadas.erase(it);
+									break;
+								}
+							}
+
+							mieic.apps[opcao].setNome(nome_novo);
+
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+							}
+
+							cout << "  Sucesso! O nome da App foi modificado "
+									<< endl << endl;
+							cout << "  Prima enter para continuar  " << endl;
+							tecla2 = getch();
+							if (tecla2 != 0) {
+								while (tecla2 != 13) { // enquanto nao prime enter para continuar
+									tecla2 = getch();
+								}
+								menuModificarApp(mieic);
+							}
+
+						} else if (tecla2 == 27) { // se o user premir (Esc)
+							menuModificarApp(mieic);
+						}
+						break;
+					case -1:          // 1a opcao
+						do {
+							system("cls");
+							cout << "  Modificar categoria da App  " << endl
+									<< endl << endl;
+							cout << "  Escolha uma nova categoria para a App: ";
+							fflush(stdin);
+							getline(cin, categoria_nova);
+						} while (categoria_nova == "");
+
+						system("cls");
+						cout << "  Modificar categoria da App  " << endl << endl
+								<< endl;
+						cout << "  Escolha uma nova categoria para a App: "
+								<< categoria_nova << endl << endl << endl;
+						cout
+								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
+								<< endl << endl;
+						tecla2 = getch();
+						if (tecla2 != 0) {
+							while (tecla2 != 13 && tecla2 != 27) {
+								tecla2 = getch();
+							}
+						}
+						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
+
+//							for (; it != ite; it++) {
+//								if (id_app_a_modificar == it->getId()) { // se o id do elemento atual da hashtable for o procurado
+//									it->setCategoria(categoria_nova);
+//									break;
+//								}
+//							}
+
+//							mieic.apps[opcao].setCategoria(categoria_nova);
+
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+							}
+
+							cout
+									<< "  Sucesso! A categoria da App foi modificada "
+									<< endl << endl;
+							cout << "  Prima enter para continuar  " << endl;
+							tecla2 = getch();
+							if (tecla2 != 0) {
+								while (tecla2 != 13) { // enquanto nao prime enter para continuar
+									tecla2 = getch();
+								}
+								menuModificarApp(mieic);
+							}
+
+						} else if (tecla2 == 27) { // se o user premir (Esc)
+							menuModificarApp(mieic);
+						}
+						break;
+					case -2:          // 2a opcao
+						do {
+							system("cls");
+							cout << "  Modificar descricao da App  " << endl
+									<< endl << endl;
+							cout << "  Escolha uma descricao nova para a App: ";
+							fflush(stdin);
+							getline(cin, descricao_nova);
+						} while (descricao_nova == "");
+
+						system("cls");
+						cout << "  Modificar descricao da App  " << endl << endl
+								<< endl;
+						cout << "  Escolha uma nova descricao para a App: "
+								<< descricao_nova << endl << endl << endl;
+						cout
+								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
+								<< endl << endl;
+
+						tecla2 = getch();
+						if (tecla2 != 0) {
+							while (tecla2 != 13 && tecla2 != 27) {
+								tecla2 = getch();
+							}
+						}
+						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
+
+							mieic.apps[opcao].setDescricao(descricao_nova);
+
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+							}
+
+							cout
+									<< "  Sucesso! A descricao da App foi modificada "
+									<< endl << endl;
+							cout << "  Prima enter para continuar  " << endl;
+							tecla2 = getch();
+							if (tecla2 != 0) {
+								while (tecla2 != 13) { // enquanto nao prime enter para continuar
+									tecla2 = getch();
+								}
+								menuModificarApp(mieic);
+							}
+
+						} else if (tecla2 == 27) { // se o user premir (Esc)
+							menuModificarApp(mieic);
+						}
+						break;
+					case -3:          // 4a opcao
+						do {
+							system("cls");
+							cout << "  Modificar preco da App  " << endl << endl
+									<< endl;
+							cout << "  Escolha um novo preco para a App: ";
+							cin >> preco_novo;
+
+							inputFail = cin.fail();
+							cin.clear();  // da clear a flag do fail
+							cin.ignore(1000, '\n');
+						} while (inputFail == true);
+
+						system("cls");
+						cout << "  Modificar preco da App  " << endl << endl
+								<< endl;
+						cout << "  Escolha um novo preco para a App: "
+								<< nome_novo << endl << endl << endl;
+						cout
+								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
+								<< endl << endl;
+
+						tecla2 = getch();
+						if (tecla2 != 0) {
+							while (tecla2 != 13 && tecla2 != 27) {
+								tecla2 = getch();
+							}
+						}
+						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
+
+							mieic.apps[opcao].setPreco(preco_novo);
+
+							try {
+								mieic.save_all();
+							} catch (File_Exp& exp) {
+								cor(BLACK, RED);
+								cerr << "Error" + exp.getIdErro() << endl;
+								cerr << exp.getDescricaoErro() << endl;
+								cor(BLACK, WHITE); //reset à cor
+							}
+
+							cout << "  Sucesso! O preco da App foi modificado "
+									<< endl << endl;
+							cout << "  Prima enter para continuar  " << endl;
+							tecla2 = getch();
+							if (tecla2 != 0) {
+								while (tecla2 != 13) { // enquanto nao prime enter para continuar
+									tecla2 = getch();
+								}
+								menuModificarApp(mieic);
+							}
+
+						} else if (tecla2 == 27) { // se o user premir (Esc)
+							menuModificarApp(mieic);
+						}
+						break;
+					case -4:          // 5a opcao
+						menuModificarApp(mieic);          //
+						system("pause");
+						break;
+					}
+				}
+			} else if (!passCerta) {
+				system("cls");
+				cout << "  Remover Apps Permanentemente" << endl << endl;
+				cout << "  Password errada.  " << endl << endl << endl;
+
+				cout
+						<< "  Prima (Enter) para tentar novamente ou (Esc) para regressar  ";
+
+				int tecla;
+				tecla = getch();
+				if (tecla != 0) {
+					while (tecla != 13 && tecla != 27) {
+						tecla = getch();
+					}
+				}
+				if (tecla == 13)
+					menuModificarApp(mieic);
+				if (tecla == 27)
+					menuDeveloperGerirApps(mieic);
+
+			}
+		}
+		if (tecla == 27) {
+			menuDeveloperGerirApps(mieic);
+		}
+
+	}
 }
-
 void menuRemoverAppForaStorePerma(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -5466,7 +5824,6 @@ void menuRemoverAppForaStorePerma(AppStore& mieic) {
 
 	}
 }
-
 void menuListarAppsRemovidas(AppStore& mieic) {
 	system("cls");
 	time_t t = time(0);
@@ -5583,7 +5940,6 @@ void menuListarAppsRemovidas(AppStore& mieic) {
 
 	}
 }
-
-void menuListaTodasApps(AppStore& mieic) {
+void menuAppsNaoValidadas(AppStore& mieic) {
 
 }

@@ -169,6 +169,12 @@ public:
 	 */
 	bool existeNomeApp(string nome) const;
 	/**
+	 *
+	 * @param nome
+	 * @return
+	 */
+	bool existeNomeAppAnywhere(string nome) const;
+	/**
 	 * Testa se existe determinada Empresa Developer
 	 * @param nome_dev Nome Developer
 	 * @param nome_oficial Nome Oficial Empresa

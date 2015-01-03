@@ -354,9 +354,9 @@ void menuValidarApps(AppStore& mieic);
 void menuRemoverAppDaStore(AppStore& mieic);
 void menuRemoverAppForaStorePerma(AppStore& mieic);
 void menuReporAppStore(AppStore& mieic);
-void menuAlterarAppsRemovidas(AppStore& mieic);
+void menuModificarAppsRemovidas(AppStore& mieic);
 void menuListarAppsRemovidas(AppStore& mieic);
 
-void menuListaTodasApps(AppStore& mieic);
+void menuAppsNaoValidadas(AppStore& mieic);
 
 #endif /* MENU_H_ */

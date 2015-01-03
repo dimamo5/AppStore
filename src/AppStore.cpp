@@ -219,7 +219,6 @@ bool AppStore::load_app(fstream& file) {
 		getline(file, temp);
 		stringstream(temp) >> dev_id;
 
-
 		App* app_temp = new App(id, nome, categoria, descricao, preco,
 				clas_final, num_clas, valida, *date_temp);
 		app_temp->setDev(find_dev_id(dev_id));
@@ -418,7 +417,7 @@ vector<App> AppStore::getApps(Developer * dev_act) {
 	return apps_do_developer;
 }
 
-vector<App> AppStore::getAppsForaStore(Developer * dev_act){
+vector<App> AppStore::getAppsForaStore(Developer * dev_act) {
 
 //	//TESTE
 //	Date date_temp(2014, 11, 7, 10, 10);
@@ -434,15 +433,15 @@ vector<App> AppStore::getAppsForaStore(Developer * dev_act){
 //
 //	// TESTE
 
-
 	vector<App> apps_fora_store;
 
-	tr1::unordered_set<App, HashApp, EqualApp>::iterator  it = apps_apagadas.begin();
+	tr1::unordered_set<App, HashApp, EqualApp>::iterator it =
+			apps_apagadas.begin();
 
-	for (; it!=apps_apagadas.end(); it++){
+	for (; it != apps_apagadas.end(); it++) {
 		int current_dev_id = it->getDev()->getId();
 		int wanted_dev_id = dev_act->getId();
-		if(current_dev_id == wanted_dev_id){  // se o Id do dev da app e o mesmo que o que queremos
+		if (current_dev_id == wanted_dev_id) { // se o Id do dev da app e o mesmo que o que queremos
 			apps_fora_store.push_back(*it);
 		}
 	}
@@ -450,7 +449,7 @@ vector<App> AppStore::getAppsForaStore(Developer * dev_act){
 	return apps_fora_store;
 }
 
-tr1::unordered_set<App, HashApp, EqualApp> AppStore::getHashTable(){
+tr1::unordered_set<App, HashApp, EqualApp> AppStore::getHashTable() {
 	return apps_apagadas;
 }
 
@@ -483,6 +482,37 @@ bool AppStore::existeNomeApp(string nome) const {
 		}
 	}
 	return false;
+}
+
+bool AppStore::existeNomeAppAnywhere(string nome) const {
+
+	for (unsigned int i = 0; i < apps.size(); i++) {  // PESQUISA VETOR APPSTORE
+		if (apps[i].getNome() == nome) {
+			return true;                    // encontrou no vetor, e true
+		}
+	}
+	tr1::unordered_set<App, HashApp, EqualApp>::iterator it =
+			apps_apagadas.begin();
+	tr1::unordered_set<App, HashApp, EqualApp>::iterator ite =
+			apps_apagadas.end();
+
+	for (; it != ite; it++) {							// PESQUISA HASHTABLE
+		if (it->getNome() == nome) {
+			return true;                    // encontrou na hastable
+		}
+	}
+
+	priority_queue<App, vector<App >, ComparaAppValidar> copia = apps_a_validar;
+
+	while(!copia.empty()){
+		if (copia.top().getNome() == nome){
+			return true;
+		}
+		copia.pop();
+	}
+
+	return false;
+
 }
 
 bool AppStore::existeNomeDevEmp(string nome_dev, string nome_oficial) const {
