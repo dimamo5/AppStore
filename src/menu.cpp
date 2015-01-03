@@ -201,14 +201,14 @@ int teclas() {
 	}
 }
 
-//FUNCAO RESPONSAVEL POR RESTRINGIR A VARIAVEL "opcao" APENAS ÁS OPÇÕES DO MENU
+//FUNCAO RESPONSAVEL POR RESTRINGIR A VARIAVEL "opcao" APENAS ÃS OPÃ‡Ã•ES DO MENU
 int RestringeOpcaoTeclas(int min, int max, int opcao) {
 	if (opcao > min && opcao < ((max * -1) + 13))
 		return opcao = (-1 * max); //reinicia a variavel na ultima opcao do menu
-	else if (opcao < (max * -1) || opcao > (min + 13)) //Situação em que Sai fora da gama de opções possiveis (valor > que nº de opcoes possiveis)
-		return opcao = min; //reinicia a variavel na 1a opção do menu
+	else if (opcao < (max * -1) || opcao > (min + 13)) //SituaÃ§Ã£o em que Sai fora da gama de opÃ§Ãµes possiveis (valor > que nÂº de opcoes possiveis)
+		return opcao = min; //reinicia a variavel na 1a opÃ§Ã£o do menu
 	else
-		return opcao; //se não se verificam as restrições, entao devolve-se novamente a variavel intacta
+		return opcao; //se nÃ£o se verificam as restriÃ§Ãµes, entao devolve-se novamente a variavel intacta
 }
 
 void menuInicial(AppStore& mieic) {
@@ -243,7 +243,7 @@ void menuInicial(AppStore& mieic) {
 		if (opcao == 0)
 			cor(WHITE, BLACK);
 		cout << "  Visitar AppStore  " << endl;
-		cor(BLACK, WHITE); // apos imprimir com a cor anterior, da reset à cor para o normal
+		cor(BLACK, WHITE); // apos imprimir com a cor anterior, da reset Ã  cor para o normal
 		if (opcao == -1)
 			cor(WHITE, BLACK);
 		cout << "  Login na AppStore  " << endl;
@@ -262,9 +262,9 @@ void menuInicial(AppStore& mieic) {
 		cor(BLACK, WHITE);
 
 		opcao += teclas();
-		opcao = RestringeOpcaoTeclas(0, 4, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
+		opcao = RestringeOpcaoTeclas(0, 4, opcao); //MUDAR  de 3 para o numero total de opÃ§Ãµes-1 do menu.
 
-		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+		switch (opcao - 13) //sempre que se adicionar mais opÃ§Ãµes, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
 			menuVisitaStore(mieic, state);
@@ -289,7 +289,7 @@ void menuInicial(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 			exit(0);
 			break;
@@ -323,7 +323,7 @@ void menuLogin(AppStore& mieic) {
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 2, opcao);
 
-		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+		switch (opcao - 13) //sempre que se adicionar mais opÃ§Ãµes, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
 			menuLoginCliente(mieic);
@@ -376,7 +376,7 @@ void menuRegistar(AppStore& mieic) {
 		opcao += teclas();
 		opcao = RestringeOpcaoTeclas(0, 3, opcao);
 
-		switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+		switch (opcao - 13) //sempre que se adicionar mais opÃ§Ãµes, adicionar mais um case (ex: case -4: return 0; break;)
 		{
 		case 0:
 			menuRegistarCliente(mieic);
@@ -741,7 +741,7 @@ void menuRegistarCliente(AppStore& mieic) {
 			cor(BLACK, RED);
 			cerr << "Error" + exp.getIdErro() << endl;
 			cerr << exp.getDescricaoErro() << endl;
-			cor(BLACK, WHITE); //reset à cor
+			cor(BLACK, WHITE); //reset Ã  cor
 		}
 
 		cout << "  Sucesso! O seu ID de login e " << cli_temp.getId() << endl
@@ -878,7 +878,7 @@ void menuRegistarDeveloperIndividual(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			cout << "  Sucesso! O seu ID de login e " << individ_temp->getId()
@@ -1049,7 +1049,7 @@ void menuRegistarDeveloperEmpresa(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			cout << "  Sucesso! O seu ID de login e " << empresa_temp->getId()
@@ -1692,7 +1692,7 @@ void menuClienteAddCredito(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			system("cls");
@@ -1905,7 +1905,7 @@ void menuAlterarPassCli(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			tecla = getch();
@@ -2012,7 +2012,7 @@ void menuAlterarCartao(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			menuClienteDefinicoes(mieic);
@@ -2103,7 +2103,7 @@ void menuApagarContaCli(AppStore& mieic) {
 					cor(BLACK, RED);
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
-					cor(BLACK, WHITE); //reset à cor
+					cor(BLACK, WHITE); //reset Ã  cor
 				}
 
 				cli_act = NULL;
@@ -2191,7 +2191,7 @@ void menuAlterarPassDev(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			tecla = getch();
@@ -2298,7 +2298,7 @@ void menuAlterarMorada(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			tecla = getch();
@@ -2395,7 +2395,7 @@ void menuAlterarNIF(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			tecla = getch();
@@ -2516,7 +2516,7 @@ void menuApagarContaDev(AppStore& mieic) {
 					cor(BLACK, RED);
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
-					cor(BLACK, WHITE); //reset à cor
+					cor(BLACK, WHITE); //reset Ã  cor
 				}
 
 //				delete dev_act;
@@ -2575,27 +2575,33 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
+				cor(WHITE,BLACK);
+			cout << "TOP 10" << endl;
+			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -1)
+			if (opcao == -2)
 				cor(WHITE, BLACK);
 			cout << "  Por Preco " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -2)
+			if (opcao == -3)
 				cor(WHITE, BLACK);
 			cout << "  Por developer  " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -3)
+			if (opcao == -4)
 				cor(WHITE, LIGHT_RED);
 			cout << "  SAIR  " << endl;
 			cor(BLACK, WHITE);
 
 			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+			opcao = RestringeOpcaoTeclas(0, 4, opcao);
 
 			switch (opcao - 13) {
-			case 0:          // 1a opcao
+			case 0:			  // 1a opcao
+				mieic.top10();
+				break;
+			case -1:          // 2a opcao
 				apps_por_nome = mieic.apps;
 				sort(apps_por_nome.begin(), apps_por_nome.end(),
 						appsComparaNome);
@@ -2604,18 +2610,18 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 
-			case -1:          // 2a opcao
+			case -2:          // 3a opcao
 				apps_por_preco = mieic.apps;
 				sort(apps_por_preco.begin(), apps_por_preco.end(),
 						appsComparaPreco);
 				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
 				system("pause");
 				break;
-			case -2:          // 3a opcao
+			case -3:          // 4a opcao
 				menuListaDeveloper(mieic, state); //-> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
-			case -3:          // 4a opcao
+			case -4:          // 5a opcao
 				menuInicial(mieic);
 				system("pause");
 				break;
@@ -2633,27 +2639,33 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
+				cor(WHITE,BLACK);
+			cout << "TOP 10" << endl;
+			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -1)
+			if (opcao == -2)
 				cor(WHITE, BLACK);
 			cout << "  Por Preco " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -2)
+			if (opcao == -3)
 				cor(WHITE, BLACK);
 			cout << "  Por developer  " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -3)
+			if (opcao == -4)
 				cor(WHITE, LIGHT_RED);
 			cout << "  SAIR  " << endl;
 			cor(BLACK, WHITE);
 
 			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+			opcao = RestringeOpcaoTeclas(0, 4, opcao);
 
 			switch (opcao - 13) {
-			case 0:          // 1a opcao
+			case 0:			  // 1a opcao
+				mieic.top10();
+				break;
+			case -1:          // 2a opcao
 				apps_por_nome = mieic.apps;
 				sort(apps_por_nome.begin(), apps_por_nome.end(),
 						appsComparaNome);
@@ -2662,18 +2674,18 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 
-			case -1:          // 2a opcao
+			case -2:          // 3a opcao
 				apps_por_preco = mieic.apps;
 				sort(apps_por_preco.begin(), apps_por_preco.end(),
 						appsComparaPreco);
 				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
 				system("pause");
 				break;
-			case -2:          // 3a opcao
+			case -3:          // 4a opcao
 				menuListaDeveloper(mieic, state); //-> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
-			case -3:          // 4a opcao
+			case -4:          // 5a opcao
 				menuDeveloper(mieic);
 				system("pause");
 				break;
@@ -2691,27 +2703,33 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
+				cor(WHITE,BLACK);
+			cout << "TOP 10" << endl;
+			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -1)
+			if (opcao == -2)
 				cor(WHITE, BLACK);
 			cout << "  Por Preco " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -2)
+			if (opcao == -3)
 				cor(WHITE, BLACK);
 			cout << "  Por developer  " << endl;
 			cor(BLACK, WHITE);
-			if (opcao == -3)
+			if (opcao == -4)
 				cor(WHITE, LIGHT_RED);
 			cout << "  SAIR  " << endl;
 			cor(BLACK, WHITE);
 
 			opcao += teclas();
-			opcao = RestringeOpcaoTeclas(0, 3, opcao);
+			opcao = RestringeOpcaoTeclas(0, 4, opcao);
 
 			switch (opcao - 13) {
-			case 0:          // 1a opcao
+			case 0:			 // 1a opcao
+				mieic.top10();
+				break;
+			case -1:          // 2a opcao
 				apps_por_nome = mieic.apps;
 				sort(apps_por_nome.begin(), apps_por_nome.end(),
 						appsComparaNome);
@@ -2720,18 +2738,18 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 				system("pause");
 				break;
 
-			case -1:          // 2a opcao
+			case -2:          // 3a opcao
 				apps_por_preco = mieic.apps;
 				sort(apps_por_preco.begin(), apps_por_preco.end(),
 						appsComparaPreco);
 				menuVisitaStoreOrdenada(mieic, state, apps_por_preco, "Preco");
 				system("pause");
 				break;
-			case -2:          // 3a opcao
+			case -3:          // 4a opcao
 				menuListaDeveloper(mieic, state); //-> esta funcao vai chamar a menuVisitaStoreOrdenada, apos a escolha de um dev
 				system("pause");
 				break;
-			case -3:          // 4a opcao
+			case -4:          // 5a opcao
 				menuCliente(mieic);
 				system("pause");
 				break;
@@ -3220,7 +3238,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							system("cls");
@@ -3843,7 +3861,7 @@ void menuCriarApp(AppStore& mieic) {
 				cor(BLACK, RED);
 				cerr << "Error" + exp.getIdErro() << endl;
 				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
+				cor(BLACK, WHITE); //reset Ã  cor
 			}
 
 			cout << "  Sucesso! App criada. " << endl << endl;
@@ -3992,7 +4010,7 @@ void menuRemoverApp(AppStore& mieic) {
 					cor(BLACK, RED);
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
-					cor(BLACK, WHITE); //reset à cor
+					cor(BLACK, WHITE); //reset Ã  cor
 				}
 
 				menuRemoverApp(mieic);
@@ -4180,7 +4198,7 @@ void menuModificarApp(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout << "  Sucesso! O nome da App foi modificado "
@@ -4232,7 +4250,7 @@ void menuModificarApp(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout
@@ -4286,7 +4304,7 @@ void menuModificarApp(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout
@@ -4343,7 +4361,7 @@ void menuModificarApp(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout << "  Sucesso! O preco da App foi modificado "
@@ -4415,7 +4433,7 @@ void menuCheckoutApps(AppStore& mieic) {
 				string preco;
 				ss << mieic.apps[p].getPreco();
 				ss >> preco;
-				preco_total += mieic.apps[p].getPreco(); //  vai somando ao preço total das apps
+				preco_total += mieic.apps[p].getPreco(); //  vai somando ao preÃ§o total das apps
 				string temp_str = " Preco: " + preco + "   Nome: "
 						+ mieic.apps[p].getNome();
 				menu_options.push_back(temp_str);
@@ -4516,7 +4534,7 @@ void menuCheckoutApps(AppStore& mieic) {
 				if (opcao == 0)
 					cor(WHITE, BLACK);
 				cout << "  Sim  " << endl;
-				cor(BLACK, WHITE); // apos imprimir com a cor anterior, da reset à cor para o normal
+				cor(BLACK, WHITE); // apos imprimir com a cor anterior, da reset Ã  cor para o normal
 				if (opcao == -1)
 					cor(WHITE, BLACK);
 				cout << "  Nao " << endl;
@@ -4527,9 +4545,9 @@ void menuCheckoutApps(AppStore& mieic) {
 				cor(BLACK, WHITE);
 
 				opcao += teclas();
-				opcao = RestringeOpcaoTeclas(0, 2, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
+				opcao = RestringeOpcaoTeclas(0, 2, opcao); //MUDAR  de 3 para o numero total de opÃ§Ãµes-1 do menu.
 
-				switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+				switch (opcao - 13) //sempre que se adicionar mais opÃ§Ãµes, adicionar mais um case (ex: case -4: return 0; break;)
 				{
 				case 0:
 					if (preco_total * 0.95 > saldo_disponivel) { // Compra nao efetuada
@@ -4549,7 +4567,7 @@ void menuCheckoutApps(AppStore& mieic) {
 						}
 						menuCestoCompras(mieic);
 					} else if (preco_total * 0.95 <= saldo_disponivel) {
-						// Retira o preço a pagar ao saldo do cliente, adiciona 1 voucher e esvazia o cesto de compras
+						// Retira o preÃ§o a pagar ao saldo do cliente, adiciona 1 voucher e esvazia o cesto de compras
 						cli_act->setSaldo(
 								cli_act->getSaldo() - preco_total * 0.95);
 						cli_act->addVoucher();
@@ -4587,7 +4605,7 @@ void menuCheckoutApps(AppStore& mieic) {
 							cor(BLACK, RED);
 							cerr << "Error" + exp.getIdErro() << endl;
 							cerr << exp.getDescricaoErro() << endl;
-							cor(BLACK, WHITE); //reset à cor
+							cor(BLACK, WHITE); //reset Ã  cor
 						}
 						system("cls");
 						cout << "  Apps do Cesto - Ver e Checkout " << endl
@@ -4663,7 +4681,7 @@ void menuCheckoutApps(AppStore& mieic) {
 							cor(BLACK, RED);
 							cerr << "Error" + exp.getIdErro() << endl;
 							cerr << exp.getDescricaoErro() << endl;
-							cor(BLACK, WHITE); //reset à cor
+							cor(BLACK, WHITE); //reset Ã  cor
 						}
 
 						system("cls");
@@ -4740,7 +4758,7 @@ void menuCheckoutApps(AppStore& mieic) {
 					cor(BLACK, RED);
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
-					cor(BLACK, WHITE); //reset à cor
+					cor(BLACK, WHITE); //reset Ã  cor
 				}
 				system("cls");
 				cout << "  Apps do Cesto - Ver e Checkout " << endl << endl
@@ -4946,9 +4964,9 @@ void menuAppsEmEspera(AppStore& mieic) {
 				cor(BLACK, WHITE);
 
 				opcao += teclas();
-				opcao = RestringeOpcaoTeclas(0, 2, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
+				opcao = RestringeOpcaoTeclas(0, 2, opcao); //MUDAR  de 3 para o numero total de opÃ§Ãµes-1 do menu.
 
-				switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+				switch (opcao - 13) //sempre que se adicionar mais opÃ§Ãµes, adicionar mais um case (ex: case -4: return 0; break;)
 				{
 				case 0: // VALIDAR A APP
 
@@ -4995,7 +5013,7 @@ void menuAppsEmEspera(AppStore& mieic) {
 //				cor(BLACK, RED);
 //				cerr << "Error" + exp.getIdErro() << endl;
 //				cerr << exp.getDescricaoErro() << endl;
-//				cor(BLACK, WHITE); //reset à cor
+//				cor(BLACK, WHITE); //reset Ã  cor
 //			}
 //
 //			tecla = getch();
@@ -5149,7 +5167,7 @@ void menuRemoverAppDaStore(AppStore& mieic) {
 					cor(BLACK, RED);
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
-					cor(BLACK, WHITE); //reset à cor
+					cor(BLACK, WHITE); //reset Ã  cor
 				}
 
 				menuRemoverAppDaStore(mieic);
@@ -5306,7 +5324,7 @@ void menuReporAppStore(AppStore& mieic) {
 					cor(BLACK, RED);
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
-					cor(BLACK, WHITE); //reset à cor
+					cor(BLACK, WHITE); //reset Ã  cor
 				}
 
 				menuReporAppStore(mieic);
@@ -5517,7 +5535,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout << "  Sucesso! O nome da App foi modificado "
@@ -5581,7 +5599,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout
@@ -5647,7 +5665,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout
@@ -5715,7 +5733,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								cor(BLACK, RED);
 								cerr << "Error" + exp.getIdErro() << endl;
 								cerr << exp.getDescricaoErro() << endl;
-								cor(BLACK, WHITE); //reset à cor
+								cor(BLACK, WHITE); //reset Ã  cor
 							}
 
 							cout << "  Sucesso! O preco da App foi modificado "
@@ -5888,7 +5906,7 @@ void menuRemoverAppForaStorePerma(AppStore& mieic) {
 					cor(BLACK, RED);
 					cerr << "Error" + exp.getIdErro() << endl;
 					cerr << exp.getDescricaoErro() << endl;
-					cor(BLACK, WHITE); //reset à cor
+					cor(BLACK, WHITE); //reset Ã  cor
 				}
 
 				menuRemoverAppForaStorePerma(mieic);
