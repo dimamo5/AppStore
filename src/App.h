@@ -186,9 +186,15 @@ public:
 	 */
 	bool isValidada() const;
 	/**
-	 * Valida a App na Appstore
+	 * Altera o valor da flag apagada da app
+	 * @param valor True ou False consoante o valor pretendido para validada
 	 */
-	void setValidada();
+	void setValidada(bool valor);
+	/**
+	* Altera o valor da flag apagada da app
+	* @param valor True ou False consoante o valor pretendido para validada
+	*/
+	void setApagada(bool valor);
 	/**
 	 * Getter Data de Submissao
 	 * @return Data de Submissao da App

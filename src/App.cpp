@@ -132,12 +132,16 @@ bool App::isValidada() const {
 	return validada;
 }
 
-void App::setValidada() {
-	this->validada = true;
+void App::setValidada(bool valor) {
+	validada = valor;
 }
 
 const Date& App::getDataSubmissao() const {
 	return data_submissao;
+}
+
+void App::setApagada(bool valor){
+	apagada = valor;
 }
 
 bool App::isApagada() const {

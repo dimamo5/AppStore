@@ -125,7 +125,7 @@ bool AppStore::save_dev(ofstream &file) {
 	return true;
 }
 
-void save_one_app(ofstream& file, App a) {
+void AppStore::save_one_app(ofstream& file, App a) {
 	file << a.getId() << endl;
 	file << a.getNome() << endl;
 	file << a.getCategoria() << endl;
@@ -148,7 +148,7 @@ void save_one_app(ofstream& file, App a) {
 			file << a.getComentarios()[m].getClassificacao() << endl;
 		}
 	}
-	file << a.getDev()->getId();
+	file << a.getDev()->getId() << endl;
 }
 
 bool AppStore::save_app(ofstream& file) {
@@ -539,13 +539,14 @@ bool AppStore::existeNomeAppAnywhere(string nome) const {
 			return true;                    // encontrou no vetor, e true
 		}
 	}
-	tr1::unordered_set<App, HashApp, EqualApp>::iterator it =
+	tr1::unordered_set<App, HashApp, EqualApp>::const_iterator it =
 			apps_apagadas.begin();
-	tr1::unordered_set<App, HashApp, EqualApp>::iterator ite =
+	tr1::unordered_set<App, HashApp, EqualApp>::const_iterator ite =
 			apps_apagadas.end();
 
 	for (; it != ite; it++) {							// PESQUISA HASHTABLE
 		if (it->getNome() == nome) {
+			cout << "TA A RETURNAR TRUE FFS \n";
 			return true;                    // encontrou na hastable
 		}
 	}

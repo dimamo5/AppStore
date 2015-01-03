@@ -349,7 +349,7 @@ void menuListaCliente(AppStore& mieic);
  *
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  */
-void menuValidarApps(AppStore& mieic);
+void menuAppsEmEspera(AppStore& mieic);
 
 void menuRemoverAppDaStore(AppStore& mieic);
 void menuRemoverAppForaStorePerma(AppStore& mieic);

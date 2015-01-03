@@ -216,20 +216,18 @@ void menuInicial(AppStore& mieic) {
 	/*-------------------INICIALIZACAO VARIAVEIS TESTES---------------------*/
 	//----------------------------------------------------------------------//
 	// CRIAR APP QUE VAI SER INSERIDA NAS APPS APAGADAS DO 1o DEVELOPER
-	Date date_temp(2014, 11, 7, 10, 10);
-	Developer * dev_temp1 = new Empresa(1, "teste", 100, "1", "morada teste",
-			"123123123", "extra");
-
-	App* app_temp = new App(10, "App rem. da store no.1", "jogo",
-			"jogo futebol", 10, 4, 10, 1, date_temp,1);
-	app_temp->setDev(mieic.dev[0]);
-
-	mieic.apps_apagadas.insert(*app_temp);
-
+//	Date date_temp(2014, 11, 7, 10, 10);
+//	Developer * dev_temp1 = new Empresa(1, "teste", 100, "1", "morada teste",
+//			"123123123", "extra");
+//
+//	App* app_temp = new App(10, "App rem. da store no.1", "jogo",
+//			"jogo futebol", 10, 4, 10, 1, date_temp, 1);
+//	app_temp->setDev(mieic.dev[0]);
+//
+//	mieic.apps_apagadas.insert(*app_temp);
 	//----------------------------------------------------------------------//
 	//----------------------------------------------------------------------//
 	//----------------------------------------------------------------------//
-
 	system("cls");
 
 	dev_act = NULL; // da reset aos indicadores de login atual, ou seja, faz logout
@@ -274,15 +272,15 @@ void menuInicial(AppStore& mieic) {
 			break;
 		case -1: // 2a opcao
 			menuLogin(mieic);
-			system("pause");
+			opcao = 0;
 			break;
 		case -2: // 3a opcao
 			menuRegistar(mieic);
-			system("pause");
+			opcao = 0;
 			break;
 		case -3:
-			menuValidarApps(mieic);
-			system("pause");
+			menuAppsEmEspera(mieic);
+			opcao = 0;
 			break;
 		case -4: // ultima opcao
 			try {
@@ -1207,7 +1205,7 @@ void menuDeveloper(AppStore& mieic) {
 			opcao = 0;
 			break;
 		case -2:
-			menuAppsNaoValidadas(mieic);
+			menuAppsEmEspera(mieic);
 			opcao = 0;
 			break;
 		case -3:          // 3a opcao
@@ -4896,60 +4894,121 @@ void apagaAppsNaoExistentes(AppStore& mieic, Cliente* cli) {
 		}
 	}
 }
-void menuValidarApps(AppStore& mieic) {
+void menuAppsEmEspera(AppStore& mieic) {
 
 	bool passCerta = false;
 	passCerta = verificaPassAdmin();
+	int opcao = 0;
 
 	if (passCerta) {
 
-		system("cls");
-		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
-		cout << "  Tem a certeza que quer validar a App em espera? " << endl
-				<< endl
-				<< "  Se o fizer, estas passarao a estar disponiveis na Appstore."
-				<< endl << endl << endl;
+		for (;;) {
 
-		cout
-				<< "  Prima (Enter) para confirmar ou (Esc) para regressar sem validar "
-				<< endl << endl;
+			if (mieic.apps_a_validar.empty()) {
+				system("cls");
+				cout << "  Validar Apps em Espera  " << endl << endl;
+				cout << "  Prima (Esc) para regressar  " << endl << endl;
 
-		int tecla;
-		tecla = getch();
-		if (tecla != 0) {
-			while (tecla != 13 && tecla != 27) {
+				cout << endl << endl << endl << "  Nao ha Apps para mostrar  "
+						<< endl;
+
+				int tecla;
 				tecla = getch();
-			}
-		}
+				if (tecla != 0) {
+					while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
+						tecla = getch();
+					}
+				}
 
-		if (tecla == 13) {        // Confirmou validacao
+				return;
+			} else {
+				system("cls");
+				cout << "  Validar Apps em Espera  " << endl << endl << endl
+						<< endl;
+				cout << "  Tem a certeza que quer validar a App em espera? "
+						<< endl << endl
+						<< "  Se o fizer, esta passara a estar disponivel na Appstore."
+						<< endl << endl << endl;
 
-			system("cls");
-			cout << "  Validar Apps em Espera  " << endl << endl << endl
-					<< endl;
-			cout << "  Sucesso! Apps Validadas  " << endl << endl;
-			cout << "  Prima (Enter) para continuar " << endl << endl;
+				mieic.apps_a_validar.top().imprime();
 
-			try {
-				mieic.save_all();
-			} catch (File_Exp& exp) {
-				cor(BLACK, RED);
-				cerr << "Error" + exp.getIdErro() << endl;
-				cerr << exp.getDescricaoErro() << endl;
-				cor(BLACK, WHITE); //reset à cor
-			}
+				if (opcao == 0)
+					cor(WHITE, BLACK);
+				cout << "  Validar App  " << endl;  // Sai da queue para o vetor
+				cor(BLACK, WHITE);
+				if (opcao == -1)
+					cor(WHITE, BLACK);
+				cout << "  Remover App/Nao Validar App  " << endl; // Sai da queue, mas nao e adicionada
+				cor(BLACK, WHITE);           // a nenhum local. Deixa de existir
+				if (opcao == -2)
+					cor(WHITE, LIGHT_RED);
+				cout << "  SAIR  " << endl;
+				cor(BLACK, WHITE);
 
-			tecla = getch();
-			if (tecla != 0) {
-				while (tecla != 13) { // Prima (Enter) para continuar
-					tecla = getch();
+				opcao += teclas();
+				opcao = RestringeOpcaoTeclas(0, 2, opcao); //MUDAR  de 3 para o numero total de opções-1 do menu.
+
+				switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
+				{
+				case 0: // VALIDAR A APP
+
+//					mieic.apps_a_validar.top().setValidada(true);
+//					mieic.apps(mieic.apps_a_validar.top());
+					mieic.apps_a_validar.pop();
+					menuAppsEmEspera(mieic);
+					break;
+				case -1: // REMOVER A APP
+					mieic.apps_a_validar.pop();
+					menuAppsEmEspera(mieic);
+					break;
+				case -2: // SAIR SEM FAZER NADA
+					return;
+					break;
+
 				}
 			}
-			menuInicial(mieic);
 		}
-
-		if (tecla == 27)        // regressou sem tentar validar
-			menuInicial(mieic);
+//		int tecla;
+//		tecla = getch();
+//		if (tecla != 0) {
+//			while (tecla != 13 && tecla != 27) {
+//				tecla = getch();
+//			}
+//		}
+//
+//		if (tecla == 13) {        // Confirmou validacao
+//
+//			system("cls");
+//			cout << "  Validar Apps em Espera  " << endl << endl << endl
+//					<< endl;
+//			cout << "  Sucesso! Apps Validadas  " << endl << endl;
+//			cout << "  Prima (Enter) para continuar " << endl << endl;
+//
+//			mieic.apps.push_back(mieic.apps_a_validar.top());
+//
+//			mieic.apps_a_validar.pop();
+//
+//
+//			try {
+//				mieic.save_all();
+//			} catch (File_Exp& exp) {
+//				cor(BLACK, RED);
+//				cerr << "Error" + exp.getIdErro() << endl;
+//				cerr << exp.getDescricaoErro() << endl;
+//				cor(BLACK, WHITE); //reset à cor
+//			}
+//
+//			tecla = getch();
+//			if (tecla != 0) {
+//				while (tecla != 13) { // Prima (Enter) para continuar
+//					tecla = getch();
+//				}
+//			}
+//			menuInicial(mieic);
+//		}
+//
+//		if (tecla == 27)        // regressou sem tentar validar
+//			menuInicial(mieic);
 	}
 
 	else if (!passCerta) {
@@ -4968,9 +5027,9 @@ void menuValidarApps(AppStore& mieic) {
 			}
 		}
 		if (tecla == 13)
-			menuValidarApps(mieic);
-		if (tecla == 27)
-			menuInicial(mieic);
+
+			if (tecla == 27)
+				menuInicial(mieic);
 
 	}
 
@@ -5070,6 +5129,7 @@ void menuRemoverAppDaStore(AppStore& mieic) {
 				// Pesquisa no vetor das apps da appstore qual vai remover.
 				for (unsigned int j = 0; j < mieic.apps.size(); j++) {
 					if (id_app_a_remover == mieic.apps[j].getId()) {
+						mieic.apps[j].setApagada(true);
 						mieic.apps_apagadas.insert(mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
 						break;
@@ -5225,8 +5285,10 @@ void menuReporAppStore(AppStore& mieic) {
 				// Em seguida puxa-a para o vetor da store e remove-a da hashtable
 				for (; it != ite; it++) {
 					if (id_app_a_repor == it->getId()) { // se o id do elemento atual da hashtable for o procurado
-						mieic.apps.push_back(*it);
-						mieic.apps_apagadas.erase(it); // Usa o indice encontrado para a remover
+						App copia = *it;            // copia App
+						copia.setApagada(false);    // Altera app copiada
+						mieic.apps.push_back(copia);    // puxa app copiada
+						mieic.apps_apagadas.erase(it); // Remove app verdadeira da hashtable
 						break;
 					}
 				}
@@ -5353,8 +5415,6 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 		//neste ponto ja tem a app selecionada
 		if (tecla == 13) {
 
-			unsigned int id_app_a_modificar = apps_ordenadas[opcao].getId();
-
 			tr1::unordered_set<App, HashApp, EqualApp>::iterator it =
 					mieic.apps_apagadas.begin();
 			tr1::unordered_set<App, HashApp, EqualApp>::iterator ite =
@@ -5400,7 +5460,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 					opcao2 += teclas();
 					opcao2 = RestringeOpcaoTeclas(0, 4, opcao2);
 					int tecla2;
-					bool nomeRepetido = false;
+					bool nome_repetido = false;
 
 					switch (opcao2 - 13) //quando se prime enter adiciona 13. Logo so entra no switch quando e um caso de opcao - 13
 					{
@@ -5412,14 +5472,20 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 							cout << "  Escolha um novo nome para a App: ";
 							fflush(stdin);
 							getline(cin, nome_novo);
-							bool nomeRepetido = mieic.existeNomeAppAnywhere(nome_app);
-						} while (nome_novo == "" || nomeRepetido);
+							bool nome_repetido = mieic.existeNomeAppAnywhere(
+									nome_novo);
+							if (nome_repetido)
+								cout << "NOME REPETIDO";
+							else
+								cout << "NOME NAO REPETIDO";
+						} while (nome_novo == "" || nome_repetido);
 
-						system("cls");
+//						system("cls");
 						cout << "  Modificar nome da App  " << endl << endl
 								<< endl;
 						cout << "  Escolha um novo nome para a App: "
 								<< nome_novo << endl << endl << endl;
+
 						cout
 								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
 								<< endl << endl;
@@ -5432,14 +5498,18 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 						}
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
+							unsigned int id_app_a_modificar =
+									apps_ordenadas[opcao].getId();
+
 							for (; it != ite; it++) {
 								if (id_app_a_modificar == it->getId()) { // se o id do elemento atual da hashtable for o procurado
 									mieic.apps_apagadas.erase(it);
+									apps_ordenadas[opcao].setNome(nome_novo);
+									mieic.apps_apagadas.insert(
+											apps_ordenadas[opcao]);
 									break;
 								}
 							}
-
-							mieic.apps[opcao].setNome(nome_novo);
 
 							try {
 								mieic.save_all();
@@ -5458,11 +5528,11 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								while (tecla2 != 13) { // enquanto nao prime enter para continuar
 									tecla2 = getch();
 								}
-								menuModificarApp(mieic);
+								menuModificarAppsRemovidas(mieic);
 							}
 
 						} else if (tecla2 == 27) { // se o user premir (Esc)
-							menuModificarApp(mieic);
+							menuModificarAppsRemovidas(mieic);
 						}
 						break;
 					case -1:          // 1a opcao
@@ -5491,14 +5561,19 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 						}
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
-//							for (; it != ite; it++) {
-//								if (id_app_a_modificar == it->getId()) { // se o id do elemento atual da hashtable for o procurado
-//									it->setCategoria(categoria_nova);
-//									break;
-//								}
-//							}
+							unsigned int id_app_a_modificar =
+									apps_ordenadas[opcao].getId();
 
-//							mieic.apps[opcao].setCategoria(categoria_nova);
+							for (; it != ite; it++) {
+								if (id_app_a_modificar == it->getId()) { // se o id do elemento atual da hashtable for o procurado
+									mieic.apps_apagadas.erase(it);
+									apps_ordenadas[opcao].setCategoria(
+											categoria_nova);
+									mieic.apps_apagadas.insert(
+											apps_ordenadas[opcao]);
+									break;
+								}
+							}
 
 							try {
 								mieic.save_all();
@@ -5518,11 +5593,11 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								while (tecla2 != 13) { // enquanto nao prime enter para continuar
 									tecla2 = getch();
 								}
-								menuModificarApp(mieic);
+								menuModificarAppsRemovidas(mieic);
 							}
 
 						} else if (tecla2 == 27) { // se o user premir (Esc)
-							menuModificarApp(mieic);
+							menuModificarAppsRemovidas(mieic);
 						}
 						break;
 					case -2:          // 2a opcao
@@ -5552,7 +5627,19 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 						}
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
-							mieic.apps[opcao].setDescricao(descricao_nova);
+							unsigned int id_app_a_modificar =
+									apps_ordenadas[opcao].getId();
+
+							for (; it != ite; it++) {
+								if (id_app_a_modificar == it->getId()) { // se o id do elemento atual da hashtable for o procurado
+									mieic.apps_apagadas.erase(it);
+									apps_ordenadas[opcao].setDescricao(
+											descricao_nova);
+									mieic.apps_apagadas.insert(
+											apps_ordenadas[opcao]);
+									break;
+								}
+							}
 
 							try {
 								mieic.save_all();
@@ -5572,11 +5659,11 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								while (tecla2 != 13) { // enquanto nao prime enter para continuar
 									tecla2 = getch();
 								}
-								menuModificarApp(mieic);
+								menuModificarAppsRemovidas(mieic);
 							}
 
 						} else if (tecla2 == 27) { // se o user premir (Esc)
-							menuModificarApp(mieic);
+							menuModificarAppsRemovidas(mieic);
 						}
 						break;
 					case -3:          // 4a opcao
@@ -5596,7 +5683,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 						cout << "  Modificar preco da App  " << endl << endl
 								<< endl;
 						cout << "  Escolha um novo preco para a App: "
-								<< nome_novo << endl << endl << endl;
+								<< preco_novo << endl << endl << endl;
 						cout
 								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
 								<< endl << endl;
@@ -5609,7 +5696,18 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 						}
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
-							mieic.apps[opcao].setPreco(preco_novo);
+							unsigned int id_app_a_modificar =
+									apps_ordenadas[opcao].getId();
+
+							for (; it != ite; it++) {
+								if (id_app_a_modificar == it->getId()) { // se o id do elemento atual da hashtable for o procurado
+									mieic.apps_apagadas.erase(it);
+									apps_ordenadas[opcao].setPreco(preco_novo);
+									mieic.apps_apagadas.insert(
+											apps_ordenadas[opcao]);
+									break;
+								}
+							}
 
 							try {
 								mieic.save_all();
@@ -5628,15 +5726,15 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 								while (tecla2 != 13) { // enquanto nao prime enter para continuar
 									tecla2 = getch();
 								}
-								menuModificarApp(mieic);
+								menuModificarAppsRemovidas(mieic);
 							}
 
 						} else if (tecla2 == 27) { // se o user premir (Esc)
-							menuModificarApp(mieic);
+							menuModificarAppsRemovidas(mieic);
 						}
 						break;
 					case -4:          // 5a opcao
-						menuModificarApp(mieic);          //
+						menuModificarAppsRemovidas(mieic);          //
 						system("pause");
 						break;
 					}
@@ -5657,7 +5755,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 					}
 				}
 				if (tecla == 13)
-					menuModificarApp(mieic);
+					menuModificarAppsRemovidas(mieic);
 				if (tecla == 27)
 					menuDeveloperGerirApps(mieic);
 
@@ -5939,6 +6037,4 @@ void menuListarAppsRemovidas(AppStore& mieic) {
 
 	}
 }
-void menuAppsNaoValidadas(AppStore& mieic) {
 
-}
