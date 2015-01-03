@@ -221,7 +221,7 @@ void menuInicial(AppStore& mieic) {
 			"123123123", "extra");
 
 	App* app_temp = new App(10, "App rem. da store no.1", "jogo",
-			"jogo futebol", 10, 4, 10, 1, date_temp);
+			"jogo futebol", 10, 4, 10, 1, date_temp,1);
 	app_temp->setDev(mieic.dev[0]);
 
 	mieic.apps_apagadas.insert(*app_temp);
@@ -3837,8 +3837,7 @@ void menuCriarApp(AppStore& mieic) {
 			App app_temp(nome_app, categoria, descricao, preco,
 					mieic.data_atual);
 			app_temp.setDev(dev_act);
-			mieic.apps.push_back(app_temp);
-			mieic.apps_a_validar.push(&mieic.apps[mieic.apps.size() - 1]); //mete na priority queue a app que foi adicionada
+			mieic.apps_a_validar.push(app_temp); //mete na priority queue a app que foi adicionada
 
 			try {
 				mieic.save_all();
@@ -4906,7 +4905,7 @@ void menuValidarApps(AppStore& mieic) {
 
 		system("cls");
 		cout << "  Validar Apps em Espera  " << endl << endl << endl << endl;
-		cout << "  Tem a certeza que quer validar as Apps em espera? " << endl
+		cout << "  Tem a certeza que quer validar a App em espera? " << endl
 				<< endl
 				<< "  Se o fizer, estas passarao a estar disponiveis na Appstore."
 				<< endl << endl << endl;

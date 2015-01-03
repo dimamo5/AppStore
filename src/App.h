@@ -68,7 +68,7 @@ public:
 	 */
 	App(unsigned int id, string nome, string categoria, string descricao,
 				double preco, double classificacao_final, int num_classificacoes,
-				bool validada,Date data);
+				bool validada,Date data,bool apagada);
 	/**
 	 * Recalcula a classificao da App quando lhe e adicionada uma classificacao
 	 * @param clas Classificacao atribuida por um cliente
@@ -199,6 +199,7 @@ public:
 	 * @param dataSubmissao Data da Submissao
 	 */
 	void setDataSubmissao(const Date& dataSubmissao);
+	bool isApagada() const;
 };
 
 #endif /* APP_H_ */

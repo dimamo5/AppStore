@@ -55,14 +55,14 @@ bool devsComparaNome(Developer* dev1, Developer* dev2);
  * Struct Comparacao para Apps
  */
 struct ComparaAppValidar {
-	bool operator()(App * app1, App * app2) {
-		if (app1->getDataSubmissao() < app2->getDataSubmissao()) {
+	bool operator()(App app1, App app2) {
+		if (app1.getDataSubmissao() < app2.getDataSubmissao()) {
 			return true;
-		} else if (app1->getDataSubmissao() == app2->getDataSubmissao()) {
-			if (app1->getPreco() > app2->getPreco()) {
+		} else if (app1.getDataSubmissao() == app2.getDataSubmissao()) {
+			if (app1.getPreco() > app2.getPreco()) {
 				return true;
-			} else if (app1->getPreco() == app2->getPreco()) {
-				if (app1->getNome() < app2->getNome()) {
+			} else if (app1.getPreco() == app2.getPreco()) {
+				if (app1.getNome() < app2.getNome()) {
 					return true;
 				}
 			}
@@ -104,7 +104,7 @@ public:
 	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
 	Date data_atual; /**< Data Actual */
 
-	priority_queue<App*, vector<App *>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
+	priority_queue<App, vector<App>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
 	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas; /**< Hashtable das apps apagadas */
 
 	/**
@@ -255,6 +255,8 @@ public:
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_dev(fstream &file);
+
+	void save_one_app(ofstream& file, App a);
 
 	bool removeAppValidar(unsigned int id);
 	/**

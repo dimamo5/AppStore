@@ -125,11 +125,49 @@ bool AppStore::save_dev(ofstream &file) {
 	return true;
 }
 
+void save_one_app(ofstream& file, App a) {
+	file << a.getId() << endl;
+	file << a.getNome() << endl;
+	file << a.getCategoria() << endl;
+	file << a.getDescricao() << endl;
+	file << a.getPreco() << endl;
+	file << a.getClassificacaoFinal() << endl;
+	file << a.getNumClassificacoes() << endl;
+	file << a.isValidada() << endl;
+	file << a.isApagada() << endl;
+	file << a.getDataSubmissao().getYear() << endl; //TODO melhor escrita data
+	file << a.getDataSubmissao().getMonth() << endl;
+	file << a.getDataSubmissao().getDay() << endl;
+	file << a.getDataSubmissao().getHour() << endl;
+	file << a.getDataSubmissao().getMinute() << endl;
+	file << a.getComentarios().size() << endl;
+	if (a.getComentarios().size() != 0) {
+		for (unsigned int m = 0; m < a.getComentarios().size(); m++) {
+			file << a.getComentarios()[m].getIdClient() << endl;
+			file << a.getComentarios()[m].getDescricao() << endl;
+			file << a.getComentarios()[m].getClassificacao() << endl;
+		}
+	}
+	file << a.getDev()->getId();
+}
+
 bool AppStore::save_app(ofstream& file) {
+	priority_queue<App, vector<App>, ComparaAppValidar> validar_temp =
+			apps_a_validar;
+	tr1::unordered_set<App, HashApp, EqualApp>::iterator it;
 	if (apps.empty()) {
 		return false;
 	} else {
 		file << App::getNextId() << endl;
+		//Guarda apps apagadas
+		for (it = apps_apagadas.begin(); it != apps_apagadas.end(); it++) {
+			save_one_app(file, *it);
+		}
+		//Guarda apps a validar
+		while (!validar_temp.empty()) {
+			save_one_app(file, validar_temp.top());
+			validar_temp.pop();
+		}
 		for (unsigned int i = 0; i < apps.size(); i++) {
 			file << apps[i].getId() << endl;
 			file << apps[i].getNome() << endl;
@@ -139,6 +177,7 @@ bool AppStore::save_app(ofstream& file) {
 			file << apps[i].getClassificacaoFinal() << endl;
 			file << apps[i].getNumClassificacoes() << endl;
 			file << apps[i].isValidada() << endl;
+			file << apps[i].isApagada() << endl;
 			file << apps[i].getDataSubmissao().getYear() << endl; //TODO melhor escrita data
 			file << apps[i].getDataSubmissao().getMonth() << endl;
 			file << apps[i].getDataSubmissao().getDay() << endl;
@@ -159,6 +198,7 @@ bool AppStore::save_app(ofstream& file) {
 			} else
 				file << apps[i].getDev()->getId() << endl;
 		}
+
 	}
 	return true;
 }
@@ -167,7 +207,7 @@ bool AppStore::load_app(fstream& file) {
 	unsigned int next_id, id, num_clas, com_size, com_id_cliente, com_clas,
 			dev_id, ano, mes, dia, hora, minuto;
 	double preco, clas_final;
-	bool valida;
+	bool valida, apagada;
 	string categoria, descricao, com_descricao, temp, nome;
 	vector<Comentario> com_temp;
 	getline(file, temp);
@@ -191,6 +231,8 @@ bool AppStore::load_app(fstream& file) {
 		stringstream(temp) >> num_clas;
 		getline(file, temp);
 		stringstream(temp) >> valida;
+		getline(file, temp);
+		stringstream(temp) >> apagada;
 		getline(file, temp);
 		stringstream(temp) >> ano;
 		getline(file, temp);
@@ -220,12 +262,18 @@ bool AppStore::load_app(fstream& file) {
 		stringstream(temp) >> dev_id;
 
 		App* app_temp = new App(id, nome, categoria, descricao, preco,
-				clas_final, num_clas, valida, *date_temp);
+				clas_final, num_clas, valida, *date_temp, apagada);
 		app_temp->setDev(find_dev_id(dev_id));
 		if (com_size) {
 			app_temp->setComentarios(com_temp);
 		}
-		apps.push_back(*app_temp);
+		if (apagada) {
+			apps_apagadas.insert(*app_temp);
+		} else if (!valida) {
+			apps_a_validar.push(*app_temp);
+		} else {
+			apps.push_back(*app_temp);
+		}
 		com_temp.clear();
 	}
 	return true;
@@ -315,7 +363,7 @@ bool AppStore::load_all() {
 	load_clientes(file_clientes);
 	file_clientes.close();
 
-	//developer->app->vendas->cliente
+//developer->app->vendas->cliente
 }
 
 //TODO: remover cenas que tenham o pointer da app e adicionar o bool e a cena do ID
@@ -626,12 +674,12 @@ void File_Exp::setIdErro(unsigned int idErro) {
 }
 
 bool AppStore::removeAppValidar(unsigned int id) {
-	priority_queue<App *, vector<App *>, ComparaAppValidar> temp;
+	priority_queue<App, vector<App>, ComparaAppValidar> temp;
 	if (apps_a_validar.empty()) {
 		return false;
 	}
 	while (!apps_a_validar.empty()) {
-		if (apps_a_validar.top()->getId() == id) {
+		if (apps_a_validar.top().getId() == id) {
 			apps_a_validar.pop();
 		} else {
 			temp.push(apps_a_validar.top());
