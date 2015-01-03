@@ -8,10 +8,42 @@
 #include "AppStore.h"
 #include <sstream>
 
-AppStore::AppStore() {
+AppStore::AppStore():arv_apps(App("","","",0.0,Date())){
 	// TODO Auto-generated constructor stub
 
 }
+
+void AppStore::create_tree()
+{
+	for(unsigned int i=0;i<apps.size();i++)
+	{
+		arv_apps.insert(apps[i]);
+	}
+}
+
+void AppStore::top10()
+{
+	int tc = 0;
+	while (tc != 27)
+	{
+		cout << "  Visita Store - TOP 10 de Apps" << endl << endl;
+		cout << "  Prima (Esc) para regressar  " << endl << endl;
+		if (arv_apps.isEmpty())
+			cout << endl << endl << endl << "  Nao ha Apps para mostrar  " << endl;
+		else
+		{
+			BSTItrIn<App> it(arv_apps);
+			for(unsigned int i=1 ;(i <= 10) && !(it.isAtEnd());i++)
+			{
+				App temp = *(it.retrieve());
+				cout << i << ". " << " Nome: " << temp.getNome << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco:" << temp.getPreco() << endl;
+				it.advance();
+			}
+		}
+		tc = getch;
+	}
+}
+
 
 Date AppStore::DataAtual() {
 	time_t t = time(0);
