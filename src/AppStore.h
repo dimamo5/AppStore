@@ -149,6 +149,13 @@ public:
 	 * @return Vector Apps
 	 */
 	vector<App> getAppsForaStore(Developer * dev_act);
+
+	vector<App> getAppsNaoValidadas(Developer* dev_act);
+
+	/**
+	 *
+	 * @return
+	 */
 	tr1::unordered_set<App, HashApp, EqualApp> getHashTable();
 	/**
 	 * Numero de Apps de um Developer
@@ -266,6 +273,7 @@ public:
 	 * @return apps prontas para serem vendidas
 	 */
 	vector<App> appsDisponiveis() const;
+
 
 };
 

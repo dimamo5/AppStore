@@ -497,6 +497,21 @@ vector<App> AppStore::getAppsForaStore(Developer * dev_act) {
 	return apps_fora_store;
 }
 
+vector<App> AppStore::getAppsNaoValidadas(Developer* dev_act) {
+	priority_queue<App, vector<App>, ComparaAppValidar> temp_nao_validadas =
+			apps_a_validar;
+
+	vector<App> apps_temp;
+
+	while (!temp_nao_validadas.empty()) {
+		if(temp_nao_validadas.top().getDev()->getId()==dev_act->getId()){
+			apps_temp.push_back(temp_nao_validadas.top());
+		}
+		temp_nao_validadas.pop();
+	}
+
+}
+
 tr1::unordered_set<App, HashApp, EqualApp> AppStore::getHashTable() {
 	return apps_apagadas;
 }
@@ -551,10 +566,10 @@ bool AppStore::existeNomeAppAnywhere(string nome) const {
 		}
 	}
 
-	priority_queue<App, vector<App >, ComparaAppValidar> copia = apps_a_validar;
+	priority_queue<App, vector<App>, ComparaAppValidar> copia = apps_a_validar;
 
-	while(!copia.empty()){
-		if (copia.top().getNome() == nome){
+	while (!copia.empty()) {
+		if (copia.top().getNome() == nome) {
 			return true;
 		}
 		copia.pop();
@@ -702,8 +717,8 @@ vector<App> AppStore::appsDisponiveis() const {
 	return temp;
 }
 
-void AppStore::validarApp(){
-	App a_temp=apps_a_validar.top();
+void AppStore::validarApp() {
+	App a_temp = apps_a_validar.top();
 	a_temp.setValidada(true);
 	apps.push_back(a_temp);
 	apps_a_validar.pop();

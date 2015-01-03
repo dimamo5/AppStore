@@ -34,7 +34,6 @@ const std::string ADMIN_PASS = "123";
 #include "Cliente.h"
 #include "App.h"
 
-
 class Date;
 
 /**
@@ -93,7 +92,8 @@ bool verificaPass(T* dev_or_cli);
  * @param selected_option Opcao actual do vetor em que se esta - esta opcao esta highlighted com cor branca
  * @param max_per_screen Maximo de opcoes mostradas de cada vez no ecra
  */
-void printMenuScroll(vector<string> options, int selected_option, const unsigned int max_per_screen);
+void printMenuScroll(vector<string> options, int selected_option,
+		const unsigned int max_per_screen);
 /**
  *  Altera a cor do background e foreground para os valores/cores especificadas
  * @param background Cor para o fundo do API - usa-se aqui uma das macros definidas
@@ -284,7 +284,6 @@ void menuRemoverApp(AppStore& mieic);
  */
 void menuModificarApp(AppStore& mieic);
 
-
 /**
  * Menu onde sao listadas as apps e o user pode carregar enter para remover a selecionada do cesto.
  * Ao acontecer isto o menu e refreshed. Para sair do menu, o user pode carregar Esc
@@ -307,7 +306,7 @@ void menuCheckoutApps(AppStore& mieic);
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  * @param cli Pointer para o cliente atual, a cujo cesto de compras se acede
  */
-void apagaAppsNaoExistentes(AppStore& mieic,Cliente* cli);
+void apagaAppsNaoExistentes(AppStore& mieic, Cliente* cli);
 /**
  * Menu que faz display dos tipos de ordenacao possiveis para as apps. Escolhe-se depois o tipo de
  * ordenacao e o menu chama o menuVisitaStoreOrdenada(...) e faz display do vetor das apps todas,
@@ -328,7 +327,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state);
  * @param apps_ordenadas Vetor de apps que vao ser exibidas/listadas
  * @param tipo_ordenacao Tipo de ordenacao - por preco, alfabetica ou por dev+preco ou dev+alfabetica
  */
-void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state, vector<App> apps_ordenadas, string tipo_ordenacao);
+void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
+		vector<App> apps_ordenadas, string tipo_ordenacao);
 /**
  * Menu que lista os developers existentes, podendo-se escolher o developer e o tipo de listagem.
  * O menu chama depois o menuVisitaStoreOrdenada(...) e faz display do vetor das apps desse
@@ -350,13 +350,11 @@ void menuListaCliente(AppStore& mieic);
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  */
 void menuAppsEmEspera(AppStore& mieic);
-
 void menuRemoverAppDaStore(AppStore& mieic);
 void menuRemoverAppForaStorePerma(AppStore& mieic);
 void menuReporAppStore(AppStore& mieic);
 void menuModificarAppsRemovidas(AppStore& mieic);
 void menuListarAppsRemovidas(AppStore& mieic);
-
-void menuAppsNaoValidadas(AppStore& mieic);
+void menuModificarAppsNaoValidadas(AppStore& mieic);
 
 #endif /* MENU_H_ */
