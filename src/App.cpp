@@ -152,6 +152,44 @@ void App::setDataSubmissao(const Date& dataSubmissao) {
 	data_submissao = dataSubmissao;
 }
 
+bool App::operator<(const App& appb) const
+{
+	if(this->classificacao_final > appb.classificacao_final)
+		return true;
+	else
+	{
+		if(appb.classificacao_final > this->classificacao_final)
+			return false;
+		else
+		{
+			if(this->preco > appb.preco)
+				return true;
+			else
+			{
+				if(appb.preco > this->preco)
+					return false;
+				else
+				{
+					if(this->categoria > appb.categoria)
+						return true;
+					else
+					{
+						if(appb.categoria > this->categoria)
+							return false;
+						else
+						{
+							if(this->nome > appb.nome)
+								return true;
+							else
+								return false;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 /*
  * app.cpp
  *

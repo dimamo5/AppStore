@@ -178,7 +178,12 @@ public:
 	 * @return String como toda a informacao
 	 */
 	string imprime() const;
-
+	/**
+	 * Overloading do operador <
+	 * @param appb App a comparar
+	 * @return True se appa < appb ou False caso contrario
+	 */
+	bool operator<(const App & appb) const;
 
 	/**
 	 * Getter Validacao da App
