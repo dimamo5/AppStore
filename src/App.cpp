@@ -3,7 +3,7 @@
 unsigned int App::next_id = 1;
 
 App::App(string nome, string categoria, string descricao, double preco,
-		Date data):nome(nome),categoria(categoria),descricao(descricao),preco(preco),validada(false),data_submissao(data) {
+		Date data):nome(nome),categoria(categoria),descricao(descricao),preco(preco),validada(false),data_submissao(data),apagada(false) {
 	this->id = next_id;
 	next_id++;
 };
