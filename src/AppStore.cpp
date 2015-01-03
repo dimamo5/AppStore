@@ -23,6 +23,7 @@ void AppStore::create_tree() {
 void AppStore::top10() {
 	int tc = 0;
 	while (tc != 27) {
+		system("cls");
 		cout << "  Visita Store - TOP 10 de Apps" << endl << endl;
 		cout << "  Prima (Esc) para regressar  " << endl << endl;
 		if (arv_apps.isEmpty())
