@@ -13,11 +13,14 @@
 #include "Cliente.h"
 #include "App.h"
 #include "Date.h"
+#include "BST.h"
 #include <string>
 #include <fstream>
 #include <ctime>
 #include <tr1/unordered_set>
 #include <queue>
+#include <conio.h>
+#include <windows.h>
 
 extern Developer* dev_act;
 extern Cliente* cli_act;
