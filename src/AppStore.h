@@ -256,6 +256,8 @@ public:
 	 */
 	bool load_dev(fstream &file);
 
+	void validarApp();
+
 	void save_one_app(ofstream& file, App a);
 
 	bool removeAppValidar(unsigned int id);
@@ -264,6 +266,7 @@ public:
 	 * @return apps prontas para serem vendidas
 	 */
 	vector<App> appsDisponiveis() const;
+
 };
 
 /**

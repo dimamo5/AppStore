@@ -692,6 +692,7 @@ bool AppStore::removeAppValidar(unsigned int id) {
 }
 
 vector<App> AppStore::appsDisponiveis() const {
+
 	vector<App> temp;
 	for (unsigned int i = 0; i < apps.size(); i++) {
 		if (apps[i].isValidada()) {
@@ -699,4 +700,11 @@ vector<App> AppStore::appsDisponiveis() const {
 		}
 	}
 	return temp;
+}
+
+void AppStore::validarApp(){
+	App a_temp=apps_a_validar.top();
+	a_temp.setValidada(true);
+	apps.push_back(a_temp);
+	apps_a_validar.pop();
 }

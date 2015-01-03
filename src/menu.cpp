@@ -4899,6 +4899,7 @@ void menuAppsEmEspera(AppStore& mieic) {
 	bool passCerta = false;
 	passCerta = verificaPassAdmin();
 	int opcao = 0;
+	int tecla;
 
 	if (passCerta) {
 
@@ -4912,7 +4913,6 @@ void menuAppsEmEspera(AppStore& mieic) {
 				cout << endl << endl << endl << "  Nao ha Apps para mostrar  "
 						<< endl;
 
-				int tecla;
 				tecla = getch();
 				if (tecla != 0) {
 					while (tecla != 27) { // Enquanto nao carregar no escape, nao sai
@@ -4951,14 +4951,57 @@ void menuAppsEmEspera(AppStore& mieic) {
 				switch (opcao - 13) //sempre que se adicionar mais opções, adicionar mais um case (ex: case -4: return 0; break;)
 				{
 				case 0: // VALIDAR A APP
+					mieic.validarApp();
 
-//					mieic.apps_a_validar.top().setValidada(true);
-//					mieic.apps(mieic.apps_a_validar.top());
-					mieic.apps_a_validar.pop();
+					system("cls");
+					cout << "  Validar Apps em Espera  " << endl << endl << endl
+							<< endl;
+					cout << "  Sucesso! App Validada.  " << endl << endl;
+					cout << "  Prima (Enter) para continuar " << endl << endl;
+
+					tecla = getch();
+					if (tecla != 0) {
+						while (tecla != 13) { // enquanto nao prime enter para continuar
+							tecla = getch();
+						}
+					}
+
+					try {
+						mieic.save_all();
+					} catch (File_Exp& exp) {
+						cor(BLACK, RED);
+						cerr << "Error" + exp.getIdErro() << endl;
+						cerr << exp.getDescricaoErro() << endl;
+						cor(BLACK, WHITE); //reset à cor
+					}
+
 					menuAppsEmEspera(mieic);
 					break;
 				case -1: // REMOVER A APP
 					mieic.apps_a_validar.pop();
+
+					system("cls");
+					cout << "  Validar Apps em Espera  " << endl << endl << endl
+							<< endl;
+					cout << "  Sucesso! App Removida da Lista de Validacao.  " << endl << endl;
+					cout << "  Prima (Enter) para continuar " << endl << endl;
+
+					tecla = getch();
+					if (tecla != 0) {
+						while (tecla != 13) { // enquanto nao prime enter para continuar
+							tecla = getch();
+						}
+					}
+
+					try {
+						mieic.save_all();
+					} catch (File_Exp& exp) {
+						cor(BLACK, RED);
+						cerr << "Error" + exp.getIdErro() << endl;
+						cerr << exp.getDescricaoErro() << endl;
+						cor(BLACK, WHITE); //reset à cor
+					}
+
 					menuAppsEmEspera(mieic);
 					break;
 				case -2: // SAIR SEM FAZER NADA
