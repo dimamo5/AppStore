@@ -209,49 +209,49 @@ public:
 	bool load_all();
 	/**
 	 * Faz save de todas as Apps da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_app(ofstream &file);
 	/**
 	 * Faz load de todas as Apps da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_app(fstream &file);
 	/**
 	 * Faz save de todas as Vendas da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_vendas(ofstream &file);
 	/**
 	 * Faz load de todas as Vendas da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_vendas(fstream &file);
 	/**
 	 * Faz save de todos os Clientes da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_clientes(ofstream &file);
 	/**
 	 * Faz load de todos os Clientes da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_clientes(fstream &file);
 	/**
 	 * Faz save de todos os Developers da AppStore
-	 * @param file ficheiro para onde é gravada a informacao
+	 * @param file ficheiro para onde Ã© gravada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool save_dev(ofstream &file);
 	/**
 	 * Faz load de todos os Developers da AppStore
-	 * @param file ficheiro de onde é carregada a informacao
+	 * @param file ficheiro de onde Ã© carregada a informacao
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_dev(fstream &file);
@@ -264,6 +264,14 @@ public:
 	 * @return apps prontas para serem vendidas
 	 */
 	vector<App> appsDisponiveis() const;
+	/**
+	 * Passa todas as apps do vetor apps para arvore arv_apps
+	 */
+	void create_tree();
+	/**
+	 * Imprime as top 10 apps presentes na arvore
+	 */
+	void top10();
 };
 
 /**
