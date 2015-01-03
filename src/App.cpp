@@ -10,10 +10,10 @@ App::App(string nome, string categoria, string descricao, double preco,
 
 App::App(unsigned int id, string nome, string categoria, string descricao,
 		double preco, double classificacao_final, int num_classificacoes,
-		bool validada, Date data) :
+		bool validada, Date data,bool apagada) :
 		id(id), nome(nome), categoria(categoria), descricao(descricao), preco(
 				preco), classificacao_final(classificacao_final), num_classificacoes(
-				num_classificacoes), validada(validada), data_submissao(data) {
+				num_classificacoes), validada(validada), data_submissao(data),apagada(apagada) {
 
 }
 
@@ -138,6 +138,10 @@ void App::setValidada() {
 
 const Date& App::getDataSubmissao() const {
 	return data_submissao;
+}
+
+bool App::isApagada() const {
+	return apagada;
 }
 
 void App::setDataSubmissao(const Date& dataSubmissao) {
