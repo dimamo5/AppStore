@@ -2577,7 +2577,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			if (opcao == 0)
 				cor(WHITE, BLACK);
-			cout << "TOP 10" << endl;
+			cout << "  TOP 10" << endl;
+			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
@@ -2641,7 +2642,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			if (opcao == 0)
 				cor(WHITE, BLACK);
-			cout << "TOP 10" << endl;
+			cout << "  TOP 10" << endl;
+			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
@@ -2705,7 +2707,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			if (opcao == 0)
 				cor(WHITE, BLACK);
-			cout << "TOP 10" << endl;
+			cout << "  TOP 10" << endl;
+			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
