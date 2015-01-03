@@ -307,6 +307,7 @@ bool AppStore::load_app(fstream& file) {
 		}
 		com_temp.clear();
 	}
+	create_tree();
 	return true;
 
 }
