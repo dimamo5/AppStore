@@ -3857,7 +3857,7 @@ void menuCriarApp(AppStore& mieic) {
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
 			App app_temp(nome_app, categoria, descricao, preco,
-					mieic.data_atual);
+					mieic.DataAtual());
 			app_temp.setDev(dev_act);
 			mieic.apps_a_validar.push(app_temp); //mete na priority queue a app que foi adicionada
 

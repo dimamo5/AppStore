@@ -125,7 +125,6 @@ string App::imprime() const {
 			+ "\n\n" + "  Descricao: " + this->descricao + "\n\n"
 			+ "  Developer: " + dev->getNome() + "\n\n" + "  Preco: "
 			+ str_preco + "\n\n" + "  Classificacao: " + str_class;
-
 //	if (validada)
 //	{
 //		ret += "\n\n Esta app foi validada.";
