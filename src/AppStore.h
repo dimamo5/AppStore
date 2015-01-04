@@ -110,8 +110,8 @@ public:
 	Date data_atual; /**< Data Actual */
 	bool has_put_password;
 
-	BST<App*> arv_apps; /**< Arvore com todas as Apps activas na Store */
-	App nula = App("", "", "", 0.0, Date());
+	BST<AppPointer> arv_apps; /**< Arvore com todas as Apps activas na Store */
+	App nula = App("AppNula", "", "", 0.0, Date());
 
 	priority_queue<App, vector<App>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
 	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas; /**< Hashtable das apps apagadas */

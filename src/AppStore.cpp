@@ -15,10 +15,11 @@ AppStore::AppStore():arv_apps(&nula), has_put_password(false) {
 
 void AppStore::create_tree() {
 	for (unsigned int i = 0; i < apps.size(); i++) {
-		App* pointer = &apps[i];
+		AppPointer pointer(&apps[i]);
 		arv_apps.insert(pointer);
 	}
 }
+
 
 void AppStore::top10() {
 	int tc = 0;
@@ -30,11 +31,12 @@ void AppStore::top10() {
 			cout << endl << endl << endl << "  Nao ha Apps para mostrar  "
 					<< endl;
 		else {
-			BSTItrLevel<App*> it(arv_apps);
+			BSTItrIn<AppPointer> it(arv_apps);
 			for (unsigned int i = 1; (i <= 10) && !(it.isAtEnd()); i++) {
-				App temp = *(it.retrieve());
+				AppPointer temp_pointer = it.retrieve();
+				string s = temp_pointer.app_pointer->getNome();
 
-				cout << i << ". " << " Nome: " << temp.getNome() << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco: " << temp.getPreco() << endl;
+				cout << i << ". " << " Nome: " << s << "  Classificacao: " << temp_pointer.app_pointer->getClassificacaoFinal() << "  Preco: " << temp_pointer.app_pointer->getPreco() << endl;
 				it.advance();
 			}
 		}
@@ -741,8 +743,7 @@ void AppStore::validarApp() {
 	App a_temp = apps_a_validar.top();
 	a_temp.setValidada(true);
 	apps.push_back(a_temp);
-
-	App* temp_pointer = &apps[apps.size()-1];
+	AppPointer temp_pointer(&apps[apps.size()-1]);
 	arv_apps.insert(temp_pointer);
 	apps_a_validar.pop();
 }

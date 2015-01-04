@@ -192,7 +192,46 @@ bool App::operator<(const App& appb) const
 	}
 }
 
+bool AppPointer::operator<(const AppPointer& app_p) const{
+	if(this->app_pointer->getClassificacaoFinal() > app_p.app_pointer->getClassificacaoFinal())
+		return true;
+	else
+	{
+		if(app_p.app_pointer->getClassificacaoFinal() > this->app_pointer->getClassificacaoFinal())
+			return false;
+		else
+		{
+			if(this->app_pointer->getPreco() > app_p.app_pointer->getPreco())
+				return true;
+			else
+			{
+				if(app_p.app_pointer->getPreco() > this->app_pointer->getPreco())
+					return false;
+				else
+				{
+					if(this->app_pointer->getCategoria() > app_p.app_pointer->getCategoria())
+						return true;
+					else
+					{
+						if(app_p.app_pointer->getCategoria() > this->app_pointer->getCategoria())
+							return false;
+						else
+						{
+							if(this->app_pointer->getNome() > app_p.app_pointer->getNome())
+								return true;
+							else
+								return false;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
+App AppPointer::operator*() const{
+	return *(this->app_pointer);
+}
 
 /*
  * app.cpp

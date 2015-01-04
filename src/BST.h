@@ -185,9 +185,9 @@ insert( const Comparable & x, BinaryNode<Comparable> * & t ) const
 {
   if( t == NULL )
     t = new BinaryNode<Comparable>( x, NULL, NULL );
-  else if( *x < *t->element )
+  else if( x < t->element )
     insert( x, t->left );
-  else if( *t->element < *x )
+  else if( t->element < x )
     insert( x, t->right );
   else
     ;  // Duplicate; do nothing

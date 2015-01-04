@@ -29,6 +29,7 @@ extern Cliente* cli_act;
  *
  */
 
+
 class App {
 private:
 	unsigned int id;/**< @brief ID unico de cada App*/
@@ -212,5 +213,15 @@ public:
 	void setDataSubmissao(const Date& dataSubmissao);
 	bool isApagada() const;
 };
+
+class AppPointer{
+public:
+	AppPointer(){app_pointer = NULL;}
+	AppPointer(App* apontador){app_pointer = apontador;}
+	App* app_pointer;
+	bool operator<(const AppPointer& app_p) const;
+	App operator*() const;
+};
+
 
 #endif /* APP_H_ */
