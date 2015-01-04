@@ -295,6 +295,12 @@ public:
 	 * @param appa app a alterar
 	 */
 	void updateAppInTree(App* appa);
+	/*
+	 * Faz update da posição de uma app que foi alterada
+	 * @param appa app a alterar
+	 */
+	void updateAppInTree(App & appa);
+
 };
 
 /**

@@ -42,7 +42,9 @@ void AppStore::top10() {
 	}
 }
 
+
 void AppStore::updateAppInTree(App* appa)
+
 {
 	arv_apps.remove(appa);
 	arv_apps.insert(appa);
