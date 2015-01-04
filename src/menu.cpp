@@ -1345,7 +1345,7 @@ void menuDeveloperGerirApps(AppStore& mieic) {
 
 	for (;;) {
 		system("cls");
-		cout << "  Gestao de Apps  " << " A opcao e: " << opcao << endl << endl;
+		cout << "  Gestao de Apps  " << endl << endl;
 		cout << " ";
 		cor(WHITE, BLACK);
 		cout << " Apps na Store ";
@@ -3853,7 +3853,6 @@ void menuCriarApp(AppStore& mieic) {
 
 		// verifica se na appstore mieic ja ha algum developer com este nome de dev
 		nomeRepetido = mieic.existeNomeAppAnywhere(nome_app);
-
 		if (!nomeRepetido) { // se nome nao for repetido, sucesso!
 
 			App app_temp(nome_app, categoria, descricao, preco,
