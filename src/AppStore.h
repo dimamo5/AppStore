@@ -289,7 +289,11 @@ public:
 	 * Imprime as top 10 apps presentes na arvore
 	 */
 	void top10();
-
+	/**
+	 * Faz update da posição de uma app que foi alterada
+	 * @param appa app a alterar
+	 */
+	void updateAppInTree(App & appa);
 };
 
 /**
