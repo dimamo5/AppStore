@@ -6,6 +6,8 @@ var searchData=
   ['adicionaappcesto',['adicionaAppCesto',['../class_cliente.html#ae3840fd9746f6d047a519fd63d14d9e4',1,'Cliente']]],
   ['adicionarvenda',['adicionarVenda',['../class_cliente.html#a4d662c19cdc22851ce327e117fd78c58',1,'Cliente']]],
   ['apagaappsnaoexistentes',['apagaAppsNaoExistentes',['../menu_8h.html#a33c0f58b77edd51d4433290358b53f53',1,'menu.cpp']]],
-  ['app',['App',['../class_app.html#ae491b91a0a622aa5f78559403b83e0df',1,'App::App(string nome, string categoria, string descricao, double preco)'],['../class_app.html#a77f4deed2edae59b74f5aca757c1368a',1,'App::App(unsigned int id, string nome, string categoria, string descricao, double preco, double classificacao_final, int num_classificacoes)']]],
+  ['app',['App',['../class_app.html#a38e0c0579af5de4a22afeac6f0afcc5e',1,'App::App(string nome, string categoria, string descricao, double preco, Date data)'],['../class_app.html#ac7da033f37aabccd99f4c77dc664ce4b',1,'App::App(unsigned int id, string nome, string categoria, string descricao, double preco, double classificacao_final, int num_classificacoes, bool validada, Date data, bool apagada)']]],
+  ['apppointer',['AppPointer',['../class_app_pointer.html#a603af9c797f92a32f6a0c7de9be279cb',1,'AppPointer::AppPointer()'],['../class_app_pointer.html#a2b1f6bfd847ee8fe9ecd90fc6df11464',1,'AppPointer::AppPointer(App *apontador)']]],
+  ['appsdisponiveis',['appsDisponiveis',['../class_app_store.html#a93b6172ff24da693a1d4f460ccfc1a88',1,'AppStore']]],
   ['appstore',['AppStore',['../class_app_store.html#ac94669ac551c6862db7f3636fc86ae8e',1,'AppStore']]]
 ];

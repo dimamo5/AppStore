@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['file_5fexp',['File_Exp',['../class_file___exp.html',1,'']]]
+  ['empresa',['Empresa',['../class_empresa.html',1,'']]],
+  ['equalapp',['EqualApp',['../struct_equal_app.html',1,'']]]
 ];

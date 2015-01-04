@@ -98,10 +98,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae491b91a0a622aa5f78559403b83e0df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#ae491b91a0a622aa5f78559403b83e0df">App</a> (string nome, string categoria, string descricao, double preco)</td></tr>
-<tr class="separator:ae491b91a0a622aa5f78559403b83e0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77f4deed2edae59b74f5aca757c1368a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a77f4deed2edae59b74f5aca757c1368a">App</a> (unsigned int id, string nome, string categoria, string descricao, double preco, double classificacao_final, int num_classificacoes)</td></tr>
-<tr class="separator:a77f4deed2edae59b74f5aca757c1368a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38e0c0579af5de4a22afeac6f0afcc5e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a38e0c0579af5de4a22afeac6f0afcc5e">App</a> (string nome, string categoria, string descricao, double preco, <a class="el" href="class_date.html">Date</a> data)</td></tr>
+<tr class="separator:a38e0c0579af5de4a22afeac6f0afcc5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7da033f37aabccd99f4c77dc664ce4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#ac7da033f37aabccd99f4c77dc664ce4b">App</a> (unsigned int id, string nome, string categoria, string descricao, double preco, double classificacao_final, int num_classificacoes, bool validada, <a class="el" href="class_date.html">Date</a> data, bool apagada)</td></tr>
+<tr class="separator:ac7da033f37aabccd99f4c77dc664ce4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac720715c2e11bfc218842141b9c6e0d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#ac720715c2e11bfc218842141b9c6e0d2">update_classificacao</a> (unsigned int clas)</td></tr>
 <tr class="separator:ac720715c2e11bfc218842141b9c6e0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58076d5e40336d8f1489f49ebcc648ac"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a58076d5e40336d8f1489f49ebcc648ac">getCategoria</a> () const </td></tr>
@@ -142,6 +142,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af0140ea32801ddf481e61fda65024ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3a98845da9ba10769df22e1e21f3db0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#af3a98845da9ba10769df22e1e21f3db0">imprime</a> () const </td></tr>
 <tr class="separator:af3a98845da9ba10769df22e1e21f3db0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89d6515b1a73716dabbcfb258ddf2783"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a89d6515b1a73716dabbcfb258ddf2783">operator&lt;</a> (const <a class="el" href="class_app.html">App</a> &amp;appb) const </td></tr>
+<tr class="separator:a89d6515b1a73716dabbcfb258ddf2783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa87b9e6cd0099a036cf4ecbc4171bc45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#aa87b9e6cd0099a036cf4ecbc4171bc45">isValidada</a> () const </td></tr>
+<tr class="separator:aa87b9e6cd0099a036cf4ecbc4171bc45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c1495ff54cef5545d16cf44a697eb7c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a2c1495ff54cef5545d16cf44a697eb7c">setValidada</a> (bool valor)</td></tr>
+<tr class="separator:a2c1495ff54cef5545d16cf44a697eb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf85b111c1b1b925d036387902da5a69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#aaf85b111c1b1b925d036387902da5a69">setApagada</a> (bool valor)</td></tr>
+<tr class="separator:aaf85b111c1b1b925d036387902da5a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e89fa62862113c197e4e05c55e6e5ec"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_date.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a9e89fa62862113c197e4e05c55e6e5ec">getDataSubmissao</a> () const </td></tr>
+<tr class="separator:a9e89fa62862113c197e4e05c55e6e5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89712d5de34c065566dbcb90cfe6d316"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app.html#a89712d5de34c065566dbcb90cfe6d316">setDataSubmissao</a> (const <a class="el" href="class_date.html">Date</a> &amp;dataSubmissao)</td></tr>
+<tr class="separator:a89712d5de34c065566dbcb90cfe6d316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3df8fe2a598ca2d52c9a6e491a693e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3df8fe2a598ca2d52c9a6e491a693e7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isApagada</b> () const </td></tr>
+<tr class="separator:ad3df8fe2a598ca2d52c9a6e491a693e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -153,7 +168,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Classe que contem informacao sofre apps. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae491b91a0a622aa5f78559403b83e0df"></a>
+<a class="anchor" id="a38e0c0579af5de4a22afeac6f0afcc5e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -179,7 +194,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>preco</em>&#160;</td>
+          <td class="paramname"><em>preco</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_date.html">Date</a>&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -200,7 +221,7 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a77f4deed2edae59b74f5aca757c1368a"></a>
+<a class="anchor" id="ac7da033f37aabccd99f4c77dc664ce4b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -244,7 +265,25 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_classificacoes</em>&#160;</td>
+          <td class="paramname"><em>num_classificacoes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>validada</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_date.html">Date</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>apagada</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -336,6 +375,22 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Getter de todos os Comentarios/Classificacoes feitas </p><dl class="section return"><dt>Returns</dt><dd>Vector Comentarios </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a9e89fa62862113c197e4e05c55e6e5ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_date.html">Date</a> &amp; App::getDataSubmissao </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter Data de Submissao </p><dl class="section return"><dt>Returns</dt><dd>Data de Submissao da <a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> </dd></dl>
 
 </div>
 </div>
@@ -491,6 +546,67 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="aa87b9e6cd0099a036cf4ecbc4171bc45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool App::isValidada </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter Validacao da <a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> </p><dl class="section return"><dt>Returns</dt><dd>True se app aprovada ou False caso contrario </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a89d6515b1a73716dabbcfb258ddf2783"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool App::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_app.html">App</a> &amp;&#160;</td>
+          <td class="paramname"><em>appb</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Overloading do operador &lt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">appb</td><td><a class="el" href="class_app.html" title="Classe que contem informacao sofre apps. ">App</a> a comparar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True se appa &lt; appb ou False caso contrario </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aaf85b111c1b1b925d036387902da5a69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App::setApagada </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>valor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Altera o valor da flag apagada da app </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>True ou False consoante o valor pretendido para validada </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="add85e6926cb052edac84f210889df476"></a>
 <div class="memitem">
 <div class="memproto">
@@ -551,6 +667,28 @@ Static Public Member Functions</h2></td></tr>
 <p>Setter Comentarios (usado para carregar dos ficheiros) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">comentarios</td><td>Vector com novos Comentarios </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a89712d5de34c065566dbcb90cfe6d316"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App::setDataSubmissao </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_date.html">Date</a> &amp;&#160;</td>
+          <td class="paramname"><em>dataSubmissao</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter Data de Submissao </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dataSubmissao</td><td>Data da Submissao </td></tr>
   </table>
   </dd>
 </dl>
@@ -675,6 +813,28 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a2c1495ff54cef5545d16cf44a697eb7c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App::setValidada </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>valor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Altera o valor da flag apagada da app </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">valor</td><td>True ou False consoante o valor pretendido para validada </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="ac720715c2e11bfc218842141b9c6e0d2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -704,7 +864,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 9 2014 11:08:27 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 4 2015 17:42:48 for AppStore by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

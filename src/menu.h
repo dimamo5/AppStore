@@ -342,7 +342,6 @@ void menuListaDeveloper(AppStore& mieic, unsigned int& state);
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  */
 void menuListaCliente(AppStore& mieic);
-
 /**
  * Menu que faz validacao das apps em espera na priority_queue
  * A validacao so e efetuada apos o admin inserir os seus dados
@@ -350,11 +349,36 @@ void menuListaCliente(AppStore& mieic);
  * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
  */
 void menuAppsEmEspera(AppStore& mieic);
+
+/**
+ * Menu que faz a Remocao de uma App da Store e move a para a hashtable
+ * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
+ */
 void menuRemoverAppDaStore(AppStore& mieic);
+/**
+ * Menu que faz a Remocao de uma App permanentemente da AppStore
+ * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
+ */
 void menuRemoverAppForaStorePerma(AppStore& mieic);
+/**
+ * Menu que remove uma App da HashTable e volta a coloca la na AppStore
+ * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
+ */
 void menuReporAppStore(AppStore& mieic);
+/**
+ * Menu que modifica Apps removidas da Appstore
+ * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
+ */
 void menuModificarAppsRemovidas(AppStore& mieic);
+/**
+ * Menu que lista Apps removidas
+ * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
+ */
 void menuListarAppsRemovidas(AppStore& mieic);
+/**
+ * Menu que modifica as App ainda nao validadas
+ * @param mieic AppStore criada no main, passada por referencia para poder ser alterada
+ */
 void menuModificarAppsNaoValidadas(AppStore& mieic);
 
 #endif /* MENU_H_ */

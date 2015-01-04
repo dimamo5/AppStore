@@ -13,9 +13,9 @@ Classe que contem informacao sofre apps.
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_app_ae491b91a0a622aa5f78559403b83e0df}{App} (string nome, string categoria, string descricao, double preco)
+\hyperlink{class_app_a38e0c0579af5de4a22afeac6f0afcc5e}{App} (string nome, string categoria, string descricao, double preco, \hyperlink{class_date}{Date} data)
 \item 
-\hyperlink{class_app_a77f4deed2edae59b74f5aca757c1368a}{App} (unsigned int id, string nome, string categoria, string descricao, double preco, double classificacao\+\_\+final, int num\+\_\+classificacoes)
+\hyperlink{class_app_ac7da033f37aabccd99f4c77dc664ce4b}{App} (unsigned int id, string nome, string categoria, string descricao, double preco, double classificacao\+\_\+final, int num\+\_\+classificacoes, bool validada, \hyperlink{class_date}{Date} data, bool apagada)
 \item 
 void \hyperlink{class_app_ac720715c2e11bfc218842141b9c6e0d2}{update\+\_\+classificacao} (unsigned int clas)
 \item 
@@ -56,6 +56,21 @@ void \hyperlink{class_app_ada474e2840fd5ca144dc6d5d61c55460}{inc\+Num\+Classific
 void \hyperlink{class_app_af0140ea32801ddf481e61fda65024ba8}{set\+Descricao} (const string \&descricao)
 \item 
 string \hyperlink{class_app_af3a98845da9ba10769df22e1e21f3db0}{imprime} () const 
+\item 
+bool \hyperlink{class_app_a89d6515b1a73716dabbcfb258ddf2783}{operator$<$} (const \hyperlink{class_app}{App} \&appb) const 
+\item 
+bool \hyperlink{class_app_aa87b9e6cd0099a036cf4ecbc4171bc45}{is\+Validada} () const 
+\item 
+void \hyperlink{class_app_a2c1495ff54cef5545d16cf44a697eb7c}{set\+Validada} (bool valor)
+\item 
+void \hyperlink{class_app_aaf85b111c1b1b925d036387902da5a69}{set\+Apagada} (bool valor)
+\item 
+const \hyperlink{class_date}{Date} \& \hyperlink{class_app_a9e89fa62862113c197e4e05c55e6e5ec}{get\+Data\+Submissao} () const 
+\item 
+void \hyperlink{class_app_a89712d5de34c065566dbcb90cfe6d316}{set\+Data\+Submissao} (const \hyperlink{class_date}{Date} \&data\+Submissao)
+\item 
+\hypertarget{class_app_ad3df8fe2a598ca2d52c9a6e491a693e7}{bool {\bfseries is\+Apagada} () const }\label{class_app_ad3df8fe2a598ca2d52c9a6e491a693e7}
+
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -70,16 +85,17 @@ static void \hyperlink{class_app_ac02dab3cd7642d98173bfd6365eb6d9e}{set\+Next\+I
 Classe que contem informacao sofre apps. 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_app_ae491b91a0a622aa5f78559403b83e0df}{\index{App@{App}!App@{App}}
+\hypertarget{class_app_a38e0c0579af5de4a22afeac6f0afcc5e}{\index{App@{App}!App@{App}}
 \index{App@{App}!App@{App}}
 \subsubsection[{App}]{\setlength{\rightskip}{0pt plus 5cm}App\+::\+App (
 \begin{DoxyParamCaption}
 \item[{string}]{nome, }
 \item[{string}]{categoria, }
 \item[{string}]{descricao, }
-\item[{double}]{preco}
+\item[{double}]{preco, }
+\item[{{\bf Date}}]{data}
 \end{DoxyParamCaption}
-)}}\label{class_app_ae491b91a0a622aa5f78559403b83e0df}
+)}}\label{class_app_a38e0c0579af5de4a22afeac6f0afcc5e}
 Construtor de \hyperlink{class_app}{App} 
 \begin{DoxyParams}{Parameters}
 {\em nome} & Nome \\
@@ -91,7 +107,7 @@ Construtor de \hyperlink{class_app}{App}
 {\em preco} & Preco \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_app_a77f4deed2edae59b74f5aca757c1368a}{\index{App@{App}!App@{App}}
+\hypertarget{class_app_ac7da033f37aabccd99f4c77dc664ce4b}{\index{App@{App}!App@{App}}
 \index{App@{App}!App@{App}}
 \subsubsection[{App}]{\setlength{\rightskip}{0pt plus 5cm}App\+::\+App (
 \begin{DoxyParamCaption}
@@ -101,9 +117,12 @@ Construtor de \hyperlink{class_app}{App}
 \item[{string}]{descricao, }
 \item[{double}]{preco, }
 \item[{double}]{classificacao\+\_\+final, }
-\item[{int}]{num\+\_\+classificacoes}
+\item[{int}]{num\+\_\+classificacoes, }
+\item[{bool}]{validada, }
+\item[{{\bf Date}}]{data, }
+\item[{bool}]{apagada}
 \end{DoxyParamCaption}
-)}}\label{class_app_a77f4deed2edae59b74f5aca757c1368a}
+)}}\label{class_app_ac7da033f37aabccd99f4c77dc664ce4b}
 Construtor usado na para carregar informacao dos ficheiros 
 \begin{DoxyParams}{Parameters}
 {\em id} & Id \\
@@ -165,6 +184,16 @@ Double Classificacao
 ) const}}\label{class_app_a55940da54fefa49300678f6ce87eeb04}
 Getter de todos os Comentarios/\+Classificacoes feitas \begin{DoxyReturn}{Returns}
 Vector Comentarios 
+\end{DoxyReturn}
+\hypertarget{class_app_a9e89fa62862113c197e4e05c55e6e5ec}{\index{App@{App}!get\+Data\+Submissao@{get\+Data\+Submissao}}
+\index{get\+Data\+Submissao@{get\+Data\+Submissao}!App@{App}}
+\subsubsection[{get\+Data\+Submissao}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Date} \& App\+::get\+Data\+Submissao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_app_a9e89fa62862113c197e4e05c55e6e5ec}
+Getter Data de Submissao \begin{DoxyReturn}{Returns}
+Data de Submissao da \hyperlink{class_app}{App} 
 \end{DoxyReturn}
 \hypertarget{class_app_a2dcf86011e3b1e8dc8d027f4b4b4b253}{\index{App@{App}!get\+Descricao@{get\+Descricao}}
 \index{get\+Descricao@{get\+Descricao}!App@{App}}
@@ -253,7 +282,44 @@ String como toda a informacao
 {}
 \end{DoxyParamCaption}
 )}}\label{class_app_ada474e2840fd5ca144dc6d5d61c55460}
-Incrementa por 1 o Num. total de classificacoes. \hypertarget{class_app_add85e6926cb052edac84f210889df476}{\index{App@{App}!set\+Categoria@{set\+Categoria}}
+Incrementa por 1 o Num. total de classificacoes. \hypertarget{class_app_aa87b9e6cd0099a036cf4ecbc4171bc45}{\index{App@{App}!is\+Validada@{is\+Validada}}
+\index{is\+Validada@{is\+Validada}!App@{App}}
+\subsubsection[{is\+Validada}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+::is\+Validada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_app_aa87b9e6cd0099a036cf4ecbc4171bc45}
+Getter Validacao da \hyperlink{class_app}{App} \begin{DoxyReturn}{Returns}
+True se app aprovada ou False caso contrario 
+\end{DoxyReturn}
+\hypertarget{class_app_a89d6515b1a73716dabbcfb258ddf2783}{\index{App@{App}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!App@{App}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf App} \&}]{appb}
+\end{DoxyParamCaption}
+) const}}\label{class_app_a89d6515b1a73716dabbcfb258ddf2783}
+Overloading do operador $<$ 
+\begin{DoxyParams}{Parameters}
+{\em appb} & \hyperlink{class_app}{App} a comparar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True se appa $<$ appb ou False caso contrario 
+\end{DoxyReturn}
+\hypertarget{class_app_aaf85b111c1b1b925d036387902da5a69}{\index{App@{App}!set\+Apagada@{set\+Apagada}}
+\index{set\+Apagada@{set\+Apagada}!App@{App}}
+\subsubsection[{set\+Apagada}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Apagada (
+\begin{DoxyParamCaption}
+\item[{bool}]{valor}
+\end{DoxyParamCaption}
+)}}\label{class_app_aaf85b111c1b1b925d036387902da5a69}
+Altera o valor da flag apagada da app 
+\begin{DoxyParams}{Parameters}
+{\em valor} & True ou False consoante o valor pretendido para validada \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_app_add85e6926cb052edac84f210889df476}{\index{App@{App}!set\+Categoria@{set\+Categoria}}
 \index{set\+Categoria@{set\+Categoria}!App@{App}}
 \subsubsection[{set\+Categoria}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Categoria (
 \begin{DoxyParamCaption}
@@ -287,6 +353,18 @@ Setter Classificacao
 Setter Comentarios (usado para carregar dos ficheiros) 
 \begin{DoxyParams}{Parameters}
 {\em comentarios} & Vector com novos Comentarios \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_app_a89712d5de34c065566dbcb90cfe6d316}{\index{App@{App}!set\+Data\+Submissao@{set\+Data\+Submissao}}
+\index{set\+Data\+Submissao@{set\+Data\+Submissao}!App@{App}}
+\subsubsection[{set\+Data\+Submissao}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Data\+Submissao (
+\begin{DoxyParamCaption}
+\item[{const {\bf Date} \&}]{data\+Submissao}
+\end{DoxyParamCaption}
+)}}\label{class_app_a89712d5de34c065566dbcb90cfe6d316}
+Setter Data de Submissao 
+\begin{DoxyParams}{Parameters}
+{\em data\+Submissao} & Data da Submissao \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_af0140ea32801ddf481e61fda65024ba8}{\index{App@{App}!set\+Descricao@{set\+Descricao}}
@@ -347,6 +425,18 @@ Setter Nome
 Setter Preco 
 \begin{DoxyParams}{Parameters}
 {\em p} & Double Novo Preco \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_app_a2c1495ff54cef5545d16cf44a697eb7c}{\index{App@{App}!set\+Validada@{set\+Validada}}
+\index{set\+Validada@{set\+Validada}!App@{App}}
+\subsubsection[{set\+Validada}]{\setlength{\rightskip}{0pt plus 5cm}void App\+::set\+Validada (
+\begin{DoxyParamCaption}
+\item[{bool}]{valor}
+\end{DoxyParamCaption}
+)}}\label{class_app_a2c1495ff54cef5545d16cf44a697eb7c}
+Altera o valor da flag apagada da app 
+\begin{DoxyParams}{Parameters}
+{\em valor} & True ou False consoante o valor pretendido para validada \\
 \hline
 \end{DoxyParams}
 \hypertarget{class_app_ac720715c2e11bfc218842141b9c6e0d2}{\index{App@{App}!update\+\_\+classificacao@{update\+\_\+classificacao}}

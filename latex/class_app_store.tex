@@ -27,11 +27,20 @@ Classe Principal do projecto que contem toda a informacao sofre a \hyperlink{cla
 \item 
 vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_a72f40c3c07e2207d9157533426d64ceb}{get\+Apps} (\hyperlink{class_developer}{Developer} $\ast$\hyperlink{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{dev\+\_\+act})
 \item 
+vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_abc0f34dd6a067273149076def23678b0}{get\+Apps\+Fora\+Store} (\hyperlink{class_developer}{Developer} $\ast$\hyperlink{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{dev\+\_\+act})
+\item 
+vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_a780673e2ce2216b302a68017faf12b92}{get\+Apps\+Nao\+Validadas} (\hyperlink{class_developer}{Developer} $\ast$\hyperlink{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{dev\+\_\+act})
+\item 
+tr1\+::unordered\+\_\+set$<$ \hyperlink{class_app}{App}, \\*
+\hyperlink{struct_hash_app}{Hash\+App}, \hyperlink{struct_equal_app}{Equal\+App} $>$ \hyperlink{class_app_store_a5f6bb94304c3564466c01e9ad3c1bd8f}{get\+Hash\+Table} ()
+\item 
 unsigned int \hyperlink{class_app_store_ae62d409b52edfc19e35f0388a26d9911}{get\+Nr\+Apps} (\hyperlink{class_developer}{Developer} $\ast$\hyperlink{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{dev\+\_\+act})
 \item 
 bool \hyperlink{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}{existe\+Nome\+Dev} (string nome) const 
 \item 
 bool \hyperlink{class_app_store_a2d4c84aab2fdbbfb28f53f17a40fb2ff}{existe\+Nome\+App} (string nome) const 
+\item 
+bool \hyperlink{class_app_store_a2b76916f0e991eb8dc8e4eef3f88ad83}{existe\+Nome\+App\+Anywhere} (string nome) const 
 \item 
 bool \hyperlink{class_app_store_a955c333e245cc31226c60d17d04254c6}{existe\+Nome\+Dev\+Emp} (string nome\+\_\+dev, string nome\+\_\+oficial) const 
 \item 
@@ -58,6 +67,22 @@ bool \hyperlink{class_app_store_a10cadeff1412d5cdb49c806746878b7d}{load\+\_\+cli
 bool \hyperlink{class_app_store_a86f8c8d69a134c570ee1ac5208204b35}{save\+\_\+dev} (ofstream \&file)
 \item 
 bool \hyperlink{class_app_store_ad45df395b61443556fd84f40cdcbd208}{load\+\_\+dev} (fstream \&file)
+\item 
+void \hyperlink{class_app_store_aa39278159e0cb86d5ec08dbd6d351517}{validar\+App} ()
+\item 
+void \hyperlink{class_app_store_a88ee901a42ecde9c491638b38ddee9e1}{save\+\_\+one\+\_\+app} (ofstream \&file, \hyperlink{class_app}{App} a)
+\item 
+bool \hyperlink{class_app_store_ac57dd44d5d6f2d9f8a708030554a3ca6}{remove\+App\+Validar} (unsigned int id)
+\item 
+vector$<$ \hyperlink{class_app}{App} $>$ \hyperlink{class_app_store_a93b6172ff24da693a1d4f460ccfc1a88}{apps\+Disponiveis} () const 
+\item 
+\hyperlink{singleton_b_s_t}{B\+S\+T}$<$ \hyperlink{class_app_pointer}{App\+Pointer} $>$ \hyperlink{class_app_store_a7806d7e2ba61e4bc76b1c2fe80377ae3}{create\+\_\+tree} ()
+\item 
+void \hyperlink{class_app_store_a46ca2d7082b03f86ecb65d990450a301}{top10} ()
+\item 
+void \hyperlink{class_app_store_ada51ac059c6621dd687e68a18199cb04}{update\+App\+In\+Tree} (\hyperlink{class_app}{App} $\ast$appa)
+\item 
+void \hyperlink{class_app_store_abb7719739aa051c8c27641f914f9794d}{update\+App\+In\+Tree} (\hyperlink{class_app}{App} \&appa)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -71,6 +96,20 @@ vector$<$ \hyperlink{class_developer}{Developer} $\ast$ $>$ \hyperlink{class_app
 vector$<$ \hyperlink{class_vendas}{Vendas} $\ast$ $>$ \hyperlink{class_app_store_a4e97a65b4daee5f339c307669075b90d}{vendas}
 \item 
 \hyperlink{class_date}{Date} \hyperlink{class_app_store_a5d50396ada945dfa3e439d28650a3aee}{data\+\_\+atual}
+\item 
+\hypertarget{class_app_store_a2e33f47dce6576e68e0117f3823e2dc5}{bool {\bfseries has\+\_\+put\+\_\+password}}\label{class_app_store_a2e33f47dce6576e68e0117f3823e2dc5}
+
+\item 
+\hyperlink{singleton_b_s_t}{B\+S\+T}$<$ \hyperlink{class_app_pointer}{App\+Pointer} $>$ \hyperlink{class_app_store_a6ab2508d05526a86f343628744512662}{arv\+\_\+apps}
+\item 
+\hypertarget{class_app_store_acafdce2f1fbb8774e0d310b2a36cdf12}{\hyperlink{class_app}{App} {\bfseries nula} = \hyperlink{class_app}{App}(\char`\"{}App\+Nula\char`\"{}, \char`\"{}\char`\"{}, \char`\"{}\char`\"{}, 0.\+0, Date())}\label{class_app_store_acafdce2f1fbb8774e0d310b2a36cdf12}
+
+\item 
+priority\+\_\+queue$<$ \hyperlink{class_app}{App}, vector\\*
+$<$ \hyperlink{class_app}{App} $>$, \hyperlink{struct_compara_app_validar}{Compara\+App\+Validar} $>$ \hyperlink{class_app_store_ac745889f659f0e3e247755490e758e34}{apps\+\_\+a\+\_\+validar}
+\item 
+tr1\+::unordered\+\_\+set$<$ \hyperlink{class_app}{App}, \\*
+\hyperlink{struct_hash_app}{Hash\+App}, \hyperlink{struct_equal_app}{Equal\+App} $>$ \hyperlink{class_app_store_ae3226a390018206bc6a52162c7de69a0}{apps\+\_\+apagadas}
 \end{DoxyCompactItemize}
 
 
@@ -88,6 +127,26 @@ Classe Principal do projecto que contem toda a informacao sofre a \hyperlink{cla
 Construtor Default \hyperlink{class_app_store}{App\+Store} 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_app_store_a93b6172ff24da693a1d4f460ccfc1a88}{\index{App\+Store@{App\+Store}!apps\+Disponiveis@{apps\+Disponiveis}}
+\index{apps\+Disponiveis@{apps\+Disponiveis}!App\+Store@{App\+Store}}
+\subsubsection[{apps\+Disponiveis}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf App} $>$ App\+Store\+::apps\+Disponiveis (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_a93b6172ff24da693a1d4f460ccfc1a88}
+Obtem vector de apps ja validadas \begin{DoxyReturn}{Returns}
+apps prontas para serem vendidas 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a7806d7e2ba61e4bc76b1c2fe80377ae3}{\index{App\+Store@{App\+Store}!create\+\_\+tree@{create\+\_\+tree}}
+\index{create\+\_\+tree@{create\+\_\+tree}!App\+Store@{App\+Store}}
+\subsubsection[{create\+\_\+tree}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+S\+T}$<$ {\bf App\+Pointer} $>$ App\+Store\+::create\+\_\+tree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a7806d7e2ba61e4bc76b1c2fe80377ae3}
+Passa todas as apps do vetor apps para arvore arv\+\_\+apps \begin{DoxyReturn}{Returns}
+Retorna essa arvore 
+\end{DoxyReturn}
 \hypertarget{class_app_store_ac89c1f1d006b53ba99661a4c5fccfce1}{\index{App\+Store@{App\+Store}!Data\+Atual@{Data\+Atual}}
 \index{Data\+Atual@{Data\+Atual}!App\+Store@{App\+Store}}
 \subsubsection[{Data\+Atual}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Date} App\+Store\+::\+Data\+Atual (
@@ -112,6 +171,21 @@ Testa se existe determinada \hyperlink{class_app}{App}
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True se existe / False se nao existe 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a2b76916f0e991eb8dc8e4eef3f88ad83}{\index{App\+Store@{App\+Store}!existe\+Nome\+App\+Anywhere@{existe\+Nome\+App\+Anywhere}}
+\index{existe\+Nome\+App\+Anywhere@{existe\+Nome\+App\+Anywhere}!App\+Store@{App\+Store}}
+\subsubsection[{existe\+Nome\+App\+Anywhere}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::existe\+Nome\+App\+Anywhere (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+) const}}\label{class_app_store_a2b76916f0e991eb8dc8e4eef3f88ad83}
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
 \hypertarget{class_app_store_a3332b74ff7a7afea68b2834ffe1cdd58}{\index{App\+Store@{App\+Store}!existe\+Nome\+Dev@{existe\+Nome\+Dev}}
 \index{existe\+Nome\+Dev@{existe\+Nome\+Dev}!App\+Store@{App\+Store}}
@@ -213,13 +287,53 @@ Pointer \hyperlink{class_vendas}{Vendas}
 \item[{{\bf Developer} $\ast$}]{dev\+\_\+act}
 \end{DoxyParamCaption}
 )}}\label{class_app_store_a72f40c3c07e2207d9157533426d64ceb}
-Todas as Apps pertencentes a um \hyperlink{class_developer}{Developer} 
+Todas as Apps pertencentes a um \hyperlink{class_developer}{Developer}, que estejam dentro da store 
 \begin{DoxyParams}{Parameters}
 {\em dev\+\_\+act} & Pointer \hyperlink{class_developer}{Developer} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Vector Apps 
+\end{DoxyReturn}
+\hypertarget{class_app_store_abc0f34dd6a067273149076def23678b0}{\index{App\+Store@{App\+Store}!get\+Apps\+Fora\+Store@{get\+Apps\+Fora\+Store}}
+\index{get\+Apps\+Fora\+Store@{get\+Apps\+Fora\+Store}!App\+Store@{App\+Store}}
+\subsubsection[{get\+Apps\+Fora\+Store}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf App} $>$ App\+Store\+::get\+Apps\+Fora\+Store (
+\begin{DoxyParamCaption}
+\item[{{\bf Developer} $\ast$}]{dev\+\_\+act}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_abc0f34dd6a067273149076def23678b0}
+Todas as Apps pertencentes a um \hyperlink{class_developer}{Developer}, que estao fora da appsstore 
+\begin{DoxyParams}{Parameters}
+{\em dev\+\_\+act} & Pointer \hyperlink{class_developer}{Developer} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector Apps 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a780673e2ce2216b302a68017faf12b92}{\index{App\+Store@{App\+Store}!get\+Apps\+Nao\+Validadas@{get\+Apps\+Nao\+Validadas}}
+\index{get\+Apps\+Nao\+Validadas@{get\+Apps\+Nao\+Validadas}!App\+Store@{App\+Store}}
+\subsubsection[{get\+Apps\+Nao\+Validadas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf App} $>$ App\+Store\+::get\+Apps\+Nao\+Validadas (
+\begin{DoxyParamCaption}
+\item[{{\bf Developer} $\ast$}]{dev\+\_\+act}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a780673e2ce2216b302a68017faf12b92}
+Todas as Apps pertencentes a um \hyperlink{class_developer}{Developer} que estao nao validadas 
+\begin{DoxyParams}{Parameters}
+{\em dev\+\_\+act} & P\+Ointer para developer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector com todsa as apps 
+\end{DoxyReturn}
+\hypertarget{class_app_store_a5f6bb94304c3564466c01e9ad3c1bd8f}{\index{App\+Store@{App\+Store}!get\+Hash\+Table@{get\+Hash\+Table}}
+\index{get\+Hash\+Table@{get\+Hash\+Table}!App\+Store@{App\+Store}}
+\subsubsection[{get\+Hash\+Table}]{\setlength{\rightskip}{0pt plus 5cm}tr1\+::unordered\+\_\+set$<$ {\bf App}, {\bf Hash\+App}, {\bf Equal\+App} $>$ App\+Store\+::get\+Hash\+Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a5f6bb94304c3564466c01e9ad3c1bd8f}
+Retorna a hashtable com as todas as apps apagadas \begin{DoxyReturn}{Returns}
+Hash\+Table 
 \end{DoxyReturn}
 \hypertarget{class_app_store_ae62d409b52edfc19e35f0388a26d9911}{\index{App\+Store@{App\+Store}!get\+Nr\+Apps@{get\+Nr\+Apps}}
 \index{get\+Nr\+Apps@{get\+Nr\+Apps}!App\+Store@{App\+Store}}
@@ -255,7 +369,7 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_a4b4a37404b10df2303a8f95d6c2697b4}
 Faz load de todas as Apps da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro de onde é carregada a informacao \\
+{\em file} & ficheiro de onde Ã© carregada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -270,7 +384,7 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_a10cadeff1412d5cdb49c806746878b7d}
 Faz load de todos os Clientes da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro de onde é carregada a informacao \\
+{\em file} & ficheiro de onde Ã© carregada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -285,7 +399,7 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_ad45df395b61443556fd84f40cdcbd208}
 Faz load de todos os Developers da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro de onde é carregada a informacao \\
+{\em file} & ficheiro de onde Ã© carregada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -300,11 +414,26 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_ab3f434aea433599fa9905068d052060d}
 Faz load de todas as \hyperlink{class_vendas}{Vendas} da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro de onde é carregada a informacao \\
+{\em file} & ficheiro de onde Ã© carregada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True-\/\+Sucesso / False-\/\+Insucesso 
+\end{DoxyReturn}
+\hypertarget{class_app_store_ac57dd44d5d6f2d9f8a708030554a3ca6}{\index{App\+Store@{App\+Store}!remove\+App\+Validar@{remove\+App\+Validar}}
+\index{remove\+App\+Validar@{remove\+App\+Validar}!App\+Store@{App\+Store}}
+\subsubsection[{remove\+App\+Validar}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::remove\+App\+Validar (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ac57dd44d5d6f2d9f8a708030554a3ca6}
+Remove um \hyperlink{class_app}{App} nao Validada 
+\begin{DoxyParams}{Parameters}
+{\em id} & Id da app a remover \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True para sucesso False -\/ Erro 
 \end{DoxyReturn}
 \hypertarget{class_app_store_a6f08f038a3407eac967198bb2c66d503}{\index{App\+Store@{App\+Store}!save\+\_\+all@{save\+\_\+all}}
 \index{save\+\_\+all@{save\+\_\+all}!App\+Store@{App\+Store}}
@@ -325,7 +454,7 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_a12ab54d48ce4d709971823127eb92408}
 Faz save de todas as Apps da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro para onde é gravada a informacao \\
+{\em file} & ficheiro para onde Ã© gravada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -340,7 +469,7 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_a347e9f40006f1b33ff4875b7338aa8c5}
 Faz save de todos os Clientes da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro para onde é gravada a informacao \\
+{\em file} & ficheiro para onde Ã© gravada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -355,12 +484,27 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_a86f8c8d69a134c570ee1ac5208204b35}
 Faz save de todos os Developers da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro para onde é gravada a informacao \\
+{\em file} & ficheiro para onde Ã© gravada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True-\/\+Sucesso / False-\/\+Insucesso 
 \end{DoxyReturn}
+\hypertarget{class_app_store_a88ee901a42ecde9c491638b38ddee9e1}{\index{App\+Store@{App\+Store}!save\+\_\+one\+\_\+app@{save\+\_\+one\+\_\+app}}
+\index{save\+\_\+one\+\_\+app@{save\+\_\+one\+\_\+app}!App\+Store@{App\+Store}}
+\subsubsection[{save\+\_\+one\+\_\+app}]{\setlength{\rightskip}{0pt plus 5cm}void App\+Store\+::save\+\_\+one\+\_\+app (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{file, }
+\item[{{\bf App}}]{a}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a88ee901a42ecde9c491638b38ddee9e1}
+Guarda num ficheiro txt uma app 
+\begin{DoxyParams}{Parameters}
+{\em file} & ficheiro a ser gravado \\
+\hline
+{\em a} & app a ser guardada \\
+\hline
+\end{DoxyParams}
 \hypertarget{class_app_store_a9bf71a93e0c065796e07a387b593801e}{\index{App\+Store@{App\+Store}!save\+\_\+vendas@{save\+\_\+vendas}}
 \index{save\+\_\+vendas@{save\+\_\+vendas}!App\+Store@{App\+Store}}
 \subsubsection[{save\+\_\+vendas}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::save\+\_\+vendas (
@@ -370,13 +514,51 @@ True-\/\+Sucesso / False-\/\+Insucesso
 )}}\label{class_app_store_a9bf71a93e0c065796e07a387b593801e}
 Faz save de todas as \hyperlink{class_vendas}{Vendas} da \hyperlink{class_app_store}{App\+Store} 
 \begin{DoxyParams}{Parameters}
-{\em file} & ficheiro para onde é gravada a informacao \\
+{\em file} & ficheiro para onde Ã© gravada a informacao \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True-\/\+Sucesso / False-\/\+Insucesso 
 \end{DoxyReturn}
-\hypertarget{class_app_store_a3e8ce8e16ba9ff688af3604da47aceed}{\index{App\+Store@{App\+Store}!verifica\+Login\+Cliente@{verifica\+Login\+Cliente}}
+\hypertarget{class_app_store_a46ca2d7082b03f86ecb65d990450a301}{\index{App\+Store@{App\+Store}!top10@{top10}}
+\index{top10@{top10}!App\+Store@{App\+Store}}
+\subsubsection[{top10}]{\setlength{\rightskip}{0pt plus 5cm}void App\+Store\+::top10 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_a46ca2d7082b03f86ecb65d990450a301}
+Imprime as top 10 apps presentes na arvore \hypertarget{class_app_store_ada51ac059c6621dd687e68a18199cb04}{\index{App\+Store@{App\+Store}!update\+App\+In\+Tree@{update\+App\+In\+Tree}}
+\index{update\+App\+In\+Tree@{update\+App\+In\+Tree}!App\+Store@{App\+Store}}
+\subsubsection[{update\+App\+In\+Tree}]{\setlength{\rightskip}{0pt plus 5cm}void App\+Store\+::update\+App\+In\+Tree (
+\begin{DoxyParamCaption}
+\item[{{\bf App} $\ast$}]{appa}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_ada51ac059c6621dd687e68a18199cb04}
+Faz update da posição de uma app que foi alterada 
+\begin{DoxyParams}{Parameters}
+{\em appa} & app a alterar \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_app_store_abb7719739aa051c8c27641f914f9794d}{\index{App\+Store@{App\+Store}!update\+App\+In\+Tree@{update\+App\+In\+Tree}}
+\index{update\+App\+In\+Tree@{update\+App\+In\+Tree}!App\+Store@{App\+Store}}
+\subsubsection[{update\+App\+In\+Tree}]{\setlength{\rightskip}{0pt plus 5cm}void App\+Store\+::update\+App\+In\+Tree (
+\begin{DoxyParamCaption}
+\item[{{\bf App} \&}]{appa}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_abb7719739aa051c8c27641f914f9794d}
+Faz update da posicaoo de uma app que foi alterada 
+\begin{DoxyParams}{Parameters}
+{\em appa} & app a alterar \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_app_store_aa39278159e0cb86d5ec08dbd6d351517}{\index{App\+Store@{App\+Store}!validar\+App@{validar\+App}}
+\index{validar\+App@{validar\+App}!App\+Store@{App\+Store}}
+\subsubsection[{validar\+App}]{\setlength{\rightskip}{0pt plus 5cm}void App\+Store\+::validar\+App (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_app_store_aa39278159e0cb86d5ec08dbd6d351517}
+Valida uma \hyperlink{class_app}{App} ainda nao validada \hypertarget{class_app_store_a3e8ce8e16ba9ff688af3604da47aceed}{\index{App\+Store@{App\+Store}!verifica\+Login\+Cliente@{verifica\+Login\+Cliente}}
 \index{verifica\+Login\+Cliente@{verifica\+Login\+Cliente}!App\+Store@{App\+Store}}
 \subsubsection[{verifica\+Login\+Cliente}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Store\+::verifica\+Login\+Cliente (
 \begin{DoxyParamCaption}
@@ -418,7 +600,16 @@ True-\/\+Sucesso / False-\/\+Insucesso
 \hypertarget{class_app_store_ab618a846f9c32b6897bf3e694af19c43}{\index{App\+Store@{App\+Store}!apps@{apps}}
 \index{apps@{apps}!App\+Store@{App\+Store}}
 \subsubsection[{apps}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf App}$>$ App\+Store\+::apps}}\label{class_app_store_ab618a846f9c32b6897bf3e694af19c43}
-Vector com todas as Apps activas na Store \hypertarget{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}{\index{App\+Store@{App\+Store}!clientes@{clientes}}
+Vector com todas as Apps activas na Store \hypertarget{class_app_store_ac745889f659f0e3e247755490e758e34}{\index{App\+Store@{App\+Store}!apps\+\_\+a\+\_\+validar@{apps\+\_\+a\+\_\+validar}}
+\index{apps\+\_\+a\+\_\+validar@{apps\+\_\+a\+\_\+validar}!App\+Store@{App\+Store}}
+\subsubsection[{apps\+\_\+a\+\_\+validar}]{\setlength{\rightskip}{0pt plus 5cm}priority\+\_\+queue$<${\bf App}, vector$<${\bf App}$>$, {\bf Compara\+App\+Validar}$>$ App\+Store\+::apps\+\_\+a\+\_\+validar}}\label{class_app_store_ac745889f659f0e3e247755490e758e34}
+Priority queue \hypertarget{class_app_store_ae3226a390018206bc6a52162c7de69a0}{\index{App\+Store@{App\+Store}!apps\+\_\+apagadas@{apps\+\_\+apagadas}}
+\index{apps\+\_\+apagadas@{apps\+\_\+apagadas}!App\+Store@{App\+Store}}
+\subsubsection[{apps\+\_\+apagadas}]{\setlength{\rightskip}{0pt plus 5cm}tr1\+::unordered\+\_\+set$<${\bf App}, {\bf Hash\+App}, {\bf Equal\+App}$>$ App\+Store\+::apps\+\_\+apagadas}}\label{class_app_store_ae3226a390018206bc6a52162c7de69a0}
+Hashtable das apps apagadas \hypertarget{class_app_store_a6ab2508d05526a86f343628744512662}{\index{App\+Store@{App\+Store}!arv\+\_\+apps@{arv\+\_\+apps}}
+\index{arv\+\_\+apps@{arv\+\_\+apps}!App\+Store@{App\+Store}}
+\subsubsection[{arv\+\_\+apps}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+S\+T}$<${\bf App\+Pointer}$>$ App\+Store\+::arv\+\_\+apps}}\label{class_app_store_a6ab2508d05526a86f343628744512662}
+Arvore com todas as Apps activas na Store \hypertarget{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}{\index{App\+Store@{App\+Store}!clientes@{clientes}}
 \index{clientes@{clientes}!App\+Store@{App\+Store}}
 \subsubsection[{clientes}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Cliente}$>$ App\+Store\+::clientes}}\label{class_app_store_a6f1aa46e983d0e8fecd103c47c8f7eea}
 Vector com todos os Clientes activos na Store \hypertarget{class_app_store_a5d50396ada945dfa3e439d28650a3aee}{\index{App\+Store@{App\+Store}!data\+\_\+atual@{data\+\_\+atual}}

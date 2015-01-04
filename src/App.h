@@ -214,12 +214,32 @@ public:
 	bool isApagada() const;
 };
 
+/**
+ * @class AppPointer
+ * @brief Encapsulamento do Pointer para uma App para ser usado na BST com o top 10 de apps
+ */
 class AppPointer{
 public:
+	/**
+	 * Contrutor Vazio
+	 */
 	AppPointer(){app_pointer = NULL;}
+	/**
+	 * Construtor que aloca o apontador da app logo ao atributo da class
+	 * @param apontador Apontador para App
+	 */
 	AppPointer(App* apontador){app_pointer = apontador;}
 	App* app_pointer;
+	/**
+	 *
+	 * @param app_p App a ser comparada na BST
+	 * @return True caso se operador se verifique False o contrario
+	 */
 	bool operator<(const AppPointer& app_p) const;
+	/**
+	 * Faz exatamente o mesmo caso voce o objecto App mas aplicado a esta class
+	 * @return App apontada por este objecto
+	 */
 	App operator*() const;
 };
 

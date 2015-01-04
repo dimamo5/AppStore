@@ -23,7 +23,6 @@
 #include <windows.h>
 #include "BST.h"
 
-
 extern Developer* dev_act;
 extern Cliente* cli_act;
 
@@ -156,17 +155,21 @@ public:
 	 */
 	vector<App> getApps(Developer* dev_act);
 	/**
-	 * Todas as Apps pertencentes a um Developer, que
+	 * Todas as Apps pertencentes a um Developer, que estao fora da appsstore
 	 * @param dev_act Pointer Developer
 	 * @return Vector Apps
 	 */
 	vector<App> getAppsForaStore(Developer * dev_act);
-
+	/**
+	 * Todas as Apps pertencentes a um Developer que estao nao validadas
+	 * @param dev_act POinter para developer
+	 * @return vector com todsa as apps
+	 */
 	vector<App> getAppsNaoValidadas(Developer* dev_act);
 
 	/**
-	 *
-	 * @return
+	 *Retorna a hashtable com as todas as apps apagadas
+	 * @return HashTable
 	 */
 	tr1::unordered_set<App, HashApp, EqualApp> getHashTable();
 	/**
@@ -274,11 +277,22 @@ public:
 	 * @return True-Sucesso / False-Insucesso
 	 */
 	bool load_dev(fstream &file);
-
+	/**
+	 * Valida uma App ainda nao validada
+	 */
 	void validarApp();
-
+	/**
+	 * Guarda num ficheiro txt uma app
+	 * @param file ficheiro a ser gravado
+	 * @param a app a ser guardada
+	 */
 	void save_one_app(ofstream& file, App a);
 
+	/**
+	 * Remove um App nao Validada
+	 * @param id Id da app a remover
+	 * @return True para sucesso False - Erro
+	 */
 	bool removeAppValidar(unsigned int id);
 	/**
 	 * Obtem vector de apps ja validadas
@@ -287,6 +301,7 @@ public:
 	vector<App> appsDisponiveis() const;
 	/**
 	 * Passa todas as apps do vetor apps para arvore arv_apps
+	 * @return Retorna essa arvore
 	 */
 	BST<AppPointer> create_tree();
 	/**

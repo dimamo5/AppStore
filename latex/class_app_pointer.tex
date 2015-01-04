@@ -1,0 +1,88 @@
+\hypertarget{class_app_pointer}{\section{App\+Pointer Class Reference}
+\label{class_app_pointer}\index{App\+Pointer@{App\+Pointer}}
+}
+
+
+Encapsulamento do Pointer para uma \hyperlink{class_app}{App} para ser usado na \hyperlink{singleton_b_s_t}{B\+S\+T} com o top 10 de apps.  
+
+
+
+
+{\ttfamily \#include $<$App.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_app_pointer_a603af9c797f92a32f6a0c7de9be279cb}{App\+Pointer} ()
+\item 
+\hyperlink{class_app_pointer_a2b1f6bfd847ee8fe9ecd90fc6df11464}{App\+Pointer} (\hyperlink{class_app}{App} $\ast$apontador)
+\item 
+bool \hyperlink{class_app_pointer_aa5f98e39b4d08189a6ae71e23c55d6a7}{operator$<$} (const \hyperlink{class_app_pointer}{App\+Pointer} \&app\+\_\+p) const 
+\item 
+\hyperlink{class_app}{App} \hyperlink{class_app_pointer_af46959c2d4ce452007af22b99cc94b51}{operator$\ast$} () const 
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_app_pointer_a08e6f47c0a6d2f546eabdf3a0e45eb36}{\hyperlink{class_app}{App} $\ast$ {\bfseries app\+\_\+pointer}}\label{class_app_pointer_a08e6f47c0a6d2f546eabdf3a0e45eb36}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encapsulamento do Pointer para uma \hyperlink{class_app}{App} para ser usado na \hyperlink{singleton_b_s_t}{B\+S\+T} com o top 10 de apps. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_app_pointer_a603af9c797f92a32f6a0c7de9be279cb}{\index{App\+Pointer@{App\+Pointer}!App\+Pointer@{App\+Pointer}}
+\index{App\+Pointer@{App\+Pointer}!App\+Pointer@{App\+Pointer}}
+\subsubsection[{App\+Pointer}]{\setlength{\rightskip}{0pt plus 5cm}App\+Pointer\+::\+App\+Pointer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_app_pointer_a603af9c797f92a32f6a0c7de9be279cb}
+Contrutor Vazio \hypertarget{class_app_pointer_a2b1f6bfd847ee8fe9ecd90fc6df11464}{\index{App\+Pointer@{App\+Pointer}!App\+Pointer@{App\+Pointer}}
+\index{App\+Pointer@{App\+Pointer}!App\+Pointer@{App\+Pointer}}
+\subsubsection[{App\+Pointer}]{\setlength{\rightskip}{0pt plus 5cm}App\+Pointer\+::\+App\+Pointer (
+\begin{DoxyParamCaption}
+\item[{{\bf App} $\ast$}]{apontador}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_app_pointer_a2b1f6bfd847ee8fe9ecd90fc6df11464}
+Construtor que aloca o apontador da app logo ao atributo da class 
+\begin{DoxyParams}{Parameters}
+{\em apontador} & Apontador para \hyperlink{class_app}{App} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_app_pointer_af46959c2d4ce452007af22b99cc94b51}{\index{App\+Pointer@{App\+Pointer}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!App\+Pointer@{App\+Pointer}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf App} App\+Pointer\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_app_pointer_af46959c2d4ce452007af22b99cc94b51}
+Faz exatamente o mesmo caso voce o objecto \hyperlink{class_app}{App} mas aplicado a esta class \begin{DoxyReturn}{Returns}
+\hyperlink{class_app}{App} apontada por este objecto 
+\end{DoxyReturn}
+\hypertarget{class_app_pointer_aa5f98e39b4d08189a6ae71e23c55d6a7}{\index{App\+Pointer@{App\+Pointer}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!App\+Pointer@{App\+Pointer}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool App\+Pointer\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf App\+Pointer} \&}]{app\+\_\+p}
+\end{DoxyParamCaption}
+) const}}\label{class_app_pointer_aa5f98e39b4d08189a6ae71e23c55d6a7}
+
+\begin{DoxyParams}{Parameters}
+{\em app\+\_\+p} & \hyperlink{class_app}{App} a ser comparada na \hyperlink{singleton_b_s_t}{B\+S\+T} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True caso se operador se verifique False o contrario 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/App.\+h\item 
+src/App.\+cpp\end{DoxyCompactItemize}

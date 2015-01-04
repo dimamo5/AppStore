@@ -1,0 +1,881 @@
+\hypertarget{menu_8h}{\section{src/menu.h File Reference}
+\label{menu_8h}\index{src/menu.\+h@{src/menu.\+h}}
+}
+{\ttfamily \#include \char`\"{}App\+Store.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Cliente.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}App.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{menu_8h_a7b3b25cba33b07c303f3060fe41887f6}{B\+L\+A\+C\+K}~0
+\item 
+\hypertarget{menu_8h_a79d10e672abb49ad63eeaa8aaef57c38}{\#define {\bfseries B\+L\+U\+E}~1}\label{menu_8h_a79d10e672abb49ad63eeaa8aaef57c38}
+
+\item 
+\hypertarget{menu_8h_acfbc006ea433ad708fdee3e82996e721}{\#define {\bfseries G\+R\+E\+E\+N}~2}\label{menu_8h_acfbc006ea433ad708fdee3e82996e721}
+
+\item 
+\hypertarget{menu_8h_a03f3dfd90aa5fafc6c690f215b489976}{\#define {\bfseries A\+Q\+U\+A}~3}\label{menu_8h_a03f3dfd90aa5fafc6c690f215b489976}
+
+\item 
+\hypertarget{menu_8h_a8d23feea868a983c8c2b661e1e16972f}{\#define {\bfseries R\+E\+D}~4}\label{menu_8h_a8d23feea868a983c8c2b661e1e16972f}
+
+\item 
+\hypertarget{menu_8h_a0bb0b009e7a7390473ace4d98bd843c0}{\#define {\bfseries P\+U\+R\+P\+L\+E}~5}\label{menu_8h_a0bb0b009e7a7390473ace4d98bd843c0}
+
+\item 
+\hypertarget{menu_8h_abf681265909adf3d3e8116c93c0ba179}{\#define {\bfseries Y\+E\+L\+L\+O\+W}~6}\label{menu_8h_abf681265909adf3d3e8116c93c0ba179}
+
+\item 
+\hypertarget{menu_8h_a87b537f5fa5c109d3c05c13d6b18f382}{\#define {\bfseries W\+H\+I\+T\+E}~7}\label{menu_8h_a87b537f5fa5c109d3c05c13d6b18f382}
+
+\item 
+\hypertarget{menu_8h_ae5f70677050eecd8909e0248e07b9e73}{\#define {\bfseries G\+R\+A\+Y}~8}\label{menu_8h_ae5f70677050eecd8909e0248e07b9e73}
+
+\item 
+\hypertarget{menu_8h_a5a7142ee95ebc63218ed3aac2ae06b13}{\#define {\bfseries L\+I\+G\+H\+T\+\_\+\+G\+R\+E\+E\+N}~10}\label{menu_8h_a5a7142ee95ebc63218ed3aac2ae06b13}
+
+\item 
+\hypertarget{menu_8h_a664c8f5b9d90f79a49a16960b9ccedba}{\#define {\bfseries L\+I\+G\+H\+T\+\_\+\+R\+E\+D}~12}\label{menu_8h_a664c8f5b9d90f79a49a16960b9ccedba}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{menu_8h_a163cc3dfe07ad8da53c2a165f796992f}{gotoxy} (int xpos, int ypos)
+\item 
+void \hyperlink{menu_8h_af6b0777f5781e2a3717af06392d87340}{por\+Data\+No\+Canto} (int xpos, int ypos)
+\item 
+vector$<$ string $>$ \hyperlink{menu_8h_a8dcf1d43c378c94f999008cd5c141435}{get\+App\+Names} (vector$<$ \hyperlink{class_app}{App} $>$ apps)
+\item 
+vector$<$ string $>$ \hyperlink{menu_8h_a8e0ba3eb72492e0112a2a9bd94cb0222}{get\+App\+Comentarios} (vector$<$ \hyperlink{class_comentario}{Comentario} $>$ comentarios)
+\item 
+vector$<$ string $>$ \hyperlink{menu_8h_aca5917a5c99cc4e06191f572ddd6940c}{get\+Dev\+Names} (vector$<$ \hyperlink{class_developer}{Developer} $\ast$ $>$ devs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\bool \hyperlink{menu_8h_a4e766533a44b1805cdecd69c1504d70a}{verifica\+Pass} (T $\ast$dev\+\_\+or\+\_\+cli)
+\item 
+void \hyperlink{menu_8h_ad93452507cca9950d9a502c113b07ee6}{print\+Menu\+Scroll} (vector$<$ string $>$ options, int selected\+\_\+option, const unsigned int max\+\_\+per\+\_\+screen)
+\item 
+void \hyperlink{menu_8h_af40cdeed8b371e9f442b720ef3bd5a85}{cor} (int background, int foreground)
+\item 
+int \hyperlink{menu_8h_a0bab7caef4d2b37f8cf45547ea4ac6d3}{teclas} ()
+\item 
+int \hyperlink{menu_8h_a78a4b27d54981f15df0070252b875578}{Restringe\+Opcao\+Teclas} (int min, int max, int opcao)
+\item 
+void \hyperlink{menu_8h_ac53da549dfcc7985f41132e6220ae565}{menu\+Inicial} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a6191f3f2bea8b377d47e5f425edd84da}{menu\+Login} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a32913b40569bc244121e2fba973d0e34}{menu\+Registar} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a6634ea47c37ac3dad44365df34978a25}{menu\+Login\+Cliente} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_af711ceff470d212eb0e42e74981d4910}{menu\+Login\+Developer} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a07cac00b36f9d1591a805b36d2b1fd2e}{menu\+Registar\+Cliente} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_ade6e07059d5094c5df4a6d3e7ed225fc}{menu\+Registar\+Developer\+Individual} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a44bc0be430bd5f401d3339d06393a14d}{menu\+Registar\+Developer\+Empresa} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a6eefaa9b64e448d7c89a132f574be79b}{menu\+Cliente} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a34b8329a4e9199ecd8b5a86bf2e4e840}{menu\+Developer} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a4f8b48676f23b8a6a7eab5749a39e705}{menu\+Cliente\+Transacoes} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a6b4091b77e0162f06bf3cc6bf059d7db}{menu\+Cliente\+Definicoes} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a8d542427216a8099353345978cea27a8}{menu\+Developer\+Definicoes} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a34595cb1cba7dc4ac01b86b60b098ecb}{menu\+Developer\+Gerir\+Apps} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_ad4d9303c0fa637834ad459c3927c258a}{menu\+Cliente\+Add\+Credito} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_acf2f19f77e60bd41485a889def7de4e9}{menu\+Cesto\+Compras} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a13eb1b92f7a3e360e6912a4bf87a478e}{menu\+Historico\+Vendas} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a9a703bf0adece4f3615d4b7f7318f3e6}{menu\+Alterar\+Pass\+Cli} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a41e75906ebfab5d6b6668e588b7482e9}{menu\+Alterar\+Cartao} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_ae4192875eb84d8f412857dbba667c11d}{menu\+Apagar\+Conta\+Cli} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a46c31f5ab7c7ef6e8392eb1ed60dd572}{menu\+Alterar\+Pass\+Dev} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a094e1694274f538534152c4029a111a2}{menu\+Alterar\+Morada} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a4663e45c731164bfd236c776d6c83ba4}{menu\+Alterar\+N\+I\+F} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_aff77e85990bd91593b140da7bd2b189b}{menu\+Apagar\+Conta\+Dev} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a97cac7505f5894287084209eda3b57c5}{menu\+Ver\+Dev} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a694be05d1f3883cb7e58c124364b8b56}{menu\+Ver\+Cli} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a9619e88ec268f60430d38d1b9f8f35fe}{menu\+Criar\+App} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a57b94e5b624d8873fe39f28f38af97d5}{menu\+Remover\+App} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_abc43525e7b000d923858fc38be3cf53c}{menu\+Modificar\+App} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_ae9c0826bafa32eb1c832fd954c057693}{menu\+Tira\+Apps\+Cesto} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_aa80fc17d3828f5c38f9547cfd08b785a}{menu\+Checkout\+Apps} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a33c0f58b77edd51d4433290358b53f53}{apaga\+Apps\+Nao\+Existentes} (\hyperlink{class_app_store}{App\+Store} \&mieic, \hyperlink{class_cliente}{Cliente} $\ast$cli)
+\item 
+void \hyperlink{menu_8h_a2cb3e608b54e51094940b1199b2ee037}{menu\+Visita\+Store} (\hyperlink{class_app_store}{App\+Store} \&mieic, unsigned int \&state)
+\item 
+void \hyperlink{menu_8h_aa7059ce4cdd8d41ac7fea4d69ed8e602}{menu\+Visita\+Store\+Ordenada} (\hyperlink{class_app_store}{App\+Store} \&mieic, unsigned int \&state, vector$<$ \hyperlink{class_app}{App} $>$ apps\+\_\+ordenadas, string tipo\+\_\+ordenacao)
+\item 
+void \hyperlink{menu_8h_ad3927782add148d5fb6204110050ef3d}{menu\+Lista\+Developer} (\hyperlink{class_app_store}{App\+Store} \&mieic, unsigned int \&state)
+\item 
+void \hyperlink{menu_8h_ac1fe407808d34bbb9c5bd7651d17e9a7}{menu\+Lista\+Cliente} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_ab96196caeb26842aa5db3e6d30cd1641}{menu\+Apps\+Em\+Espera} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a32c3519a225d733f692b9b6e646c2393}{menu\+Remover\+App\+Da\+Store} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_aab42f8ce621c3607a899ebebbec31e90}{menu\+Remover\+App\+Fora\+Store\+Perma} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_ad2a64115e464068dddee4689ca0f6283}{menu\+Repor\+App\+Store} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_ae578034c567d3e6f715bedd93997d30c}{menu\+Modificar\+Apps\+Removidas} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a9ec6435b55f3ec250258fb735c1ccc79}{menu\+Listar\+Apps\+Removidas} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\item 
+void \hyperlink{menu_8h_a43e1d3562cb2ea01a65f4eed5d2e000e}{menu\+Modificar\+Apps\+Nao\+Validadas} (\hyperlink{class_app_store}{App\+Store} \&mieic)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned int \hyperlink{menu_8h_a7454417415ab1b179bb0a6a707aa4d69}{M\+A\+X\+\_\+\+P\+E\+R\+\_\+\+S\+C\+R\+E\+E\+N} = 6
+\item 
+const std\+::string \hyperlink{menu_8h_a07b6bc214c08c60cda4376d6a9494275}{A\+D\+M\+I\+N\+\_\+\+P\+A\+S\+S} = \char`\"{}123\char`\"{}
+\item 
+\hyperlink{class_developer}{Developer} $\ast$ \hyperlink{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{dev\+\_\+act}
+\item 
+\hyperlink{class_cliente}{Cliente} $\ast$ \hyperlink{menu_8h_a10cde3b7e2aaa878766a5afb37113065}{cli\+\_\+act}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Ficheiro com funcoes do menu 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{menu_8h_a7b3b25cba33b07c303f3060fe41887f6}{\index{menu.\+h@{menu.\+h}!B\+L\+A\+C\+K@{B\+L\+A\+C\+K}}
+\index{B\+L\+A\+C\+K@{B\+L\+A\+C\+K}!menu.\+h@{menu.\+h}}
+\subsubsection[{B\+L\+A\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+L\+A\+C\+K~0}}\label{menu_8h_a7b3b25cba33b07c303f3060fe41887f6}
+$<$ Macros de cores para usar no menu 
+
+\subsection{Function Documentation}
+\hypertarget{menu_8h_a33c0f58b77edd51d4433290358b53f53}{\index{menu.\+h@{menu.\+h}!apaga\+Apps\+Nao\+Existentes@{apaga\+Apps\+Nao\+Existentes}}
+\index{apaga\+Apps\+Nao\+Existentes@{apaga\+Apps\+Nao\+Existentes}!menu.\+h@{menu.\+h}}
+\subsubsection[{apaga\+Apps\+Nao\+Existentes}]{\setlength{\rightskip}{0pt plus 5cm}void apaga\+Apps\+Nao\+Existentes (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic, }
+\item[{{\bf Cliente} $\ast$}]{cli}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a33c0f58b77edd51d4433290358b53f53}
+Funcao chamada no cesto de compras, que compara as apps do cesto de compras com as existentes. Se entretanto uma app tiver desaparecido do vetor de apps (por exemplo, se um developer tiver apagado uma app, por exemplo), esta app sera tambem apagada do cesto de compras. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+{\em cli} & Pointer para o cliente atual, a cujo cesto de compras se acede \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_af40cdeed8b371e9f442b720ef3bd5a85}{\index{menu.\+h@{menu.\+h}!cor@{cor}}
+\index{cor@{cor}!menu.\+h@{menu.\+h}}
+\subsubsection[{cor}]{\setlength{\rightskip}{0pt plus 5cm}void cor (
+\begin{DoxyParamCaption}
+\item[{int}]{background, }
+\item[{int}]{foreground}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_af40cdeed8b371e9f442b720ef3bd5a85}
+Altera a cor do background e foreground para os valores/cores especificadas 
+\begin{DoxyParams}{Parameters}
+{\em background} & Cor para o fundo do A\+P\+I -\/ usa-\/se aqui uma das macros definidas \\
+\hline
+{\em foreground} & Cor para o foreground/letra do A\+P\+I -\/ usa-\/se aqui uma das macros definidas \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a8e0ba3eb72492e0112a2a9bd94cb0222}{\index{menu.\+h@{menu.\+h}!get\+App\+Comentarios@{get\+App\+Comentarios}}
+\index{get\+App\+Comentarios@{get\+App\+Comentarios}!menu.\+h@{menu.\+h}}
+\subsubsection[{get\+App\+Comentarios}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ get\+App\+Comentarios (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Comentario} $>$}]{comentarios}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a8e0ba3eb72492e0112a2a9bd94cb0222}
+Pega num vetor de comentarios e forma frases do tipo \char`\"{}\+Cliente x -\/ classificacao -\/ comentario\char`\"{} 
+\begin{DoxyParams}{Parameters}
+{\em comentarios} & Vetor com objetos do tipo \hyperlink{class_comentario}{Comentario} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve o vetor (de strings) com a concatenacao de \hyperlink{class_cliente}{Cliente} -\/ classificacao -\/ comentario 
+\end{DoxyReturn}
+\hypertarget{menu_8h_a8dcf1d43c378c94f999008cd5c141435}{\index{menu.\+h@{menu.\+h}!get\+App\+Names@{get\+App\+Names}}
+\index{get\+App\+Names@{get\+App\+Names}!menu.\+h@{menu.\+h}}
+\subsubsection[{get\+App\+Names}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ get\+App\+Names (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf App} $>$}]{apps}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a8dcf1d43c378c94f999008cd5c141435}
+Pega num vetor de apps e cria um vetor de strings com o nome das apps 
+\begin{DoxyParams}{Parameters}
+{\em apps} & Vetor com objetos do tipo \hyperlink{class_app}{App} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve o vetor (de strings) com os nomes das apps inseridas como argumento 
+\end{DoxyReturn}
+\hypertarget{menu_8h_aca5917a5c99cc4e06191f572ddd6940c}{\index{menu.\+h@{menu.\+h}!get\+Dev\+Names@{get\+Dev\+Names}}
+\index{get\+Dev\+Names@{get\+Dev\+Names}!menu.\+h@{menu.\+h}}
+\subsubsection[{get\+Dev\+Names}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ get\+Dev\+Names (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Developer} $\ast$ $>$}]{devs}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_aca5917a5c99cc4e06191f572ddd6940c}
+
+\begin{DoxyParams}{Parameters}
+{\em devs} & Vetor com objetos do tipo Developer$\ast$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Devolve o vetor (de strings) com os nomes dos developers inseridos como argumento 
+\end{DoxyReturn}
+\hypertarget{menu_8h_a163cc3dfe07ad8da53c2a165f796992f}{\index{menu.\+h@{menu.\+h}!gotoxy@{gotoxy}}
+\index{gotoxy@{gotoxy}!menu.\+h@{menu.\+h}}
+\subsubsection[{gotoxy}]{\setlength{\rightskip}{0pt plus 5cm}void gotoxy (
+\begin{DoxyParamCaption}
+\item[{int}]{xpos, }
+\item[{int}]{ypos}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a163cc3dfe07ad8da53c2a165f796992f}
+Mete o cursor numa posicao do ecra, para se poder escrever nesse local diretamente
+
+
+\begin{DoxyParams}{Parameters}
+{\em xpos} & Coluna para a qual o cursor vai \\
+\hline
+{\em ypos} & Linha para a qual o cursor vai \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a41e75906ebfab5d6b6668e588b7482e9}{\index{menu.\+h@{menu.\+h}!menu\+Alterar\+Cartao@{menu\+Alterar\+Cartao}}
+\index{menu\+Alterar\+Cartao@{menu\+Alterar\+Cartao}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Alterar\+Cartao}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Alterar\+Cartao (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a41e75906ebfab5d6b6668e588b7482e9}
+Menu onde, apos chamar a confirmacao da Password, o cliente pode alterar o seu Nr. Cartao de Credito. Regressa depois ao menu de definicoes de cliente. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a094e1694274f538534152c4029a111a2}{\index{menu.\+h@{menu.\+h}!menu\+Alterar\+Morada@{menu\+Alterar\+Morada}}
+\index{menu\+Alterar\+Morada@{menu\+Alterar\+Morada}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Alterar\+Morada}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Alterar\+Morada (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a094e1694274f538534152c4029a111a2}
+Menu onde, apos chamar a confirmacao da Password, o developer pode alterar a sua morada Regressa depois ao menu de definicoes do developer 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a4663e45c731164bfd236c776d6c83ba4}{\index{menu.\+h@{menu.\+h}!menu\+Alterar\+N\+I\+F@{menu\+Alterar\+N\+I\+F}}
+\index{menu\+Alterar\+N\+I\+F@{menu\+Alterar\+N\+I\+F}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Alterar\+N\+I\+F}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Alterar\+N\+I\+F (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a4663e45c731164bfd236c776d6c83ba4}
+Menu onde, apos chamar a confirmacao da Password, o developer pode alterar a sua morada Regressa depois ao menu de definicoes do developer 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a9a703bf0adece4f3615d4b7f7318f3e6}{\index{menu.\+h@{menu.\+h}!menu\+Alterar\+Pass\+Cli@{menu\+Alterar\+Pass\+Cli}}
+\index{menu\+Alterar\+Pass\+Cli@{menu\+Alterar\+Pass\+Cli}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Alterar\+Pass\+Cli}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Alterar\+Pass\+Cli (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a9a703bf0adece4f3615d4b7f7318f3e6}
+Menu onde, apos chamar a confirmacao da Password, o cliente pode alterar a sua password. Regressa depois ao menu de definicoes de cliente. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a46c31f5ab7c7ef6e8392eb1ed60dd572}{\index{menu.\+h@{menu.\+h}!menu\+Alterar\+Pass\+Dev@{menu\+Alterar\+Pass\+Dev}}
+\index{menu\+Alterar\+Pass\+Dev@{menu\+Alterar\+Pass\+Dev}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Alterar\+Pass\+Dev}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Alterar\+Pass\+Dev (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a46c31f5ab7c7ef6e8392eb1ed60dd572}
+Opcao do menu de definicoes de developer onde, apos confirmacao da pass, o developer pode escolher alterar a sua pass ou regressar para o menu de definicoes do developer. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ae4192875eb84d8f412857dbba667c11d}{\index{menu.\+h@{menu.\+h}!menu\+Apagar\+Conta\+Cli@{menu\+Apagar\+Conta\+Cli}}
+\index{menu\+Apagar\+Conta\+Cli@{menu\+Apagar\+Conta\+Cli}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Apagar\+Conta\+Cli}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Apagar\+Conta\+Cli (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ae4192875eb84d8f412857dbba667c11d}
+Opcao do menu onde, apos confirmacao da pass, o \hyperlink{class_cliente}{Cliente} apaga a conta. Regressa depois ao menu Inicial. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_aff77e85990bd91593b140da7bd2b189b}{\index{menu.\+h@{menu.\+h}!menu\+Apagar\+Conta\+Dev@{menu\+Apagar\+Conta\+Dev}}
+\index{menu\+Apagar\+Conta\+Dev@{menu\+Apagar\+Conta\+Dev}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Apagar\+Conta\+Dev}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Apagar\+Conta\+Dev (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_aff77e85990bd91593b140da7bd2b189b}
+Opcao do menu onde, apos confirmacao da pass, o \hyperlink{class_developer}{Developer} apaga a password. Regressa depois ao menu Inicial. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ab96196caeb26842aa5db3e6d30cd1641}{\index{menu.\+h@{menu.\+h}!menu\+Apps\+Em\+Espera@{menu\+Apps\+Em\+Espera}}
+\index{menu\+Apps\+Em\+Espera@{menu\+Apps\+Em\+Espera}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Apps\+Em\+Espera}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Apps\+Em\+Espera (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ab96196caeb26842aa5db3e6d30cd1641}
+Menu que faz validacao das apps em espera na priority\+\_\+queue A validacao so e efetuada apos o admin inserir os seus dados
+
+
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_acf2f19f77e60bd41485a889def7de4e9}{\index{menu.\+h@{menu.\+h}!menu\+Cesto\+Compras@{menu\+Cesto\+Compras}}
+\index{menu\+Cesto\+Compras@{menu\+Cesto\+Compras}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Cesto\+Compras}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Cesto\+Compras (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_acf2f19f77e60bd41485a889def7de4e9}
+Menu do \hyperlink{class_cliente}{Cliente} onde sao exibidos os submenus do cesto de compras\+: Ver cesto/checkout, remover items do cesto e regressao ao menu anterior (menu \hyperlink{class_cliente}{Cliente}) 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_aa80fc17d3828f5c38f9547cfd08b785a}{\index{menu.\+h@{menu.\+h}!menu\+Checkout\+Apps@{menu\+Checkout\+Apps}}
+\index{menu\+Checkout\+Apps@{menu\+Checkout\+Apps}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Checkout\+Apps}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Checkout\+Apps (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_aa80fc17d3828f5c38f9547cfd08b785a}
+Menu onde sao mostradas as apps do cesto, o seu preco total, o seu preco total se for usado um Voucher e o saldo que o cliente tem disponivel. O cliente pode entao escolher fazer o checkout ou regressar. Ao fazer checkout, se tiver Vouchers, podera fazer uso destes, tendo um desconto. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a6eefaa9b64e448d7c89a132f574be79b}{\index{menu.\+h@{menu.\+h}!menu\+Cliente@{menu\+Cliente}}
+\index{menu\+Cliente@{menu\+Cliente}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Cliente}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Cliente (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a6eefaa9b64e448d7c89a132f574be79b}
+Menu principal de cliente, onde sao exibidas os submenus\+: visitar appstore, mexer nas transacoes e credito, alterar definicoes, ver os atributos e fazer logout. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ad4d9303c0fa637834ad459c3927c258a}{\index{menu.\+h@{menu.\+h}!menu\+Cliente\+Add\+Credito@{menu\+Cliente\+Add\+Credito}}
+\index{menu\+Cliente\+Add\+Credito@{menu\+Cliente\+Add\+Credito}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Cliente\+Add\+Credito}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Cliente\+Add\+Credito (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ad4d9303c0fa637834ad459c3927c258a}
+Menu onde, apos verificacao do Nr. de cartao de credito, o \hyperlink{class_cliente}{Cliente} escolhe o credito a adicionar a sua conta, podendo regressar sem adicionar credito. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a6b4091b77e0162f06bf3cc6bf059d7db}{\index{menu.\+h@{menu.\+h}!menu\+Cliente\+Definicoes@{menu\+Cliente\+Definicoes}}
+\index{menu\+Cliente\+Definicoes@{menu\+Cliente\+Definicoes}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Cliente\+Definicoes}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Cliente\+Definicoes (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a6b4091b77e0162f06bf3cc6bf059d7db}
+Menu do \hyperlink{class_cliente}{Cliente} onde ele pode escolher os submenus de Alterar Password, Alterar Nr. Cartao de Credito, e apagar a sua conta 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a4f8b48676f23b8a6a7eab5749a39e705}{\index{menu.\+h@{menu.\+h}!menu\+Cliente\+Transacoes@{menu\+Cliente\+Transacoes}}
+\index{menu\+Cliente\+Transacoes@{menu\+Cliente\+Transacoes}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Cliente\+Transacoes}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Cliente\+Transacoes (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a4f8b48676f23b8a6a7eab5749a39e705}
+Menu do \hyperlink{class_cliente}{Cliente} onde este pode escolher os submenus de Adicionar Credito, ver o seu cesto de compras, rever o seu historico de vendas/compras ou regressar ao menu anterior. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a9619e88ec268f60430d38d1b9f8f35fe}{\index{menu.\+h@{menu.\+h}!menu\+Criar\+App@{menu\+Criar\+App}}
+\index{menu\+Criar\+App@{menu\+Criar\+App}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Criar\+App}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Criar\+App (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a9619e88ec268f60430d38d1b9f8f35fe}
+Menu onde o \hyperlink{class_developer}{Developer} pode criar uma app, introduzindo os dados desta. Regressa depois ao menu de gestao de apps 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a34b8329a4e9199ecd8b5a86bf2e4e840}{\index{menu.\+h@{menu.\+h}!menu\+Developer@{menu\+Developer}}
+\index{menu\+Developer@{menu\+Developer}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Developer}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Developer (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a34b8329a4e9199ecd8b5a86bf2e4e840}
+Menu principal de developer, onde sao exibidas os submenus\+: visitar appstore, gestao de apps, alterar definicoes, ver os atributos e fazer logout. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a8d542427216a8099353345978cea27a8}{\index{menu.\+h@{menu.\+h}!menu\+Developer\+Definicoes@{menu\+Developer\+Definicoes}}
+\index{menu\+Developer\+Definicoes@{menu\+Developer\+Definicoes}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Developer\+Definicoes}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Developer\+Definicoes (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a8d542427216a8099353345978cea27a8}
+Menu do \hyperlink{class_developer}{Developer} onde ele pode escolher os submenus de Alterar Password, Alterar morada e apagar a sua conta 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a34595cb1cba7dc4ac01b86b60b098ecb}{\index{menu.\+h@{menu.\+h}!menu\+Developer\+Gerir\+Apps@{menu\+Developer\+Gerir\+Apps}}
+\index{menu\+Developer\+Gerir\+Apps@{menu\+Developer\+Gerir\+Apps}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Developer\+Gerir\+Apps}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Developer\+Gerir\+Apps (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a34595cb1cba7dc4ac01b86b60b098ecb}
+Menu do \hyperlink{class_developer}{Developer} onde este tem opcoes de gestao de Apps que estao na store. Pode criar uma \hyperlink{class_app}{App}, remover uma app ou entrar no menu para alterar uma app 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a13eb1b92f7a3e360e6912a4bf87a478e}{\index{menu.\+h@{menu.\+h}!menu\+Historico\+Vendas@{menu\+Historico\+Vendas}}
+\index{menu\+Historico\+Vendas@{menu\+Historico\+Vendas}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Historico\+Vendas}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Historico\+Vendas (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a13eb1b92f7a3e360e6912a4bf87a478e}
+Menu onde lista as vendas todas existentes do cliente. Ao carregar Esc regressa ao menu de Transacoes 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ac53da549dfcc7985f41132e6220ae565}{\index{menu.\+h@{menu.\+h}!menu\+Inicial@{menu\+Inicial}}
+\index{menu\+Inicial@{menu\+Inicial}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Inicial}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Inicial (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ac53da549dfcc7985f41132e6220ae565}
+Menu inicial onde sao exibidas opcao de login, registo, visita de appstore ou sair do programa, gravando alteracoes 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ac1fe407808d34bbb9c5bd7651d17e9a7}{\index{menu.\+h@{menu.\+h}!menu\+Lista\+Cliente@{menu\+Lista\+Cliente}}
+\index{menu\+Lista\+Cliente@{menu\+Lista\+Cliente}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Lista\+Cliente}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Lista\+Cliente (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ac1fe407808d34bbb9c5bd7651d17e9a7}
+Menu que faz listagem dos clientes existentes, podendo-\/se ver o nome, idade e sexo 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ad3927782add148d5fb6204110050ef3d}{\index{menu.\+h@{menu.\+h}!menu\+Lista\+Developer@{menu\+Lista\+Developer}}
+\index{menu\+Lista\+Developer@{menu\+Lista\+Developer}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Lista\+Developer}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Lista\+Developer (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic, }
+\item[{unsigned int \&}]{state}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ad3927782add148d5fb6204110050ef3d}
+Menu que lista os developers existentes, podendo-\/se escolher o developer e o tipo de listagem. O menu chama depois o menu\+Visita\+Store\+Ordenada(...) e faz display do vetor das apps desse developer, ordenadas da maneira escolhida 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+{\em state} & Identifica quem visita a store e o que pode ver\+: 0 se for um guest a visitar, 1 se for um developer e 2 se for um cliente \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a9ec6435b55f3ec250258fb735c1ccc79}{\index{menu.\+h@{menu.\+h}!menu\+Listar\+Apps\+Removidas@{menu\+Listar\+Apps\+Removidas}}
+\index{menu\+Listar\+Apps\+Removidas@{menu\+Listar\+Apps\+Removidas}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Listar\+Apps\+Removidas}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Listar\+Apps\+Removidas (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a9ec6435b55f3ec250258fb735c1ccc79}
+Menu que lista Apps removidas 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a6191f3f2bea8b377d47e5f425edd84da}{\index{menu.\+h@{menu.\+h}!menu\+Login@{menu\+Login}}
+\index{menu\+Login@{menu\+Login}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Login}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Login (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a6191f3f2bea8b377d47e5f425edd84da}
+Menu para login, onde o user escolhe qual o tipo de login a efetuar, se de \hyperlink{class_developer}{Developer} ou \hyperlink{class_cliente}{Cliente} 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a6634ea47c37ac3dad44365df34978a25}{\index{menu.\+h@{menu.\+h}!menu\+Login\+Cliente@{menu\+Login\+Cliente}}
+\index{menu\+Login\+Cliente@{menu\+Login\+Cliente}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Login\+Cliente}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Login\+Cliente (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a6634ea47c37ac3dad44365df34978a25}
+Menu para Login do cliente, onde este fornece o seu I\+D e password 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_af711ceff470d212eb0e42e74981d4910}{\index{menu.\+h@{menu.\+h}!menu\+Login\+Developer@{menu\+Login\+Developer}}
+\index{menu\+Login\+Developer@{menu\+Login\+Developer}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Login\+Developer}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Login\+Developer (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_af711ceff470d212eb0e42e74981d4910}
+Menu para Login do developer, onde este fornece o seu I\+D e password 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_abc43525e7b000d923858fc38be3cf53c}{\index{menu.\+h@{menu.\+h}!menu\+Modificar\+App@{menu\+Modificar\+App}}
+\index{menu\+Modificar\+App@{menu\+Modificar\+App}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Modificar\+App}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Modificar\+App (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_abc43525e7b000d923858fc38be3cf53c}
+Menu do \hyperlink{class_developer}{Developer} onde sao listadas as suas apps. Apos escolher uma app e verificar password, vai ter os submenus/opcoes para mudar nome, mudar preco, mudar categoria e mudar descricao 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a43e1d3562cb2ea01a65f4eed5d2e000e}{\index{menu.\+h@{menu.\+h}!menu\+Modificar\+Apps\+Nao\+Validadas@{menu\+Modificar\+Apps\+Nao\+Validadas}}
+\index{menu\+Modificar\+Apps\+Nao\+Validadas@{menu\+Modificar\+Apps\+Nao\+Validadas}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Modificar\+Apps\+Nao\+Validadas}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Modificar\+Apps\+Nao\+Validadas (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a43e1d3562cb2ea01a65f4eed5d2e000e}
+Menu que modifica as \hyperlink{class_app}{App} ainda nao validadas 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ae578034c567d3e6f715bedd93997d30c}{\index{menu.\+h@{menu.\+h}!menu\+Modificar\+Apps\+Removidas@{menu\+Modificar\+Apps\+Removidas}}
+\index{menu\+Modificar\+Apps\+Removidas@{menu\+Modificar\+Apps\+Removidas}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Modificar\+Apps\+Removidas}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Modificar\+Apps\+Removidas (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ae578034c567d3e6f715bedd93997d30c}
+Menu que modifica Apps removidas da Appstore 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a32913b40569bc244121e2fba973d0e34}{\index{menu.\+h@{menu.\+h}!menu\+Registar@{menu\+Registar}}
+\index{menu\+Registar@{menu\+Registar}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Registar}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Registar (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a32913b40569bc244121e2fba973d0e34}
+Menu para registo, onde o user escolhe qual o tipo de registo a efetuar, se de \hyperlink{class_developer}{Developer} ou \hyperlink{class_cliente}{Cliente} 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a07cac00b36f9d1591a805b36d2b1fd2e}{\index{menu.\+h@{menu.\+h}!menu\+Registar\+Cliente@{menu\+Registar\+Cliente}}
+\index{menu\+Registar\+Cliente@{menu\+Registar\+Cliente}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Registar\+Cliente}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Registar\+Cliente (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a07cac00b36f9d1591a805b36d2b1fd2e}
+Menu para registo do cliente, onde este fornece as suas informacoes 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a44bc0be430bd5f401d3339d06393a14d}{\index{menu.\+h@{menu.\+h}!menu\+Registar\+Developer\+Empresa@{menu\+Registar\+Developer\+Empresa}}
+\index{menu\+Registar\+Developer\+Empresa@{menu\+Registar\+Developer\+Empresa}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Registar\+Developer\+Empresa}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Registar\+Developer\+Empresa (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a44bc0be430bd5f401d3339d06393a14d}
+Menu para registo do developer empresarial, onde este fornece as suas informacoes 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ade6e07059d5094c5df4a6d3e7ed225fc}{\index{menu.\+h@{menu.\+h}!menu\+Registar\+Developer\+Individual@{menu\+Registar\+Developer\+Individual}}
+\index{menu\+Registar\+Developer\+Individual@{menu\+Registar\+Developer\+Individual}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Registar\+Developer\+Individual}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Registar\+Developer\+Individual (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ade6e07059d5094c5df4a6d3e7ed225fc}
+Menu para registo do developer individual, onde este fornece as suas informacoes 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a57b94e5b624d8873fe39f28f38af97d5}{\index{menu.\+h@{menu.\+h}!menu\+Remover\+App@{menu\+Remover\+App}}
+\index{menu\+Remover\+App@{menu\+Remover\+App}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Remover\+App}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Remover\+App (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a57b94e5b624d8873fe39f28f38af97d5}
+Menu onde o \hyperlink{class_developer}{Developer} pode escolher uma app da lista das suas apps para remover. Apos confirmacao de password, a app e apagada e o menu faz refresh, mostrando as apps restantes. Se o user carregar enter apaga outra app selecionada, se carregar Esc regressa ao menu de gestao de apps 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a32c3519a225d733f692b9b6e646c2393}{\index{menu.\+h@{menu.\+h}!menu\+Remover\+App\+Da\+Store@{menu\+Remover\+App\+Da\+Store}}
+\index{menu\+Remover\+App\+Da\+Store@{menu\+Remover\+App\+Da\+Store}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Remover\+App\+Da\+Store}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Remover\+App\+Da\+Store (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a32c3519a225d733f692b9b6e646c2393}
+Menu que faz a Remocao de uma \hyperlink{class_app}{App} da Store e move a para a hashtable 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_aab42f8ce621c3607a899ebebbec31e90}{\index{menu.\+h@{menu.\+h}!menu\+Remover\+App\+Fora\+Store\+Perma@{menu\+Remover\+App\+Fora\+Store\+Perma}}
+\index{menu\+Remover\+App\+Fora\+Store\+Perma@{menu\+Remover\+App\+Fora\+Store\+Perma}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Remover\+App\+Fora\+Store\+Perma}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Remover\+App\+Fora\+Store\+Perma (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_aab42f8ce621c3607a899ebebbec31e90}
+Menu que faz a Remocao de uma \hyperlink{class_app}{App} permanentemente da \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ad2a64115e464068dddee4689ca0f6283}{\index{menu.\+h@{menu.\+h}!menu\+Repor\+App\+Store@{menu\+Repor\+App\+Store}}
+\index{menu\+Repor\+App\+Store@{menu\+Repor\+App\+Store}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Repor\+App\+Store}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Repor\+App\+Store (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ad2a64115e464068dddee4689ca0f6283}
+Menu que remove uma \hyperlink{class_app}{App} da Hash\+Table e volta a coloca la na \hyperlink{class_app_store}{App\+Store} 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ae9c0826bafa32eb1c832fd954c057693}{\index{menu.\+h@{menu.\+h}!menu\+Tira\+Apps\+Cesto@{menu\+Tira\+Apps\+Cesto}}
+\index{menu\+Tira\+Apps\+Cesto@{menu\+Tira\+Apps\+Cesto}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Tira\+Apps\+Cesto}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Tira\+Apps\+Cesto (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ae9c0826bafa32eb1c832fd954c057693}
+Menu onde sao listadas as apps e o user pode carregar enter para remover a selecionada do cesto. Ao acontecer isto o menu e refreshed. Para sair do menu, o user pode carregar Esc para regressar ao menu do Cesto de Compras 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a694be05d1f3883cb7e58c124364b8b56}{\index{menu.\+h@{menu.\+h}!menu\+Ver\+Cli@{menu\+Ver\+Cli}}
+\index{menu\+Ver\+Cli@{menu\+Ver\+Cli}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Ver\+Cli}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Ver\+Cli (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a694be05d1f3883cb7e58c124364b8b56}
+Menu que faz display dos atributos do cliente. Ao carregar Esc regressa ao menu principal do cliente 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a97cac7505f5894287084209eda3b57c5}{\index{menu.\+h@{menu.\+h}!menu\+Ver\+Dev@{menu\+Ver\+Dev}}
+\index{menu\+Ver\+Dev@{menu\+Ver\+Dev}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Ver\+Dev}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Ver\+Dev (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a97cac7505f5894287084209eda3b57c5}
+Menu que faz display dos atributos do developer. Ao carregar Esc regressa ao menu principal do developer 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a2cb3e608b54e51094940b1199b2ee037}{\index{menu.\+h@{menu.\+h}!menu\+Visita\+Store@{menu\+Visita\+Store}}
+\index{menu\+Visita\+Store@{menu\+Visita\+Store}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Visita\+Store}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Visita\+Store (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic, }
+\item[{unsigned int \&}]{state}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a2cb3e608b54e51094940b1199b2ee037}
+Menu que faz display dos tipos de ordenacao possiveis para as apps. Escolhe-\/se depois o tipo de ordenacao e o menu chama o menu\+Visita\+Store\+Ordenada(...) e faz display do vetor das apps todas, da maneira escolhida 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+{\em state} & Identifica quem visita a store e o que pode ver\+: 0 se for um guest a visitar, 1 se for um developer e 2 se for um cliente \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_aa7059ce4cdd8d41ac7fea4d69ed8e602}{\index{menu.\+h@{menu.\+h}!menu\+Visita\+Store\+Ordenada@{menu\+Visita\+Store\+Ordenada}}
+\index{menu\+Visita\+Store\+Ordenada@{menu\+Visita\+Store\+Ordenada}!menu.\+h@{menu.\+h}}
+\subsubsection[{menu\+Visita\+Store\+Ordenada}]{\setlength{\rightskip}{0pt plus 5cm}void menu\+Visita\+Store\+Ordenada (
+\begin{DoxyParamCaption}
+\item[{{\bf App\+Store} \&}]{mieic, }
+\item[{unsigned int \&}]{state, }
+\item[{vector$<$ {\bf App} $>$}]{apps\+\_\+ordenadas, }
+\item[{string}]{tipo\+\_\+ordenacao}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_aa7059ce4cdd8d41ac7fea4d69ed8e602}
+Menu que pega no vetor de apps da appstore e as exibe com o menu de scroll. Dependendo de quem esta a visitar a store(state), a funcao tera diferentes comportamentos. Se for state= 0 ou 1, ou seja, guest ou developer, estes poderao carregar enter para aceder a informacao de uma app e ler comentarios. Se for state = 2, entao o cliente pode, se nao tiver comprado a app, pode po-\/la no cesto de compras ou ler comentarios. Se o cliente tiver comprado, pode fazer download, ler comentarios, submeter comentario/classificacao ou regressar. 
+\begin{DoxyParams}{Parameters}
+{\em mieic} & \hyperlink{class_app_store}{App\+Store} criada no main, passada por referencia para poder ser alterada \\
+\hline
+{\em state} & Identifica quem visita a store e o que pode ver\+: 0 se for um guest a visitar, 1 se for um developer e 2 se for um cliente \\
+\hline
+{\em apps\+\_\+ordenadas} & Vetor de apps que vao ser exibidas/listadas \\
+\hline
+{\em tipo\+\_\+ordenacao} & Tipo de ordenacao -\/ por preco, alfabetica ou por dev+preco ou dev+alfabetica \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_af6b0777f5781e2a3717af06392d87340}{\index{menu.\+h@{menu.\+h}!por\+Data\+No\+Canto@{por\+Data\+No\+Canto}}
+\index{por\+Data\+No\+Canto@{por\+Data\+No\+Canto}!menu.\+h@{menu.\+h}}
+\subsubsection[{por\+Data\+No\+Canto}]{\setlength{\rightskip}{0pt plus 5cm}void por\+Data\+No\+Canto (
+\begin{DoxyParamCaption}
+\item[{int}]{xpos, }
+\item[{int}]{ypos}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_af6b0777f5781e2a3717af06392d87340}
+Escreve a data atual na posicao indicada nos parametros 
+\begin{DoxyParams}{Parameters}
+{\em xpos} & Coluna onde e escrita a data \\
+\hline
+{\em ypos} & Linha onde e escrita a data \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_ad93452507cca9950d9a502c113b07ee6}{\index{menu.\+h@{menu.\+h}!print\+Menu\+Scroll@{print\+Menu\+Scroll}}
+\index{print\+Menu\+Scroll@{print\+Menu\+Scroll}!menu.\+h@{menu.\+h}}
+\subsubsection[{print\+Menu\+Scroll}]{\setlength{\rightskip}{0pt plus 5cm}void print\+Menu\+Scroll (
+\begin{DoxyParamCaption}
+\item[{vector$<$ string $>$}]{options, }
+\item[{int}]{selected\+\_\+option, }
+\item[{const unsigned int}]{max\+\_\+per\+\_\+screen}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_ad93452507cca9950d9a502c113b07ee6}
+Funcao que imprime opcoes de um vetor, sendo possivel ao user fazer scroll atraves das opcoes. Se houver mais opcoes do que as maximas que consegue mostrar, funciona como menu de scroll (como as mensagens num telemovel) 
+\begin{DoxyParams}{Parameters}
+{\em options} & Vetor de opcoes que vao ser exibidas no ecra \\
+\hline
+{\em selected\+\_\+option} & Opcao actual do vetor em que se esta -\/ esta opcao esta highlighted com cor branca \\
+\hline
+{\em max\+\_\+per\+\_\+screen} & Maximo de opcoes mostradas de cada vez no ecra \\
+\hline
+\end{DoxyParams}
+\hypertarget{menu_8h_a78a4b27d54981f15df0070252b875578}{\index{menu.\+h@{menu.\+h}!Restringe\+Opcao\+Teclas@{Restringe\+Opcao\+Teclas}}
+\index{Restringe\+Opcao\+Teclas@{Restringe\+Opcao\+Teclas}!menu.\+h@{menu.\+h}}
+\subsubsection[{Restringe\+Opcao\+Teclas}]{\setlength{\rightskip}{0pt plus 5cm}int Restringe\+Opcao\+Teclas (
+\begin{DoxyParamCaption}
+\item[{int}]{min, }
+\item[{int}]{max, }
+\item[{int}]{opcao}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a78a4b27d54981f15df0070252b875578}
+Nos menus onde se chama a funcao \hyperlink{menu_8h_a0bab7caef4d2b37f8cf45547ea4ac6d3}{teclas()}, vai restringir as opcoes de maneira a que, quando se chega a ultima opcao, volta a primeira, e quando se passa para cima da primeira, volta a ultima 
+\begin{DoxyParams}{Parameters}
+{\em min} & Nr. da opcao minima \\
+\hline
+{\em max} & Nr. (valor absoluto) da opcao maxima \\
+\hline
+{\em opcao} & Opcao atual em que se encontra o menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Opcao na qual vai estar depois das restricoes 
+\end{DoxyReturn}
+\hypertarget{menu_8h_a0bab7caef4d2b37f8cf45547ea4ac6d3}{\index{menu.\+h@{menu.\+h}!teclas@{teclas}}
+\index{teclas@{teclas}!menu.\+h@{menu.\+h}}
+\subsubsection[{teclas}]{\setlength{\rightskip}{0pt plus 5cm}int teclas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a0bab7caef4d2b37f8cf45547ea4ac6d3}
+Retorna um numero consoante a tecla premida \begin{DoxyReturn}{Returns}
+Se premir as setas de cima ou baixo, retorna 1 ou -\/1. Se premir as de lado, retorna 2 ou -\/2. Se premir enter, retorna 13. 
+\end{DoxyReturn}
+\hypertarget{menu_8h_a4e766533a44b1805cdecd69c1504d70a}{\index{menu.\+h@{menu.\+h}!verifica\+Pass@{verifica\+Pass}}
+\index{verifica\+Pass@{verifica\+Pass}!menu.\+h@{menu.\+h}}
+\subsubsection[{verifica\+Pass}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool verifica\+Pass (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{dev\+\_\+or\+\_\+cli}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a4e766533a44b1805cdecd69c1504d70a}
+Janela/\+Menu para verificacao da password do cliente ou dev, consoante quem estiver logged in 
+\begin{DoxyParams}{Parameters}
+{\em dev\+\_\+or\+\_\+cli} & Pointer para o cliente ou developer que estiver logged in \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, se a pass foi corretamente escrita. False, se a password estava errada 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{menu_8h_a07b6bc214c08c60cda4376d6a9494275}{\index{menu.\+h@{menu.\+h}!A\+D\+M\+I\+N\+\_\+\+P\+A\+S\+S@{A\+D\+M\+I\+N\+\_\+\+P\+A\+S\+S}}
+\index{A\+D\+M\+I\+N\+\_\+\+P\+A\+S\+S@{A\+D\+M\+I\+N\+\_\+\+P\+A\+S\+S}!menu.\+h@{menu.\+h}}
+\subsubsection[{A\+D\+M\+I\+N\+\_\+\+P\+A\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::string A\+D\+M\+I\+N\+\_\+\+P\+A\+S\+S = \char`\"{}123\char`\"{}}}\label{menu_8h_a07b6bc214c08c60cda4376d6a9494275}
+Pass de Administrador para validacao \hypertarget{menu_8h_a10cde3b7e2aaa878766a5afb37113065}{\index{menu.\+h@{menu.\+h}!cli\+\_\+act@{cli\+\_\+act}}
+\index{cli\+\_\+act@{cli\+\_\+act}!menu.\+h@{menu.\+h}}
+\subsubsection[{cli\+\_\+act}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Cliente}$\ast$ cli\+\_\+act}}\label{menu_8h_a10cde3b7e2aaa878766a5afb37113065}
+Pointer para o cliente atual, apos ele fazer login \hypertarget{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}{\index{menu.\+h@{menu.\+h}!dev\+\_\+act@{dev\+\_\+act}}
+\index{dev\+\_\+act@{dev\+\_\+act}!menu.\+h@{menu.\+h}}
+\subsubsection[{dev\+\_\+act}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Developer}$\ast$ dev\+\_\+act}}\label{menu_8h_a2f1da29a33c4776c66ea396c75b634c7}
+Pointer para o developer atual, apos ele fazer login \hypertarget{menu_8h_a7454417415ab1b179bb0a6a707aa4d69}{\index{menu.\+h@{menu.\+h}!M\+A\+X\+\_\+\+P\+E\+R\+\_\+\+S\+C\+R\+E\+E\+N@{M\+A\+X\+\_\+\+P\+E\+R\+\_\+\+S\+C\+R\+E\+E\+N}}
+\index{M\+A\+X\+\_\+\+P\+E\+R\+\_\+\+S\+C\+R\+E\+E\+N@{M\+A\+X\+\_\+\+P\+E\+R\+\_\+\+S\+C\+R\+E\+E\+N}!menu.\+h@{menu.\+h}}
+\subsubsection[{M\+A\+X\+\_\+\+P\+E\+R\+\_\+\+S\+C\+R\+E\+E\+N}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned int M\+A\+X\+\_\+\+P\+E\+R\+\_\+\+S\+C\+R\+E\+E\+N = 6}}\label{menu_8h_a7454417415ab1b179bb0a6a707aa4d69}
+Maximo de items a mostar no ecra, quando se usa o scroll 
