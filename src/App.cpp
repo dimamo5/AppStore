@@ -3,17 +3,21 @@
 unsigned int App::next_id = 1;
 
 App::App(string nome, string categoria, string descricao, double preco,
-		Date data):nome(nome),categoria(categoria),descricao(descricao),preco(preco),validada(false),data_submissao(data),apagada(false) {
+		Date data) :
+		nome(nome), categoria(categoria), descricao(descricao), preco(preco), validada(
+				false), data_submissao(data), apagada(false) {
 	this->id = next_id;
 	next_id++;
-};
+}
+;
 
 App::App(unsigned int id, string nome, string categoria, string descricao,
 		double preco, double classificacao_final, int num_classificacoes,
-		bool validada, Date data,bool apagada) :
+		bool validada, Date data, bool apagada) :
 		id(id), nome(nome), categoria(categoria), descricao(descricao), preco(
 				preco), classificacao_final(classificacao_final), num_classificacoes(
-				num_classificacoes), validada(validada), data_submissao(data),apagada(apagada) {
+				num_classificacoes), validada(validada), data_submissao(data), apagada(
+				apagada) {
 
 }
 
@@ -142,7 +146,7 @@ const Date& App::getDataSubmissao() const {
 	return data_submissao;
 }
 
-void App::setApagada(bool valor){
+void App::setApagada(bool valor) {
 	apagada = valor;
 }
 
@@ -154,33 +158,26 @@ void App::setDataSubmissao(const Date& dataSubmissao) {
 	data_submissao = dataSubmissao;
 }
 
-bool App::operator<(const App& appb) const
-{
-	if(this->classificacao_final > appb.classificacao_final)
+bool App::operator<(const App& appb) const {
+	if (this->classificacao_final > appb.classificacao_final)
 		return true;
-	else
-	{
-		if(appb.classificacao_final > this->classificacao_final)
+	else {
+		if (appb.classificacao_final > this->classificacao_final)
 			return false;
-		else
-		{
-			if(this->preco > appb.preco)
+		else {
+			if (this->preco > appb.preco)
 				return true;
-			else
-			{
-				if(appb.preco > this->preco)
+			else {
+				if (appb.preco > this->preco)
 					return false;
-				else
-				{
-					if(this->categoria > appb.categoria)
+				else {
+					if (this->categoria > appb.categoria)
 						return true;
-					else
-					{
-						if(appb.categoria > this->categoria)
+					else {
+						if (appb.categoria > this->categoria)
 							return false;
-						else
-						{
-							if(this->nome > appb.nome)
+						else {
+							if (this->nome > appb.nome)
 								return true;
 							else
 								return false;
@@ -192,45 +189,36 @@ bool App::operator<(const App& appb) const
 	}
 }
 
-bool AppPointer::operator<(const AppPointer& app_p) const{
-	if(this->app_pointer->getClassificacaoFinal() > app_p.app_pointer->getClassificacaoFinal())
+bool AppPointer::operator<(const AppPointer& app_p) const {
+	if (this->app_pointer->getClassificacaoFinal()
+			> app_p.app_pointer->getClassificacaoFinal())
 		return true;
-	else
-	{
-		if(app_p.app_pointer->getClassificacaoFinal() > this->app_pointer->getClassificacaoFinal())
+	else {
+		if (app_p.app_pointer->getClassificacaoFinal()
+				> this->app_pointer->getClassificacaoFinal())
 			return false;
-		else
-		{
-			if(this->app_pointer->getPreco() > app_p.app_pointer->getPreco())
+		else {
+			if (this->app_pointer->getPreco() > app_p.app_pointer->getPreco())
 				return true;
-			else
-			{
-				if(app_p.app_pointer->getPreco() > this->app_pointer->getPreco())
+			else {
+				if (app_p.app_pointer->getPreco()
+						> this->app_pointer->getPreco())
 					return false;
-				else
-				{
-					if(this->app_pointer->getCategoria() > app_p.app_pointer->getCategoria())
+
+				else {
+					if (this->app_pointer->getNome()
+							> app_p.app_pointer->getNome())
 						return true;
 					else
-					{
-						if(app_p.app_pointer->getCategoria() > this->app_pointer->getCategoria())
-							return false;
-						else
-						{
-							if(this->app_pointer->getNome() > app_p.app_pointer->getNome())
-								return true;
-							else
-								return false;
-						}
-					}
+						return false;
 				}
 			}
 		}
 	}
 }
 
-App AppPointer::operator*() const{
-	return *(this->app_pointer);
+App AppPointer::operator*() const {
+return *(this->app_pointer);
 }
 
 /*

@@ -2481,8 +2481,8 @@ void menuApagarContaDev(AppStore& mieic) {
 					if (mieic.apps[j].getDev() == dev_act) {
 						ids_apps_apagadas.push_back(mieic.apps[j].getId());
 //						cout << "A app " << mieic.apps[j].getNome() << " foi apagada." << endl;
-						mieic.arv_apps.remove(&mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j);
+						mieic.arv_apps = mieic.create_tree();
 						j--;
 					}
 				}
@@ -3998,8 +3998,8 @@ void menuRemoverApp(AppStore& mieic) {
 				// Pesquisa no vetor das apps da appstore qual vai remover.
 				for (unsigned int j = 0; j < mieic.apps.size(); j++) {
 					if (id_app_a_remover == mieic.apps[j].getId()) {
-						mieic.arv_apps.remove(&mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
+						mieic.arv_apps = mieic.create_tree();
 						break;
 					}
 				}
@@ -4360,9 +4360,6 @@ void menuModificarApp(AppStore& mieic) {
 							}
 						}
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
-
-//							arv_apps.remove(appa);
-//								arv_apps.insert(appa);
 
 							mieic.apps[opcao].setPreco(preco_novo);
 							mieic.updateAppInTree(&mieic.apps[opcao]);
@@ -5212,8 +5209,8 @@ void menuRemoverAppDaStore(AppStore& mieic) {
 					if (id_app_a_remover == mieic.apps[j].getId()) {
 						mieic.apps[j].setApagada(true);
 						mieic.apps_apagadas.insert(mieic.apps[j]);
-						mieic.arv_apps.remove(&mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
+						mieic.arv_apps = mieic.create_tree();
 						break;
 					}
 				}
@@ -5370,7 +5367,7 @@ void menuReporAppStore(AppStore& mieic) {
 						App copia = *it;            // copia App
 						copia.setApagada(false);    // Altera app copiada
 						mieic.apps.push_back(copia);    // puxa app copiada
-						mieic.arv_apps.insert(&mieic.apps[mieic.apps.size()-1]);
+						mieic.arv_apps = mieic.create_tree();
 						mieic.apps_apagadas.erase(it); // Remove app verdadeira da hashtable
 						break;
 					}

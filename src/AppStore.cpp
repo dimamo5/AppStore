@@ -8,18 +8,21 @@
 #include "AppStore.h"
 #include <sstream>
 
-AppStore::AppStore():arv_apps(&nula), has_put_password(false) {
+AppStore::AppStore() :
+		arv_apps(&nula), has_put_password(false) {
 	// TODO Auto-generated constructor stub
 
 }
 
-void AppStore::create_tree() {
-	for (unsigned int i = 0; i < apps.size(); i++) {
-		AppPointer pointer(&apps[i]);
-		arv_apps.insert(pointer);
-	}
-}
+BST<AppPointer> AppStore::create_tree() {
 
+	BST<AppPointer> arv_temp(&nula);
+	for (unsigned int i = 0; i < apps.size(); i++) { // percorre vetor e enche a arvore
+		AppPointer pointer(&apps[i]);
+		arv_temp.insert(pointer);
+	}
+	return arv_temp;
+}
 
 void AppStore::top10() {
 	int tc = 0;
@@ -34,9 +37,12 @@ void AppStore::top10() {
 			BSTItrIn<AppPointer> it(arv_apps);
 			for (unsigned int i = 1; (i <= 10) && !(it.isAtEnd()); i++) {
 				AppPointer temp_pointer = it.retrieve();
-				string s = temp_pointer.app_pointer->getNome();
 
-				cout << i << ". " << " Nome: " << s << "  Classificacao: " << temp_pointer.app_pointer->getClassificacaoFinal() << "  Preco: " << temp_pointer.app_pointer->getPreco() << endl;
+				cout << i << ". " << "  Classificacao: "
+						<< temp_pointer.app_pointer->getClassificacaoFinal()
+						<< "  Preco: " << temp_pointer.app_pointer->getPreco()
+						<< " Nome: " << temp_pointer.app_pointer->getNome()
+						<< endl;
 				it.advance();
 			}
 		}
@@ -44,7 +50,7 @@ void AppStore::top10() {
 	}
 }
 
-void AppStore::updateAppInTree(App* appa){
+void AppStore::updateAppInTree(App* appa) {
 	arv_apps.remove(appa);
 	arv_apps.insert(appa);
 }
@@ -312,7 +318,7 @@ bool AppStore::load_app(fstream& file) {
 		}
 		com_temp.clear();
 	}
-	create_tree();
+	arv_apps = create_tree();
 	return true;
 
 }
@@ -740,11 +746,11 @@ vector<App> AppStore::appsDisponiveis() const {
 }
 
 void AppStore::validarApp() {
+	fflush(stdin);
 	App a_temp = apps_a_validar.top();
 	a_temp.setValidada(true);
 	apps.push_back(a_temp);
-	AppPointer temp_pointer(&apps[apps.size()-1]);
-	arv_apps.insert(temp_pointer);
+	arv_apps = create_tree();
 	apps_a_validar.pop();
 }
 

@@ -102,8 +102,11 @@ public:
 	/**
 	 * Construtor Default AppStore
 	 */
+//	App  -----> copia vector apps
+//	          |-----> pointer app_pointers
 	AppStore();
 	vector<App> apps;/**< Vector com todas as Apps activas na Store */
+//	vector<App*> app_pointers;
 	vector<Cliente> clientes; /**< Vector com todos os Clientes activos na Store */
 	vector<Developer *> dev; /**< Vector com todos os Developers activos na Store */
 	vector<Vendas *> vendas; /**< Vector com todos os Vendas activos na Store */
@@ -285,7 +288,7 @@ public:
 	/**
 	 * Passa todas as apps do vetor apps para arvore arv_apps
 	 */
-	void create_tree();
+	BST<AppPointer> create_tree();
 	/**
 	 * Imprime as top 10 apps presentes na arvore
 	 */
@@ -295,8 +298,8 @@ public:
 	 * @param appa app a alterar
 	 */
 	void updateAppInTree(App* appa);
-	/*
-	 * Faz update da posição de uma app que foi alterada
+	/**
+	 * Faz update da posicaoo de uma app que foi alterada
 	 * @param appa app a alterar
 	 */
 	void updateAppInTree(App & appa);
