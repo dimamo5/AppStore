@@ -1171,7 +1171,7 @@ void menuDeveloper(AppStore& mieic) {
 
 		if (opcao == -2)
 			cor(WHITE, BLACK);
-		cout << " Modificar Apps Não Validadas  " << endl;
+		cout << "  Modificar Apps Nao Validadas  " << endl;
 		cor(BLACK, WHITE);
 
 		if (opcao == -3)
@@ -2577,7 +2577,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			if (opcao == 0)
 				cor(WHITE, BLACK);
-			cout << "TOP 10" << endl;
+			cout << "  TOP 10" << endl;
+			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
@@ -2641,7 +2642,8 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 
 			if (opcao == 0)
 				cor(WHITE, BLACK);
-			cout << "TOP 10" << endl;
+			cout << "  TOP 10" << endl;
+			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
@@ -2704,8 +2706,9 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
-				cor(WHITE, BLACK);
-			cout << "TOP 10" << endl;
+							cor(WHITE, BLACK);
+						cout << "  TOP 10" << endl;
+						cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
@@ -4918,12 +4921,19 @@ void apagaAppsNaoExistentes(AppStore& mieic, Cliente* cli) {
 }
 void menuAppsEmEspera(AppStore& mieic) {
 
-	bool passCerta = false;
-	passCerta = verificaPassAdmin();
+	bool passCerta = false; // Default: false
+
+	if (!mieic.has_put_password)
+		passCerta = verificaPassAdmin();
+	else
+		passCerta = true;
+
 	int opcao = 0;
 	int tecla;
 
 	if (passCerta) {
+		if (!mieic.has_put_password)
+			mieic.has_put_password = true; // se foi a 1a vez que pos pass, depois passa a true
 
 		for (;;) {
 
@@ -4942,17 +4952,17 @@ void menuAppsEmEspera(AppStore& mieic) {
 					}
 				}
 
-				return;
+				menuInicial(mieic);
 			} else {
 				system("cls");
-				cout << "  Validar Apps em Espera  " << endl << endl << endl
-						<< endl;
+				cout << "  Validar Apps em Espera  " << endl << endl;
 				cout << "  Tem a certeza que quer validar a App em espera? "
 						<< endl << endl
 						<< "  Se o fizer, esta passara a estar disponivel na Appstore."
 						<< endl << endl << endl;
 
-				mieic.apps_a_validar.top().imprime();
+				cout << mieic.apps_a_validar.top().imprime() << endl << endl
+						<< endl;
 
 				if (opcao == 0)
 					cor(WHITE, BLACK);
@@ -5028,7 +5038,8 @@ void menuAppsEmEspera(AppStore& mieic) {
 					menuAppsEmEspera(mieic);
 					break;
 				case -2: // SAIR SEM FAZER NADA
-					return;
+					mieic.has_put_password = false;
+					menuInicial(mieic);
 					break;
 
 				}
@@ -5442,7 +5453,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 		}
 		menuDeveloperGerirApps(mieic);
 	} else {
-
+		system("cls");
 		cout << "  Modificar Apps Removidas " << endl << endl;
 		cout << "  Prima (Enter) para selecionar ou (Esc) para regressar  "
 				<< endl << endl;
@@ -5544,7 +5555,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 									nome_novo);
 						} while (nome_novo == "" || nome_repetido);
 
-//						system("cls");
+						system("cls");
 						cout << "  Modificar nome da App  " << endl << endl
 								<< endl;
 						cout << "  Escolha um novo nome para a App: "
@@ -5669,7 +5680,7 @@ void menuModificarAppsRemovidas(AppStore& mieic) {
 							system("cls");
 							cout << "  Modificar descricao da App  " << endl
 									<< endl << endl;
-							cout << "  Escolha uma descricao nova para a App: ";
+							cout << "  Escolha uma nova descricao para a App: ";
 							fflush(stdin);
 							getline(cin, descricao_nova);
 						} while (descricao_nova == "");

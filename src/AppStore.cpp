@@ -9,7 +9,7 @@
 #include <sstream>
 
 AppStore::AppStore() :
-		arv_apps(App("", "", "", 0.0, Date())) {
+		arv_apps(App("", "", "", 0.0, Date())), has_put_password(false) {
 	// TODO Auto-generated constructor stub
 
 }
@@ -23,20 +23,24 @@ void AppStore::create_tree() {
 void AppStore::top10() {
 	int tc = 0;
 	while (tc != 27) {
+		system("cls");
 		cout << "  Visita Store - TOP 10 de Apps" << endl << endl;
 		cout << "  Prima (Esc) para regressar  " << endl << endl;
-		if (arv_apps.isEmpty())
+
+		if (arv_apps.isEmpty()) {
+
 			cout << endl << endl << endl << "  Nao ha Apps para mostrar  "
 					<< endl;
-		else {
+		} else {
+
 			BSTItrIn<App> it(arv_apps);
+
 			for (unsigned int i = 1; (i <= 10) && !(it.isAtEnd()); i++) {
 				App temp = *(it.retrieve());
 
 				cout << i << ". " << " Nome: " << temp.getNome()
 						<< "  Classificacao: " << temp.getClassificacaoFinal()
 						<< "  Preco:" << temp.getPreco() << endl;
-				cout << i << ". " << " Nome: " << temp.getNome() << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco:" << temp.getPreco() << endl;
 				it.advance();
 			}
 		}
@@ -736,6 +740,7 @@ void AppStore::validarApp() {
 	App a_temp = apps_a_validar.top();
 	a_temp.setValidada(true);
 	apps.push_back(a_temp);
+	arv_apps.insert(a_temp);
 	apps_a_validar.pop();
 }
 
