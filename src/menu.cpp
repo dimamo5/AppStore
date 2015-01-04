@@ -2561,14 +2561,14 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
 	Date data_atual(now);
+	int opcao = 0;
 
 	vector<App> apps_por_nome;
 	vector<App> apps_por_preco;
 	vector<Developer*> devs_por_nome;
 
 	if (state == 0) {
-
-		int opcao = 0;
+		opcao = 0;
 		for (;;) {
 			system("cls");
 			cout << "  AppStore MIEICPlay" << endl << endl;
@@ -2602,6 +2602,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			switch (opcao - 13) {
 			case 0:			  // 1a opcao
 				mieic.top10();
+				opcao = 0;
 				break;
 			case -1:          // 2a opcao
 				apps_por_nome = mieic.apps;
@@ -2632,8 +2633,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	}
 
 	if (state == 1) { // a diferenca do guest para o dev e o que acontece ao escolher a opcao "SAIR"
-
-		int opcao = 0;
+		opcao = 0;
 		for (;;) {
 			system("cls");
 			cout << "  AppStore MIEICPlay" << endl << endl;
@@ -2667,6 +2667,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			switch (opcao - 13) {
 			case 0:			  // 1a opcao
 				mieic.top10();
+				opcao = 0;
 				break;
 			case -1:          // 2a opcao
 				apps_por_nome = mieic.apps;
@@ -2697,8 +2698,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 	}
 
 	if (state == 2) {
-
-		int opcao = 0;
+		opcao = 0;
 		for (;;) {
 			system("cls");
 			cout << "  AppStore MIEICPlay" << endl << endl;
@@ -2732,6 +2732,7 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			switch (opcao - 13) {
 			case 0:			 // 1a opcao
 				mieic.top10();
+				opcao = 0;
 				break;
 			case -1:          // 2a opcao
 				apps_por_nome = mieic.apps;

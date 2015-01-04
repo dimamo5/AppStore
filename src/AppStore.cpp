@@ -30,11 +30,11 @@ void AppStore::top10() {
 			cout << endl << endl << endl << "  Nao ha Apps para mostrar  "
 					<< endl;
 		else {
-			BSTItrIn<App*> it(arv_apps);
+			BSTItrLevel<App*> it(arv_apps);
 			for (unsigned int i = 1; (i <= 10) && !(it.isAtEnd()); i++) {
 				App temp = *(it.retrieve());
 
-				cout << i << ". " << " Nome: " << temp.getNome() << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco:" << temp.getPreco() << endl;
+				cout << i << ". " << " Nome: " << temp.getNome() << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco: " << temp.getPreco() << endl;
 				it.advance();
 			}
 		}
@@ -42,10 +42,7 @@ void AppStore::top10() {
 	}
 }
 
-
-void AppStore::updateAppInTree(App* appa)
-
-{
+void AppStore::updateAppInTree(App* appa){
 	arv_apps.remove(appa);
 	arv_apps.insert(appa);
 }

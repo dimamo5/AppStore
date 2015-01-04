@@ -183,7 +183,7 @@ public:
 	 * @param appb App a comparar
 	 * @return True se appa < appb ou False caso contrario
 	 */
-	bool operator<(const App & appb) const;
+	bool operator<(const App& appb) const;
 
 	/**
 	 * Getter Validacao da App

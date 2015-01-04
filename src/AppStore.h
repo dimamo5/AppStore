@@ -76,7 +76,7 @@ struct ComparaAppValidar {
 	}
 };
 
-/*
+/**
  * Struct para funcao Equal da Hashtable
  */
 struct EqualApp {
@@ -84,7 +84,7 @@ struct EqualApp {
 		return (app1.getNome() == app2.getNome());
 	}
 };
-/*`
+/**
  * Struct para funcao Hash da Hashtable
  */
 struct HashApp {
