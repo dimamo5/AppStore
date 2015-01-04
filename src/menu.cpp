@@ -2481,7 +2481,7 @@ void menuApagarContaDev(AppStore& mieic) {
 					if (mieic.apps[j].getDev() == dev_act) {
 						ids_apps_apagadas.push_back(mieic.apps[j].getId());
 //						cout << "A app " << mieic.apps[j].getNome() << " foi apagada." << endl;
-						mieic.arv_apps.remove(mieic.apps[j]);
+						mieic.arv_apps.remove(&mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j);
 						j--;
 					}
@@ -3228,7 +3228,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 								if (id_da_app == mieic.apps[j].getId()) {
 //									mieic.apps[j].update_classificacao(classificacao);
 									mieic.apps[j].addComentario(comment);
-									mieic.updateAppInTree(mieic.apps[j]);
+									mieic.updateAppInTree(&mieic.apps[j]);
 									break;
 								}
 							}
@@ -3997,7 +3997,7 @@ void menuRemoverApp(AppStore& mieic) {
 				// Pesquisa no vetor das apps da appstore qual vai remover.
 				for (unsigned int j = 0; j < mieic.apps.size(); j++) {
 					if (id_app_a_remover == mieic.apps[j].getId()) {
-						mieic.arv_apps.remove(mieic.apps[j]);
+						mieic.arv_apps.remove(&mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
 						break;
 					}
@@ -4198,7 +4198,7 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setNome(nome_novo);
-							mieic.updateAppInTree(mieic.apps[opcao]);
+							mieic.updateAppInTree(&mieic.apps[opcao]);
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
@@ -4250,7 +4250,8 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setCategoria(categoria_nova);
-							mieic.updateAppInTree(mieic.apps[opcao]);
+							mieic.updateAppInTree(&mieic.apps[opcao]);
+
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
@@ -4304,7 +4305,7 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setDescricao(descricao_nova);
-							mieic.updateAppInTree(mieic.apps[opcao]);
+							mieic.updateAppInTree(&mieic.apps[opcao]);
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
@@ -4359,8 +4360,11 @@ void menuModificarApp(AppStore& mieic) {
 						}
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
+//							arv_apps.remove(appa);
+//								arv_apps.insert(appa);
+
 							mieic.apps[opcao].setPreco(preco_novo);
-							mieic.updateAppInTree(mieic.apps[opcao]);
+							mieic.updateAppInTree(&mieic.apps[opcao]);
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
@@ -5207,7 +5211,7 @@ void menuRemoverAppDaStore(AppStore& mieic) {
 					if (id_app_a_remover == mieic.apps[j].getId()) {
 						mieic.apps[j].setApagada(true);
 						mieic.apps_apagadas.insert(mieic.apps[j]);
-						mieic.arv_apps.remove(mieic.apps[j]);
+						mieic.arv_apps.remove(&mieic.apps[j]);
 						mieic.apps.erase(mieic.apps.begin() + j); // Usa o indice encontrado para a remover
 						break;
 					}
@@ -5365,7 +5369,7 @@ void menuReporAppStore(AppStore& mieic) {
 						App copia = *it;            // copia App
 						copia.setApagada(false);    // Altera app copiada
 						mieic.apps.push_back(copia);    // puxa app copiada
-						mieic.arv_apps.insert(mieic.apps.back());
+						mieic.arv_apps.insert(&mieic.apps[mieic.apps.size()-1]);
 						mieic.apps_apagadas.erase(it); // Remove app verdadeira da hashtable
 						break;
 					}
@@ -6242,7 +6246,7 @@ void menuModificarAppsNaoValidadas(AppStore& mieic) {
 									nome_novo);
 						} while (nome_novo == "" || nome_repetido);
 
-//						system("cls");
+						system("cls");
 						cout << "  Modificar nome da App  " << endl << endl
 								<< endl;
 						cout << "  Escolha um novo nome para a App: "
@@ -6276,6 +6280,7 @@ void menuModificarAppsNaoValidadas(AppStore& mieic) {
 								}
 								mieic.apps_a_validar.pop();
 							}
+							mieic.apps_a_validar = temp_nao_validadas;
 
 							try {
 								mieic.save_all();
@@ -6344,6 +6349,7 @@ void menuModificarAppsNaoValidadas(AppStore& mieic) {
 								}
 								mieic.apps_a_validar.pop();
 							}
+							mieic.apps_a_validar = temp_nao_validadas;
 
 							try {
 								mieic.save_all();
@@ -6414,6 +6420,7 @@ void menuModificarAppsNaoValidadas(AppStore& mieic) {
 								}
 								mieic.apps_a_validar.pop();
 							}
+							mieic.apps_a_validar = temp_nao_validadas;
 
 							try {
 								mieic.save_all();
@@ -6487,6 +6494,7 @@ void menuModificarAppsNaoValidadas(AppStore& mieic) {
 								}
 								mieic.apps_a_validar.pop();
 							}
+							mieic.apps_a_validar = temp_nao_validadas;
 
 							try {
 								mieic.save_all();

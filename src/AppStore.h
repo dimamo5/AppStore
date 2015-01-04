@@ -23,6 +23,7 @@
 #include <windows.h>
 #include "BST.h"
 
+
 extern Developer* dev_act;
 extern Cliente* cli_act;
 
@@ -109,7 +110,8 @@ public:
 	Date data_atual; /**< Data Actual */
 	bool has_put_password;
 
-	BST<App> arv_apps; /**< Arvore com todas as Apps activas na Store */
+	BST<App*> arv_apps; /**< Arvore com todas as Apps activas na Store */
+	App nula = App("", "", "", 0.0, Date());
 
 	priority_queue<App, vector<App>, ComparaAppValidar> apps_a_validar; /**< Priority queue */
 	tr1::unordered_set<App, HashApp, EqualApp> apps_apagadas; /**< Hashtable das apps apagadas */
@@ -292,8 +294,7 @@ public:
 	 * Faz update da posição de uma app que foi alterada
 	 * @param appa app a alterar
 	 */
-	void updateAppInTree(App & appa);
-
+	void updateAppInTree(App* appa);
 };
 
 /**

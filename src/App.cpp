@@ -32,11 +32,13 @@ void App::setClassificacaoFinal(double classificacao) {
 vector<Comentario> App::getComentarios() const {
 	return comentarios;
 }
+
 void App::update_classificacao(unsigned int clas) {
 	classificacao_final = (classificacao_final * num_classificacoes + clas)
 			/ (num_classificacoes + 1);
 	num_classificacoes++;
 }
+
 string App::getDescricao() const {
 	return descricao;
 }

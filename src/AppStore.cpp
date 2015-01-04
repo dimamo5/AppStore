@@ -8,15 +8,15 @@
 #include "AppStore.h"
 #include <sstream>
 
-AppStore::AppStore() :
-		arv_apps(App("", "", "", 0.0, Date())), has_put_password(false) {
+AppStore::AppStore():arv_apps(&nula), has_put_password(false) {
 	// TODO Auto-generated constructor stub
 
 }
 
 void AppStore::create_tree() {
 	for (unsigned int i = 0; i < apps.size(); i++) {
-		arv_apps.insert(apps[i]);
+		App* pointer = &apps[i];
+		arv_apps.insert(pointer);
 	}
 }
 
@@ -26,20 +26,15 @@ void AppStore::top10() {
 		system("cls");
 		cout << "  Visita Store - TOP 10 de Apps" << endl << endl;
 		cout << "  Prima (Esc) para regressar  " << endl << endl;
-
-		if (arv_apps.isEmpty()) {
-
+		if (arv_apps.isEmpty())
 			cout << endl << endl << endl << "  Nao ha Apps para mostrar  "
 					<< endl;
-		} else {
-
-			BSTItrIn<App> it(arv_apps);
-
+		else {
+			BSTItrIn<App*> it(arv_apps);
 			for (unsigned int i = 1; (i <= 10) && !(it.isAtEnd()); i++) {
 				App temp = *(it.retrieve());
 
-				cout << i << ". " << " Nome: " << temp.getNome() << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco: " << temp.getPreco() << endl;
-
+				cout << i << ". " << " Nome: " << temp.getNome() << "  Classificacao: " << temp.getClassificacaoFinal() << "  Preco:" << temp.getPreco() << endl;
 				it.advance();
 			}
 		}
@@ -47,7 +42,7 @@ void AppStore::top10() {
 	}
 }
 
-void AppStore::updateAppInTree(App & appa)
+void AppStore::updateAppInTree(App* appa)
 {
 	arv_apps.remove(appa);
 	arv_apps.insert(appa);
@@ -539,6 +534,7 @@ vector<App> AppStore::getAppsForaStore(Developer * dev_act) {
 }
 
 vector<App> AppStore::getAppsNaoValidadas(Developer* dev_act) {
+
 	priority_queue<App, vector<App>, ComparaAppValidar> temp_nao_validadas =
 			apps_a_validar;
 
@@ -546,11 +542,12 @@ vector<App> AppStore::getAppsNaoValidadas(Developer* dev_act) {
 
 	while (!temp_nao_validadas.empty()) {
 		if (temp_nao_validadas.top().getDev()->getId() == dev_act->getId()) {
-			apps_temp.push_back(temp_nao_validadas.top());
+			App temporaria = temp_nao_validadas.top();
+			apps_temp.push_back(temporaria);
 		}
 		temp_nao_validadas.pop();
 	}
-
+	return apps_temp;
 }
 
 tr1::unordered_set<App, HashApp, EqualApp> AppStore::getHashTable() {
@@ -746,7 +743,8 @@ void AppStore::validarApp() {
 	a_temp.setValidada(true);
 	apps.push_back(a_temp);
 
-	arv_apps.insert(apps.back());
+	App* temp_pointer = &apps[apps.size()-1];
+	arv_apps.insert(temp_pointer);
 	apps_a_validar.pop();
 }
 
