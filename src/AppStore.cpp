@@ -47,6 +47,12 @@ void AppStore::top10() {
 	}
 }
 
+void AppStore::updateAppInTree(App & appa)
+{
+	arv_apps.remove(appa);
+	arv_apps.insert(appa);
+}
+
 Date AppStore::DataAtual() {
 	time_t t = time(0);
 	struct tm *now = localtime(&t);
