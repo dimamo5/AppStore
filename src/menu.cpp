@@ -2706,9 +2706,9 @@ void menuVisitaStore(AppStore& mieic, unsigned int& state) {
 			cout << "  Escolha como quer listar as apps:  " << endl << endl;
 
 			if (opcao == 0)
-							cor(WHITE, BLACK);
-						cout << "  TOP 10" << endl;
-						cor(BLACK, WHITE);
+				cor(WHITE, BLACK);
+			cout << "  TOP 10" << endl;
+			cor(BLACK, WHITE);
 			if (opcao == -1)
 				cor(WHITE, BLACK);
 			cout << "  Por Ordem Alfabetica  " << endl;
