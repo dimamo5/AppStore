@@ -3228,6 +3228,7 @@ void menuVisitaStoreOrdenada(AppStore& mieic, unsigned int& state,
 								if (id_da_app == mieic.apps[j].getId()) {
 //									mieic.apps[j].update_classificacao(classificacao);
 									mieic.apps[j].addComentario(comment);
+									mieic.updateAppInTree(mieic.apps[j]);
 									break;
 								}
 							}
@@ -4183,8 +4184,7 @@ void menuModificarApp(AppStore& mieic) {
 						system("cls");
 						cout << "  Modificar nome da App  " << endl << endl
 								<< endl;
-						cout << "  Escolha um novo nome para a App: "
-								<< nome_novo << endl << endl << endl;
+						cout << "  Escolha um novo nome para a App: "<< nome_novo << endl << endl << endl;
 						cout
 								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
 								<< endl << endl;
@@ -4198,7 +4198,7 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setNome(nome_novo);
-
+							mieic.updateAppInTree(mieic.apps[opcao]);
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
@@ -4250,7 +4250,7 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setCategoria(categoria_nova);
-
+							mieic.updateAppInTree(mieic.apps[opcao]);
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
@@ -4304,7 +4304,7 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setDescricao(descricao_nova);
-
+							mieic.updateAppInTree(mieic.apps[opcao]);
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
@@ -4346,8 +4346,7 @@ void menuModificarApp(AppStore& mieic) {
 						system("cls");
 						cout << "  Modificar preco da App  " << endl << endl
 								<< endl;
-						cout << "  Escolha um novo preco para a App: "
-								<< nome_novo << endl << endl << endl;
+						cout << "  Escolha um novo preco para a App: "	<< preco_novo << endl << endl << endl;
 						cout
 								<< "  Prima (Enter) para validar ou (Esc) para regressar sem modificar  "
 								<< endl << endl;
@@ -4361,7 +4360,7 @@ void menuModificarApp(AppStore& mieic) {
 						if (tecla2 == 13) { // se o user premir (Enter), valida mudanca
 
 							mieic.apps[opcao].setPreco(preco_novo);
-
+							mieic.updateAppInTree(mieic.apps[opcao]);
 							try {
 								mieic.save_all();
 							} catch (File_Exp& exp) {
