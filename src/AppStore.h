@@ -80,7 +80,7 @@ struct ComparaAppValidar {
  */
 struct EqualApp {
 	bool operator()(const App &app1, const App &app2) const {
-		return (app1.getNome() == app2.getNome());
+		return (app1.getId() == app2.getId());
 	}
 };
 /**
@@ -88,11 +88,7 @@ struct EqualApp {
  */
 struct HashApp {
 	int operator()(const App &app1) const {
-		string s1 = app1.getNome();
-		int v = 0;
-		for (unsigned int i = 0; i < s1.size(); i++)
-			v = 37 * v + s1[i];
-		return v;
+		return app1.getId();
 	}
 };
 
