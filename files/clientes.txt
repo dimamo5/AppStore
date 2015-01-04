@@ -4,11 +4,12 @@ Diogo Cliente
 19
 M
 123456789
-28
+23
+2
 1
-1
-1
+2
 0
+1
 2
 Pedro Cliente
 18
